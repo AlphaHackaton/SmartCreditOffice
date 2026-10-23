@@ -1,0 +1,6748 @@
+{
+ "name": "Умный кредитный кабинет предпринимателя / Вопросы по кейсу",
+ "type": "public_supergroup",
+ "id": 2399677653,
+ "messages": [
+  {
+   "id": 5513,
+   "type": "service",
+   "date": "2026-10-19T19:51:31",
+   "date_unixtime": "1792428691",
+   "actor": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "actor_id": "channel2399677653",
+   "action": "topic_created",
+   "title": "Умный кредитный кабинет предпринимателя / Вопросы по кейсу",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5570,
+   "type": "message",
+   "date": "2026-10-19T20:23:20",
+   "date_unixtime": "1792430600",
+   "edited": "2026-10-19T20:26:20",
+   "edited_unixtime": "1792430780",
+   "from": "Илья Морозов",
+   "from_id": "user714990776",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 9138,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 4412,
+   "media_type": "sticker",
+   "sticker_emoji": "😂",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤‍🔥",
+      "recent": [
+       {
+        "from": "Федя",
+        "from_id": "user6052831801",
+        "date": "2026-10-19T20:30:52"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👏",
+      "recent": [
+       {
+        "from": "Oladievic",
+        "from_id": "user661652821",
+        "date": "2026-10-19T20:26:20"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5572,
+   "type": "message",
+   "date": "2026-10-19T20:26:09",
+   "date_unixtime": "1792430769",
+   "edited": "2026-10-19T20:26:30",
+   "edited_unixtime": "1792430790",
+   "from": "el1za c?ss?n✝️[B26354][39486][60170]",
+   "from_id": "user1108640745",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "deus-ex-убивать.mp4",
+   "file_size": 55651,
+   "media_type": "animation",
+   "mime_type": "video/mp4",
+   "width": 640,
+   "height": 360,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Федя",
+        "from_id": "user6052831801",
+        "date": "2026-10-19T20:30:56"
+       },
+       {
+        "from": "Илья Морозов",
+        "from_id": "user714990776",
+        "date": "2026-10-19T20:26:30"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5573,
+   "type": "message",
+   "date": "2026-10-19T20:26:16",
+   "date_unixtime": "1792430776",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5570,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 23820,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 13540,
+   "media_type": "sticker",
+   "sticker_emoji": "😆",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5574,
+   "type": "message",
+   "date": "2026-10-19T20:26:30",
+   "date_unixtime": "1792430790",
+   "from": "German Polevsky",
+   "from_id": "user609497361",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "animation.gif.mp4",
+   "file_size": 24965,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 25295,
+   "media_type": "animation",
+   "mime_type": "video/mp4",
+   "duration_seconds": 2,
+   "width": 320,
+   "height": 214,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5575,
+   "type": "message",
+   "date": "2026-10-19T20:26:31",
+   "date_unixtime": "1792430791",
+   "from": "Дмитрий Ступин",
+   "from_id": "user1180407115",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 22954,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 11946,
+   "media_type": "sticker",
+   "sticker_emoji": "✋",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5586,
+   "type": "message",
+   "date": "2026-10-19T20:29:01",
+   "date_unixtime": "1792430941",
+   "edited": "2026-10-19T20:33:40",
+   "edited_unixtime": "1792431220",
+   "from": "Илья Морозов",
+   "from_id": "user714990776",
+   "reply_to_message_id": 5572,
+   "text": "skills:\nCHAIR 🔲🔲🔲🔲 MASTER",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "skills:\nCHAIR 🔲🔲🔲🔲 MASTER"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "❤‍🔥",
+      "recent": [
+       {
+        "from": "German Polevsky",
+        "from_id": "user609497361",
+        "date": "2026-10-19T21:13:34"
+       },
+       {
+        "from": "Саша",
+        "from_id": "user1545528543",
+        "date": "2026-10-19T20:45:26"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🙏",
+      "recent": [
+       {
+        "from": "el1za c?ss?n✝️[B26354][39486][60170]",
+        "from_id": "user1108640745",
+        "date": "2026-10-19T20:33:41"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5588,
+   "type": "message",
+   "date": "2026-10-19T20:29:25",
+   "date_unixtime": "1792430965",
+   "edited": "2026-10-19T20:31:18",
+   "edited_unixtime": "1792431078",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 57614,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 30012,
+   "media_type": "sticker",
+   "sticker_emoji": "👨‍🦽",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Федя",
+        "from_id": "user6052831801",
+        "date": "2026-10-19T20:31:18"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5671,
+   "type": "message",
+   "date": "2026-10-19T21:00:21",
+   "date_unixtime": "1792432821",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webm",
+   "file_size": 4416,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 11278,
+   "media_type": "sticker",
+   "sticker_emoji": "🐦‍⬛️",
+   "mime_type": "video/webm",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5688,
+   "type": "message",
+   "date": "2026-10-19T21:01:53",
+   "date_unixtime": "1792432913",
+   "from": "Fedyaaa",
+   "from_id": "user1461277724",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 31940,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 14616,
+   "media_type": "sticker",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5690,
+   "type": "message",
+   "date": "2026-10-19T21:02:05",
+   "date_unixtime": "1792432925",
+   "from": "Elson",
+   "from_id": "user2061282249",
+   "reply_to_message_id": 5513,
+   "text": "Где кейс ?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Где кейс ?"
+    }
+   ]
+  },
+  {
+   "id": 5693,
+   "type": "message",
+   "date": "2026-10-19T21:02:12",
+   "date_unixtime": "1792432932",
+   "edited": "2026-10-19T21:04:29",
+   "edited_unixtime": "1792433069",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5513,
+   "file": "chats/chat_562952353098965/topic_5513/files/Альфа_Хак_Умный_кредитный_кабинет.pdf",
+   "file_name": "Альфа_Хак_Умный_кредитный_кабинет.pdf",
+   "file_size": 4170042,
+   "thumbnail": "chats/chat_562952353098965/topic_5513/files/Альфа_Хак_Умный_кредитный_кабинет.pdf_thumb.jpg",
+   "thumbnail_file_size": 21284,
+   "mime_type": "application/pdf",
+   "text": "Кейс уже доступен!",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Кейс уже доступен!"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Изабелла",
+        "from_id": "user1459723672",
+        "date": "2026-10-19T21:22:11"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🤔",
+      "recent": [
+       {
+        "from": "М",
+        "from_id": "user700182339",
+        "date": "2026-10-19T21:04:29"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5694,
+   "type": "service",
+   "date": "2026-10-19T21:02:15",
+   "date_unixtime": "1792432935",
+   "actor": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "actor_id": "channel2399677653",
+   "action": "pin_message",
+   "message_id": 5693,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5697,
+   "type": "message",
+   "date": "2026-10-19T21:02:32",
+   "date_unixtime": "1792432952",
+   "from": "Elson",
+   "from_id": "user2061282249",
+   "reply_to_message_id": 5513,
+   "text": "Спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо"
+    }
+   ]
+  },
+  {
+   "id": 5705,
+   "type": "message",
+   "date": "2026-10-19T21:04:14",
+   "date_unixtime": "1792433054",
+   "from": "Илья Морозов",
+   "from_id": "user714990776",
+   "reply_to_message_id": 5697,
+   "text": "По первой команде Elson'а выдали",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "По первой команде Elson'а выдали"
+    }
+   ]
+  },
+  {
+   "id": 5736,
+   "type": "message",
+   "date": "2026-10-19T21:10:41",
+   "date_unixtime": "1792433441",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5693,
+   "text": "чето много букв",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "чето много букв"
+    }
+   ]
+  },
+  {
+   "id": 5737,
+   "type": "message",
+   "date": "2026-10-19T21:10:46",
+   "date_unixtime": "1792433446",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5736,
+   "text": "согласен",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "согласен"
+    }
+   ]
+  },
+  {
+   "id": 5739,
+   "type": "message",
+   "date": "2026-10-19T21:10:56",
+   "date_unixtime": "1792433456",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "вопрос ток 1, нейронку туда вшивать или не? локалку",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "вопрос ток 1, нейронку туда вшивать или не? локалку"
+    }
+   ]
+  },
+  {
+   "id": 5740,
+   "type": "message",
+   "date": "2026-10-19T21:10:59",
+   "date_unixtime": "1792433459",
+   "from": "Даня",
+   "from_id": "user1006782003",
+   "reply_to_message_id": 5737,
+   "text": "о ты тоже тут",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "о ты тоже тут"
+    }
+   ]
+  },
+  {
+   "id": 5743,
+   "type": "message",
+   "date": "2026-10-19T21:11:07",
+   "date_unixtime": "1792433467",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5740,
+   "text": "ага",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ага"
+    }
+   ]
+  },
+  {
+   "id": 5746,
+   "type": "message",
+   "date": "2026-10-19T21:11:19",
+   "date_unixtime": "1792433479",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5739,
+   "text": "ну типо да",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну типо да"
+    }
+   ]
+  },
+  {
+   "id": 5749,
+   "type": "message",
+   "date": "2026-10-19T21:11:29",
+   "date_unixtime": "1792433489",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "text": "сервак получается сам ищи",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сервак получается сам ищи"
+    }
+   ]
+  },
+  {
+   "id": 5752,
+   "type": "message",
+   "date": "2026-10-19T21:11:41",
+   "date_unixtime": "1792433501",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webm",
+   "file_size": 159991,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 7968,
+   "media_type": "sticker",
+   "sticker_emoji": "👵",
+   "mime_type": "video/webm",
+   "duration_seconds": 3,
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5760,
+   "type": "message",
+   "date": "2026-10-19T21:12:53",
+   "date_unixtime": "1792433573",
+   "edited": "2026-10-19T21:18:59",
+   "edited_unixtime": "1792433939",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5693,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_1@19-10-2026_21-12-53.jpg",
+   "photo_file_size": 60873,
+   "width": 1183,
+   "height": 242,
+   "text": "а почему это в кейсе кредитного кабинета?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а почему это в кейсе кредитного кабинета?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 3,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Баклажан",
+        "from_id": "channel2788244729",
+        "date": "2026-10-20T12:04:02"
+       },
+       {
+        "from": "ᅠroman",
+        "from_id": "user277502867",
+        "date": "2026-10-19T21:22:05"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🗿",
+      "recent": [
+       {
+        "from": "MisticalPy (Job)",
+        "from_id": "user1975949522",
+        "date": "2026-10-20T02:51:16"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5763,
+   "type": "message",
+   "date": "2026-10-19T21:13:29",
+   "date_unixtime": "1792433609",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5760,
+   "text": "а что не так?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а что не так?"
+    }
+   ]
+  },
+  {
+   "id": 5765,
+   "type": "message",
+   "date": "2026-10-19T21:13:44",
+   "date_unixtime": "1792433624",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5763,
+   "text": "новостная лента — это соседний трек",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "новостная лента — это соседний трек"
+    }
+   ]
+  },
+  {
+   "id": 5767,
+   "type": "message",
+   "date": "2026-10-19T21:14:06",
+   "date_unixtime": "1792433646",
+   "edited": "2026-10-19T21:35:42",
+   "edited_unixtime": "1792434942",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5765,
+   "text": "ну вайбкод платформа и кейсы че поделать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну вайбкод платформа и кейсы че поделать"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 6,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Михаил Михайлов",
+        "from_id": "user763656471",
+        "date": "2026-10-21T07:28:14"
+       },
+       {
+        "from": "Даниил Герман",
+        "from_id": "user521051027",
+        "date": "2026-10-20T09:51:05"
+       },
+       {
+        "from": "Dima 💎",
+        "from_id": "user6899455234",
+        "date": "2026-10-20T03:55:15"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5769,
+   "type": "message",
+   "date": "2026-10-19T21:14:25",
+   "date_unixtime": "1792433665",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5767,
+   "text": "а разве платформа ченджеленж принадлежит альфе?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а разве платформа ченджеленж принадлежит альфе?"
+    }
+   ]
+  },
+  {
+   "id": 5771,
+   "type": "message",
+   "date": "2026-10-19T21:14:40",
+   "date_unixtime": "1792433680",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": [
+    "ИИ в кейсе ",
+    {
+     "type": "bold",
+     "text": "не обязателен"
+    },
+    ", а готового списка разрешённых моделей нет. Есть одно жёсткое правило и несколько рекомендаций.\n",
+    {
+     "type": "bold",
+     "text": "Что сказано про ИИ:"
+    },
+    "\n",
+    {
+     "type": "bold",
+     "text": "Стр. 12, «Пространство решений», п. 6:"
+    },
+    " ИИ приветствуется, но не обязателен. ИИ-ассистент, LLM, распознавание документов и другие механики должны решать конкретную задачу и давать понятную пользу клиенту или бизнесу.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 8, «Рекомендации», п. 05:"
+    },
+    " использовать ИИ только там, где он создаёт понятную ценность.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 9, «Критерии успеха»:"
+    },
+    " ИИ-ассистенты, распознавание документов и автоматизация приветствуются, если они не заменяют работоспособность основного сценария. То есть основной сценарий должен работать и без ИИ.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 12, п. 2:"
+    },
+    " можно брать готовые компоненты, существующие модели и no-code/low-code-инструменты, если команда может объяснить архитектуру.\n",
+    {
+     "type": "bold",
+     "text": "Ограничения (это и есть правила вместо списка):"
+    },
+    "\n",
+    {
+     "type": "bold",
+     "text": "Стр. 11, п. 08:"
+    },
+    " если используете LLM, то только модели с открытыми весами. Подойдут, например, Qwen, Llama, Mistral, Gemma, DeepSeek. Модели через API, такие как GPT, Claude или GigaChat API, не подходят.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 10, п. 02:"
+    },
+    " проверяемая версия не должна зависеть от платных подписок и платных API. Значит, модель должна запускаться локально, например через Ollama в Docker.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 10, п. 04:"
+    },
+    " решение должно работать автономно, без доступа к корпоративным системам Альфа-Банка.\n",
+    {
+     "type": "bold",
+     "text": "Стр. 7:"
+    },
+    " все используемые модели нужно перечислить в файле THIRD_PARTY_NOTICES."
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ИИ в кейсе "
+    },
+    {
+     "type": "bold",
+     "text": "не обязателен"
+    },
+    {
+     "type": "plain",
+     "text": ", а готового списка разрешённых моделей нет. Есть одно жёсткое правило и несколько рекомендаций.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Что сказано про ИИ:"
+    },
+    {
+     "type": "plain",
+     "text": "\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 12, «Пространство решений», п. 6:"
+    },
+    {
+     "type": "plain",
+     "text": " ИИ приветствуется, но не обязателен. ИИ-ассистент, LLM, распознавание документов и другие механики должны решать конкретную задачу и давать понятную пользу клиенту или бизнесу.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 8, «Рекомендации», п. 05:"
+    },
+    {
+     "type": "plain",
+     "text": " использовать ИИ только там, где он создаёт понятную ценность.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 9, «Критерии успеха»:"
+    },
+    {
+     "type": "plain",
+     "text": " ИИ-ассистенты, распознавание документов и автоматизация приветствуются, если они не заменяют работоспособность основного сценария. То есть основной сценарий должен работать и без ИИ.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 12, п. 2:"
+    },
+    {
+     "type": "plain",
+     "text": " можно брать готовые компоненты, существующие модели и no-code/low-code-инструменты, если команда может объяснить архитектуру.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Ограничения (это и есть правила вместо списка):"
+    },
+    {
+     "type": "plain",
+     "text": "\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 11, п. 08:"
+    },
+    {
+     "type": "plain",
+     "text": " если используете LLM, то только модели с открытыми весами. Подойдут, например, Qwen, Llama, Mistral, Gemma, DeepSeek. Модели через API, такие как GPT, Claude или GigaChat API, не подходят.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 10, п. 02:"
+    },
+    {
+     "type": "plain",
+     "text": " проверяемая версия не должна зависеть от платных подписок и платных API. Значит, модель должна запускаться локально, например через Ollama в Docker.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 10, п. 04:"
+    },
+    {
+     "type": "plain",
+     "text": " решение должно работать автономно, без доступа к корпоративным системам Альфа-Банка.\n"
+    },
+    {
+     "type": "bold",
+     "text": "Стр. 7:"
+    },
+    {
+     "type": "plain",
+     "text": " все используемые модели нужно перечислить в файле THIRD_PARTY_NOTICES."
+    }
+   ]
+  },
+  {
+   "id": 5775,
+   "type": "message",
+   "date": "2026-10-19T21:15:36",
+   "date_unixtime": "1792433736",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "по сути не обязательно, ибо весь сценарий кейса должен работать даже без внедрения туда локалки ИИ",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "по сути не обязательно, ибо весь сценарий кейса должен работать даже без внедрения туда локалки ИИ"
+    }
+   ]
+  },
+  {
+   "id": 5783,
+   "type": "message",
+   "date": "2026-10-19T21:17:12",
+   "date_unixtime": "1792433832",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "text": "КАКОЙ ЗАПРЕТ НА ГИГАЧАТ. Я где вам железо возьму для развертки нормальной модели",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "КАКОЙ ЗАПРЕТ НА ГИГАЧАТ. Я где вам железо возьму для развертки нормальной модели"
+    }
+   ]
+  },
+  {
+   "id": 5785,
+   "type": "message",
+   "date": "2026-10-19T21:17:25",
+   "date_unixtime": "1792433845",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webm",
+   "file_size": 145992,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 4000,
+   "media_type": "sticker",
+   "sticker_emoji": "🤦",
+   "mime_type": "video/webm",
+   "duration_seconds": 2,
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 5791,
+   "type": "message",
+   "date": "2026-10-19T21:18:12",
+   "date_unixtime": "1792433892",
+   "from": "MiKle Brownie",
+   "from_id": "user1865716167",
+   "reply_to_message_id": 5513,
+   "text": "походу любимый квенчик будет. Я специально обрублю половину тензоров на рассуждения",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "походу любимый квенчик будет. Я специально обрублю половину тензоров на рассуждения"
+    }
+   ]
+  },
+  {
+   "id": 5812,
+   "type": "message",
+   "date": "2026-10-19T21:21:32",
+   "date_unixtime": "1792434092",
+   "from": "ᅠroman",
+   "from_id": "user277502867",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_2@19-10-2026_21-21-32.jpg",
+   "photo_file_size": 227870,
+   "width": 2560,
+   "height": 1600,
+   "text": "Добрый вечер! Подскажите, пожалуйста, что за новостная лента имеется в виду. Или это общий слайд для всех кейсов и подразумевается трек с новостной аналитикой?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер! Подскажите, пожалуйста, что за новостная лента имеется в виду. Или это общий слайд для всех кейсов и подразумевается трек с новостной аналитикой?"
+    }
+   ]
+  },
+  {
+   "id": 5814,
+   "type": "message",
+   "date": "2026-10-19T21:21:36",
+   "date_unixtime": "1792434096",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5693,
+   "text": "я правильно понимаю, единственное адекватное решение - либо использовать свой сервер, либо обойтись чисто мат. моделями и токенизацией с предварительной очисткой текста?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "я правильно понимаю, единственное адекватное решение - либо использовать свой сервер, либо обойтись чисто мат. моделями и токенизацией с предварительной очисткой текста?"
+    }
+   ]
+  },
+  {
+   "id": 5834,
+   "type": "message",
+   "date": "2026-10-19T21:26:24",
+   "date_unixtime": "1792434384",
+   "from": "Даня",
+   "from_id": "user1006782003",
+   "reply_to_message_id": 5812,
+   "text": "тоже клод нашел да",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "тоже клод нашел да"
+    }
+   ]
+  },
+  {
+   "id": 5846,
+   "type": "message",
+   "date": "2026-10-19T21:30:23",
+   "date_unixtime": "1792434623",
+   "edited": "2026-10-19T21:31:22",
+   "edited_unixtime": "1792434682",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5812,
+   "text": "Добрый вечер!\n \nИмеется ввиду демонстрация решения на бесплатном внешнем сервере для предотвращения возможных проблем с запуском вашего решения через docker-контейнер. На демонстрации покажите ключевой сценарий составления и обработки кредитной заявки в личном кабинете",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер!\n \nИмеется ввиду демонстрация решения на бесплатном внешнем сервере для предотвращения возможных проблем с запуском вашего решения через docker-контейнер. На демонстрации покажите ключевой сценарий составления и обработки кредитной заявки в личном кабинете"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🙏",
+      "recent": [
+       {
+        "from": "ᅠroman",
+        "from_id": "user277502867",
+        "date": "2026-10-19T21:31:22"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5860,
+   "type": "message",
+   "date": "2026-10-19T21:34:44",
+   "date_unixtime": "1792434884",
+   "from": "Артём",
+   "from_id": "user666977779",
+   "reply_to_message_id": 5513,
+   "text": "нужно ли реализовывать какую то регистрацию в умном кабинете, с вводом сведений о юр лице?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "нужно ли реализовывать какую то регистрацию в умном кабинете, с вводом сведений о юр лице?"
+    }
+   ]
+  },
+  {
+   "id": 5865,
+   "type": "message",
+   "date": "2026-10-19T21:37:09",
+   "date_unixtime": "1792435029",
+   "from": "Даниил Грачев",
+   "from_id": "user648469596",
+   "reply_to_message_id": 5846,
+   "text": "Как должна выглядеть демонстрация? В каком виде/формате?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Как должна выглядеть демонстрация? В каком виде/формате?"
+    }
+   ]
+  },
+  {
+   "id": 5896,
+   "type": "message",
+   "date": "2026-10-19T21:47:29",
+   "date_unixtime": "1792435649",
+   "from": "Даниил Грачев",
+   "from_id": "user648469596",
+   "reply_to_message_id": 5865,
+   "text": "Подскажите пожалуйста",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Подскажите пожалуйста"
+    }
+   ]
+  },
+  {
+   "id": 5922,
+   "type": "message",
+   "date": "2026-10-19T21:54:02",
+   "date_unixtime": "1792436042",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5860,
+   "text": "мок сделай будет достаточно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "мок сделай будет достаточно"
+    }
+   ]
+  },
+  {
+   "id": 5951,
+   "type": "message",
+   "date": "2026-10-19T22:04:30",
+   "date_unixtime": "1792436670",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5846,
+   "text": "Добрый вечер, разрешенные модели нейросетей имеются ввиду внутри нашей работы или как вспомогательные инструменты в разработке проекта?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер, разрешенные модели нейросетей имеются ввиду внутри нашей работы или как вспомогательные инструменты в разработке проекта?"
+    }
+   ]
+  },
+  {
+   "id": 5958,
+   "type": "message",
+   "date": "2026-10-19T22:06:12",
+   "date_unixtime": "1792436772",
+   "edited": "2026-10-19T22:07:09",
+   "edited_unixtime": "1792436829",
+   "from": "阿科斯塔你的死",
+   "from_id": "user5009184067",
+   "reply_to_message_id": 5513,
+   "text": "Интересно сколько команд на этот кейс",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Интересно сколько команд на этот кейс"
+    }
+   ]
+  },
+  {
+   "id": 5967,
+   "type": "message",
+   "date": "2026-10-19T22:11:17",
+   "date_unixtime": "1792437077",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5958,
+   "text": "много",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "много"
+    }
+   ]
+  },
+  {
+   "id": 5971,
+   "type": "message",
+   "date": "2026-10-19T22:12:33",
+   "date_unixtime": "1792437153",
+   "from": "K8s Envoy Gateway",
+   "from_id": "user783788614",
+   "reply_to_message_id": 5951,
+   "text": "учимся читать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "учимся читать"
+    }
+   ]
+  },
+  {
+   "id": 5973,
+   "type": "message",
+   "date": "2026-10-19T22:12:49",
+   "date_unixtime": "1792437169",
+   "edited": "2026-10-19T22:13:09",
+   "edited_unixtime": "1792437189",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Ну раз такой умный ответь",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ну раз такой умный ответь"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🤣",
+      "recent": [
+       {
+        "from": "Богдан Прядко",
+        "from_id": "user1443797463",
+        "date": "2026-10-19T22:13:09"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5977,
+   "type": "message",
+   "date": "2026-10-19T22:13:47",
+   "date_unixtime": "1792437227",
+   "from": "K8s Envoy Gateway",
+   "from_id": "user783788614",
+   "reply_to_message_id": 5973,
+   "text": "медвежья услуга",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "медвежья услуга"
+    }
+   ]
+  },
+  {
+   "id": 5980,
+   "type": "message",
+   "date": "2026-10-19T22:13:52",
+   "date_unixtime": "1792437232",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Что то я тут не увидела внятный ответ",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Что то я тут не увидела внятный ответ"
+    }
+   ]
+  },
+  {
+   "id": 5981,
+   "type": "message",
+   "date": "2026-10-19T22:14:03",
+   "date_unixtime": "1792437243",
+   "from": "saintИван999",
+   "from_id": "user1866403501",
+   "reply_to_message_id": 5513,
+   "text": "ну там написано же",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну там написано же"
+    }
+   ]
+  },
+  {
+   "id": 5985,
+   "type": "message",
+   "date": "2026-10-19T22:14:57",
+   "date_unixtime": "1792437297",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5981,
+   "text": "У нас кстати проход до 25 лет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "У нас кстати проход до 25 лет"
+    }
+   ]
+  },
+  {
+   "id": 5988,
+   "type": "message",
+   "date": "2026-10-19T22:15:13",
+   "date_unixtime": "1792437313",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Написано же",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Написано же"
+    }
+   ]
+  },
+  {
+   "id": 5989,
+   "type": "message",
+   "date": "2026-10-19T22:15:36",
+   "date_unixtime": "1792437336",
+   "from": "saintИван999",
+   "from_id": "user1866403501",
+   "reply_to_message_id": 5513,
+   "text": "Я молодо выгляжу",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Я молодо выгляжу"
+    }
+   ]
+  },
+  {
+   "id": 5991,
+   "type": "message",
+   "date": "2026-10-19T22:17:14",
+   "date_unixtime": "1792437434",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Да мы уже поняли что вы крутые",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Да мы уже поняли что вы крутые"
+    }
+   ]
+  },
+  {
+   "id": 5994,
+   "type": "message",
+   "date": "2026-10-19T22:18:13",
+   "date_unixtime": "1792437493",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Я спрашивала организаторов а не мамкиных умничек",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Я спрашивала организаторов а не мамкиных умничек"
+    }
+   ]
+  },
+  {
+   "id": 5995,
+   "type": "message",
+   "date": "2026-10-19T22:18:40",
+   "date_unixtime": "1792437520",
+   "edited": "2026-10-19T22:18:45",
+   "edited_unixtime": "1792437525",
+   "from": "Тамерлан",
+   "from_id": "user6943015795",
+   "reply_to_message_id": 5951,
+   "text": "внутри работы",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "внутри работы"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "🤫",
+        "from_id": "user6576645388",
+        "date": "2026-10-20T12:37:33"
+       },
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-19T22:18:45"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👎",
+      "recent": [
+       {
+        "from": "K8s Envoy Gateway",
+        "from_id": "user783788614",
+        "date": "2026-10-19T22:19:15"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 5998,
+   "type": "message",
+   "date": "2026-10-19T22:19:18",
+   "date_unixtime": "1792437558",
+   "edited": "2026-10-19T22:19:33",
+   "edited_unixtime": "1792437573",
+   "from": "German Polevsky",
+   "from_id": "user609497361",
+   "reply_to_message_id": 5951,
+   "text": "те модели, которые будут непосредственно работать внутри вашего решения",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "те модели, которые будут непосредственно работать внутри вашего решения"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-19T22:19:33"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6000,
+   "type": "message",
+   "date": "2026-10-19T22:20:00",
+   "date_unixtime": "1792437600",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо"
+    }
+   ]
+  },
+  {
+   "id": 6021,
+   "type": "message",
+   "date": "2026-10-19T22:25:59",
+   "date_unixtime": "1792437959",
+   "from": "g0INgP0$TaL",
+   "from_id": "user951520610",
+   "reply_to_message_id": 5513,
+   "text": "мы получается сами решаем с какими параметрами кредит выдавать или нет? типа никаких референсных данных одобренных заявок не предоставляется?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "мы получается сами решаем с какими параметрами кредит выдавать или нет? типа никаких референсных данных одобренных заявок не предоставляется?"
+    }
+   ]
+  },
+  {
+   "id": 6023,
+   "type": "message",
+   "date": "2026-10-19T22:26:10",
+   "date_unixtime": "1792437970",
+   "from": "g0INgP0$TaL",
+   "from_id": "user951520610",
+   "reply_to_message_id": 5513,
+   "text": "просто интересно как без этого надо модели строить",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "просто интересно как без этого надо модели строить"
+    }
+   ]
+  },
+  {
+   "id": 6031,
+   "type": "message",
+   "date": "2026-10-19T22:28:59",
+   "date_unixtime": "1792438139",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5860,
+   "text": "Обязательная регистрация и набор полей с данными о юрлице в рамках кейса не считаются обязательными, вы можете самостоятельно определить их необходимость и содержание",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Обязательная регистрация и набор полей с данными о юрлице в рамках кейса не считаются обязательными, вы можете самостоятельно определить их необходимость и содержание"
+    }
+   ]
+  },
+  {
+   "id": 6037,
+   "type": "message",
+   "date": "2026-10-19T22:30:28",
+   "date_unixtime": "1792438228",
+   "edited": "2026-10-19T22:34:37",
+   "edited_unixtime": "1792438477",
+   "from": "Иван Фриз",
+   "from_id": "user933903100",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_3@19-10-2026_22-30-28.jpg",
+   "photo_file_size": 181544,
+   "width": 1148,
+   "height": 1242,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 5,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Ivan",
+        "from_id": "user1699717799",
+        "date": "2026-10-21T13:24:16"
+       },
+       {
+        "from": "alexander",
+        "from_id": "user551068359",
+        "date": "2026-10-20T18:47:48"
+       },
+       {
+        "from": "WhiteWhale",
+        "from_id": "user5337586046",
+        "date": "2026-10-20T18:07:17"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6038,
+   "type": "message",
+   "date": "2026-10-19T22:30:35",
+   "date_unixtime": "1792438235",
+   "edited": "2026-10-19T22:36:30",
+   "edited_unixtime": "1792438590",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5865,
+   "text": "Демонстрация должна показывать ваше решение. Это может быть задеплоенное приложение с заданными ролями или предзаполненными аккаунтами или видео-запись работающего приложения, подтверждающая функциональность решения",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Демонстрация должна показывать ваше решение. Это может быть задеплоенное приложение с заданными ролями или предзаполненными аккаунтами или видео-запись работающего приложения, подтверждающая функциональность решения"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Даниил Грачев",
+        "from_id": "user648469596",
+        "date": "2026-10-19T22:36:30"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6041,
+   "type": "message",
+   "date": "2026-10-19T22:31:21",
+   "date_unixtime": "1792438281",
+   "from": "Egor Shipilov",
+   "from_id": "user1254092677",
+   "reply_to_message_id": 5513,
+   "text": "Добрый вечер! В требованиях написано про запуск решения через docker. Можно ли оставить запуск LLM через Ollama вне докера для быстродействия?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер! В требованиях написано про запуск решения через docker. Можно ли оставить запуск LLM через Ollama вне докера для быстродействия?"
+    }
+   ]
+  },
+  {
+   "id": 6043,
+   "type": "message",
+   "date": "2026-10-19T22:31:27",
+   "date_unixtime": "1792438287",
+   "edited": "2026-10-19T22:36:40",
+   "edited_unixtime": "1792438600",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5951,
+   "text": "Имеются ввиду модели разрешенные для реализации внутри приложения. Для разработки вы можете использовать любые инструменты",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Имеются ввиду модели разрешенные для реализации внутри приложения. Для разработки вы можете использовать любые инструменты"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-19T22:36:40"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6050,
+   "type": "message",
+   "date": "2026-10-19T22:33:49",
+   "date_unixtime": "1792438429",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6021,
+   "text": "Логику кредитного скоринга вы определяете самостоятельно, допускается упрощенная логика принятия решений. Тестовые и демонстрационные данные команды формируют также самостоятельно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Логику кредитного скоринга вы определяете самостоятельно, допускается упрощенная логика принятия решений. Тестовые и демонстрационные данные команды формируют также самостоятельно"
+    }
+   ]
+  },
+  {
+   "id": 6056,
+   "type": "message",
+   "date": "2026-10-19T22:35:21",
+   "date_unixtime": "1792438521",
+   "edited": "2026-10-19T23:27:05",
+   "edited_unixtime": "1792441625",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6041,
+   "text": "Да, можно оставить запуск LLM через Ollama вне Docker. Опишите в README установку и запуск Ollama, используемую модель и подключение к ней, чтобы эксперты могли воспроизвести работу решения. Остальные компоненты должны запускаться в Docker.",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Да, можно оставить запуск LLM через Ollama вне Docker. Опишите в README установку и запуск Ollama, используемую модель и подключение к ней, чтобы эксперты могли воспроизвести работу решения. Остальные компоненты должны запускаться в Docker."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Egor Shipilov",
+        "from_id": "user1254092677",
+        "date": "2026-10-19T23:27:05"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6091,
+   "type": "message",
+   "date": "2026-10-19T22:51:50",
+   "date_unixtime": "1792439510",
+   "edited": "2026-10-19T22:51:59",
+   "edited_unixtime": "1792439519",
+   "from": "Вадим💎",
+   "from_id": "user881005699",
+   "reply_to_message_id": 5513,
+   "text": "Страница 4. \"Часть операций мо-\nжет выполняться автоматически, а часть\nтребует участия сотрудника для анали-\nза нестандартных ситуаций и принятия\nрешения.\" \nВопрос: надо ли писать отдельный web-интерфейс для сотрудника, который принимает финальное решение по одобрению кредита для \"нестандартных ситуаций\"?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Страница 4. \"Часть операций мо-\nжет выполняться автоматически, а часть\nтребует участия сотрудника для анали-\nза нестандартных ситуаций и принятия\nрешения.\" \nВопрос: надо ли писать отдельный web-интерфейс для сотрудника, который принимает финальное решение по одобрению кредита для \"нестандартных ситуаций\"?"
+    }
+   ]
+  },
+  {
+   "id": 6093,
+   "type": "message",
+   "date": "2026-10-19T22:52:32",
+   "date_unixtime": "1792439552",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5513,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://console.groq.com/playground"
+    },
+    " модели отсюда юзать можно фришные хотя бы?"
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://console.groq.com/playground"
+    },
+    {
+     "type": "plain",
+     "text": " модели отсюда юзать можно фришные хотя бы?"
+    }
+   ]
+  },
+  {
+   "id": 6095,
+   "type": "message",
+   "date": "2026-10-19T22:53:02",
+   "date_unixtime": "1792439582",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 6093,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_4@19-10-2026_22-53-02.jpg",
+   "photo_file_size": 30996,
+   "width": 351,
+   "height": 593,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 6097,
+   "type": "message",
+   "date": "2026-10-19T22:54:24",
+   "date_unixtime": "1792439664",
+   "from": "saiduu",
+   "from_id": "user1396085118",
+   "reply_to_message_id": 5513,
+   "text": "Добрый вечер! А почему мы не можем сделать кроссплатформенность, почему мобилка запрещена?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер! А почему мы не можем сделать кроссплатформенность, почему мобилка запрещена?"
+    }
+   ]
+  },
+  {
+   "id": 6098,
+   "type": "message",
+   "date": "2026-10-19T22:54:41",
+   "date_unixtime": "1792439681",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6091,
+   "text": "Отдельный веб-интерфейс для сотрудника не является обязательным требованием кейса, команда самостоятельно определяет состав ролей и порядок совершаемых ими действий",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Отдельный веб-интерфейс для сотрудника не является обязательным требованием кейса, команда самостоятельно определяет состав ролей и порядок совершаемых ими действий"
+    }
+   ]
+  },
+  {
+   "id": 6102,
+   "type": "message",
+   "date": "2026-10-19T22:57:22",
+   "date_unixtime": "1792439842",
+   "edited": "2026-10-19T23:03:00",
+   "edited_unixtime": "1792440180",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6093,
+   "text": "Для этого кейса вы можете использовать любые LLM модели с открытыми весами. Версия модели не должна зависеть от платных подписок, платных API или закрытых лицензий",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Для этого кейса вы можете использовать любые LLM модели с открытыми весами. Версия модели не должна зависеть от платных подписок, платных API или закрытых лицензий"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Dmitry",
+        "from_id": "user720118745",
+        "date": "2026-10-19T23:03:00"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6105,
+   "type": "message",
+   "date": "2026-10-19T22:58:53",
+   "date_unixtime": "1792439933",
+   "edited": "2026-10-19T23:08:28",
+   "edited_unixtime": "1792440508",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "Делать ли вебсайт с учетом адаптивной верстки, под различные виды экранов?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Делать ли вебсайт с учетом адаптивной верстки, под различные виды экранов?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "😭",
+      "recent": [
+       {
+        "from": "svets",
+        "from_id": "user675239647",
+        "date": "2026-10-19T23:08:28"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6133,
+   "type": "message",
+   "date": "2026-10-19T23:05:44",
+   "date_unixtime": "1792440344",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6105,
+   "text": "Адаптивная верстка не является обязательным требованием к решению",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Адаптивная верстка не является обязательным требованием к решению"
+    }
+   ]
+  },
+  {
+   "id": 6140,
+   "type": "message",
+   "date": "2026-10-19T23:09:10",
+   "date_unixtime": "1792440550",
+   "from": "Максим",
+   "from_id": "user1885783905",
+   "reply_to_message_id": 6133,
+   "text": "Подскажите, где получить API ключ на команду для доступа к модели Qwen3.8-27B? По тз должны дать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Подскажите, где получить API ключ на команду для доступа к модели Qwen3.8-27B? По тз должны дать"
+    }
+   ]
+  },
+  {
+   "id": 6143,
+   "type": "message",
+   "date": "2026-10-19T23:09:52",
+   "date_unixtime": "1792440592",
+   "edited": "2026-10-19T23:10:01",
+   "edited_unixtime": "1792440601",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6140,
+   "text": "Ключ будет отправлен капитанам команд на почту в первой половине завтрашнего дня",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ключ будет отправлен капитанам команд на почту в первой половине завтрашнего дня"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Максим",
+        "from_id": "user1885783905",
+        "date": "2026-10-19T23:10:01"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6147,
+   "type": "message",
+   "date": "2026-10-19T23:11:33",
+   "date_unixtime": "1792440693",
+   "from": "Роман",
+   "from_id": "user1054152992",
+   "reply_to_message_id": 5513,
+   "text": "Подскажите, интеграция ИИ-ассистента в веб-приложение добавляет баллы к решению, если оно закрывает бизнес-контекст и повышает эффективность использования пользователем MVP решения? Или эта опция является не обязательной и не влияет на баллы?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Подскажите, интеграция ИИ-ассистента в веб-приложение добавляет баллы к решению, если оно закрывает бизнес-контекст и повышает эффективность использования пользователем MVP решения? Или эта опция является не обязательной и не влияет на баллы?"
+    }
+   ]
+  },
+  {
+   "id": 6153,
+   "type": "message",
+   "date": "2026-10-19T23:16:37",
+   "date_unixtime": "1792440997",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6147,
+   "text": "ИИ-ассистент необязателен. При оценке важна ценность решения для пользователя и бизнеса: если ассистент помогает пройти кредитный путь, упрощает действия пользователя или повышает эффективность процесса, это может усилить решение. Само наличие ИИ не является основанием для дополнительных баллов",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ИИ-ассистент необязателен. При оценке важна ценность решения для пользователя и бизнеса: если ассистент помогает пройти кредитный путь, упрощает действия пользователя или повышает эффективность процесса, это может усилить решение. Само наличие ИИ не является основанием для дополнительных баллов"
+    }
+   ]
+  },
+  {
+   "id": 6155,
+   "type": "message",
+   "date": "2026-10-19T23:18:30",
+   "date_unixtime": "1792441110",
+   "from": "Роман",
+   "from_id": "user1054152992",
+   "reply_to_message_id": 6153,
+   "text": "Спасибо за развернутый ответ!",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо за развернутый ответ!"
+    }
+   ]
+  },
+  {
+   "id": 6183,
+   "type": "message",
+   "date": "2026-10-19T23:28:08",
+   "date_unixtime": "1792441688",
+   "from": "𝐆𝐫𝐚𝐧𝐝徐",
+   "from_id": "user8344755699",
+   "reply_to_message_id": 5575,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 15014,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 8456,
+   "media_type": "sticker",
+   "sticker_emoji": "💔",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 6184,
+   "type": "message",
+   "date": "2026-10-19T23:28:54",
+   "date_unixtime": "1792441734",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 6056,
+   "text": "есть ли какие-то ограничения по мощности? если решение будет тестироваться на ноутбуке организаторов и в решении будет присутствовать локальная модель, на какие характеристики ноутбука ориентироваться?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "есть ли какие-то ограничения по мощности? если решение будет тестироваться на ноутбуке организаторов и в решении будет присутствовать локальная модель, на какие характеристики ноутбука ориентироваться?"
+    }
+   ]
+  },
+  {
+   "id": 6187,
+   "type": "message",
+   "date": "2026-10-19T23:29:19",
+   "date_unixtime": "1792441759",
+   "edited": "2026-10-19T23:30:13",
+   "edited_unixtime": "1792441813",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 6184,
+   "text": "сказали ж лучше на свою впску лить, а ллмку по апи дергать, ключ завтра дадут",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сказали ж лучше на свою впску лить, а ллмку по апи дергать, ключ завтра дадут"
+    }
+   ]
+  },
+  {
+   "id": 6191,
+   "type": "message",
+   "date": "2026-10-19T23:32:42",
+   "date_unixtime": "1792441962",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 6140,
+   "text": "а где в ТЗ прописано, что командам будет предоставлен доступ к API ключам? я что-то просмотрел",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а где в ТЗ прописано, что командам будет предоставлен доступ к API ключам? я что-то просмотрел"
+    }
+   ]
+  },
+  {
+   "id": 6192,
+   "type": "message",
+   "date": "2026-10-19T23:33:01",
+   "date_unixtime": "1792441981",
+   "edited": "2026-10-19T23:35:53",
+   "edited_unixtime": "1792442153",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6184,
+   "text": "Ориентируйтесь на запуск решения на обычном ПК без специализированного оборудования. Локальную модель использовать можно, укажите в документации требования к ресурсам, выбранную модель и подробную инструкцию по её запуску и подключению",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ориентируйтесь на запуск решения на обычном ПК без специализированного оборудования. Локальную модель использовать можно, укажите в документации требования к ресурсам, выбранную модель и подробную инструкцию по её запуску и подключению"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-19T23:35:53"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6196,
+   "type": "message",
+   "date": "2026-10-19T23:34:41",
+   "date_unixtime": "1792442081",
+   "from": "F",
+   "from_id": "user452285274",
+   "reply_to_message_id": 6195,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_5@19-10-2026_23-34-41.jpg",
+   "photo_file_size": 6114,
+   "width": 363,
+   "height": 61,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 6197,
+   "type": "message",
+   "date": "2026-10-19T23:34:47",
+   "date_unixtime": "1792442087",
+   "edited": "2026-10-19T23:35:00",
+   "edited_unixtime": "1792442100",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 6195,
+   "text": "Ты уверен что это в этом кейсе?)",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ты уверен что это в этом кейсе?)"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "F",
+        "from_id": "user452285274",
+        "date": "2026-10-19T23:35:00"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6200,
+   "type": "message",
+   "date": "2026-10-19T23:34:56",
+   "date_unixtime": "1792442096",
+   "from": "German Polevsky",
+   "from_id": "user609497361",
+   "reply_to_message_id": 6195,
+   "text": "ну так это не наш кейс)",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну так это не наш кейс)"
+    }
+   ]
+  },
+  {
+   "id": 6201,
+   "type": "message",
+   "date": "2026-10-19T23:35:01",
+   "date_unixtime": "1792442101",
+   "from": "Максим",
+   "from_id": "user1885783905",
+   "reply_to_message_id": 5513,
+   "text": "Эт да",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Эт да"
+    }
+   ]
+  },
+  {
+   "id": 6202,
+   "type": "message",
+   "date": "2026-10-19T23:35:25",
+   "date_unixtime": "1792442125",
+   "from": "Максим",
+   "from_id": "user1885783905",
+   "reply_to_message_id": 5513,
+   "text": "надо спать идти, а то уже каналы путаю",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "надо спать идти, а то уже каналы путаю"
+    }
+   ]
+  },
+  {
+   "id": 6203,
+   "type": "message",
+   "date": "2026-10-19T23:35:42",
+   "date_unixtime": "1792442142",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 6187,
+   "text": "также дезинфа получается",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "также дезинфа получается"
+    }
+   ]
+  },
+  {
+   "id": 6207,
+   "type": "message",
+   "date": "2026-10-19T23:37:55",
+   "date_unixtime": "1792442275",
+   "edited": "2026-10-19T23:38:14",
+   "edited_unixtime": "1792442294",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5513,
+   "text": "В треке «Умный кредитный кабинет» ключи доступа к моделям и токены не предоставляются: использование ИИ в решении необязательно )",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "В треке «Умный кредитный кабинет» ключи доступа к моделям и токены не предоставляются: использование ИИ в решении необязательно )"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-19T23:38:15"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6210,
+   "type": "message",
+   "date": "2026-10-19T23:40:40",
+   "date_unixtime": "1792442440",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 6207,
+   "text": "ну приплыли",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну приплыли"
+    }
+   ]
+  },
+  {
+   "id": 6214,
+   "type": "message",
+   "date": "2026-10-19T23:42:32",
+   "date_unixtime": "1792442552",
+   "edited": "2026-10-19T23:42:59",
+   "edited_unixtime": "1792442579",
+   "from": "Глеб",
+   "from_id": "user868500404",
+   "reply_to_message_id": 5575,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 15786,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 8672,
+   "media_type": "sticker",
+   "sticker_emoji": "🌟",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Marat",
+        "from_id": "user1274871028",
+        "date": "2026-10-19T23:42:59"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6233,
+   "type": "message",
+   "date": "2026-10-19T23:53:09",
+   "date_unixtime": "1792443189",
+   "from": "Nadezhda S.",
+   "from_id": "user999068761",
+   "reply_to_message_id": 6214,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 31716,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 15954,
+   "media_type": "sticker",
+   "sticker_emoji": "🥽",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 6241,
+   "type": "message",
+   "date": "2026-10-19T23:56:51",
+   "date_unixtime": "1792443411",
+   "edited": "2026-10-20T01:22:55",
+   "edited_unixtime": "1792448575",
+   "from": "wannasleep",
+   "from_id": "user873383160",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_size": 472390,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 10748,
+   "media_type": "animation",
+   "mime_type": "video/mp4",
+   "duration_seconds": 7,
+   "width": 576,
+   "height": 416,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 6249,
+   "type": "message",
+   "date": "2026-10-20T00:00:55",
+   "date_unixtime": "1792443655",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 6210,
+   "text": "ЯКлауд можно юзать? с квенами и так далее оплаченными со своих денег",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ЯКлауд можно юзать? с квенами и так далее оплаченными со своих денег"
+    }
+   ]
+  },
+  {
+   "id": 6279,
+   "type": "message",
+   "date": "2026-10-20T00:09:09",
+   "date_unixtime": "1792444149",
+   "edited": "2026-10-20T01:23:20",
+   "edited_unixtime": "1792448600",
+   "from": "𝐆𝐫𝐚𝐧𝐝徐",
+   "from_id": "user8344755699",
+   "reply_to_message_id": 6241,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "animation.gif.mp4",
+   "file_size": 59779,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 11364,
+   "media_type": "animation",
+   "mime_type": "video/mp4",
+   "duration_seconds": 2,
+   "width": 278,
+   "height": 320,
+   "text": "",
+   "text_entities": [],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤‍🔥",
+      "recent": [
+       {
+        "from": "Nadezhda S.",
+        "from_id": "user999068761",
+        "date": "2026-10-20T01:23:20"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6295,
+   "type": "message",
+   "date": "2026-10-20T00:14:54",
+   "date_unixtime": "1792444494",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5513,
+   "text": "вы мне вот что скажите, проработана должна быть больше клиентская часть или банковская?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "вы мне вот что скажите, проработана должна быть больше клиентская часть или банковская?"
+    }
+   ]
+  },
+  {
+   "id": 6298,
+   "type": "message",
+   "date": "2026-10-20T00:15:07",
+   "date_unixtime": "1792444507",
+   "edited": "2026-10-20T00:16:13",
+   "edited_unixtime": "1792444573",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5513,
+   "text": "кто уже засылал пдфку клоду скиньте рез брацки",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "кто уже засылал пдфку клоду скиньте рез брацки"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "ᅠroman",
+        "from_id": "user277502867",
+        "date": "2026-10-20T00:16:13"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6299,
+   "type": "message",
+   "date": "2026-10-20T00:15:44",
+   "date_unixtime": "1792444544",
+   "edited": "2026-10-20T09:57:36",
+   "edited_unixtime": "1792479456",
+   "from": "F",
+   "from_id": "user452285274",
+   "reply_to_message_id": 5513,
+   "text": [
+    {
+     "type": "link",
+     "text": "summary.md"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "summary.md"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Даниил Герман",
+        "from_id": "user521051027",
+        "date": "2026-10-20T09:57:36"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6300,
+   "type": "message",
+   "date": "2026-10-20T00:16:16",
+   "date_unixtime": "1792444576",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6249,
+   "text": "Проверяемая версия не должна зависеть от платных API и подписок, даже оплаченных командой",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Проверяемая версия не должна зависеть от платных API и подписок, даже оплаченных командой"
+    }
+   ]
+  },
+  {
+   "id": 6301,
+   "type": "message",
+   "date": "2026-10-20T00:17:15",
+   "date_unixtime": "1792444635",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6295,
+   "text": "Приоритет клиентской или банковской части кейсом не определяется. Важно показать связанный процесс: клиент подаёт заявку и получает результат, а банковская логика обрабатывает данные и принимает решение. Глубину проработки команда определяет в рамках MVP, также допускается упрощённая кредитная логика",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Приоритет клиентской или банковской части кейсом не определяется. Важно показать связанный процесс: клиент подаёт заявку и получает результат, а банковская логика обрабатывает данные и принимает решение. Глубину проработки команда определяет в рамках MVP, также допускается упрощённая кредитная логика"
+    }
+   ]
+  },
+  {
+   "id": 6303,
+   "type": "message",
+   "date": "2026-10-20T00:18:53",
+   "date_unixtime": "1792444733",
+   "edited": "2026-10-20T00:19:05",
+   "edited_unixtime": "1792444745",
+   "from": "wannasleep",
+   "from_id": "user873383160",
+   "reply_to_message_id": 6301,
+   "text": "во время демонстрации проект может работать на платном впс? других вариантов не вижу, вряд ли бесплатные сервисы будут адекватно держать нагрузку даже в рамках демонстрации",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "во время демонстрации проект может работать на платном впс? других вариантов не вижу, вряд ли бесплатные сервисы будут адекватно держать нагрузку даже в рамках демонстрации"
+    }
+   ]
+  },
+  {
+   "id": 6308,
+   "type": "message",
+   "date": "2026-10-20T00:22:32",
+   "date_unixtime": "1792444952",
+   "edited": "2026-10-20T00:22:38",
+   "edited_unixtime": "1792444958",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6303,
+   "text": "Да, для демонстрации можно разместить проект на платном VPS. При этом сохраните возможность запуска решения в Docker на обычном ПК и опишите её в README, чтобы эксперты могли самостоятельно поднять и проверить прототип",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Да, для демонстрации можно разместить проект на платном VPS. При этом сохраните возможность запуска решения в Docker на обычном ПК и опишите её в README, чтобы эксперты могли самостоятельно поднять и проверить прототип"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 8,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Даниил Герман",
+        "from_id": "user521051027",
+        "date": "2026-10-20T09:58:17"
+       },
+       {
+        "from": "рената",
+        "from_id": "user669947899",
+        "date": "2026-10-20T02:20:07"
+       },
+       {
+        "from": "Dmitry",
+        "from_id": "user720118745",
+        "date": "2026-10-20T01:19:32"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6309,
+   "type": "message",
+   "date": "2026-10-20T00:23:00",
+   "date_unixtime": "1792444980",
+   "from": "wannasleep",
+   "from_id": "user873383160",
+   "reply_to_message_id": 6308,
+   "text": "спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "спасибо"
+    }
+   ]
+  },
+  {
+   "id": 6317,
+   "type": "message",
+   "date": "2026-10-20T00:31:50",
+   "date_unixtime": "1792445510",
+   "from": "Mihail",
+   "from_id": "user6615328766",
+   "reply_to_message_id": 6308,
+   "text": "замечательно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "замечательно"
+    }
+   ]
+  },
+  {
+   "id": 6318,
+   "type": "message",
+   "date": "2026-10-20T00:32:50",
+   "date_unixtime": "1792445570",
+   "edited": "2026-10-20T00:50:19",
+   "edited_unixtime": "1792446619",
+   "from": "Mihail",
+   "from_id": "user6615328766",
+   "reply_to_message_id": 6308,
+   "text": "в условиях указано, что можно использовать llm с открытыми весами, можно же опираться на сторонние API? или необходимо самому развертывать веса??",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "в условиях указано, что можно использовать llm с открытыми весами, можно же опираться на сторонние API? или необходимо самому развертывать веса??"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💘",
+      "recent": [
+       {
+        "from": "𝓜𝓪𝓻𝓲𝓷𝓪 🌹",
+        "from_id": "user670622298",
+        "date": "2026-10-20T00:50:19"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6338,
+   "type": "message",
+   "date": "2026-10-20T00:50:41",
+   "date_unixtime": "1792446641",
+   "edited": "2026-10-20T00:53:45",
+   "edited_unixtime": "1792446825",
+   "from": "𝓜𝓪𝓻𝓲𝓷𝓪 🌹",
+   "from_id": "user670622298",
+   "reply_to_message_id": 6318,
+   "text": "ну как будто это слишком дорого для хакатона, но да есть такой же вопросик. У меня сложилось впечатление, что они могут LLM с открытыми весами развернуть сами потом, просто так проще соблюдать 152 фз",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну как будто это слишком дорого для хакатона, но да есть такой же вопросик. У меня сложилось впечатление, что они могут LLM с открытыми весами развернуть сами потом, просто так проще соблюдать 152 фз"
+    }
+   ]
+  },
+  {
+   "id": 6351,
+   "type": "message",
+   "date": "2026-10-20T01:02:39",
+   "date_unixtime": "1792447359",
+   "from": "𝓜𝓪𝓻𝓲𝓷𝓪 🌹",
+   "from_id": "user670622298",
+   "reply_to_message_id": 5513,
+   "text": "у меня вот остался открытый вопрос – презентацию нужно делать или только решение?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "у меня вот остался открытый вопрос – презентацию нужно делать или только решение?"
+    }
+   ]
+  },
+  {
+   "id": 6352,
+   "type": "message",
+   "date": "2026-10-20T01:05:06",
+   "date_unixtime": "1792447506",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6351,
+   "text": "как хочешь, если хочешь можешь делать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "как хочешь, если хочешь можешь делать"
+    }
+   ]
+  },
+  {
+   "id": 6356,
+   "type": "message",
+   "date": "2026-10-20T01:08:54",
+   "date_unixtime": "1792447734",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_6@20-10-2026_01-08-54.jpg",
+   "photo_file_size": 3446,
+   "width": 325,
+   "height": 47,
+   "text": "как будто хватит для прода xD",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "как будто хватит для прода xD"
+    }
+   ]
+  },
+  {
+   "id": 6357,
+   "type": "message",
+   "date": "2026-10-20T01:09:39",
+   "date_unixtime": "1792447779",
+   "from": "Даня",
+   "from_id": "user1006782003",
+   "reply_to_message_id": 6356,
+   "text": "у нас уже под 30 летит",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "у нас уже под 30 летит"
+    }
+   ]
+  },
+  {
+   "id": 6358,
+   "type": "message",
+   "date": "2026-10-20T01:09:46",
+   "date_unixtime": "1792447786",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6357,
+   "text": "окак",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "окак"
+    }
+   ]
+  },
+  {
+   "id": 6359,
+   "type": "message",
+   "date": "2026-10-20T01:09:59",
+   "date_unixtime": "1792447799",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "ну учитывая что я соло пока делаю, команда спит немного",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну учитывая что я соло пока делаю, команда спит немного"
+    }
+   ]
+  },
+  {
+   "id": 6360,
+   "type": "message",
+   "date": "2026-10-20T01:10:07",
+   "date_unixtime": "1792447807",
+   "from": "Даня",
+   "from_id": "user1006782003",
+   "reply_to_message_id": 6359,
+   "text": "я тоже соло, у меня вообще 11",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "я тоже соло, у меня вообще 11"
+    }
+   ]
+  },
+  {
+   "id": 6361,
+   "type": "message",
+   "date": "2026-10-20T01:10:33",
+   "date_unixtime": "1792447833",
+   "edited": "2026-10-20T01:10:37",
+   "edited_unixtime": "1792447837",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6360,
+   "text": "у меня уже заполночь",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "у меня уже заполночь"
+    }
+   ]
+  },
+  {
+   "id": 6378,
+   "type": "message",
+   "date": "2026-10-20T04:05:35",
+   "date_unixtime": "1792458335",
+   "from": "whoisthatyarik",
+   "from_id": "user1942787208",
+   "reply_to_message_id": 6361,
+   "text": "Было 5 утра вы о чем",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Было 5 утра вы о чем"
+    }
+   ]
+  },
+  {
+   "id": 6391,
+   "type": "message",
+   "date": "2026-10-20T08:23:11",
+   "date_unixtime": "1792473791",
+   "edited": "2026-10-20T09:34:51",
+   "edited_unixtime": "1792478091",
+   "from": "Полина",
+   "from_id": "user709123434",
+   "reply_to_message_id": 5513,
+   "text": [
+    "Добрый день! Заранее спасибо за ответ.\n\nДедлайн 26.10 в 18:00 по Москве — это крайний срок и для последнего коммита в репозитории, и для загрузки на платформу? Что именно загружать на платформу: ссылку на репозиторий, commit hash, что-то ещё?\nНужны ли в онлайн-туре презентация или демо-видео? Если да, есть ли требования к формату и длительности?\nЧто считается «обычным ПК» для проверки: сколько оперативной памяти, есть ли видеокарта? Можно ли подключить локальную ИИ-модель, которой нужно 4–8 ГБ памяти, если она запускается отдельно и без неё всё работает?\nУ критериев оценки есть веса или все шесть равнозначны?\nКакой доступ нужен аккаунту жюри ",
+    {
+     "type": "code",
+     "text": "alfa-hack-2026"
+    },
+    " к приватному репозиторию: только чтение или больше?"
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день! Заранее спасибо за ответ.\n\nДедлайн 26.10 в 18:00 по Москве — это крайний срок и для последнего коммита в репозитории, и для загрузки на платформу? Что именно загружать на платформу: ссылку на репозиторий, commit hash, что-то ещё?\nНужны ли в онлайн-туре презентация или демо-видео? Если да, есть ли требования к формату и длительности?\nЧто считается «обычным ПК» для проверки: сколько оперативной памяти, есть ли видеокарта? Можно ли подключить локальную ИИ-модель, которой нужно 4–8 ГБ памяти, если она запускается отдельно и без неё всё работает?\nУ критериев оценки есть веса или все шесть равнозначны?\nКакой доступ нужен аккаунту жюри "
+    },
+    {
+     "type": "code",
+     "text": "alfa-hack-2026"
+    },
+    {
+     "type": "plain",
+     "text": " к приватному репозиторию: только чтение или больше?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "EnsiZeroGravity",
+        "from_id": "user7688850960",
+        "date": "2026-10-20T11:53:47"
+       },
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-20T09:34:51"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6392,
+   "type": "message",
+   "date": "2026-10-20T08:44:56",
+   "date_unixtime": "1792475096",
+   "from": "juzz",
+   "from_id": "user1674210499",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте, можно ли использовать для входа номер телефона и отправлять СМС, но использовать демо-код без реализации СМС-сервисов?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, можно ли использовать для входа номер телефона и отправлять СМС, но использовать демо-код без реализации СМС-сервисов?"
+    }
+   ]
+  },
+  {
+   "id": 6425,
+   "type": "message",
+   "date": "2026-10-20T10:07:46",
+   "date_unixtime": "1792480066",
+   "from": "Даниил Герман",
+   "from_id": "user521051027",
+   "reply_to_message_id": 6392,
+   "text": "здравствуйте! Схожий вопрос\n\nслайд 11, кубик 5: \"электронная почта не должна быть частью сценария\" — т.е. нельзя сделать \"вход по почте+код\" и не понарошку отправить код на почту?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте! Схожий вопрос\n\nслайд 11, кубик 5: \"электронная почта не должна быть частью сценария\" — т.е. нельзя сделать \"вход по почте+код\" и не понарошку отправить код на почту?"
+    }
+   ]
+  },
+  {
+   "id": 6541,
+   "type": "message",
+   "date": "2026-10-20T11:42:17",
+   "date_unixtime": "1792485737",
+   "from": "Stepan Koshevoy",
+   "from_id": "user1316166675",
+   "reply_to_message_id": 5812,
+   "text": "Добрый день, по поводу рекламной ленты так и не ответили на вопрос? Это относится к данному кейсу? Если да, то что подразумевается под реализацией этой рекламной ленты?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день, по поводу рекламной ленты так и не ответили на вопрос? Это относится к данному кейсу? Если да, то что подразумевается под реализацией этой рекламной ленты?"
+    }
+   ]
+  },
+  {
+   "id": 6544,
+   "type": "message",
+   "date": "2026-10-20T11:50:16",
+   "date_unixtime": "1792486216",
+   "edited": "2026-10-20T11:51:17",
+   "edited_unixtime": "1792486277",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6541,
+   "text": "если относится, я думаю просто лента где будут статьи по типы, снизилась ставка на кредит при выборе объекта финансирования какого нибудь, или срок кредита выгодный и тд, ну типо как обычно это бывает",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "если относится, я думаю просто лента где будут статьи по типы, снизилась ставка на кредит при выборе объекта финансирования какого нибудь, или срок кредита выгодный и тд, ну типо как обычно это бывает"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Stepan Koshevoy",
+        "from_id": "user1316166675",
+        "date": "2026-10-20T11:51:17"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6568,
+   "type": "message",
+   "date": "2026-10-20T12:12:25",
+   "date_unixtime": "1792487545",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6351,
+   "text": "Добрый день! \n \nВ рамках отборочного тура требуется подготовить только техническое решение",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день! \n \nВ рамках отборочного тура требуется подготовить только техническое решение"
+    }
+   ]
+  },
+  {
+   "id": 6569,
+   "type": "message",
+   "date": "2026-10-20T12:12:58",
+   "date_unixtime": "1792487578",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6318,
+   "text": "Забираем ваш вопрос на уточнение у экспертов, ответ будет озвучен сегодня на Q&A вебинаре",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Забираем ваш вопрос на уточнение у экспертов, ответ будет озвучен сегодня на Q&A вебинаре"
+    }
+   ]
+  },
+  {
+   "id": 6570,
+   "type": "message",
+   "date": "2026-10-20T12:13:08",
+   "date_unixtime": "1792487588",
+   "from": "el1za c?ss?n✝️[B26354][39486][60170]",
+   "from_id": "user1108640745",
+   "reply_to_message_id": 6568,
+   "text": "что требуется загрузить в качестве решения?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "что требуется загрузить в качестве решения?"
+    }
+   ]
+  },
+  {
+   "id": 6572,
+   "type": "message",
+   "date": "2026-10-20T12:14:12",
+   "date_unixtime": "1792487652",
+   "from": "juzz",
+   "from_id": "user1674210499",
+   "reply_to_message_id": 6392,
+   "text": "ответите??",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ответите??"
+    }
+   ]
+  },
+  {
+   "id": 6576,
+   "type": "message",
+   "date": "2026-10-20T12:21:33",
+   "date_unixtime": "1792488093",
+   "edited": "2026-10-22T20:51:46",
+   "edited_unixtime": "1792691506",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6391,
+   "text": "Добрый день!\n \nВ ответ на решение вы загружаете ссылку на ваш репозиторий. Вы можете положить ссылку и все материалы для запуска и оценки технического решения в документ и прикрепить его\n \nПрезентация не требуется. Но вы можете записать демо-видео прохождения основного сценария. Требований и ограничений по демо - нет, его наличие остается на усмотрение команды\n \nОриентируйтесь на характеристики стандартного офисного ПК: 8-16 ГБ оперативной памяти, без обязательного наличия дискретной видеокарты. Использовать локальную модель можно, в том числе с запуском вне докер контейнера, пока основной сценарий проходится без нее, а все требования к ресурсам и порядку запуска и подключения модели зафиксированы в документации\n \nПо критериям ответим на ваш вопрос на Q&A вебинаре сегодня\n \nДостаточно доступа на чтение и клонирование репозитория",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nВ ответ на решение вы загружаете ссылку на ваш репозиторий. Вы можете положить ссылку и все материалы для запуска и оценки технического решения в документ и прикрепить его\n \nПрезентация не требуется. Но вы можете записать демо-видео прохождения основного сценария. Требований и ограничений по демо - нет, его наличие остается на усмотрение команды\n \nОриентируйтесь на характеристики стандартного офисного ПК: 8-16 ГБ оперативной памяти, без обязательного наличия дискретной видеокарты. Использовать локальную модель можно, в том числе с запуском вне докер контейнера, пока основной сценарий проходится без нее, а все требования к ресурсам и порядку запуска и подключения модели зафиксированы в документации\n \nПо критериям ответим на ваш вопрос на Q&A вебинаре сегодня\n \nДостаточно доступа на чтение и клонирование репозитория"
+    }
+   ]
+  },
+  {
+   "id": 6577,
+   "type": "message",
+   "date": "2026-10-20T12:22:51",
+   "date_unixtime": "1792488171",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6392,
+   "text": "Добрый день!\n \nОсновной сценарий должен проходить внутри продукта, подтверждение через СМС или почту не должно быть частью сценария",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nОсновной сценарий должен проходить внутри продукта, подтверждение через СМС или почту не должно быть частью сценария"
+    }
+   ]
+  },
+  {
+   "id": 6578,
+   "type": "message",
+   "date": "2026-10-20T12:23:07",
+   "date_unixtime": "1792488187",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6425,
+   "text": "Добрый день!\n \nДа, все верно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nДа, все верно"
+    }
+   ]
+  },
+  {
+   "id": 6579,
+   "type": "message",
+   "date": "2026-10-20T12:23:49",
+   "date_unixtime": "1792488229",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6541,
+   "text": "Добрый день!\n \nПункт про новостную ленту не относится к данному кейсу",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nПункт про новостную ленту не относится к данному кейсу"
+    }
+   ]
+  },
+  {
+   "id": 6580,
+   "type": "message",
+   "date": "2026-10-20T12:24:58",
+   "date_unixtime": "1792488298",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6570,
+   "text": "Добрый день!\n \nВ качестве решения предоставляется ссылка на репозиторий с кодом",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nВ качестве решения предоставляется ссылка на репозиторий с кодом"
+    }
+   ]
+  },
+  {
+   "id": 6581,
+   "type": "message",
+   "date": "2026-10-20T12:27:23",
+   "date_unixtime": "1792488443",
+   "edited": "2026-10-20T12:27:42",
+   "edited_unixtime": "1792488462",
+   "from": "Глеб",
+   "from_id": "user5033638199",
+   "reply_to_message_id": 6569,
+   "text": "продублируйте потом ответ, пожалуйста\nнет возможности присутствовать на вебинаре",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "продублируйте потом ответ, пожалуйста\nнет возможности присутствовать на вебинаре"
+    }
+   ]
+  },
+  {
+   "id": 6595,
+   "type": "message",
+   "date": "2026-10-20T12:35:57",
+   "date_unixtime": "1792488957",
+   "edited": "2026-10-20T12:36:01",
+   "edited_unixtime": "1792488961",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Есть вопрос организаторам, можете написать в лс?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Есть вопрос организаторам, можете написать в лс?"
+    }
+   ]
+  },
+  {
+   "id": 6602,
+   "type": "message",
+   "date": "2026-10-20T12:39:47",
+   "date_unixtime": "1792489187",
+   "edited": "2026-10-20T12:40:05",
+   "edited_unixtime": "1792489205",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6581,
+   "text": "Запись вебинара будет опубликована в канале",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Запись вебинара будет опубликована в канале"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 3,
+      "emoji": "🎉",
+      "recent": [
+       {
+        "from": "Mihail",
+        "from_id": "user6615328766",
+        "date": "2026-10-20T15:08:51"
+       },
+       {
+        "from": "Глеб",
+        "from_id": "user5033638199",
+        "date": "2026-10-20T13:12:00"
+       },
+       {
+        "from": "🤫",
+        "from_id": "user6576645388",
+        "date": "2026-10-20T12:40:05"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6615,
+   "type": "message",
+   "date": "2026-10-20T12:53:51",
+   "date_unixtime": "1792490031",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6595,
+   "text": "Связались в личных сообщениях",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Связались в личных сообщениях"
+    }
+   ]
+  },
+  {
+   "id": 6625,
+   "type": "message",
+   "date": "2026-10-20T13:00:08",
+   "date_unixtime": "1792490408",
+   "from": "7Strike",
+   "from_id": "user1206607516",
+   "reply_to_message_id": 6576,
+   "text": "А будет потом рекап Zoom ? Если никак не получается посетить?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "А будет потом рекап Zoom ? Если никак не получается посетить?"
+    }
+   ]
+  },
+  {
+   "id": 6626,
+   "type": "message",
+   "date": "2026-10-20T13:04:05",
+   "date_unixtime": "1792490645",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте, можно какие-то более точные ограничения по LLM? Какой общий вес модели допустим и какое время ответа, на какое железо ориентироваться?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, можно какие-то более точные ограничения по LLM? Какой общий вес модели допустим и какое время ответа, на какое железо ориентироваться?"
+    }
+   ]
+  },
+  {
+   "id": 6630,
+   "type": "message",
+   "date": "2026-10-20T13:11:18",
+   "date_unixtime": "1792491078",
+   "edited": "2026-10-20T14:28:54",
+   "edited_unixtime": "1792495734",
+   "from": "saintИван999",
+   "from_id": "user1866403501",
+   "reply_to_message_id": 6576,
+   "text": ".",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-20T14:28:54"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6634,
+   "type": "message",
+   "date": "2026-10-20T13:16:28",
+   "date_unixtime": "1792491388",
+   "edited": "2026-10-20T13:17:55",
+   "edited_unixtime": "1792491475",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6625,
+   "text": "Добрый день!\n \nЗапись вебинара будет опубликована в канале",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nЗапись вебинара будет опубликована в канале"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-20T13:17:55"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6636,
+   "type": "message",
+   "date": "2026-10-20T13:17:51",
+   "date_unixtime": "1792491471",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 5513,
+   "text": "Добрый день, есть ли требования по SLA к сервису?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день, есть ли требования по SLA к сервису?"
+    }
+   ]
+  },
+  {
+   "id": 6651,
+   "type": "message",
+   "date": "2026-10-20T13:47:30",
+   "date_unixtime": "1792493250",
+   "edited": "2026-10-20T13:49:02",
+   "edited_unixtime": "1792493342",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 5513,
+   "text": "Салют!\n\nпод какие типы crm систем банка internal | external наиболее предпочтительно делать техрешение? какие админ учетки?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Салют!\n\nпод какие типы crm систем банка internal | external наиболее предпочтительно делать техрешение? какие админ учетки?"
+    }
+   ]
+  },
+  {
+   "id": 6657,
+   "type": "message",
+   "date": "2026-10-20T13:52:35",
+   "date_unixtime": "1792493555",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 5513,
+   "text": "+\n\nимеет ли смысл делать кооп с какой либо командой из новостной аналитики? наверное очевидно что все 3 трека - 3 крайности нового продукта альфы",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "+\n\nимеет ли смысл делать кооп с какой либо командой из новостной аналитики? наверное очевидно что все 3 трека - 3 крайности нового продукта альфы"
+    }
+   ]
+  },
+  {
+   "id": 6691,
+   "type": "message",
+   "date": "2026-10-20T14:23:52",
+   "date_unixtime": "1792495432",
+   "edited": "2026-10-20T16:24:45",
+   "edited_unixtime": "1792502685",
+   "from": "Maxim",
+   "from_id": "user461573345",
+   "reply_to_message_id": 5513,
+   "text": "Можно ли использовать Occular-OCR и нужно ли вообще работать с документами?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Можно ли использовать Occular-OCR и нужно ли вообще работать с документами?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Вадим💎",
+        "from_id": "user881005699",
+        "date": "2026-10-20T16:24:45"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6730,
+   "type": "message",
+   "date": "2026-10-20T14:51:11",
+   "date_unixtime": "1792497071",
+   "edited": "2026-10-20T15:04:46",
+   "edited_unixtime": "1792497886",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6636,
+   "text": "Добрый день!\n \nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "⚡",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:04:46"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💯",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:04:46"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🏆",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:04:46"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6732,
+   "type": "message",
+   "date": "2026-10-20T14:51:21",
+   "date_unixtime": "1792497081",
+   "edited": "2026-10-20T15:04:54",
+   "edited_unixtime": "1792497894",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6651,
+   "text": "Добрый день!\nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💯",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:04:54"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🏆",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:04:54"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6734,
+   "type": "message",
+   "date": "2026-10-20T14:51:43",
+   "date_unixtime": "1792497103",
+   "edited": "2026-10-20T15:05:02",
+   "edited_unixtime": "1792497902",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6691,
+   "text": "Добрый день!\nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\nЗабрали ваш вопрос, ответим на Q&A вебинаре сегодня"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💯",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:05:02"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🏆",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T15:05:02"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6758,
+   "type": "message",
+   "date": "2026-10-20T15:08:13",
+   "date_unixtime": "1792498093",
+   "from": "Юрий Фильков",
+   "from_id": "user703792329",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте, подскажите, будет ли запись этой встречи?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, подскажите, будет ли запись этой встречи?"
+    }
+   ]
+  },
+  {
+   "id": 6840,
+   "type": "message",
+   "date": "2026-10-20T16:05:57",
+   "date_unixtime": "1792501557",
+   "edited": "2026-10-20T17:38:10",
+   "edited_unixtime": "1792507090",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 6758,
+   "text": "Добрый день!\n \nЗапись вебинара будет опубликована в канале",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день!\n \nЗапись вебинара будет опубликована в канале"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💘",
+      "recent": [
+       {
+        "from": "Юрий Фильков",
+        "from_id": "user703792329",
+        "date": "2026-10-20T17:38:10"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6842,
+   "type": "message",
+   "date": "2026-10-20T16:07:15",
+   "date_unixtime": "1792501635",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Добрый день, можно ли использовать в интерфейсе стиль и логотип альфа-банка?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день, можно ли использовать в интерфейсе стиль и логотип альфа-банка?"
+    }
+   ]
+  },
+  {
+   "id": 6844,
+   "type": "message",
+   "date": "2026-10-20T16:08:49",
+   "date_unixtime": "1792501729",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 5513,
+   "text": "Нужно ли прикладывать файл с источниками и используемыми инструментами?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Нужно ли прикладывать файл с источниками и используемыми инструментами?"
+    }
+   ]
+  },
+  {
+   "id": 6854,
+   "type": "message",
+   "date": "2026-10-20T16:15:54",
+   "date_unixtime": "1792502154",
+   "edited": "2026-10-21T13:01:39",
+   "edited_unixtime": "1792576899",
+   "from": "Nikita Melnikov",
+   "from_id": "user863190796",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_7@20-10-2026_16-15-54.jpg",
+   "photo_file_size": 19746,
+   "width": 352,
+   "height": 338,
+   "text": "Добрый вечер\nХочу уточнить этот пункт. \nВ процессе одобрения заявки может возникнуть ситуация, когда клиент может слишком долго ожидать одобрения или неодобрения (15+ минут). При этом было бы удобно просто получить оповещения о готовности заявки. Можно ли отдельным пользовательским сценарием реализовать, например, push уведомления? При этом оставив основной пользовательский процесс нетронутым, просто пользователь сможет в него зайти по готовности этапа",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер\nХочу уточнить этот пункт. \nВ процессе одобрения заявки может возникнуть ситуация, когда клиент может слишком долго ожидать одобрения или неодобрения (15+ минут). При этом было бы удобно просто получить оповещения о готовности заявки. Можно ли отдельным пользовательским сценарием реализовать, например, push уведомления? При этом оставив основной пользовательский процесс нетронутым, просто пользователь сможет в него зайти по готовности этапа"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤‍🔥",
+      "recent": [
+       {
+        "from": "Oladievic",
+        "from_id": "user661652821",
+        "date": "2026-10-21T13:01:39"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6874,
+   "type": "message",
+   "date": "2026-10-20T16:31:54",
+   "date_unixtime": "1792503114",
+   "from": "Даниил Грачев",
+   "from_id": "user648469596",
+   "reply_to_message_id": 5513,
+   "text": "У вас встреча началась? У меня пока что нет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "У вас встреча началась? У меня пока что нет"
+    }
+   ]
+  },
+  {
+   "id": 6875,
+   "type": "message",
+   "date": "2026-10-20T16:32:06",
+   "date_unixtime": "1792503126",
+   "edited": "2026-10-20T16:32:15",
+   "edited_unixtime": "1792503135",
+   "from": "Nikita Melnikov",
+   "from_id": "user863190796",
+   "reply_to_message_id": 6874,
+   "text": "нет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "нет"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Даниил Грачев",
+        "from_id": "user648469596",
+        "date": "2026-10-20T16:32:15"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6881,
+   "type": "message",
+   "date": "2026-10-20T16:35:36",
+   "date_unixtime": "1792503336",
+   "edited": "2026-10-20T17:53:37",
+   "edited_unixtime": "1792508017",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5513,
+   "text": "встречу в зуме тоже навайбкодили",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "встречу в зуме тоже навайбкодили"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Олег Олег",
+        "from_id": "user680890776",
+        "date": "2026-10-20T23:40:00"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Вадим💎",
+        "from_id": "user881005699",
+        "date": "2026-10-20T17:53:37"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6884,
+   "type": "message",
+   "date": "2026-10-20T16:38:07",
+   "date_unixtime": "1792503487",
+   "edited": "2026-10-23T07:59:01",
+   "edited_unixtime": "1792731541",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6881,
+   "text": "Хакавайб надо было назвать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Хакавайб надо было назвать"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Самсонов Владимир",
+        "from_id": "user819544618",
+        "date": "2026-10-23T07:59:01"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 6885,
+   "type": "message",
+   "date": "2026-10-20T16:38:17",
+   "date_unixtime": "1792503497",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "Весь хак",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Весь хак"
+    }
+   ]
+  },
+  {
+   "id": 7035,
+   "type": "message",
+   "date": "2026-10-20T17:38:19",
+   "date_unixtime": "1792507099",
+   "edited": "2026-10-20T17:50:34",
+   "edited_unixtime": "1792507834",
+   "from": "Айдар",
+   "from_id": "user1859512315",
+   "reply_to_message_id": 5513,
+   "text": "Немного пропустил на стриме, можете подсказать плиз.  Нужно ли нам предлагать реальные кредитные продукты банка или можно замокать?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Немного пропустил на стриме, можете подсказать плиз.  Нужно ли нам предлагать реальные кредитные продукты банка или можно замокать?"
+    }
+   ]
+  },
+  {
+   "id": 7051,
+   "type": "message",
+   "date": "2026-10-20T17:44:15",
+   "date_unixtime": "1792507455",
+   "edited": "2026-10-20T19:49:38",
+   "edited_unixtime": "1792514978",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7035,
+   "text": "замокать можно скорее всего",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "замокать можно скорее всего"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Dog_Bobik",
+        "from_id": "user993627336",
+        "date": "2026-10-20T19:49:38"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7225,
+   "type": "message",
+   "date": "2026-10-20T19:44:44",
+   "date_unixtime": "1792514684",
+   "from": "ваня",
+   "from_id": "user1092339514",
+   "reply_to_message_id": 6143,
+   "text": "Здравствуйте, отправили ли ключ на данный момент? На почте пока ничего нет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, отправили ли ключ на данный момент? На почте пока ничего нет"
+    }
+   ]
+  },
+  {
+   "id": 7231,
+   "type": "message",
+   "date": "2026-10-20T19:49:53",
+   "date_unixtime": "1792514993",
+   "edited": "2026-10-20T20:00:14",
+   "edited_unixtime": "1792515614",
+   "from": "Never ask me",
+   "from_id": "user5945293641",
+   "reply_to_message_id": 5513,
+   "text": "Когда примерно ожидать ответы на вопросы в чате мита q&a?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Когда примерно ожидать ответы на вопросы в чате мита q&a?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Matvey",
+        "from_id": "user1772152675",
+        "date": "2026-10-20T20:00:14"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7235,
+   "type": "message",
+   "date": "2026-10-20T19:52:06",
+   "date_unixtime": "1792515126",
+   "from": "Миша:",
+   "from_id": "user541431678",
+   "reply_to_message_id": 7225,
+   "text": "разве для нашего трека тоже ключи будут присылать?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "разве для нашего трека тоже ключи будут присылать?"
+    }
+   ]
+  },
+  {
+   "id": 7236,
+   "type": "message",
+   "date": "2026-10-20T19:52:38",
+   "date_unixtime": "1792515158",
+   "from": "Миша:",
+   "from_id": "user541431678",
+   "reply_to_message_id": 6207,
+   "text": "вот ответ",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "вот ответ"
+    }
+   ]
+  },
+  {
+   "id": 7240,
+   "type": "message",
+   "date": "2026-10-20T19:58:19",
+   "date_unixtime": "1792515499",
+   "edited": "2026-10-20T20:06:22",
+   "edited_unixtime": "1792515982",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 7235,
+   "text": "нет, чат снова перепутали",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "нет, чат снова перепутали"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Миша:",
+        "from_id": "user541431678",
+        "date": "2026-10-20T20:06:22"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7279,
+   "type": "message",
+   "date": "2026-10-20T20:26:04",
+   "date_unixtime": "1792517164",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 5513,
+   "text": "Дизайн в стиле альфы делать?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Дизайн в стиле альфы делать?"
+    }
+   ]
+  },
+  {
+   "id": 7280,
+   "type": "message",
+   "date": "2026-10-20T20:26:21",
+   "date_unixtime": "1792517181",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7279,
+   "text": "какой хочешь",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "какой хочешь"
+    }
+   ]
+  },
+  {
+   "id": 7281,
+   "type": "message",
+   "date": "2026-10-20T20:26:54",
+   "date_unixtime": "1792517214",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 7240,
+   "text": "Так по итогу будут рассылать или нет? А то модели из Яндекса запретили, вроде",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Так по итогу будут рассылать или нет? А то модели из Яндекса запретили, вроде"
+    }
+   ]
+  },
+  {
+   "id": 7282,
+   "type": "message",
+   "date": "2026-10-20T20:27:04",
+   "date_unixtime": "1792517224",
+   "from": "Dmitry",
+   "from_id": "user720118745",
+   "reply_to_message_id": 7280,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_8@20-10-2026_20-27-04.jpg",
+   "photo_file_size": 8810,
+   "width": 607,
+   "height": 142,
+   "text": [
+    "сделал",
+    {
+     "type": "custom_emoji",
+     "text": "☠️",
+     "document_id": ""
+    },
+    {
+     "type": "custom_emoji",
+     "text": "😌",
+     "document_id": ""
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сделал"
+    },
+    {
+     "type": "custom_emoji",
+     "text": "☠️",
+     "document_id": ""
+    },
+    {
+     "type": "custom_emoji",
+     "text": "😌",
+     "document_id": ""
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ]
+  },
+  {
+   "id": 7291,
+   "type": "message",
+   "date": "2026-10-20T20:30:17",
+   "date_unixtime": "1792517417",
+   "from": "Matvey",
+   "from_id": "user1772152675",
+   "reply_to_message_id": 7281,
+   "text": "Нет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Нет"
+    }
+   ]
+  },
+  {
+   "id": 7294,
+   "type": "message",
+   "date": "2026-10-20T20:31:06",
+   "date_unixtime": "1792517466",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 5513,
+   "text": "Не очень понял логику: есть новостной трек, который во многом похож, а в кредитном кабинете не выдают ключей + нельзя использовать внешние апи",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Не очень понял логику: есть новостной трек, который во многом похож, а в кредитном кабинете не выдают ключей + нельзя использовать внешние апи"
+    }
+   ]
+  },
+  {
+   "id": 7309,
+   "type": "message",
+   "date": "2026-10-20T20:35:08",
+   "date_unixtime": "1792517708",
+   "edited": "2026-10-20T20:35:23",
+   "edited_unixtime": "1792517723",
+   "from": "Matvey",
+   "from_id": "user1772152675",
+   "reply_to_message_id": 7294,
+   "text": "Лучше чекнуть запись Q&A, там подробно рассказали про ограничения",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Лучше чекнуть запись Q&A, там подробно рассказали про ограничения"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Максим",
+        "from_id": "user2057625847",
+        "date": "2026-10-20T20:35:23"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7325,
+   "type": "message",
+   "date": "2026-10-20T20:41:12",
+   "date_unixtime": "1792518072",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "forwarded_from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "forwarded_from_id": "channel2399677653",
+   "reply_to_message_id": 5513,
+   "text": [
+    "Записи сегодняшних вебинаров уже доступны! ",
+    {
+     "type": "custom_emoji",
+     "text": "🔥",
+     "document_id": ""
+    },
+    "\n\nЕсли вы пропустили эфир или хотите пересмотреть ответы на вопросы по кейсам, держите ссылки на записи:\n",
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Умный кредитный кабинет",
+     "href": "https://drive.google.com/file/d/14i98WZ1TwlPTMpT8DaULtX0PogwfQj4s/view?usp=sharing"
+    },
+    "\n",
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Новостная аналитика для принятия бизнес-решений",
+     "href": "https://drive.google.com/file/d/14i98WZ1TwlPTMpT8DaULtX0PogwfQj4s/view?usp=drive_link"
+    },
+    "\n",
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Dive-Create-Impact",
+     "href": "https://drive.google.com/file/d/12ekOefclcLF49_A9lWesMUmCq-jzdG5T/view?usp=drive_link"
+    },
+    "\n\nПереходите по ссылкам, изучайте материалы и удачи в работе над кейсами! ",
+    {
+     "type": "custom_emoji",
+     "text": "⚡",
+     "document_id": ""
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Записи сегодняшних вебинаров уже доступны! "
+    },
+    {
+     "type": "custom_emoji",
+     "text": "🔥",
+     "document_id": ""
+    },
+    {
+     "type": "plain",
+     "text": "\n\nЕсли вы пропустили эфир или хотите пересмотреть ответы на вопросы по кейсам, держите ссылки на записи:\n"
+    },
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Умный кредитный кабинет",
+     "href": "https://drive.google.com/file/d/14i98WZ1TwlPTMpT8DaULtX0PogwfQj4s/view?usp=sharing"
+    },
+    {
+     "type": "plain",
+     "text": "\n"
+    },
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Новостная аналитика для принятия бизнес-решений",
+     "href": "https://drive.google.com/file/d/14i98WZ1TwlPTMpT8DaULtX0PogwfQj4s/view?usp=drive_link"
+    },
+    {
+     "type": "plain",
+     "text": "\n"
+    },
+    {
+     "type": "custom_emoji",
+     "text": "🔴",
+     "document_id": ""
+    },
+    {
+     "type": "text_link",
+     "text": "Dive-Create-Impact",
+     "href": "https://drive.google.com/file/d/12ekOefclcLF49_A9lWesMUmCq-jzdG5T/view?usp=drive_link"
+    },
+    {
+     "type": "plain",
+     "text": "\n\nПереходите по ссылкам, изучайте материалы и удачи в работе над кейсами! "
+    },
+    {
+     "type": "custom_emoji",
+     "text": "⚡",
+     "document_id": ""
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ]
+  },
+  {
+   "id": 7326,
+   "type": "message",
+   "date": "2026-10-20T20:41:32",
+   "date_unixtime": "1792518092",
+   "edited": "2026-10-20T20:42:01",
+   "edited_unixtime": "1792518121",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Ссылка ведет на вебинар новостной аналитики",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ссылка ведет на вебинар новостной аналитики"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👀",
+      "recent": [
+       {
+        "from": "Олег Витальевич",
+        "from_id": "user997873811",
+        "date": "2026-10-20T20:42:01"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7329,
+   "type": "message",
+   "date": "2026-10-20T20:42:02",
+   "date_unixtime": "1792518122",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5513,
+   "text": "окак",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "окак"
+    }
+   ]
+  },
+  {
+   "id": 7331,
+   "type": "message",
+   "date": "2026-10-20T20:42:25",
+   "date_unixtime": "1792518145",
+   "edited": "2026-10-20T20:42:56",
+   "edited_unixtime": "1792518176",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5513,
+   "text": "сначала в кейсе написали про новостную аналитику, теперь ссылку не ту дают. Какое-то неуважение к нашему треку",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сначала в кейсе написали про новостную аналитику, теперь ссылку не ту дают. Какое-то неуважение к нашему треку"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 7,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Alyona",
+        "from_id": "user805512065",
+        "date": "2026-10-20T23:51:58"
+       },
+       {
+        "from": "рената",
+        "from_id": "user669947899",
+        "date": "2026-10-20T22:27:16"
+       },
+       {
+        "from": "Дарья",
+        "from_id": "user1116330038",
+        "date": "2026-10-20T21:26:28"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🤯"
+     }
+    ]
+  },
+  {
+   "id": 7332,
+   "type": "message",
+   "date": "2026-10-20T20:42:33",
+   "date_unixtime": "1792518153",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "угу",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "угу"
+    }
+   ]
+  },
+  {
+   "id": 7333,
+   "type": "message",
+   "date": "2026-10-20T20:43:32",
+   "date_unixtime": "1792518212",
+   "from": "🤫",
+   "from_id": "user6576645388",
+   "reply_to_message_id": 5513,
+   "text": "Кому то скинули api?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Кому то скинули api?"
+    }
+   ]
+  },
+  {
+   "id": 7334,
+   "type": "message",
+   "date": "2026-10-20T20:45:20",
+   "date_unixtime": "1792518320",
+   "from": "ssskkkyyy",
+   "from_id": "user722050904",
+   "reply_to_message_id": 7333,
+   "text": "да",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "да"
+    }
+   ]
+  },
+  {
+   "id": 7335,
+   "type": "message",
+   "date": "2026-10-20T20:45:36",
+   "date_unixtime": "1792518336",
+   "from": "🤫",
+   "from_id": "user6576645388",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webm",
+   "file_size": 162027,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 4960,
+   "media_type": "sticker",
+   "sticker_emoji": "😢",
+   "mime_type": "video/webm",
+   "duration_seconds": 3,
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 7343,
+   "type": "message",
+   "date": "2026-10-20T20:47:22",
+   "date_unixtime": "1792518442",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5513,
+   "text": "как админов-то тегнуть, чтобы не забывали про нас",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "как админов-то тегнуть, чтобы не забывали про нас"
+    }
+   ]
+  },
+  {
+   "id": 7344,
+   "type": "message",
+   "date": "2026-10-20T20:47:33",
+   "date_unixtime": "1792518453",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "а есть типо какой то leaderboard по промежуточным баллам, в других кейсах видел там есть",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а есть типо какой то leaderboard по промежуточным баллам, в других кейсах видел там есть"
+    }
+   ]
+  },
+  {
+   "id": 7347,
+   "type": "message",
+   "date": "2026-10-20T20:47:47",
+   "date_unixtime": "1792518467",
+   "edited": "2026-10-20T20:53:06",
+   "edited_unixtime": "1792518786",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7344,
+   "text": "а что ты лидербордить в этом треке будешь?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а что ты лидербордить в этом треке будешь?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Dmitry",
+        "from_id": "user720118745",
+        "date": "2026-10-20T21:09:59"
+       },
+       {
+        "from": "Миша:",
+        "from_id": "user541431678",
+        "date": "2026-10-20T20:53:06"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7348,
+   "type": "message",
+   "date": "2026-10-20T20:48:04",
+   "date_unixtime": "1792518484",
+   "edited": "2026-10-20T20:48:34",
+   "edited_unixtime": "1792518514",
+   "from": "tooth fairy",
+   "from_id": "user1764757240",
+   "reply_to_message_id": 7347,
+   "text": "сожженные токены",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сожженные токены"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 11,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "shalombaby",
+        "from_id": "user8720942304",
+        "date": "2026-10-23T17:47:13"
+       },
+       {
+        "from": "Коля",
+        "from_id": "user742382013",
+        "date": "2026-10-21T17:38:21"
+       },
+       {
+        "from": "Ivan",
+        "from_id": "user1699717799",
+        "date": "2026-10-21T13:33:35"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "❤"
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🥰"
+     }
+    ]
+  },
+  {
+   "id": 7349,
+   "type": "message",
+   "date": "2026-10-20T20:48:14",
+   "date_unixtime": "1792518494",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7347,
+   "text": "просто интересно как расчитываются баллы",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "просто интересно как расчитываются баллы"
+    }
+   ]
+  },
+  {
+   "id": 7350,
+   "type": "message",
+   "date": "2026-10-20T20:49:03",
+   "date_unixtime": "1792518543",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7349,
+   "text": "не автоматически, как в треке с разработкой агентов",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "не автоматически, как в треке с разработкой агентов"
+    }
+   ]
+  },
+  {
+   "id": 7352,
+   "type": "message",
+   "date": "2026-10-20T20:50:35",
+   "date_unixtime": "1792518635",
+   "from": "Amir",
+   "from_id": "user984383301",
+   "reply_to_message_id": 5513,
+   "text": [
+    {
+     "type": "bold",
+     "text": "Здравствуйте, вопрос для менторов:"
+    },
+    " что для вас важнее в этом кейсе: качественно реализовать существующий кредитный процесс или предложить принципиально новый пользовательский сценарий, которого нет в текущих продуктах банка?"
+   ],
+   "text_entities": [
+    {
+     "type": "bold",
+     "text": "Здравствуйте, вопрос для менторов:"
+    },
+    {
+     "type": "plain",
+     "text": " что для вас важнее в этом кейсе: качественно реализовать существующий кредитный процесс или предложить принципиально новый пользовательский сценарий, которого нет в текущих продуктах банка?"
+    }
+   ]
+  },
+  {
+   "id": 7354,
+   "type": "message",
+   "date": "2026-10-20T20:51:06",
+   "date_unixtime": "1792518666",
+   "edited": "2026-10-20T20:53:19",
+   "edited_unixtime": "1792518799",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7233,
+   "text": "поправьте, пожалуйста, ссылку на запись лекции. На данный момент вместо записи по нашему треку приложена ссылка на запись другого трека",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "поправьте, пожалуйста, ссылку на запись лекции. На данный момент вместо записи по нашему треку приложена ссылка на запись другого трека"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 3,
+      "emoji": "💘",
+      "recent": [
+       {
+        "from": "Dmitry",
+        "from_id": "user720118745",
+        "date": "2026-10-20T21:10:14"
+       },
+       {
+        "from": "Matvey",
+        "from_id": "user1772152675",
+        "date": "2026-10-20T20:54:09"
+       },
+       {
+        "from": "Дамир",
+        "from_id": "user5668984029",
+        "date": "2026-10-20T20:53:19"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7360,
+   "type": "message",
+   "date": "2026-10-20T20:54:28",
+   "date_unixtime": "1792518868",
+   "edited": "2026-10-20T20:54:33",
+   "edited_unixtime": "1792518873",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Они поправили",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Они поправили"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Matvey",
+        "from_id": "user1772152675",
+        "date": "2026-10-20T20:54:45"
+       },
+       {
+        "from": "Олег Витальевич",
+        "from_id": "user997873811",
+        "date": "2026-10-20T20:54:33"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7374,
+   "type": "message",
+   "date": "2026-10-20T20:57:28",
+   "date_unixtime": "1792519048",
+   "edited": "2026-10-20T20:57:38",
+   "edited_unixtime": "1792519058",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7352,
+   "text": "Добрый вечер! Забрали ваш вопрос экспертам",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер! Забрали ваш вопрос экспертам"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Даня",
+        "from_id": "user5020483292",
+        "date": "2026-10-20T20:57:38"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7401,
+   "type": "message",
+   "date": "2026-10-20T21:16:19",
+   "date_unixtime": "1792520179",
+   "edited": "2026-10-20T22:07:28",
+   "edited_unixtime": "1792523248",
+   "from": "Never ask me",
+   "from_id": "user5945293641",
+   "reply_to_message_id": 5513,
+   "text": "А когда ответы с чата менторской сессии...",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "А когда ответы с чата менторской сессии..."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🗿",
+      "recent": [
+       {
+        "from": "Never ask me",
+        "from_id": "user5945293641",
+        "date": "2026-10-20T22:07:28"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7418,
+   "type": "message",
+   "date": "2026-10-20T21:35:31",
+   "date_unixtime": "1792521331",
+   "edited": "2026-10-20T21:36:32",
+   "edited_unixtime": "1792521392",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5513,
+   "text": "Ребят, а кто-нибудь сохранил из чата на Q&A ссылку на дизайн-систему альфы? Можете поделиться?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ребят, а кто-нибудь сохранил из чата на Q&A ссылку на дизайн-систему альфы? Можете поделиться?"
+    }
+   ]
+  },
+  {
+   "id": 7420,
+   "type": "message",
+   "date": "2026-10-20T21:36:21",
+   "date_unixtime": "1792521381",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 5513,
+   "text": "или может организаторы могут ею поделиться",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "или может организаторы могут ею поделиться"
+    }
+   ]
+  },
+  {
+   "id": 7421,
+   "type": "message",
+   "date": "2026-10-20T21:36:42",
+   "date_unixtime": "1792521402",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "разработать самому в стиле Альфы?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "разработать самому в стиле Альфы?"
+    }
+   ]
+  },
+  {
+   "id": 7422,
+   "type": "message",
+   "date": "2026-10-20T21:37:01",
+   "date_unixtime": "1792521421",
+   "edited": "2026-10-20T21:59:44",
+   "edited_unixtime": "1792522784",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7421,
+   "text": "дополнительный материал явно не будет помехой, но спасибо за совет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "дополнительный материал явно не будет помехой, но спасибо за совет"
+    }
+   ]
+  },
+  {
+   "id": 7424,
+   "type": "message",
+   "date": "2026-10-20T21:37:34",
+   "date_unixtime": "1792521454",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7422,
+   "text": "ну с дизайн системой попроще да, но как будто проявить свое видение как должно быть выполнено, как будто бы лучше, креативность все таки",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "ну с дизайн системой попроще да, но как будто проявить свое видение как должно быть выполнено, как будто бы лучше, креативность все таки"
+    }
+   ]
+  },
+  {
+   "id": 7426,
+   "type": "message",
+   "date": "2026-10-20T21:38:57",
+   "date_unixtime": "1792521537",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7424,
+   "text": "Есть много вариантов, как проявить креативность, особенно когда нет полноценного отдельного дизайнера и в приоритете стоят другие задачи на разработку",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Есть много вариантов, как проявить креативность, особенно когда нет полноценного отдельного дизайнера и в приоритете стоят другие задачи на разработку"
+    }
+   ]
+  },
+  {
+   "id": 7427,
+   "type": "message",
+   "date": "2026-10-20T21:39:08",
+   "date_unixtime": "1792521548",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7426,
+   "text": "справедливо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "справедливо"
+    }
+   ]
+  },
+  {
+   "id": 7462,
+   "type": "message",
+   "date": "2026-10-20T22:08:59",
+   "date_unixtime": "1792523339",
+   "edited": "2026-10-20T22:22:58",
+   "edited_unixtime": "1792524178",
+   "from": "ᅠroman",
+   "from_id": "user277502867",
+   "reply_to_message_id": 5513,
+   "text": [
+    {
+     "type": "mention",
+     "text": "@kingpin912"
+    },
+    " Добрый вечер!\n\n Подскажите, пж-та: Предполагается, что мы уже имеем некие данные по организации (ИНН, название, ФИО учредителя, и т.п.)? Так как для доступа к кредитному кабинету нужен аккаунт банка, при создании которого уже вбивается определенный пакет документов. \n\nЛибо кабинет должен быть независимым и мы не рассчитываем, что самые важные документы уже известны?"
+   ],
+   "text_entities": [
+    {
+     "type": "mention",
+     "text": "@kingpin912"
+    },
+    {
+     "type": "plain",
+     "text": " Добрый вечер!\n\n Подскажите, пж-та: Предполагается, что мы уже имеем некие данные по организации (ИНН, название, ФИО учредителя, и т.п.)? Так как для доступа к кредитному кабинету нужен аккаунт банка, при создании которого уже вбивается определенный пакет документов. \n\nЛибо кабинет должен быть независимым и мы не рассчитываем, что самые важные документы уже известны?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Возможно тот, с кем ты будешь счастлив(а)",
+        "from_id": "user1610705850",
+        "date": "2026-10-21T10:22:37"
+       },
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-20T22:22:58"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7467,
+   "type": "message",
+   "date": "2026-10-20T22:13:19",
+   "date_unixtime": "1792523599",
+   "edited": "2026-10-20T22:18:04",
+   "edited_unixtime": "1792523884",
+   "from": "Виктория Подоба",
+   "from_id": "user836215901",
+   "reply_to_message_id": 7418,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://core-ds.github.io/core-components/master/?path=/docs/intro--docs"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://core-ds.github.io/core-components/master/?path=/docs/intro--docs"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🙏",
+      "recent": [
+       {
+        "from": "Ivan",
+        "from_id": "user1699717799",
+        "date": "2026-10-21T13:35:24"
+       },
+       {
+        "from": "Олег Витальевич",
+        "from_id": "user997873811",
+        "date": "2026-10-20T22:18:04"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7483,
+   "type": "message",
+   "date": "2026-10-20T22:18:23",
+   "date_unixtime": "1792523903",
+   "edited": "2026-10-20T22:30:40",
+   "edited_unixtime": "1792524640",
+   "from": "Олег Витальевич",
+   "from_id": "user997873811",
+   "reply_to_message_id": 7467,
+   "text": [
+    "спасибо, Вика",
+    {
+     "type": "custom_emoji",
+     "text": "🙏",
+     "document_id": ""
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "спасибо, Вика"
+    },
+    {
+     "type": "custom_emoji",
+     "text": "🙏",
+     "document_id": ""
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Виктория Подоба",
+        "from_id": "user836215901",
+        "date": "2026-10-20T22:30:40"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7492,
+   "type": "message",
+   "date": "2026-10-20T22:28:43",
+   "date_unixtime": "1792524523",
+   "from": "Даниил Басков",
+   "from_id": "user845572514",
+   "reply_to_message_id": 6207,
+   "text": "По итогу нужно или нет локальную модель добавлять в решение? Просто если не обязательно ии то по какой причине в тех требованиях нужно предоставить синтетические данные (слайд 7). Или синтетические имеется в виду не для модели, а просто для демонстрации личного кабинета? Опять же если ИИ не обязателен то зачем создавать файл Third_party_notices?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "По итогу нужно или нет локальную модель добавлять в решение? Просто если не обязательно ии то по какой причине в тех требованиях нужно предоставить синтетические данные (слайд 7). Или синтетические имеется в виду не для модели, а просто для демонстрации личного кабинета? Опять же если ИИ не обязателен то зачем создавать файл Third_party_notices?"
+    }
+   ]
+  },
+  {
+   "id": 7506,
+   "type": "message",
+   "date": "2026-10-20T22:55:42",
+   "date_unixtime": "1792526142",
+   "edited": "2026-10-20T22:55:51",
+   "edited_unixtime": "1792526151",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 5513,
+   "text": "за мембера на гитхабе в вашем репо скину транскрипт вебинара",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "за мембера на гитхабе в вашем репо скину транскрипт вебинара"
+    }
+   ]
+  },
+  {
+   "id": 7514,
+   "type": "message",
+   "date": "2026-10-20T23:01:08",
+   "date_unixtime": "1792526468",
+   "edited": "2026-10-20T23:23:39",
+   "edited_unixtime": "1792527819",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7462,
+   "text": "Здравствуйте! \nВ рамках кейса предполагается, что предприниматель уже является клиентом банка, поэтому можно считать, что основные сведения о компании (ИНН, наименование, данные учредителей и т. д.) уже известны системе. Повторную регистрацию и сбор полного пакета документов реализовывать не требуется. Какие данные предзаполнять, а какие дополнительно запрашивать при оформлении кредитной заявки, команда определяет самостоятельно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! \nВ рамках кейса предполагается, что предприниматель уже является клиентом банка, поэтому можно считать, что основные сведения о компании (ИНН, наименование, данные учредителей и т. д.) уже известны системе. Повторную регистрацию и сбор полного пакета документов реализовывать не требуется. Какие данные предзаполнять, а какие дополнительно запрашивать при оформлении кредитной заявки, команда определяет самостоятельно"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 3,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Matvey",
+        "from_id": "user1772152675",
+        "date": "2026-10-20T23:55:32"
+       },
+       {
+        "from": "Олег Олег",
+        "from_id": "user680890776",
+        "date": "2026-10-20T23:42:48"
+       },
+       {
+        "from": "ᅠroman",
+        "from_id": "user277502867",
+        "date": "2026-10-20T23:23:39"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7515,
+   "type": "message",
+   "date": "2026-10-20T23:01:52",
+   "date_unixtime": "1792526512",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7492,
+   "text": "Здравствуйте! \n\nИспользовать ИИ, в том числе локальную модель, необязательно. Синтетические данные нужны для демонстрации и проверки работы кредитного конвейера: это могут быть сведения о клиентах, компаниях, финансовых показателях и заявках. Они не обязательно предназначены для обучения модели\n\nФайл THIRD_PARTY_NOTICES обязателен независимо от использования ИИ. В нём необходимо перечислить используемые сторонние библиотеки, компоненты, модели, датасеты и сервисы (если они есть), а также указать смоделированные интеграции",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! \n\nИспользовать ИИ, в том числе локальную модель, необязательно. Синтетические данные нужны для демонстрации и проверки работы кредитного конвейера: это могут быть сведения о клиентах, компаниях, финансовых показателях и заявках. Они не обязательно предназначены для обучения модели\n\nФайл THIRD_PARTY_NOTICES обязателен независимо от использования ИИ. В нём необходимо перечислить используемые сторонние библиотеки, компоненты, модели, датасеты и сервисы (если они есть), а также указать смоделированные интеграции"
+    }
+   ]
+  },
+  {
+   "id": 7520,
+   "type": "message",
+   "date": "2026-10-20T23:05:14",
+   "date_unixtime": "1792526714",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 7514,
+   "text": "То есть в качестве мок-регистрации/входа достаточно будет просто сделать вход, например, по номеру телефона? Или экран регистрации/входа вообще не нужен?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "То есть в качестве мок-регистрации/входа достаточно будет просто сделать вход, например, по номеру телефона? Или экран регистрации/входа вообще не нужен?"
+    }
+   ]
+  },
+  {
+   "id": 7531,
+   "type": "message",
+   "date": "2026-10-20T23:07:51",
+   "date_unixtime": "1792526871",
+   "edited": "2026-10-20T23:10:23",
+   "edited_unixtime": "1792527023",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7520,
+   "text": "Экран регистрации и входа не является обязательным. По условиям кейса предполагается, что пользователь уже является клиентом банка. Вы можете реализовать упрощённый вход, например по номеру телефона, либо использовать готовый демонстрационный профиль без отдельной авторизации. Главное, чтобы основной сценарий кредитного конвейера оставался работоспособным и доступным для проверки",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Экран регистрации и входа не является обязательным. По условиям кейса предполагается, что пользователь уже является клиентом банка. Вы можете реализовать упрощённый вход, например по номеру телефона, либо использовать готовый демонстрационный профиль без отдельной авторизации. Главное, чтобы основной сценарий кредитного конвейера оставался работоспособным и доступным для проверки"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-20T23:10:23"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7541,
+   "type": "message",
+   "date": "2026-10-20T23:19:56",
+   "date_unixtime": "1792527596",
+   "from": "Даниил Басков",
+   "from_id": "user845572514",
+   "reply_to_message_id": 7515,
+   "text": "можете привести примеры",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "можете привести примеры"
+    }
+   ]
+  },
+  {
+   "id": 7543,
+   "type": "message",
+   "date": "2026-10-20T23:25:59",
+   "date_unixtime": "1792527959",
+   "edited": "2026-10-20T23:30:19",
+   "edited_unixtime": "1792528219",
+   "from": "Рѣ",
+   "from_id": "user459861466",
+   "reply_to_message_id": 5513,
+   "text": "Будут ли ответы на вопросы из чата QA-сессии?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Будут ли ответы на вопросы из чата QA-сессии?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🗿",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-20T23:55:34"
+       },
+       {
+        "from": "Never ask me",
+        "from_id": "user5945293641",
+        "date": "2026-10-20T23:30:19"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7570,
+   "type": "message",
+   "date": "2026-10-20T23:57:19",
+   "date_unixtime": "1792529839",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_9@20-10-2026_23-57-19.jpg",
+   "photo_file_size": 32448,
+   "width": 628,
+   "height": 307,
+   "text": "здравствуйте не могли бы вы ответить на эти два вопроса, на вебинаре не было ничего про это",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте не могли бы вы ответить на эти два вопроса, на вебинаре не было ничего про это"
+    }
+   ]
+  },
+  {
+   "id": 7604,
+   "type": "message",
+   "date": "2026-10-21T00:21:19",
+   "date_unixtime": "1792531279",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7570,
+   "text": "Здравствуйте! \n\nПривязка к конкретной внутренней или внешней CRM-системе Альфа-Банка не требуется. Вы можете самостоятельно выбрать архитектуру решения, а необходимые интеграции смоделировать с помощью моков или симуляторов. Доступ к корпоративным системам и административные учётные записи банка не предоставляются. Если в вашем решении предусмотрены разные роли пользователей, их права и тестовые учётные записи вы определяете самостоятельно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! \n\nПривязка к конкретной внутренней или внешней CRM-системе Альфа-Банка не требуется. Вы можете самостоятельно выбрать архитектуру решения, а необходимые интеграции смоделировать с помощью моков или симуляторов. Доступ к корпоративным системам и административные учётные записи банка не предоставляются. Если в вашем решении предусмотрены разные роли пользователей, их права и тестовые учётные записи вы определяете самостоятельно"
+    }
+   ]
+  },
+  {
+   "id": 7632,
+   "type": "message",
+   "date": "2026-10-21T00:50:07",
+   "date_unixtime": "1792533007",
+   "from": "Даниил Басков",
+   "from_id": "user845572514",
+   "reply_to_message_id": 5513,
+   "text": "Добавление модели к решению добавит баллы, если да то сколько?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добавление модели к решению добавит баллы, если да то сколько?"
+    }
+   ]
+  },
+  {
+   "id": 7649,
+   "type": "message",
+   "date": "2026-10-21T01:13:59",
+   "date_unixtime": "1792534439",
+   "edited": "2026-10-21T01:14:35",
+   "edited_unixtime": "1792534475",
+   "from": "ᅠroman",
+   "from_id": "user277502867",
+   "reply_to_message_id": 7632,
+   "text": "67 баллов вроде",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "67 баллов вроде"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 13,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Коля",
+        "from_id": "user742382013",
+        "date": "2026-10-21T17:40:25"
+       },
+       {
+        "from": "Eliolaa.",
+        "from_id": "user967608405",
+        "date": "2026-10-21T12:39:49"
+       },
+       {
+        "from": "German Polevsky",
+        "from_id": "user609497361",
+        "date": "2026-10-21T12:33:46"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7651,
+   "type": "message",
+   "date": "2026-10-21T01:18:39",
+   "date_unixtime": "1792534719",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 7632,
+   "text": "не добавляет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "не добавляет"
+    }
+   ]
+  },
+  {
+   "id": 7683,
+   "type": "message",
+   "date": "2026-10-21T08:14:10",
+   "date_unixtime": "1792559650",
+   "from": "Timofey Eremin",
+   "from_id": "user465910861",
+   "reply_to_message_id": 7649,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "diddyblud-diddy.mp4",
+   "file_size": 231900,
+   "media_type": "animation",
+   "mime_type": "video/mp4",
+   "duration_seconds": 12,
+   "width": 180,
+   "height": 320,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 7744,
+   "type": "message",
+   "date": "2026-10-21T09:58:20",
+   "date_unixtime": "1792565900",
+   "from": "Stepan Koshevoy",
+   "from_id": "user1316166675",
+   "reply_to_message_id": 5513,
+   "text": "Доброе утро, подскажите, если мы испрользуем API сторонней LLM с открытыми весами, которая не требует платной подписки, это является нарушением ограничения автономности или нет?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Доброе утро, подскажите, если мы испрользуем API сторонней LLM с открытыми весами, которая не требует платной подписки, это является нарушением ограничения автономности или нет?"
+    }
+   ]
+  },
+  {
+   "id": 7745,
+   "type": "message",
+   "date": "2026-10-21T10:00:38",
+   "date_unixtime": "1792566038",
+   "from": "Amir",
+   "from_id": "user984383301",
+   "reply_to_message_id": 7352,
+   "text": "Доброе утро, напоминаю о своем вопросе",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Доброе утро, напоминаю о своем вопросе"
+    }
+   ]
+  },
+  {
+   "id": 7747,
+   "type": "message",
+   "date": "2026-10-21T10:01:32",
+   "date_unixtime": "1792566092",
+   "edited": "2026-10-21T10:40:54",
+   "edited_unixtime": "1792568454",
+   "from": "balalaika",
+   "from_id": "user1403622278",
+   "reply_to_message_id": 5513,
+   "text": "Доброе утро, а можно ли как-то связаться с представителями альфа-банка которые шарят за ситуацию с выдачей кредитов предпринимателям (собственно по теме кейса)? Хотелось бы провести небольшое интервью для кейса",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Доброе утро, а можно ли как-то связаться с представителями альфа-банка которые шарят за ситуацию с выдачей кредитов предпринимателям (собственно по теме кейса)? Хотелось бы провести небольшое интервью для кейса"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "K8s Envoy Gateway",
+        "from_id": "user783788614",
+        "date": "2026-10-21T11:11:27"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🤗",
+      "recent": [
+       {
+        "from": "Миша:",
+        "from_id": "user541431678",
+        "date": "2026-10-21T10:40:54"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7793,
+   "type": "message",
+   "date": "2026-10-21T11:26:19",
+   "date_unixtime": "1792571179",
+   "edited": "2026-10-21T11:26:26",
+   "edited_unixtime": "1792571186",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 7604,
+   "text": "благодарочка!\n\nнекст вопрос: на вебинаре вы сказали что ограничение весов модели 120Б параметров? речь шла про активные параметры на токен или же еще учитываются еще метаданные на хаглин фейсе? условно у модели 16-20б параметров активных и 500-900б мет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "благодарочка!\n\nнекст вопрос: на вебинаре вы сказали что ограничение весов модели 120Б параметров? речь шла про активные параметры на токен или же еще учитываются еще метаданные на хаглин фейсе? условно у модели 16-20б параметров активных и 500-900б мет"
+    }
+   ]
+  },
+  {
+   "id": 7797,
+   "type": "message",
+   "date": "2026-10-21T11:30:14",
+   "date_unixtime": "1792571414",
+   "edited": "2026-10-21T11:31:01",
+   "edited_unixtime": "1792571461",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 7793,
+   "text": "зачем вам модель с 900 миллиардами параметров",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "зачем вам модель с 900 миллиардами параметров"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 6,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "alexander",
+        "from_id": "user1370803129",
+        "date": "2026-10-22T18:33:46"
+       },
+       {
+        "from": "рената",
+        "from_id": "user669947899",
+        "date": "2026-10-21T21:25:58"
+       },
+       {
+        "from": "What’s your real name?",
+        "from_id": "user1086564829",
+        "date": "2026-10-21T20:59:13"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7798,
+   "type": "message",
+   "date": "2026-10-21T11:30:26",
+   "date_unixtime": "1792571426",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5513,
+   "file": "(File not included. Change data exporting settings to download.)",
+   "file_name": "sticker.webp",
+   "file_size": 25966,
+   "thumbnail": "(File not included. Change data exporting settings to download.)",
+   "thumbnail_file_size": 13060,
+   "media_type": "sticker",
+   "sticker_emoji": "😢",
+   "mime_type": "image/webp",
+   "width": 512,
+   "height": 512,
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 7802,
+   "type": "message",
+   "date": "2026-10-21T11:33:04",
+   "date_unixtime": "1792571584",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 7797,
+   "text": "просто есть активные парметры и общий вес",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "просто есть активные парметры и общий вес"
+    }
+   ]
+  },
+  {
+   "id": 7848,
+   "type": "message",
+   "date": "2026-10-21T12:40:46",
+   "date_unixtime": "1792575646",
+   "from": "Лизуша",
+   "from_id": "user1724910459",
+   "reply_to_message_id": 5513,
+   "text": "Добрый день! Подскажите, где можно скачать брендбук Альфа банка?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый день! Подскажите, где можно скачать брендбук Альфа банка?"
+    }
+   ]
+  },
+  {
+   "id": 7864,
+   "type": "message",
+   "date": "2026-10-21T12:48:18",
+   "date_unixtime": "1792576098",
+   "edited": "2026-10-21T12:52:19",
+   "edited_unixtime": "1792576339",
+   "from": "Amir",
+   "from_id": "user984383301",
+   "reply_to_message_id": 7848,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://core-ds.github.io/core-components/master/?path=/docs/intro--docs"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://core-ds.github.io/core-components/master/?path=/docs/intro--docs"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Лизуша",
+        "from_id": "user1724910459",
+        "date": "2026-10-21T12:52:19"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 7988,
+   "type": "message",
+   "date": "2026-10-21T15:03:33",
+   "date_unixtime": "1792584213",
+   "edited": "2026-10-21T20:35:32",
+   "edited_unixtime": "1792604132",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 5513,
+   "text": [
+    "Для вашего удобства мы собрали в одном документе вопросы и ответы с вебинара по треку «Умный кредитный кабинет предпринимателя». + те, на которые не успели ответить.\n\nВ документе вы найдёте разъяснения экспертов по кейсу, техническим требованиям и другим вопросам, которые обсуждались на встрече.\n\nРекомендуем ознакомиться с материалом — возможно, там уже есть ответы на ваши вопросы\n\n📎",
+    {
+     "type": "text_link",
+     "text": " Вопросы и ответы с вебинара",
+     "href": "https://docs.google.com/document/d/1QsHdeEh1yGueUCawdg27ayetcjj0bv7QnJBEueQBy2o/edit?usp=sharing"
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Для вашего удобства мы собрали в одном документе вопросы и ответы с вебинара по треку «Умный кредитный кабинет предпринимателя». + те, на которые не успели ответить.\n\nВ документе вы найдёте разъяснения экспертов по кейсу, техническим требованиям и другим вопросам, которые обсуждались на встрече.\n\nРекомендуем ознакомиться с материалом — возможно, там уже есть ответы на ваши вопросы\n\n📎"
+    },
+    {
+     "type": "text_link",
+     "text": " Вопросы и ответы с вебинара",
+     "href": "https://docs.google.com/document/d/1QsHdeEh1yGueUCawdg27ayetcjj0bv7QnJBEueQBy2o/edit?usp=sharing"
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "🔥",
+      "recent": [
+       {
+        "from": "Александр",
+        "from_id": "user7634697558",
+        "date": "2026-10-23T01:02:35"
+       },
+       {
+        "from": "Demid",
+        "from_id": "user501099294",
+        "date": "2026-10-21T20:35:33"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Александр",
+        "from_id": "user7634697558",
+        "date": "2026-10-23T01:02:35"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8052,
+   "type": "message",
+   "date": "2026-10-21T16:07:31",
+   "date_unixtime": "1792588051",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7744,
+   "text": "Здравствуйте! Нет, использование стороннего API для доступа к LLM с открытыми весами не является нарушением. Важно, чтобы интеграция была совместима с OpenAI API и позволяла заменить base URL, API-ключ и название модели. При этом проверяемая версия решения должна оставаться воспроизводимой, не зависеть от платных ресурсов и позволять экспертам подключить собственного провайдера.",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! Нет, использование стороннего API для доступа к LLM с открытыми весами не является нарушением. Важно, чтобы интеграция была совместима с OpenAI API и позволяла заменить base URL, API-ключ и название модели. При этом проверяемая версия решения должна оставаться воспроизводимой, не зависеть от платных ресурсов и позволять экспертам подключить собственного провайдера."
+    }
+   ]
+  },
+  {
+   "id": 8057,
+   "type": "message",
+   "date": "2026-10-21T16:13:45",
+   "date_unixtime": "1792588425",
+   "edited": "2026-10-21T16:20:59",
+   "edited_unixtime": "1792588859",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7793,
+   "text": "Здравствуйте! Рекомендация использовать модели до 120 млрд параметров относится к общему количеству параметров модели, а не только к активным параметрам на токен. При этом 120 млрд — не жёсткое ограничение, а рекомендация с учётом требований к ресурсам и скорости работы решения.",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! Рекомендация использовать модели до 120 млрд параметров относится к общему количеству параметров модели, а не только к активным параметрам на токен. При этом 120 млрд — не жёсткое ограничение, а рекомендация с учётом требований к ресурсам и скорости работы решения."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-21T16:20:59"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8288,
+   "type": "message",
+   "date": "2026-10-21T19:50:32",
+   "date_unixtime": "1792601432",
+   "from": "Даня",
+   "from_id": "user5020483292",
+   "reply_to_message_id": 7374,
+   "text": "здравствуйте, ответили ли эксперты? В google doc нет ответа на этот вопрос просто",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте, ответили ли эксперты? В google doc нет ответа на этот вопрос просто"
+    }
+   ]
+  },
+  {
+   "id": 8302,
+   "type": "message",
+   "date": "2026-10-21T20:45:36",
+   "date_unixtime": "1792604736",
+   "from": "Demid",
+   "from_id": "user501099294",
+   "reply_to_message_id": 7515,
+   "text": "Добрый вечер! Можете пожалуйста привести примеры библиотек, компонентов, моделей и сервисов для файла third party notice? Не совсем понимаем конкретику тут \nИ датасеты - те, что для синтетических данных?\nИ что подразумевается под смоделированными интеграциями?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер! Можете пожалуйста привести примеры библиотек, компонентов, моделей и сервисов для файла third party notice? Не совсем понимаем конкретику тут \nИ датасеты - те, что для синтетических данных?\nИ что подразумевается под смоделированными интеграциями?"
+    }
+   ]
+  },
+  {
+   "id": 8345,
+   "type": "message",
+   "date": "2026-10-21T22:01:22",
+   "date_unixtime": "1792609282",
+   "edited": "2026-10-21T22:55:48",
+   "edited_unixtime": "1792612548",
+   "from": "saintИван999",
+   "from_id": "user1866403501",
+   "reply_to_message_id": 8302,
+   "text": "опенапи используешь - стороняя тема",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "опенапи используешь - стороняя тема"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "🙏",
+      "recent": [
+       {
+        "from": "Demid",
+        "from_id": "user501099294",
+        "date": "2026-10-21T22:55:48"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8350,
+   "type": "message",
+   "date": "2026-10-21T22:06:55",
+   "date_unixtime": "1792609615",
+   "edited": "2026-10-21T22:13:11",
+   "edited_unixtime": "1792609991",
+   "from": "НАФАНЯЯЯЯЯЯЯ🍟 Сия✨ Альпакас 🦙",
+   "from_id": "user1963872870",
+   "reply_to_message_id": 5513,
+   "text": "Почему в описании команды нужен был ml инженер, а в треке ни слова про мл, кроме того, что он не обязателен?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Почему в описании команды нужен был ml инженер, а в треке ни слова про мл, кроме того, что он не обязателен?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 10,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Глеб",
+        "from_id": "user5033638199",
+        "date": "2026-10-23T00:58:11"
+       },
+       {
+        "from": "gbeyond",
+        "from_id": "user7503458132",
+        "date": "2026-10-22T12:54:56"
+       },
+       {
+        "from": "aleksei",
+        "from_id": "user1320704676",
+        "date": "2026-10-22T10:52:58"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 3,
+      "emoji": "💯"
+     }
+    ]
+  },
+  {
+   "id": 8356,
+   "type": "message",
+   "date": "2026-10-21T22:14:11",
+   "date_unixtime": "1792610051",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 8350,
+   "text": "Почему в описании команды нужен был VIBECODeR а в треке ни слова про VIBECODeR  кроме того, что он не обязателен?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Почему в описании команды нужен был VIBECODeR а в треке ни слова про VIBECODeR  кроме того, что он не обязателен?"
+    }
+   ]
+  },
+  {
+   "id": 8357,
+   "type": "message",
+   "date": "2026-10-21T22:17:15",
+   "date_unixtime": "1792610235",
+   "edited": "2026-10-21T23:33:37",
+   "edited_unixtime": "1792614817",
+   "from": "НАФАНЯЯЯЯЯЯЯ🍟 Сия✨ Альпакас 🦙",
+   "from_id": "user1963872870",
+   "reply_to_message_id": 8356,
+   "text": "?)))\nВо первых, не был, во вторых в треке действительно не нужен млщик, потому что данные синтетические, буквально можно взять готовую модель и добавить ее",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "?)))\nВо первых, не был, во вторых в треке действительно не нужен млщик, потому что данные синтетические, буквально можно взять готовую модель и добавить ее"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 4,
+      "emoji": "💯",
+      "recent": [
+       {
+        "from": "рената",
+        "from_id": "user669947899",
+        "date": "2026-10-22T01:26:58"
+       },
+       {
+        "from": "Даня",
+        "from_id": "user5020483292",
+        "date": "2026-10-22T00:03:38"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T00:50:20"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8362,
+   "type": "message",
+   "date": "2026-10-21T22:34:24",
+   "date_unixtime": "1792611264",
+   "from": "alex",
+   "from_id": "user7107742029",
+   "reply_to_message_id": 8357,
+   "text": "готовая модель тебе будет как пенек отвеать",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "готовая модель тебе будет как пенек отвеать"
+    }
+   ]
+  },
+  {
+   "id": 8365,
+   "type": "message",
+   "date": "2026-10-21T22:51:33",
+   "date_unixtime": "1792612293",
+   "edited": "2026-10-21T23:07:42",
+   "edited_unixtime": "1792613262",
+   "from": "НАФАНЯЯЯЯЯЯЯ🍟 Сия✨ Альпакас 🦙",
+   "from_id": "user1963872870",
+   "reply_to_message_id": 8362,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_10@21-10-2026_22-51-33.jpg",
+   "photo_file_size": 19107,
+   "width": 834,
+   "height": 101,
+   "text": "Да, но я основываюсь на ответе организаторов",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Да, но я основываюсь на ответе организаторов"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 4,
+      "emoji": "💯",
+      "recent": [
+       {
+        "from": "Ivan",
+        "from_id": "user1699717799",
+        "date": "2026-10-22T09:22:07"
+       },
+       {
+        "from": "рената",
+        "from_id": "user669947899",
+        "date": "2026-10-22T01:27:17"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T00:50:10"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8376,
+   "type": "message",
+   "date": "2026-10-21T23:10:14",
+   "date_unixtime": "1792613414",
+   "from": "bone1nis",
+   "from_id": "user5527179040",
+   "reply_to_message_id": 8365,
+   "text": "а откуда вот эти ответы?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а откуда вот эти ответы?"
+    }
+   ]
+  },
+  {
+   "id": 8377,
+   "type": "message",
+   "date": "2026-10-21T23:10:32",
+   "date_unixtime": "1792613432",
+   "edited": "2026-10-21T23:34:57",
+   "edited_unixtime": "1792614897",
+   "from": "НАФАНЯЯЯЯЯЯЯ🍟 Сия✨ Альпакас 🦙",
+   "from_id": "user1963872870",
+   "reply_to_message_id": 7988,
+   "text": "Из закрепа",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Из закрепа"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "😭",
+      "recent": [
+       {
+        "from": "Рѣ",
+        "from_id": "user459861466",
+        "date": "2026-10-21T23:34:57"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8474,
+   "type": "message",
+   "date": "2026-10-22T10:07:51",
+   "date_unixtime": "1792652871",
+   "from": "Stepan Koshevoy",
+   "from_id": "user1316166675",
+   "reply_to_message_id": 6098,
+   "text": "По закрепу складывается впечатление, что интерфейс и логика для сотрудника все-таки нужна, но тут в чате говорили по-другому, непонятно, нужна ли она в итоге",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "По закрепу складывается впечатление, что интерфейс и логика для сотрудника все-таки нужна, но тут в чате говорили по-другому, непонятно, нужна ли она в итоге"
+    }
+   ]
+  },
+  {
+   "id": 8475,
+   "type": "message",
+   "date": "2026-10-22T10:11:56",
+   "date_unixtime": "1792653116",
+   "from": "Forested_excuse4",
+   "from_id": "user1716794751",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте, а REST со Swagger  обязателен или я могу использовать GraphQL + GraphQL Schema + GraphiQL / Apollo Sandbox?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, а REST со Swagger  обязателен или я могу использовать GraphQL + GraphQL Schema + GraphiQL / Apollo Sandbox?"
+    }
+   ]
+  },
+  {
+   "id": 8527,
+   "type": "message",
+   "date": "2026-10-22T11:50:59",
+   "date_unixtime": "1792659059",
+   "edited": "2026-10-22T12:33:40",
+   "edited_unixtime": "1792661620",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 7352,
+   "text": "Здравствуйте! Оба подхода допустимы: можно качественно реализовать существующий кредитный процесс или предложить новый пользовательский сценарий. Для нас важны целостность и работоспособность решения, его ценность для клиента и банка, а также обоснованность выбранных продуктовых и технических решений. Новизна приветствуется, но не заменяет качественную реализацию основного сквозного сценария кредитного конвейера.",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! Оба подхода допустимы: можно качественно реализовать существующий кредитный процесс или предложить новый пользовательский сценарий. Для нас важны целостность и работоспособность решения, его ценность для клиента и банка, а также обоснованность выбранных продуктовых и технических решений. Новизна приветствуется, но не заменяет качественную реализацию основного сквозного сценария кредитного конвейера."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Даня",
+        "from_id": "user5020483292",
+        "date": "2026-10-22T12:33:40"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8530,
+   "type": "message",
+   "date": "2026-10-22T11:59:20",
+   "date_unixtime": "1792659560",
+   "edited": "2026-10-22T12:53:38",
+   "edited_unixtime": "1792662818",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 8474,
+   "text": "спасибо, что заметили, поправили. логика обработки заявки на стороне банка обязательна, необходимо показать движение заявки по этапам, ее обработку и принятие кредитного решения. при этом отдельный интерфейс сотрудника банка не обязателен, можно реализовать клиентскую и банковскую логику в рамках одного веб-интерфейса. главное, чтобы сквозной процесс от подачи заявки до результата был работоспособным",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "спасибо, что заметили, поправили. логика обработки заявки на стороне банка обязательна, необходимо показать движение заявки по этапам, ее обработку и принятие кредитного решения. при этом отдельный интерфейс сотрудника банка не обязателен, можно реализовать клиентскую и банковскую логику в рамках одного веб-интерфейса. главное, чтобы сквозной процесс от подачи заявки до результата был работоспособным"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T13:37:28"
+       },
+       {
+        "from": "ᅠroman",
+        "from_id": "user277502867",
+        "date": "2026-10-22T12:53:38"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8605,
+   "type": "message",
+   "date": "2026-10-22T13:38:28",
+   "date_unixtime": "1792665508",
+   "edited": "2026-10-22T13:44:48",
+   "edited_unixtime": "1792665888",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 8475,
+   "text": "здравствуйте, не обязательно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте, не обязательно"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Forested_excuse4",
+        "from_id": "user1716794751",
+        "date": "2026-10-22T13:44:48"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8807,
+   "type": "message",
+   "date": "2026-10-22T17:37:07",
+   "date_unixtime": "1792679827",
+   "from": ",",
+   "from_id": "user5062148026",
+   "reply_to_message_id": 7604,
+   "text": "Добрый вечер, если прикрепляешь решение на сайте, есть возможность отредактировать?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Добрый вечер, если прикрепляешь решение на сайте, есть возможность отредактировать?"
+    }
+   ]
+  },
+  {
+   "id": 8809,
+   "type": "message",
+   "date": "2026-10-22T17:40:34",
+   "date_unixtime": "1792680034",
+   "edited": "2026-10-22T17:47:37",
+   "edited_unixtime": "1792680457",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 8807,
+   "text": "Если хочешь поменять, там можно повторно загрузить решение",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Если хочешь поменять, там можно повторно загрузить решение"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T17:47:38"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8842,
+   "type": "message",
+   "date": "2026-10-22T18:32:07",
+   "date_unixtime": "1792683127",
+   "from": "хочу пасту карбонара",
+   "from_id": "user633098860",
+   "reply_to_message_id": 8809,
+   "text": "спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "спасибо"
+    }
+   ]
+  },
+  {
+   "id": 8859,
+   "type": "message",
+   "date": "2026-10-22T18:49:09",
+   "date_unixtime": "1792684149",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Как сдать работу?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Как сдать работу?"
+    }
+   ]
+  },
+  {
+   "id": 8888,
+   "type": "message",
+   "date": "2026-10-22T19:47:38",
+   "date_unixtime": "1792687658",
+   "edited": "2026-10-22T22:53:46",
+   "edited_unixtime": "1792698826",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5513,
+   "photo": "chats/chat_562952353098965/topic_5513/photos/photo_11@22-10-2026_19-47-38.jpg",
+   "photo_file_size": 37628,
+   "width": 1080,
+   "height": 359,
+   "text": "тоже интересует данный вопрос\n\nполя для прикрепления ссылки на репозитории или развёрнутый стенд - нет, а сам репозиторий не влезет в ограниченные 18 МБ",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "тоже интересует данный вопрос\n\nполя для прикрепления ссылки на репозитории или развёрнутый стенд - нет, а сам репозиторий не влезет в ограниченные 18 МБ"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T22:53:46"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8893,
+   "type": "message",
+   "date": "2026-10-22T19:52:29",
+   "date_unixtime": "1792687949",
+   "edited": "2026-10-22T22:54:02",
+   "edited_unixtime": "1792698842",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 8888,
+   "text": "сжать архив можно в 18мб, + ссылку на репозиторий можно оставить в README.txt или подписать ссылка на репу, + если есть видео демонстрация или задеплоено на VPS какой нибудь, можно и там ссылку оставить",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "сжать архив можно в 18мб, + ссылку на репозиторий можно оставить в README.txt или подписать ссылка на репу, + если есть видео демонстрация или задеплоено на VPS какой нибудь, можно и там ссылку оставить"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T22:54:02"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8898,
+   "type": "message",
+   "date": "2026-10-22T19:58:22",
+   "date_unixtime": "1792688302",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 8888,
+   "text": "Сюда не репозиторий грузится, а презентация(обрати внимание на форматы)",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Сюда не репозиторий грузится, а презентация(обрати внимание на форматы)"
+    }
+   ]
+  },
+  {
+   "id": 8899,
+   "type": "message",
+   "date": "2026-10-22T19:58:37",
+   "date_unixtime": "1792688317",
+   "edited": "2026-10-22T22:54:12",
+   "edited_unixtime": "1792698852",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 8898,
+   "text": "презентация не обязательная по ТЗ",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "презентация не обязательная по ТЗ"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T22:54:12"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8900,
+   "type": "message",
+   "date": "2026-10-22T19:59:06",
+   "date_unixtime": "1792688346",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 5513,
+   "text": "Ну проект до 18 мб сжимать))), так себе затея",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Ну проект до 18 мб сжимать))), так себе затея"
+    }
+   ]
+  },
+  {
+   "id": 8901,
+   "type": "message",
+   "date": "2026-10-22T19:59:12",
+   "date_unixtime": "1792688352",
+   "edited": "2026-10-23T07:25:14",
+   "edited_unixtime": "1792729514",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5513,
+   "text": "вот и я о чём",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "вот и я о чём"
+    }
+   ]
+  },
+  {
+   "id": 8902,
+   "type": "message",
+   "date": "2026-10-22T19:59:23",
+   "date_unixtime": "1792688363",
+   "from": "Тимофей",
+   "from_id": "user5213572026",
+   "reply_to_message_id": 5513,
+   "text": "мб в понедельник форму сделают адекватную",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "мб в понедельник форму сделают адекватную"
+    }
+   ]
+  },
+  {
+   "id": 8904,
+   "type": "message",
+   "date": "2026-10-22T19:59:32",
+   "date_unixtime": "1792688372",
+   "edited": "2026-10-22T19:59:46",
+   "edited_unixtime": "1792688386",
+   "from": "Максим",
+   "from_id": "user2057625847",
+   "reply_to_message_id": 5513,
+   "text": "Закинь презу, отдельно в архиве ссылки, да и все",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Закинь презу, отдельно в архиве ссылки, да и все"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-22T19:59:46"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8908,
+   "type": "message",
+   "date": "2026-10-22T20:05:22",
+   "date_unixtime": "1792688722",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 8888,
+   "text": "\"или архивом при наличии приложения\"",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "\"или архивом при наличии приложения\""
+    }
+   ]
+  },
+  {
+   "id": 8913,
+   "type": "message",
+   "date": "2026-10-22T20:26:49",
+   "date_unixtime": "1792690009",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 8898,
+   "text": "и вроде презентация не обязательна, орги говорили",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "и вроде презентация не обязательна, орги говорили"
+    }
+   ]
+  },
+  {
+   "id": 8914,
+   "type": "message",
+   "date": "2026-10-22T20:27:26",
+   "date_unixtime": "1792690046",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6576,
+   "text": ".",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "."
+    }
+   ]
+  },
+  {
+   "id": 8915,
+   "type": "message",
+   "date": "2026-10-22T20:27:47",
+   "date_unixtime": "1792690067",
+   "edited": "2026-10-22T22:54:30",
+   "edited_unixtime": "1792698870",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 6576,
+   "text": ".",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "."
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T22:54:30"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8916,
+   "type": "message",
+   "date": "2026-10-22T20:27:57",
+   "date_unixtime": "1792690077",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 5513,
+   "text": "крч вот",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "крч вот"
+    }
+   ]
+  },
+  {
+   "id": 8939,
+   "type": "message",
+   "date": "2026-10-22T21:16:38",
+   "date_unixtime": "1792692998",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Сегодня нужно прикрепить гит им или 26 дедлайн?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Сегодня нужно прикрепить гит им или 26 дедлайн?"
+    }
+   ]
+  },
+  {
+   "id": 8949,
+   "type": "message",
+   "date": "2026-10-22T21:34:35",
+   "date_unixtime": "1792694075",
+   "edited": "2026-10-22T22:55:23",
+   "edited_unixtime": "1792698923",
+   "from": "EnsiZeroGravity",
+   "from_id": "user7688850960",
+   "reply_to_message_id": 8939,
+   "text": "В любое время можешь прикрепить до 26",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "В любое время можешь прикрепить до 26"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": ",",
+        "from_id": "user5062148026",
+        "date": "2026-10-22T22:55:23"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 8950,
+   "type": "message",
+   "date": "2026-10-22T21:34:43",
+   "date_unixtime": "1792694083",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "понял",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "понял"
+    }
+   ]
+  },
+  {
+   "id": 8951,
+   "type": "message",
+   "date": "2026-10-22T21:34:57",
+   "date_unixtime": "1792694097",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо"
+    }
+   ]
+  },
+  {
+   "id": 9011,
+   "type": "message",
+   "date": "2026-10-23T01:01:02",
+   "date_unixtime": "1792706462",
+   "edited": "2026-10-23T01:18:06",
+   "edited_unixtime": "1792707486",
+   "from": "Кирилл",
+   "from_id": "user2102723714",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте, требуется ли в решении лендинг, который будет перекидывать на форму входа в ЛК/ сам ЛК?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте, требуется ли в решении лендинг, который будет перекидывать на форму входа в ЛК/ сам ЛК?"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "😁",
+      "recent": [
+       {
+        "from": "Dmitry",
+        "from_id": "user720118745",
+        "date": "2026-10-23T01:41:25"
+       },
+       {
+        "from": "alex",
+        "from_id": "user7107742029",
+        "date": "2026-10-23T01:18:06"
+       }
+      ]
+     },
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👎",
+      "recent": [
+       {
+        "from": "Homosapiens",
+        "from_id": "user704034692",
+        "date": "2026-10-23T02:21:40"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9031,
+   "type": "message",
+   "date": "2026-10-23T07:46:00",
+   "date_unixtime": "1792730760",
+   "from": "Ефим",
+   "from_id": "user1065302669",
+   "reply_to_message_id": 5513,
+   "text": "Здравствуйте! В кейсе «Умный кредитный кабинет» на стр. 7 сказано показать на демо, как меняется новостная лента под клиента. В остальном тексте кейса про ленту ничего нет. Это обязательное требование для нашего кейса или фраза осталась от другого задания?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Здравствуйте! В кейсе «Умный кредитный кабинет» на стр. 7 сказано показать на демо, как меняется новостная лента под клиента. В остальном тексте кейса про ленту ничего нет. Это обязательное требование для нашего кейса или фраза осталась от другого задания?"
+    }
+   ]
+  },
+  {
+   "id": 9080,
+   "type": "message",
+   "date": "2026-10-23T09:48:36",
+   "date_unixtime": "1792738116",
+   "edited": "2026-10-23T15:51:31",
+   "edited_unixtime": "1792759891",
+   "from": "Дамир",
+   "from_id": "user5668984029",
+   "reply_to_message_id": 5513,
+   "text": "Говорили что относится к другому кейсу",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Говорили что относится к другому кейсу"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👍",
+      "recent": [
+       {
+        "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+        "from_id": "channel2399677653",
+        "date": "2026-10-23T15:51:31"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9094,
+   "type": "message",
+   "date": "2026-10-23T10:20:23",
+   "date_unixtime": "1792740023",
+   "from": "Ефим",
+   "from_id": "user1065302669",
+   "reply_to_message_id": 9080,
+   "text": "а я понял",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "а я понял"
+    }
+   ]
+  },
+  {
+   "id": 9096,
+   "type": "message",
+   "date": "2026-10-23T10:21:21",
+   "date_unixtime": "1792740081",
+   "from": "Ефим",
+   "from_id": "user1065302669",
+   "reply_to_message_id": 5513,
+   "text": "Спасибо",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо"
+    }
+   ]
+  },
+  {
+   "id": 9339,
+   "type": "message",
+   "date": "2026-10-23T15:50:21",
+   "date_unixtime": "1792759821",
+   "edited": "2026-10-23T15:53:59",
+   "edited_unixtime": "1792760039",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 8888,
+   "text": "здравствуйте, можно сделать презентацию с одним слайдом где будут размещены все ссылки) или сдать архив с текстовым файлом \n\nили сдать гит архив решения если укладываетесь в 18мб\n\nкак угодно",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте, можно сделать презентацию с одним слайдом где будут размещены все ссылки) или сдать архив с текстовым файлом \n\nили сдать гит архив решения если укладываетесь в 18мб\n\nкак угодно"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "❤‍🔥",
+      "recent": [
+       {
+        "from": "Тимофей",
+        "from_id": "user5213572026",
+        "date": "2026-10-23T15:53:59"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9340,
+   "type": "message",
+   "date": "2026-10-23T15:51:00",
+   "date_unixtime": "1792759860",
+   "edited": "2026-10-23T15:52:35",
+   "edited_unixtime": "1792759955",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 8939,
+   "text": [
+    "26 октября до 18 00 ",
+    {
+     "type": "link",
+     "text": "https://t.me/alfafuture_hack/1/8752"
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "26 октября до 18 00 "
+    },
+    {
+     "type": "link",
+     "text": "https://t.me/alfafuture_hack/1/8752"
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "💘",
+      "recent": [
+       {
+        "from": "Дамир",
+        "from_id": "user5668984029",
+        "date": "2026-10-23T15:52:35"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9341,
+   "type": "message",
+   "date": "2026-10-23T15:51:44",
+   "date_unixtime": "1792759904",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 9011,
+   "text": "здравствуйте, как хотите",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "здравствуйте, как хотите"
+    }
+   ]
+  },
+  {
+   "id": 9358,
+   "type": "message",
+   "date": "2026-10-23T16:14:24",
+   "date_unixtime": "1792761264",
+   "from": "Изабелла",
+   "from_id": "user1459723672",
+   "reply_to_message_id": 7325,
+   "text": "А запись умный кредитный кабинет ведет на новостную аналитику",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "А запись умный кредитный кабинет ведет на новостную аналитику"
+    }
+   ]
+  },
+  {
+   "id": 9359,
+   "type": "message",
+   "date": "2026-10-23T16:14:39",
+   "date_unixtime": "1792761279",
+   "from": "Изабелла",
+   "from_id": "user1459723672",
+   "reply_to_message_id": 5513,
+   "text": "Есть ссылка на запись по умному кредитному кабинету?",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Есть ссылка на запись по умному кредитному кабинету?"
+    }
+   ]
+  },
+  {
+   "id": 9360,
+   "type": "message",
+   "date": "2026-10-23T16:14:50",
+   "date_unixtime": "1792761290",
+   "from": "Изабелла",
+   "from_id": "user1459723672",
+   "reply_to_message_id": 5513,
+   "text": "Я прочла переписку но нигде нет",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Я прочла переписку но нигде нет"
+    }
+   ]
+  },
+  {
+   "id": 9362,
+   "type": "message",
+   "date": "2026-10-23T16:15:33",
+   "date_unixtime": "1792761333",
+   "edited": "2026-10-23T16:15:59",
+   "edited_unixtime": "1792761359",
+   "from": "Never ask me",
+   "from_id": "user5945293641",
+   "reply_to_message_id": 5513,
+   "text": [
+    {
+     "type": "link",
+     "text": "https://drive.google.com/file/d/14-xjmZan6YwVvHNeBTM5QIleFvwqtnI5/view"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://drive.google.com/file/d/14-xjmZan6YwVvHNeBTM5QIleFvwqtnI5/view"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 2,
+      "emoji": "❤",
+      "recent": [
+       {
+        "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+        "from_id": "channel2399677653",
+        "date": "2026-10-23T16:17:13"
+       },
+       {
+        "from": "Изабелла",
+        "from_id": "user1459723672",
+        "date": "2026-10-23T16:15:59"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9363,
+   "type": "message",
+   "date": "2026-10-23T16:15:58",
+   "date_unixtime": "1792761358",
+   "edited": "2026-10-23T16:16:08",
+   "edited_unixtime": "1792761368",
+   "from": "Изабелла",
+   "from_id": "user1459723672",
+   "reply_to_message_id": 9362,
+   "text": "Спасибо!!!!!",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо!!!!!"
+    }
+   ],
+   "reactions": [
+     {
+      "type": "emoji",
+      "count": 1,
+      "emoji": "👻",
+      "recent": [
+       {
+        "from": "Never ask me",
+        "from_id": "user5945293641",
+        "date": "2026-10-23T16:16:08"
+       }
+      ]
+     }
+    ]
+  },
+  {
+   "id": 9365,
+   "type": "message",
+   "date": "2026-10-23T16:17:33",
+   "date_unixtime": "1792761453",
+   "edited": "2026-10-23T16:17:38",
+   "edited_unixtime": "1792761458",
+   "from": "Альфа-Будущее Хакатон / Хакатон от Альфа-Банка",
+   "from_id": "channel2399677653",
+   "reply_to_message_id": 9363,
+   "text": [
+    "также вы можете почитать этот документ, в нем все вопросы-ответы собраны ",
+    {
+     "type": "link",
+     "text": "https://t.me/alfafuture_hack/5513/7988❤️"
+    },
+    ""
+   ],
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "также вы можете почитать этот документ, в нем все вопросы-ответы собраны "
+    },
+    {
+     "type": "link",
+     "text": "https://t.me/alfafuture_hack/5513/7988❤️"
+    },
+    {
+     "type": "plain",
+     "text": ""
+    }
+   ]
+  },
+  {
+   "id": 9488,
+   "type": "message",
+   "date": "2026-10-23T18:54:57",
+   "date_unixtime": "1792770897",
+   "from": "Изабелла",
+   "from_id": "user1459723672",
+   "reply_to_message_id": 9365,
+   "text": "Спасибо! ❤️",
+   "text_entities": [
+    {
+     "type": "plain",
+     "text": "Спасибо! ❤️"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "formatter": true,
+  "experimental": { "todo": true },
+  "watcher": {
+    "ignore": ["**/node_modules/**", "**/.venv/**", "**/dist/**", "**/__pycache__/**"]
+  },
+  "permissions": [
+    // Опасные shell-команды: спросить или запретить
+    { "action": "shell", "resource": "git push *", "effect": "ask" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "ask" },
+    { "action": "shell", "resource": "docker system prune*", "effect": "deny" },
+    // Исходники кейса и правила харнесса агентам не менять
+    { "action": "edit", "resource": "SPEC_FOR_AGENT.md", "effect": "deny" },
+    { "action": "edit", "resource": "QUICK_GUIDE.md", "effect": "deny" },
+    { "action": "edit", "resource": "src/*", "effect": "deny" },
+    { "action": "edit", "resource": "AGENTS.md", "effect": "ask" },
+    { "action": "edit", "resource": "openspec/config.yaml", "effect": "ask" }
+  ],
+  "mcp": {
+    "servers": {
+      // Актуальная документация библиотек (FastAPI, React, @alfalab/core-components)
+      "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" },
+      // Проверка UI в браузере (E2E-сценарий клиента и банка). Включить, когда появится фронт.
+      "playwright": {
+        "type": "local",
+        "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"],
+        "disabled": true
+      }
+    }
+  }
+}

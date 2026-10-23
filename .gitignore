@@ -1,0 +1,31 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Env / секреты
+.env
+.env.*
+!.env.example
+
+# Локальные артефакты
+*.db
+*.sqlite3
+.DS_Store
+*.log
+
+# OpenCode
+.opencode/node_modules/
+
+# Песочница openspec
+/tmp/

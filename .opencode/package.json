@@ -1,0 +1,13 @@
+{
+  "name": "alphaxak-opencode-harness",
+  "private": true,
+  "type": "module",
+  "description": "OpenCode harness for the alphaXak repo: feedback-loop plugin + type-check tooling",
+  "dependencies": {
+    "@opencode/plugin": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
