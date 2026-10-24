@@ -1,6 +1,7 @@
 import { QueryClientProvider, type QueryClient } from '@tanstack/react-query';
 import { useState, type ReactNode } from 'react';
 import { createQueryClient } from './api/query-client';
+import { ApiProvider } from './api/provider';
 import { SessionProvider } from './auth/session';
 
 export function AppProviders({ children, onSessionExpired, queryClient, initialToken }: {
@@ -13,7 +14,7 @@ export function AppProviders({ children, onSessionExpired, queryClient, initialT
   return (
     <QueryClientProvider client={client}>
       <SessionProvider onExpired={onSessionExpired} initialToken={initialToken}>
-        {children}
+        <ApiProvider>{children}</ApiProvider>
       </SessionProvider>
     </QueryClientProvider>
   );
