@@ -19,10 +19,10 @@ export function AppLayout() {
           <p className="nav-caption">КОНТУР</p>
           <nav className="context-nav" aria-label="Выбор контура">
             <Link to="/client" className={!bank ? 'context-link selected' : 'context-link'} aria-current={!bank ? 'page' : undefined}>Клиент</Link>
-            <Link to="/bank/applications" aria-current={bank ? 'page' : undefined} className={bank ? 'context-link selected' : 'context-link'}>Банк</Link>
+            <Link to="/bank/applications" aria-current={bank ? 'page' : undefined} className={bank ? 'context-link selected' : 'context-link'}>Сотрудник банка</Link>
           </nav>
-          <p className="nav-caption section-caption">{bank ? 'РАБОЧЕЕ МЕСТО БАНКА' : 'МОЙ КАБИНЕТ'}</p>
-          <nav className="section-nav" aria-label={bank ? 'Разделы банка' : 'Разделы клиента'}>
+          <p className="nav-caption section-caption">{bank ? 'Рабочее место кредитного специалиста' : 'МОЙ КАБИНЕТ'}</p>
+          <nav className="section-nav" aria-label={bank ? 'Разделы сотрудника банка' : 'Разделы клиента'}>
             {bank ? <>
               <NavLink to="/bank/applications" end><span aria-hidden="true">≡</span>Очередь заявок</NavLink>
               <NavLink to="/bank/metrics"><span aria-hidden="true">▥</span>Метрики конвейера</NavLink>
@@ -36,7 +36,7 @@ export function AppLayout() {
             <p>Знакомство с кабинетом</p>
             <span>Без авторизации и банковских данных</span>
           </div>
-          <div className="sidebar-footer">Клиент и банк — в одном кабинете</div>
+          <div className="sidebar-footer">Клиент и сотрудник — в одном кабинете</div>
         </aside>
         <main id="main" className="main-content" tabIndex={-1}>
           <Outlet />

@@ -10,7 +10,7 @@ export function PlaceholderPage({ title, description, bank = false }: {
   return (
     <>
       <div className="page-heading">
-        <p className="eyebrow">{bank ? 'БАНКОВСКИЙ КОНТУР' : 'КЛИЕНТСКИЙ КОНТУР'}</p>
+        <p className="eyebrow">{bank ? 'СОТРУДНИК БАНКА' : 'КЛИЕНТСКИЙ КОНТУР'}</p>
         <TitleDesktop tag="h1" view="large" font="system" defaultMargins={false}>{title}</TitleDesktop>
         <Text tag="p" view="primary-large" className="page-description">{description}</Text>
         {id && <p className="identifier">Идентификатор: <span>{id}</span></p>}

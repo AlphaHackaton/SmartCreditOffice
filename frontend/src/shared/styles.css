@@ -17,10 +17,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #2355ba; outline-offs
 .sidebar { padding: 32px 20px 20px; border-right: 1px solid #e7e8eb; background: white; display: flex; flex-direction: column; }
 .nav-caption { color: #737984; font-size: 10px; font-weight: 650; letter-spacing: 1.2px; margin: 0 0 14px; }
 .sidebar > .nav-caption { padding-left: 12px; }
-.context-nav { display: flex; background: #f0f1f3; border-radius: 9px; padding: 4px; gap: 4px; }
-.context-link { flex: 1; text-align: center; padding: 10px 8px; font-size: 13px; color: #686f7a; border-radius: 6px; }
+.context-nav { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.5fr); background: #f0f1f3; border-radius: 9px; padding: 4px; gap: 4px; }
+.context-link { text-align: center; padding: 10px 7px; font-size: 12px; white-space: nowrap; color: #686f7a; border-radius: 6px; }
 .context-link.selected { background: white; color: #202328; font-weight: 650; box-shadow: 0 1px 3px #00000012; }
-.section-caption { margin-top: 38px; }
+.section-caption { margin-top: 38px; line-height: 1.7; }
 .section-nav { display: flex; flex-direction: column; gap: 6px; }
 .section-nav a { display: flex; align-items: center; gap: 12px; padding: 13px 12px; border-radius: 8px; font-size: 13px; color: #5b626d; }
 .section-nav a span { font-size: 20px; width: 22px; text-align: center; line-height: 20px; color: #818894; }

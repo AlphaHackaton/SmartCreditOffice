@@ -41,9 +41,10 @@ describe('навигация кабинета', () => {
   it('переключает контуры и отмечает активную ссылку', async () => {
     const user = userEvent.setup();
     const router = renderRoute('/client');
-    await user.click(screen.getByRole('link', { name: 'Банк' }));
+    await user.click(screen.getByRole('link', { name: 'Сотрудник банка' }));
     expect(router.state.location.pathname).toBe('/bank/applications');
-    const menu = screen.getByRole('navigation', { name: 'Разделы банка' });
+    expect(screen.getByText('Рабочее место кредитного специалиста')).toBeInTheDocument();
+    const menu = screen.getByRole('navigation', { name: 'Разделы сотрудника банка' });
     expect(within(menu).getByRole('link', { name: 'Очередь заявок' })).toHaveAttribute('aria-current', 'page');
     await user.click(within(menu).getByRole('link', { name: 'Метрики конвейера' }));
     expect(screen.getByRole('heading', { name: 'Метрики конвейера' })).toBeInTheDocument();
