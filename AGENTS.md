@@ -56,3 +56,8 @@
 - Backend dev: `cd backend && uv run uvicorn app.main:app --reload`
 - Frontend dev: `cd frontend && npm run dev`
 - Всё: `docker compose up --build`
+
+## Работа через Codex
+- OpenSpec запускается навыками `openspec-propose`, `openspec-apply-change` и `openspec-archive-change`; общие артефакты остаются в `openspec/`.
+- Плагин `.opencode/plugins/feedback/` работает только в OpenCode. В Codex используй MCP-сервер `smartcredit-harness` (`scripts/harness-mcp.mjs`): инструмент `harness_quick_check` после правок и `harness_check` перед завершением.
+- Если MCP ещё не подключён к текущему чату, выполняй `bash scripts/quick-check.sh <файл>` после каждой правки и читай вывод; подключение сервера и проверка протокола описаны в `DEV_CODEX.md`. Финальную проверку запускай через `harness_check` после подключения сервера.
