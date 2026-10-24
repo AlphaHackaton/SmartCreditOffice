@@ -1,0 +1,292 @@
+{
+  "personas": [
+    {
+      "id": "p1_ideal",
+      "login": "p1",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "770123456703",
+        "legal_form": "IP",
+        "registered_at": "2020-08-24",
+        "okved": "47.19"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": "21000000.00",
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "0",
+          "max_overdue_days_12m": "0",
+          "max_overdue_days_24m": "0",
+          "inquiries_30d": "1",
+          "monthly_payments": "0.00",
+          "active_loans": "0"
+        }
+      ],
+      "account": {
+        "inflows": [
+          "1620000.00", "1980000.00", "1620000.00", "1980000.00", "1620000.00", "1980000.00",
+          "1620000.00", "1980000.00", "1620000.00", "1980000.00", "1620000.00", "1980000.00"
+        ],
+        "outflows": [
+          "1170000.00", "1530000.00", "1170000.00", "1530000.00", "1170000.00", "1530000.00",
+          "1170000.00", "1530000.00", "1170000.00", "1530000.00", "1170000.00", "1530000.00"
+        ]
+      },
+      "request": { "product_code": "WC_FLEX", "amount": "2000000.00", "term_months": "24" },
+      "expected": {
+        "outcome": "APPROVED",
+        "route": "AUTO",
+        "score": "100",
+        "grade": "A",
+        "offer_kinds": ["REQUESTED"],
+        "binding": "DSCR",
+        "top_reasons": [],
+        "review_flags": []
+      }
+    },
+    {
+      "id": "p2_longer_term",
+      "login": "p2",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "7703456784",
+        "legal_form": "OOO",
+        "registered_at": "2022-10-24",
+        "okved": "46.90"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": "19200000.00",
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "0",
+          "max_overdue_days_12m": "12",
+          "max_overdue_days_24m": "12",
+          "inquiries_30d": "2",
+          "monthly_payments": "40000.00",
+          "active_loans": "1"
+        }
+      ],
+      "account": {
+        "inflows": [
+          "780000.00", "1620000.00", "780000.00", "1620000.00", "780000.00", "1620000.00",
+          "780000.00", "1620000.00", "780000.00", "1620000.00", "780000.00", "1620000.00"
+        ],
+        "outflows": [
+          "580000.00", "1420000.00", "580000.00", "1420000.00", "580000.00", "1420000.00",
+          "580000.00", "1420000.00", "580000.00", "1420000.00", "580000.00", "1420000.00"
+        ]
+      },
+      "request": { "product_code": "WC_FLEX", "amount": "2500000.00", "term_months": "12" },
+      "expected": {
+        "outcome": "COUNTER_OFFER",
+        "route": "AUTO",
+        "score": "67",
+        "grade": "B",
+        "offer_kinds": ["LONGER_TERM", "REDUCED_AMOUNT"],
+        "binding": "DSCR",
+        "top_reasons": ["DSCR_BELOW_MIN", "BKI_PAST_OVERDUE_MINOR", "DEBT_BURDEN_MODERATE"],
+        "review_flags": []
+      }
+    },
+    {
+      "id": "p3_reduced",
+      "login": "p3",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "7704567896",
+        "legal_form": "OOO",
+        "registered_at": "2021-10-24",
+        "okved": "41.20"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": "32600000.00",
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "0",
+          "max_overdue_days_12m": "0",
+          "max_overdue_days_24m": "0",
+          "inquiries_30d": "6",
+          "monthly_payments": "250000.00",
+          "active_loans": "1"
+        }
+      ],
+      "account": {
+        "inflows": [
+          "1625000.00", "3375000.00", "1625000.00", "3375000.00", "1625000.00", "3375000.00",
+          "1625000.00", "3375000.00", "1625000.00", "3375000.00", "1625000.00", "3375000.00"
+        ],
+        "outflows": [
+          "1125000.00", "2875000.00", "1125000.00", "2875000.00", "1125000.00", "2875000.00",
+          "1125000.00", "2875000.00", "1125000.00", "2875000.00", "1125000.00", "2875000.00"
+        ]
+      },
+      "request": { "product_code": "WC_FLEX", "amount": "4000000.00", "term_months": "36" },
+      "expected": {
+        "outcome": "COUNTER_OFFER",
+        "route": "AUTO",
+        "score": "72",
+        "grade": "B",
+        "offer_kinds": ["REDUCED_AMOUNT"],
+        "binding": "DSCR",
+        "top_reasons": ["DSCR_BELOW_MIN", "DEBT_BURDEN_HIGH", "TURNOVER_MODERATE"],
+        "review_flags": []
+      }
+    },
+    {
+      "id": "p4_overdue",
+      "login": "p4",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "770234567818",
+        "legal_form": "IP",
+        "registered_at": "2022-10-24",
+        "okved": "47.11"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": "14400000.00",
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "45",
+          "max_overdue_days_12m": "45",
+          "max_overdue_days_24m": "45",
+          "inquiries_30d": "1",
+          "monthly_payments": "60000.00",
+          "active_loans": "1"
+        }
+      ],
+      "account": {
+        "inflows": [
+          "1020000.00", "1380000.00", "1020000.00", "1380000.00", "1020000.00", "1380000.00",
+          "1020000.00", "1380000.00", "1020000.00", "1380000.00", "1020000.00", "1380000.00"
+        ],
+        "outflows": [
+          "720000.00", "1080000.00", "720000.00", "1080000.00", "720000.00", "1080000.00",
+          "720000.00", "1080000.00", "720000.00", "1080000.00", "720000.00", "1080000.00"
+        ]
+      },
+      "request": { "product_code": "WC_FLEX", "amount": "1000000.00", "term_months": "12" },
+      "expected": {
+        "outcome": "REJECTED",
+        "route": "AUTO",
+        "score": null,
+        "grade": null,
+        "offer_kinds": [],
+        "binding": null,
+        "top_reasons": ["BKI_CURRENT_OVERDUE"],
+        "review_flags": []
+      }
+    },
+    {
+      "id": "p5_young",
+      "login": "p5",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "7705678905",
+        "legal_form": "OOO",
+        "registered_at": "2026-08-24",
+        "okved": "62.01"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": null,
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "0",
+          "max_overdue_days_12m": "0",
+          "max_overdue_days_24m": "0",
+          "inquiries_30d": "0",
+          "monthly_payments": "0.00",
+          "active_loans": "0"
+        }
+      ],
+      "account": {
+        "inflows": ["300000.00", "450000.00"],
+        "outflows": ["150000.00", "300000.00"]
+      },
+      "request": { "product_code": "WC_FLEX", "amount": "1000000.00", "term_months": "12" },
+      "expected": {
+        "outcome": "REJECTED",
+        "route": "AUTO",
+        "score": null,
+        "grade": null,
+        "offer_kinds": [],
+        "binding": null,
+        "top_reasons": ["BUSINESS_TOO_YOUNG", "INSUFFICIENT_DATA"],
+        "review_flags": []
+      }
+    },
+    {
+      "id": "p6_mismatch",
+      "login": "p6",
+      "as_of": "2026-10-24",
+      "company": {
+        "inn": "7706789012",
+        "legal_form": "OOO",
+        "registered_at": "2019-10-24",
+        "okved": "62.03"
+      },
+      "fns": {
+        "status": "ACTIVE",
+        "accounts_blocked": false,
+        "declared_revenue_12m": "36000000.00",
+        "tax_debt": "0.00"
+      },
+      "bki": [
+        {
+          "subject": "COMPANY",
+          "current_overdue_days": "0",
+          "max_overdue_days_12m": "0",
+          "max_overdue_days_24m": "0",
+          "inquiries_30d": "1",
+          "monthly_payments": "20000.00",
+          "active_loans": "1"
+        }
+      ],
+      "account": {
+        "inflows": [
+          "930000.00", "2070000.00", "930000.00", "2070000.00", "930000.00", "2070000.00",
+          "930000.00", "2070000.00", "930000.00", "2070000.00", "930000.00", "2070000.00"
+        ],
+        "outflows": [
+          "580000.00", "1720000.00", "580000.00", "1720000.00", "580000.00", "1720000.00",
+          "580000.00", "1720000.00", "580000.00", "1720000.00", "580000.00", "1720000.00"
+        ]
+      },
+      "request": { "product_code": "CAPEX", "amount": "3000000.00", "term_months": "24" },
+      "expected": {
+        "outcome": "APPROVED",
+        "route": "UNDERWRITING",
+        "score": "77",
+        "grade": "A",
+        "offer_kinds": ["REQUESTED"],
+        "binding": "DSCR",
+        "top_reasons": ["FNS_MISMATCH", "TURNOVER_MODERATE"],
+        "review_flags": ["FNS_MISMATCH"]
+      }
+    }
+  ]
+}
