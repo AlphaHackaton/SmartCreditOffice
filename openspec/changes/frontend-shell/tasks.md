@@ -4,8 +4,8 @@
 
 ## 1. Основа frontend
 
-- [ ] 1.1 (60–90 мин) Создать frontend на React 18 + TypeScript strict + Vite; подключить совместимые Alfa Core Components, TanStack Query, react-router, ESLint, Vitest, jsdom и Testing Library. Проверить peerDependencies и документированные импорты/CSS без обхода конфликтов. Настроить единый tsconfig, игноры eslint и npm-скрипты из design.md; сохранить package-lock.json и сразу обновить THIRD_PARTY_NOTICES.md. Критерий: `cd frontend && npm ci && npm run lint && npm run typecheck && npm run build`, вывод `npm ls react react-dom @alfalab/core-components` без invalid peer dependencies.
-- [ ] 1.2 (30–60 мин) Создать корневые провайдеры QueryClient/сессии и тестовое окружение с изолированным кешем; отключить автоматический retry. Документировать запуск и ограничения каркаса в frontend/README.md. Критерий: smoke-тест рендера проходит через `npm run test -- --run`, повторный рендер сохраняет QueryClient, новые тесты не наследуют кеш предыдущих; команда запуска из README открывает frontend без backend.
+- [x] 1.1 (60–90 мин) Создать frontend на React 18 + TypeScript strict + Vite; подключить совместимые Alfa Core Components, TanStack Query, react-router, ESLint, Vitest, jsdom и Testing Library. Проверить peerDependencies и документированные импорты/CSS без обхода конфликтов. Настроить единый tsconfig, игноры eslint и npm-скрипты из design.md; сохранить package-lock.json и сразу обновить THIRD_PARTY_NOTICES.md. Критерий: `cd frontend && npm ci && npm run lint && npm run typecheck && npm run build`, вывод `npm ls react react-dom @alfalab/core-components-typography @alfalab/core-components-button` без invalid peer dependencies.
+- [x] 1.2 (30–60 мин) Создать корневые провайдеры QueryClient/сессии и тестовое окружение с изолированным кешем; отключить автоматический retry. Документировать запуск и ограничения каркаса в frontend/README.md. Критерий: smoke-тест рендера проходит через `npm run test -- --run`, повторный рендер сохраняет QueryClient, новые тесты не наследуют кеш предыдущих; команда запуска из README открывает frontend без backend.
 
 ## 2. Desktop layout и маршруты
 

@@ -22,7 +22,7 @@
 
 ### 1. Зависимости и проверяемая сборка
 
-React и React DOM фиксируются на совместимых версиях 18.x. Vite с React-плагином, TypeScript strict, Alfa Core Components, TanStack Query и react-router следуют заданному стеку. Конкретные совместимые версии фиксируются lock-файлом при apply; перед установкой проверяются peerDependencies, документация импорта компонентов и CSS Alfa. Применять `--force`/`--legacy-peer-deps` для обхода несовместимости нельзя.
+React и React DOM фиксируются на совместимых версиях 18.x. Vite с React-плагином, TypeScript strict, Alfa Core Components, TanStack Query и react-router следуют заданному стеку. По явному решению пользователя при apply используются официальные отдельные пакеты `@alfalab/core-components-typography`, `@alfalab/core-components-button` и `@alfalab/core-components-vars`: общий пакет 50.38.0 тянет `react-virtual@2.10.4` с несовместимым peer React 16/17. Отдельные пакеты сохраняют дизайн-систему и React 18 без обхода peer-проверок. Конкретные совместимые версии фиксируются lock-файлом при apply; перед установкой проверяются peerDependencies, документация импорта компонентов и CSS Alfa. Применять `--force`/`--legacy-peer-deps` для обхода несовместимости нельзя.
 
 Dev-инструменты: ESLint с конфигурацией TypeScript/React, Vitest, jsdom, Testing Library и openapi-typescript. Один `tsconfig.json` с `include: ["src", "vite.config.ts"]`, без project references; eslint игнорирует `dist` и генерируемый `src/api/schema.d.ts`. Скрипты: `dev`, `build`, `preview`, `lint`, `typecheck`, `test`, `gen:api`. `build` включает проверку типов и Vite-сборку. Установка воспроизводится через `npm ci`.
 
