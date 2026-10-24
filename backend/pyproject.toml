@@ -3,10 +3,15 @@ name = "backend"
 version = "0.1.0"
 description = "Умный кредитный кабинет предпринимателя — backend (домен кредитного решения)"
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic>=2.10",
+    "uvicorn[standard]>=0.32",
+]
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28",
     "mypy>=1.13",
     "pytest>=8.3",
     "ruff>=0.8",
