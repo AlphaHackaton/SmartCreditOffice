@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@alfalab/core-components-button": "13.2.4",
+    "@alfalab/core-components-input": "17.2.2",
     "@alfalab/core-components-typography": "6.0.13",
     "@alfalab/core-components-vars": "11.4.1",
     "@tanstack/react-query": "5.104.5",
