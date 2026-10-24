@@ -32,7 +32,7 @@ Runtime включается в браузерную сборку; dev-only — 
 | [@acemir/cssom](https://www.npmjs.com/package/@acemir/cssom) | 0.9.32 | MIT | транзитивная, dev-only |
 | [@adobe/css-tools](https://www.npmjs.com/package/@adobe/css-tools) | 4.5.0 | MIT | транзитивная, dev-only |
 | [@alfalab/core-components-button](https://www.npmjs.com/package/@alfalab/core-components-button) | 13.2.4 | MIT | прямая, runtime |
-| [@alfalab/core-components-config](https://www.npmjs.com/package/@alfalab/core-components-config) | 1.1.0 | MIT | прямая, runtime |
+| [@alfalab/core-components-config](https://www.npmjs.com/package/@alfalab/core-components-config) | 1.1.0 | MIT | транзитивная, runtime |
 | [@alfalab/core-components-mq](https://www.npmjs.com/package/@alfalab/core-components-mq) | 6.0.9 | MIT | транзитивная, runtime |
 | [@alfalab/core-components-shared](https://www.npmjs.com/package/@alfalab/core-components-shared) | 2.3.0 | MIT | транзитивная, runtime |
 | [@alfalab/core-components-skeleton](https://www.npmjs.com/package/@alfalab/core-components-skeleton) | 7.0.5 | MIT | транзитивная, runtime |

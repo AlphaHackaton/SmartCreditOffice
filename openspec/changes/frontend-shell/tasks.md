@@ -23,7 +23,7 @@
 
 ## 5. Интеграционная проверка
 
-- [ ] 5.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Критерий: `harness_check` возвращает `exit 0`, `cd frontend && npm ci && npm run build && npm run test -- --run` проходит, `openspec validate frontend-shell --strict` проходит. THIRD_PARTY_NOTICES.md соответствует lock-файлу. Если API всё ещё отсутствует, docs/openapi.json не создавать и не подменять: зафиксировать этот факт в отчёте; если Dev 2 опубликовал API, получить его экспорт через штатную проверку и проверить gen:api, не меняя backend-контракт. Проверить Git-ignore новых артефактов перед будущим коммитом; коммит только по отдельной просьбе пользователя.
+- [x] 5.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Критерий: `harness_check` возвращает `exit 0`, `cd frontend && npm ci && npm run build && npm run test -- --run` проходит, `openspec validate frontend-shell --strict` проходит. THIRD_PARTY_NOTICES.md соответствует lock-файлу. Если API всё ещё отсутствует, docs/openapi.json не создавать и не подменять: зафиксировать этот факт в отчёте; если Dev 2 опубликовал API, получить его экспорт через штатную проверку и проверить gen:api, не меняя backend-контракт. Проверить Git-ignore новых артефактов перед будущим коммитом; коммит только по отдельной просьбе пользователя.
 
 ## Workflow follow-up
 
