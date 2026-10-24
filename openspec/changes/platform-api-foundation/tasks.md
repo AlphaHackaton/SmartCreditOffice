@@ -6,7 +6,7 @@
 
 ## 2. Infrastructure and persistence
 
-- [ ] Добавить Dockerfile, Compose, `.env.example`, PostgreSQL settings и healthcheck; проверка: `docker compose config -q`.
+- [x] Добавить Dockerfile, Compose, `.env.example`, PostgreSQL settings и healthcheck; проверка: `docker compose config -q`.
 - [ ] Добавить SQLAlchemy base/session/models и Alembic initial migration; проверка: migration upgrade в Compose.
 - [ ] Добавить repositories, status history и optimistic version conflict; проверка: сервисные тесты с fake session/PostgreSQL.
 
