@@ -11,9 +11,10 @@
     { "action": "shell", "resource": "rm -rf *", "effect": "ask" },
     { "action": "shell", "resource": "docker system prune*", "effect": "deny" },
     // Исходники кейса и правила харнесса агентам не менять
-    { "action": "edit", "resource": "SPEC_FOR_AGENT.md", "effect": "deny" },
-    { "action": "edit", "resource": "QUICK_GUIDE.md", "effect": "deny" },
-    { "action": "edit", "resource": "src/*", "effect": "deny" },
+    { "action": "edit", "resource": "docs/SPEC_FOR_AGENT.md", "effect": "deny" },
+    { "action": "edit", "resource": "docs/QUICK_GUIDE.md", "effect": "deny" },
+    { "action": "edit", "resource": "docs/ARCHITECTURE.md", "effect": "deny" },
+    { "action": "edit", "resource": "docs/case_materials/*", "effect": "deny" },
     { "action": "edit", "resource": "AGENTS.md", "effect": "ask" },
     { "action": "edit", "resource": "openspec/config.yaml", "effect": "ask" }
   ],
