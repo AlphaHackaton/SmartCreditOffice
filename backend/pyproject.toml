@@ -4,8 +4,13 @@ version = "0.1.0"
 description = "Умный кредитный кабинет предпринимателя — backend (домен кредитного решения)"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "alembic>=1.20.1",
+    "bcrypt>=5.0.0",
     "fastapi>=0.115",
+    "psycopg[binary]>=3.3.6",
     "pydantic>=2.10",
+    "pyjwt>=2.15.1",
+    "sqlalchemy>=2.1.6",
     "uvicorn[standard]>=0.32",
 ]
 
