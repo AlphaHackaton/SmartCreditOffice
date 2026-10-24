@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatMoney, formatPct } from './format';
+import { formatDate, formatDateTime, formatMoney, formatPct } from './format';
 
 describe('formatMoney', () => {
   it.each([
@@ -41,4 +41,40 @@ it.each([0, 12.5, NaN, Infinity, {}, [], true])('защищает форматт
   const invalid = value as unknown as string;
   expect(formatMoney(invalid)).toBe('—');
   expect(formatPct(invalid)).toBe('—');
+  expect(formatDate(invalid)).toBe('—');
+  expect(formatDateTime(invalid)).toBe('—');
+});
+
+describe('formatDate — календарь без timezone', () => {
+  it.each([
+    ['2026-10-25', '25.10.2026'],
+    ['2024-02-29', '29.02.2024'],
+    ['2000-02-29', '29.02.2000'],
+    ['0001-01-01', '01.01.0001'],
+    ['0099-12-31', '31.12.0099'],
+    ['9999-12-31', '31.12.9999'],
+  ])('отображает %s без изменения дня', (value, expected) => {
+    expect(formatDate(value)).toBe(expected);
+  });
+
+  it.each([null, undefined, '', '2026-02-29', '1900-02-29', '2100-02-29', '2026-04-31', '2026-00-01', '2026-13-01', '2026-01-00', '2026-01-32', '0000-01-01', '10000-01-01', '2026-1-01', '25.10.2026', '2026-10-25\n', '2026-10-25T00:00:00Z'])('отклоняет %s вместо нормализации', (value) => {
+    expect(formatDate(value)).toBe('—');
+  });
+});
+
+describe('formatDateTime — Europe/Moscow', () => {
+  it.each([
+    ['2026-10-24T22:30:00Z', '25.10.2026, 01:30'],
+    ['2026-10-25T01:30:00+03:00', '25.10.2026, 01:30'],
+    ['2026-10-24T17:30:00-05:00', '25.10.2026, 01:30'],
+    ['2026-12-31T21:00:00Z', '01.01.2027, 00:00'],
+    ['2026-01-01T00:15:00+05:00', '31.12.2025, 22:15'],
+    ['2024-02-29T23:59:59.123456Z', '01.03.2024, 02:59'],
+  ])('переводит %s в московское время', (value, expected) => {
+    expect(formatDateTime(value)).toBe(expected);
+  });
+
+  it.each([null, undefined, '', '2026-10-25', '2026-10-25T01:30:00', '2026-10-25 01:30:00Z', '2026-10-25T01:30Z', '2026-02-29T00:00:00Z', '1900-02-29T00:00:00Z', '0000-01-01T00:00:00Z', '2026-04-31T00:00:00Z', '2026-10-25T24:00:00Z', '2026-10-25T01:60:00Z', '2026-10-25T01:30:60Z', '2026-10-25T01:30:00+24:00', '2026-10-25T01:30:00+03:60', '2026-10-25T01:30:00+0300', '2026-10-25T01:30:00.Z', '2026-10-25T01:30:00Z\n'])('отклоняет %s без локальной интерпретации', (value) => {
+    expect(formatDateTime(value)).toBe('—');
+  });
 });

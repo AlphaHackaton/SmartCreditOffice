@@ -31,3 +31,47 @@ export function formatPct(value: Value): string {
   const fraction = decimal.fraction.replace(/0+$/, '');
   return `${decimal.sign}${decimal.integer}${fraction ? `,${fraction}` : ''}${NBSP}%`;
 }
+
+function parseCalendar(value: Value) {
+  if (typeof value !== 'string') return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match || match[0] !== value) return null;
+  const [, year, month, day] = match;
+  const y = Number(year);
+  const m = Number(month);
+  const d = Number(day);
+  const leap = y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0);
+  const daysInMonth = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (y < 1 || m < 1 || m > 12 || d < 1 || d > daysInMonth[m - 1]) return null;
+  return { year, month, day };
+}
+
+export function formatDate(value: Value): string {
+  const calendar = parseCalendar(value);
+  if (!calendar) return UNAVAILABLE_VALUE;
+  return `${calendar.day}.${calendar.month}.${calendar.year}`;
+}
+
+const moscowDateTime = new Intl.DateTimeFormat('ru-RU', {
+  timeZone: 'Europe/Moscow',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  hourCycle: 'h23',
+});
+
+export function formatDateTime(value: Value): string {
+  if (typeof value !== 'string') return UNAVAILABLE_VALUE;
+  const match = /^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-]\d{2}:\d{2})$/.exec(value);
+  if (!match || match[0] !== value || !parseCalendar(match[1])) return UNAVAILABLE_VALUE;
+  const [, , hours, minutes, seconds, zone] = match;
+  if (Number(hours) > 23 || Number(minutes) > 59 || Number(seconds) > 59) return UNAVAILABLE_VALUE;
+  if (zone !== 'Z' && (Number(zone.slice(1, 3)) > 23 || Number(zone.slice(4)) > 59)) return UNAVAILABLE_VALUE;
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) return UNAVAILABLE_VALUE;
+  const parts = moscowDateTime.formatToParts(timestamp);
+  const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)!.value;
+  return `${part('day')}.${part('month')}.${part('year').padStart(4, '0')}, ${part('hour')}:${part('minute')}`;
+}
