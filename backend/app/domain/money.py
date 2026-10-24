@@ -49,6 +49,7 @@ def _require_non_negative(name: str, value: Decimal) -> None:
 def monthly_rate(annual_rate_pct: Decimal) -> Decimal:
     """Месячная доля ставки: annual_rate_pct / 1200, без округления."""
     _require_decimal("annual_rate_pct", annual_rate_pct)
+    _require_non_negative("annual_rate_pct", annual_rate_pct)
     with _prec28():
         return annual_rate_pct / Decimal("1200")  # 100 (пцт → доля) × 12 (мес)
 
@@ -59,6 +60,7 @@ def annuity_payment(principal: Decimal, annual_rate_pct: Decimal, term_months: i
     _require_decimal("annual_rate_pct", annual_rate_pct)
     _require_term("term_months", term_months)
     _require_non_negative("principal", principal)
+    _require_non_negative("annual_rate_pct", annual_rate_pct)
     with _prec28():
         rate = monthly_rate(annual_rate_pct)
         if rate.is_zero():
@@ -73,6 +75,8 @@ def max_principal(payment: Decimal, annual_rate_pct: Decimal, term_months: int) 
     _require_decimal("payment", payment)
     _require_decimal("annual_rate_pct", annual_rate_pct)
     _require_term("term_months", term_months)
+    _require_non_negative("payment", payment)
+    _require_non_negative("annual_rate_pct", annual_rate_pct)
     with _prec28():
         rate = monthly_rate(annual_rate_pct)
         if rate.is_zero():
@@ -82,19 +86,23 @@ def max_principal(payment: Decimal, annual_rate_pct: Decimal, term_months: int) 
 
 
 def overpayment(payment: Decimal, term_months: int, principal: Decimal) -> Decimal:
-    """Переплата: payment × term_months − principal, в копейках."""
+    """Переплата: payment × term_months − principal, в копейках; не меньше 0."""
     _require_decimal("payment", payment)
     _require_decimal("principal", principal)
     _require_term("term_months", term_months)
+    _require_non_negative("payment", payment)
     _require_non_negative("principal", principal)
     with _prec28():
-        return to_kopecks(payment * term_months - principal)
+        return max(Decimal("0.00"), to_kopecks(payment * term_months - principal))
 
 
 def round_down(value: Decimal, step: Decimal) -> Decimal:
     """Округление вниз к шагу; value < 0 → 0."""
     _require_decimal("value", value)
     _require_decimal("step", step)
+    if step <= 0:
+        msg = f"step: шаг должен быть положительным ({step})"
+        raise ValueError(msg)
     with _prec28():
         if value <= 0:
             return Decimal("0")

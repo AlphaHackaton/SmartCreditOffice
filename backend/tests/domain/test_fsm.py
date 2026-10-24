@@ -5,7 +5,7 @@
 """
 
 from collections import deque
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, datetime, timedelta, tzinfo
 from itertools import product
 from typing import Final
 
@@ -262,6 +262,32 @@ def test_initial_event_rejects_naive_datetime() -> None:
 def test_status_event_rejects_naive_datetime() -> None:
     with pytest.raises(ValueError, match="таймзон"):
         StatusEvent(None, ApplicationStatus.DRAFT, Actor.CLIENT, _NAIVE, None)
+
+
+class _NoneUtcoffsetTz(tzinfo):
+    def utcoffset(self, dt: datetime | None) -> timedelta | None:
+        return None
+
+    def tzname(self, dt: datetime | None) -> str | None:
+        return "NoneTz"
+
+    def dst(self, dt: datetime | None) -> timedelta | None:
+        return None
+
+
+def test_transition_rejects_none_utcoffset_tzinfo() -> None:
+    dt_with_none_offset = datetime(2026, 10, 24, 10, 0, tzinfo=_NoneUtcoffsetTz())
+    with pytest.raises(ValueError, match="таймзон"):
+        transition(
+            ApplicationStatus.DRAFT,
+            ApplicationStatus.SUBMITTED,
+            Actor.CLIENT,
+            at=dt_with_none_offset,
+        )
+    with pytest.raises(ValueError, match="таймзон"):
+        initial_event(Actor.CLIENT, dt_with_none_offset)
+    with pytest.raises(ValueError, match="таймзон"):
+        StatusEvent(None, ApplicationStatus.DRAFT, Actor.CLIENT, dt_with_none_offset, None)
 
 
 # --- недопустимые переходы ------------------------------------------------------------

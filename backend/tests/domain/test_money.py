@@ -3,6 +3,7 @@
 from collections.abc import Callable
 from decimal import Decimal
 from itertools import pairwise
+from typing import Any, cast
 
 import pytest
 
@@ -87,19 +88,28 @@ def test_to_kopecks_is_half_up_not_bankers() -> None:
 
 #: В тесты намеренно передаётся float: деньги в домене — только Decimal.
 _FLOAT_CALLS: tuple[tuple[str, Callable[[], object]], ...] = (
-    ("monthly_rate", lambda: monthly_rate(21.0)),
-    ("annuity.principal", lambda: annuity_payment(1000.0, Decimal("21.00"), 12)),
-    ("annuity.rate", lambda: annuity_payment(Decimal("1000.00"), 21.0, 12)),
-    ("annuity.term", lambda: annuity_payment(Decimal("1000.00"), Decimal("21.00"), 12.0)),
-    ("max_principal.payment", lambda: max_principal(100.0, Decimal("21.00"), 12)),
-    ("max_principal.rate", lambda: max_principal(Decimal("100.00"), 21.0, 12)),
-    ("max_principal.term", lambda: max_principal(Decimal("100.00"), Decimal("21.00"), 12.0)),
-    ("overpayment.payment", lambda: overpayment(100.0, 12, Decimal("1000.00"))),
-    ("overpayment.term", lambda: overpayment(Decimal("100.00"), 12.0, Decimal("1000.00"))),
-    ("overpayment.principal", lambda: overpayment(Decimal("100.00"), 12, 1000.0)),
-    ("round_down.value", lambda: round_down(1219999.99, Decimal("10000.00"))),
-    ("round_down.step", lambda: round_down(Decimal("1219999.99"), 10000.0)),
-    ("to_kopecks", lambda: to_kopecks(0.005)),
+    ("monthly_rate", lambda: monthly_rate(cast(Any, 21.0))),
+    ("annuity.principal", lambda: annuity_payment(cast(Any, 1000.0), Decimal("21.00"), 12)),
+    ("annuity.rate", lambda: annuity_payment(Decimal("1000.00"), cast(Any, 21.0), 12)),
+    (
+        "annuity.term",
+        lambda: annuity_payment(Decimal("1000.00"), Decimal("21.00"), cast(Any, 12.0)),
+    ),
+    ("max_principal.payment", lambda: max_principal(cast(Any, 100.0), Decimal("21.00"), 12)),
+    ("max_principal.rate", lambda: max_principal(Decimal("100.00"), cast(Any, 21.0), 12)),
+    (
+        "max_principal.term",
+        lambda: max_principal(Decimal("100.00"), Decimal("21.00"), cast(Any, 12.0)),
+    ),
+    ("overpayment.payment", lambda: overpayment(cast(Any, 100.0), 12, Decimal("1000.00"))),
+    (
+        "overpayment.term",
+        lambda: overpayment(Decimal("100.00"), cast(Any, 12.0), Decimal("1000.00")),
+    ),
+    ("overpayment.principal", lambda: overpayment(Decimal("100.00"), 12, cast(Any, 1000.0))),
+    ("round_down.value", lambda: round_down(cast(Any, 1219999.99), Decimal("10000.00"))),
+    ("round_down.step", lambda: round_down(Decimal("1219999.99"), cast(Any, 10000.0))),
+    ("to_kopecks", lambda: to_kopecks(cast(Any, 0.005))),
 )
 
 
@@ -119,15 +129,32 @@ def test_nonpositive_term_raises_value_error(term: int) -> None:
         overpayment(Decimal("100.00"), term, Decimal("1000.00"))
 
 
-_NEGATIVE_PRINCIPALS: tuple[tuple[str, Callable[[], object]], ...] = (
+_NEGATIVE_INPUTS: tuple[tuple[str, Callable[[], object]], ...] = (
     ("annuity.principal", lambda: annuity_payment(Decimal("-1.00"), Decimal("21.00"), 12)),
+    ("annuity.rate", lambda: annuity_payment(Decimal("1000.00"), Decimal("-1.00"), 12)),
+    ("monthly_rate", lambda: monthly_rate(Decimal("-1.00"))),
+    ("max_principal.payment", lambda: max_principal(Decimal("-1.00"), Decimal("21.00"), 12)),
+    ("max_principal.rate", lambda: max_principal(Decimal("100.00"), Decimal("-1.00"), 12)),
+    ("overpayment.payment", lambda: overpayment(Decimal("-1.00"), 12, Decimal("1000.00"))),
     ("overpayment.principal", lambda: overpayment(Decimal("100.00"), 12, Decimal("-1.00"))),
 )
 
 
-@pytest.mark.parametrize(
-    ("name", "call"), _NEGATIVE_PRINCIPALS, ids=[c[0] for c in _NEGATIVE_PRINCIPALS]
-)
-def test_negative_principal_raises_value_error(name: str, call: Callable[[], object]) -> None:
+@pytest.mark.parametrize(("name", "call"), _NEGATIVE_INPUTS, ids=[c[0] for c in _NEGATIVE_INPUTS])
+def test_negative_inputs_raise_value_error(name: str, call: Callable[[], object]) -> None:
     with pytest.raises(ValueError, match="отрицательн"):
         call()
+
+
+@pytest.mark.parametrize("step", (Decimal("0.00"), Decimal("-10.00")))
+def test_nonpositive_step_raises_value_error(step: Decimal) -> None:
+    with pytest.raises(ValueError, match="шаг должен быть положительным"):
+        round_down(Decimal("10000.00"), step)
+
+
+def test_overpayment_never_negative_on_zero_rate() -> None:
+    # 100 ₽ на 12 мес при 0% дают платёж 8.33 ₽; 8.33 * 12 - 100.00 = -0.04 ₽
+    # Переплата обязана быть >= 0.00
+    payment = annuity_payment(Decimal("100.00"), Decimal("0.00"), 12)
+    assert payment == Decimal("8.33")
+    assert overpayment(payment, 12, Decimal("100.00")) == Decimal("0.00")

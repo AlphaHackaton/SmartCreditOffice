@@ -82,7 +82,7 @@ def _status_name(status: ApplicationStatus | None) -> str:
 
 def _require_aware_at(at: datetime) -> None:
     """`at` — только с таймзоной: наивные datetime несравнимы внутри истории."""
-    if at.tzinfo is None:
+    if at.tzinfo is None or at.tzinfo.utcoffset(at) is None:
         msg = "at: ожидается datetime с таймзоной, получен наивный"
         raise ValueError(msg)
 
