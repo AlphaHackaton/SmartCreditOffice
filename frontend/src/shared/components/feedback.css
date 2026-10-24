@@ -1,0 +1,4 @@
+.error-banner { padding: 20px 24px; border: 1px solid #edb7b1; border-radius: 12px; background: #fff0ee; color: #9e211a; }
+.error-banner-message { margin: 0; line-height: 1.5; overflow-wrap: anywhere; }
+.error-banner button { margin-top: 14px; }
+.feedback-progress { display: block; margin-top: 12px; font-size: 14px; line-height: 1.5; color: #5b626d; }
