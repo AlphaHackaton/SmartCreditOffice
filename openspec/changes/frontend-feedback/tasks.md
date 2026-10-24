@@ -10,7 +10,9 @@
 
 ## 3. Интеграция
 
-- [ ] 3.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Критерий: harness_check exit 0, production build, `openspec validate frontend-feedback --strict` и git diff --check проходят. API/зависимости не меняются: подтвердить отсутствие diff lock/notices, не создавать отсутствующий экспорт API. Зафиксировать результат отдельными Conventional Commits без посторонних изменений.
+- [x] 3.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Критерий: harness_check exit 0, production build, `openspec validate frontend-feedback --strict` и git diff --check проходят. API/зависимости не меняются: подтвердить отсутствие diff lock/notices, не создавать отсутствующий экспорт API. Зафиксировать результат отдельными Conventional Commits без посторонних изменений.
+
+Проверено 25.10.2026: harness_check — exit 0 (48 backend и 183 frontend теста), production build и OpenSpec strict проходят. Браузер: 1280×900 и 1440×900, фокус/Tab/Shift+Tab, Enter на отмене, Escape, ожидание с блокировкой отмены и повтор после ошибки. Временные QA-файлы удалены. API, зависимости, lock и notices не менялись; docs/openapi.json не создавался при отсутствии backend/app/main.py. Посторонние изменения .gitignore/.opencode исключены из коммитов.
 
 ## Workflow follow-up
 
