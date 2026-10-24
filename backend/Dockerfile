@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir uv \
     && uv sync --frozen --no-dev
 
 COPY app ./app
+COPY alembic.ini ./alembic.ini
+COPY alembic ./alembic
 
 EXPOSE 8000
 CMD ["sh", "-c", "uv run --no-dev alembic upgrade head && uv run --no-dev uvicorn app.main:app --host 0.0.0.0 --port 8000"]
