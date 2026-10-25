@@ -5,6 +5,7 @@ import { NotFoundPage } from './shared/components/NotFoundPage';
 import { AuthProvider } from './auth/AuthProvider';
 import { RequireRole } from './auth/RequireRole';
 import { LoginPage } from './auth/LoginPage';
+import { DashboardPage } from './client/DashboardPage';
 
 export const routes: RouteObject[] = [{
   element: <AuthProvider><AppLayout /></AuthProvider>,
@@ -12,7 +13,7 @@ export const routes: RouteObject[] = [{
     { path: '/', element: <Navigate to="/client" replace /> },
     { path: '/login', element: <LoginPage /> },
     { element: <RequireRole role="client" />, children: [
-    { path: '/client', element: <PlaceholderPage title="Кабинет предпринимателя" description="Заявки, решения и условия финансирования вашего бизнеса — в одном месте." /> },
+    { path: '/client', element: <DashboardPage /> },
     { path: '/client/applications/new', element: <PlaceholderPage title="Новая заявка" description="Здесь можно будет выбрать сумму, срок и цель финансирования." /> },
     { path: '/client/applications/:id', element: <PlaceholderPage title="Заявка на финансирование" description="Здесь появятся этапы рассмотрения, решение и доступные условия." /> },
     ] },

@@ -10,7 +10,7 @@
 - [x] 3.1 (30–60 мин) Exhaustive статус-карта, StatusBadge и Timeline с московскими датами и защитой неизвестного статуса. Тесты и README. Проверка: целевые тесты, lint и harness_check exit 0.
 
 ## 4. Кабинет
-- [ ] 4.1 (60–90 мин) Query keys/хуки профиля, продуктов и заявок; DashboardPage с независимыми состояниями и ссылками. Тесты загрузки, empty/error/retry и сессий; README. Проверка: Vitest/typecheck/harness_check exit 0.
+- [x] 4.1 (60–90 мин) Query keys/хуки профиля, продуктов и заявок; DashboardPage с независимыми состояниями и ссылками. Тесты загрузки, empty/error/retry и сессий; README. Проверка: Vitest/typecheck/harness_check exit 0.
 
 ## 5. Форма
 - [ ] 5.1 (60–90 мин) NewApplicationPage: ограничения продуктов, денежная строка, срок/цель, согласия, сохранение/продолжение черновика и однократная подача с version. Тесты границ, ошибок, согласий и повтора без дубля; README. Проверка: Vitest/typecheck/harness_check exit 0.
