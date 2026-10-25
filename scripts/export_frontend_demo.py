@@ -48,6 +48,11 @@ data = {
     'products': [{**asdict(p), 'min_amount': str(p.min_amount), 'max_amount': str(p.max_amount), 'spread_pct': str(p.spread_pct)} for p in POLICY_V1.products],
     'amountStep': str(POLICY_V1.amount_step), 'termStep': POLICY_V1.term_step,
     'personas': personas, 'customJourney': journey(ApplicationStatus.UNDERWRITING),
+    'signingEvents': {
+        f'{src.value}_{dst.value}': {'from': e.from_status, 'to': e.to_status, 'actor': e.actor}
+        for src, dst, actor in ((ApplicationStatus.SIGNING, ApplicationStatus.SIGNED, Actor.CLIENT), (ApplicationStatus.SIGNING, ApplicationStatus.EXPIRED, Actor.SYSTEM), (ApplicationStatus.SIGNED, ApplicationStatus.DISBURSED, Actor.SYSTEM))
+        for e in [transition(src, dst, actor, at=datetime(2026, 10, 25, tzinfo=timezone.utc))]
+    },
     'decisionEvents': {
         f'{src.value}_{dst.value}': {'from': e.from_status, 'to': e.to_status, 'actor': e.actor}
         for src in (ApplicationStatus.APPROVED, ApplicationStatus.COUNTER_OFFER)

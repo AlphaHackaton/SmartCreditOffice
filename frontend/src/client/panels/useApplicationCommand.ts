@@ -29,5 +29,5 @@ export function useApplicationCommand(id: string) {
       return false;
     } finally { busy.current = false; }
   }
-  return { ...scope, execute, pending: mutation.isPending, error };
+  return { ...scope, isCurrent: () => alive.current && getToken() === scope.token && scope.generation() === scope.epoch, execute, pending: mutation.isPending, error };
 }

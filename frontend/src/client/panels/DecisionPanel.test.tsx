@@ -12,7 +12,7 @@ it('показывает причины и подтверждает однокр
   const dialog = screen.getByRole('dialog', { name: 'Подтвердите выбор условий' });
   expect(dialog).toHaveTextContent('2 000 000');
   await user.dblClick(within(dialog).getByRole('button', { name: 'Принять условия' }));
-  expect(await screen.findByText('Ожидается подписание. Интерфейс подписи будет добавлен отдельно.')).toBeInTheDocument();
+  expect(await screen.findByText('Условия выбраны. Подтвердите демо-подпись кодом внутри кабинета.')).toBeInTheDocument();
   expect(accept).toHaveBeenCalledTimes(1);
 });
 it('ошибка 409 перечитывает заявку и не повторяет команду', async () => {

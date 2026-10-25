@@ -24,3 +24,26 @@ it('истечение создаёт доменное событие и зап�
   expect(expired.status).toBe('EXPIRED'); expect(expired.history.at(-1)?.to).toBe('EXPIRED');
   await expect(gateway.accept(token, record.id, record.version, record.decision!.offers[0].id)).rejects.toMatchObject({ status: 409 });
 });
+
+it('подписывает один раз, восстанавливает challenge и выдаёт только после SIGNED', async () => {
+  const { gateway, token, record, clock } = await decisionScenario();
+  const accepted = await gateway.accept(token, record.id, record.version, record.decision!.offers[0].id);
+  const challenge = await gateway.challenge(token, record.id);
+  expect(await gateway.challenge(token, record.id)).toEqual(challenge);
+  const signed = await gateway.sign(token, record.id, accepted.version, challenge.id, challenge.code);
+  expect(signed.status).toBe('SIGNED');
+  await expect(gateway.sign(token, record.id, accepted.version, challenge.id, challenge.code)).rejects.toMatchObject({ status: 409 });
+  clock.now += 1500;
+  expect((await gateway.application(token, record.id)).history.map((e) => e.to)).toEqual(['DRAFT', 'SUBMITTED', 'SCORING', 'APPROVED', 'SIGNING', 'SIGNED', 'DISBURSED']);
+});
+it('блокирует три неверных кода и истёкшее подтверждение', async () => {
+  const { gateway, token, record, clock } = await decisionScenario();
+  const accepted = await gateway.accept(token, record.id, record.version, record.decision!.offers[0].id);
+  const c = await gateway.challenge(token, record.id);
+  for (let i = 0; i < 3; i++) await expect(gateway.sign(token, record.id, accepted.version, c.id, '000000')).rejects.toMatchObject({ status: 422 });
+  expect((await gateway.challenge(token, record.id)).attemptsLeft).toBe(0);
+  await expect(gateway.sign(token, record.id, accepted.version, c.id, c.code)).rejects.toMatchObject({ code: 'CHALLENGE_BLOCKED' });
+  clock.now += 5 * 60_000;
+  expect((await gateway.application(token, record.id)).status).toBe('EXPIRED');
+  await expect(gateway.challenge(token, record.id)).rejects.toMatchObject({ status: 409 });
+});

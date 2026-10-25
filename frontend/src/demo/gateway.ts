@@ -11,6 +11,7 @@ export interface HistoryEvent { from: string | null; to: string; actor: string; 
 export interface ApplicationInput { productCode: string; amount: string; termMonths: number; purpose: string; consents: string[] }
 export interface Factor { code: string; text: string; hint: string | null; impact: string }
 export interface Offer { id: string; kind: string; amount: string; term_months: number; rate_pct: string; monthly_payment: string; overpayment: string; expiresAt: string }
+export interface SigningChallenge { id: string; code: string; expiresAt: string; attemptsLeft: number }
 export interface Decision { factors: Factor[]; offers: Offer[]; constraints: { name: string; limit: string; binding: boolean }[]; binding: string | null; policyVersion: string }
 export interface Application extends ApplicationInput { id: string; companyId: string; status: ApplicationStatus; version: number; history: HistoryEvent[]; createdAt: string; decision?: Decision; selectedOffer?: Offer }
 export interface Persona { login: string; label: string }
@@ -23,6 +24,8 @@ export interface WorkspaceGateway {
   applications(token: string, signal?: AbortSignal): Promise<Application[]>;
   application(token: string, id: string, signal?: AbortSignal): Promise<Application>;
   save(token: string, input: ApplicationInput, id?: string, version?: number): Promise<Application>;
+  challenge(token: string, id: string, signal?: AbortSignal): Promise<SigningChallenge>;
+  sign(token: string, id: string, version: number, challengeId: string, code: string): Promise<Application>;
   accept(token: string, id: string, version: number, offerId: string): Promise<Application>;
   submit(token: string, id: string, version: number): Promise<Application>;
 }
@@ -55,7 +58,7 @@ export class MockGateway implements WorkspaceGateway {
   private nextCommand: FailureStatus | null = null;
   private sessions = new Map<string, User>();
   private records = new Map<string, Application>();
-  private accepted = new Map<string, { offer: Offer; event: HistoryEvent }>();
+  private accepted = new Map<string, { offer: Offer; event: HistoryEvent; challenge: SigningChallenge; signedAt?: number }>();
   private submitted = new Map<string, number>();
   private now: () => number;
   constructor(now = Date.now, private unauthorized: (token: string) => void = () => {}) { this.now = now; }
@@ -128,7 +131,20 @@ export class MockGateway implements WorkspaceGateway {
       offers: persona.decision.offers.map((offer, i) => ({ ...offer, id: `${record.id}-offer-${i}`, expiresAt })),
     } : undefined;
     const accepted = this.accepted.get(record.id);
-    if (accepted) { history.push(accepted.event); status = 'SIGNING'; }
+    if (accepted) {
+      history.push(accepted.event); status = 'SIGNING';
+      if (accepted.signedAt !== undefined) {
+        const signed = demoData.signingEvents.SIGNING_SIGNED;
+        history.push({ ...signed, at: new Date(accepted.signedAt).toISOString() }); status = signed.to;
+        if (this.now() >= accepted.signedAt + 1500) {
+          const issued = demoData.signingEvents.SIGNED_DISBURSED;
+          history.push({ ...issued, at: new Date(accepted.signedAt + 1500).toISOString() }); status = issued.to;
+        }
+      } else if (this.now() >= Date.parse(accepted.challenge.expiresAt)) {
+        const expired = demoData.signingEvents.SIGNING_EXPIRED;
+        history.push({ ...expired, at: accepted.challenge.expiresAt }); status = expired.to;
+      }
+    }
     else if ((status === 'APPROVED' || status === 'COUNTER_OFFER') && this.now() >= Date.parse(expiresAt)) {
       const event = demoData.decisionEvents[`${status}_EXPIRED`];
       history.push({ ...event, at: expiresAt }); status = event.to;
@@ -146,13 +162,29 @@ export class MockGateway implements WorkspaceGateway {
     const record: Application = { ...structuredClone(input), id: id ?? crypto.randomUUID(), companyId: user.companyId!, status: 'DRAFT', version: existing ? existing.version + 1 : 1, history: [], createdAt };
     this.records.set(record.id, record); return this.snapshot(record);
   }
+  async challenge(token: string, id: string, signal?: AbortSignal) {
+    await this.wait('read', signal, token); const current = this.snapshot(this.owned(token, id));
+    if (current.status !== 'SIGNING') throw error(409, 'CHALLENGE_UNAVAILABLE', 'Подтверждение недоступно или истекло. Обновите заявку.');
+    return structuredClone(this.accepted.get(id)!.challenge);
+  }
+  async sign(token: string, id: string, version: number, challengeId: string, code: string) {
+    await this.wait('command', undefined, token); const record = this.owned(token, id); const current = this.snapshot(record);
+    if (current.status !== 'SIGNING' || current.version !== version) throw error(409, 'VERSION_CONFLICT', 'Заявка изменилась или подтверждение истекло. Обновите заявку.');
+    const state = this.accepted.get(id)!;
+    if (state.challenge.id !== challengeId || state.challenge.attemptsLeft === 0) throw error(409, 'CHALLENGE_BLOCKED', 'Подписание заблокировано. Сбросьте демо для нового сценария.');
+    if (code !== state.challenge.code) {
+      state.challenge.attemptsLeft--;
+      throw new ApiError(422, 'INVALID_CODE', `Неверный код. Осталось попыток: ${state.challenge.attemptsLeft}`, { code: 'Неверный код' });
+    }
+    state.signedAt = this.now(); return this.snapshot(record);
+  }
   async accept(token: string, id: string, version: number, offerId: string) {
     await this.wait('command', undefined, token); const record = this.owned(token, id); const current = this.snapshot(record);
     if (current.version !== version || (current.status !== 'APPROVED' && current.status !== 'COUNTER_OFFER')) throw error(409, 'VERSION_CONFLICT', 'Условия изменились или истекли. Обновите заявку.');
     const offer = current.decision?.offers.find((o) => o.id === offerId);
     if (!offer || this.now() >= Date.parse(offer.expiresAt)) throw error(409, 'OFFER_EXPIRED', 'Предложение недоступно. Обновите заявку.');
     const event = demoData.decisionEvents[`${current.status}_SIGNING`];
-    this.accepted.set(id, { offer, event: { ...event, at: new Date(this.now()).toISOString() } });
+    this.accepted.set(id, { offer, event: { ...event, at: new Date(this.now()).toISOString() }, challenge: { id: crypto.randomUUID(), code: '123456', expiresAt: new Date(this.now() + 5 * 60_000).toISOString(), attemptsLeft: 3 } });
     return this.snapshot(record);
   }
   async submit(token: string, id: string, version: number) {
@@ -167,5 +199,5 @@ export class MockGateway implements WorkspaceGateway {
 
 export function unavailableGateway(): WorkspaceGateway {
   const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'API Dev 2 ещё не подключён. Выберите mock-режим для демонстрации.'); };
-  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, submit: unavailable };
+  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, challenge: unavailable, sign: unavailable, submit: unavailable };
 }

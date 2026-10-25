@@ -4,7 +4,7 @@
 - [x] 7.1 (60–90 мин) Сгенерировать client-safe решение/офферы; FactorList, DecisionPanel, OffersList с expiry/подтверждением/конфликтами и gateway accept. Проверка: генератор --check, gateway/UI tests, harness_check exit 0, README.
 
 ## 8. Подписание и выдача
-- [ ] 8.1 (60–90 мин) Challenge/sign, TTL/3 попытки, восстановление SIGNING, SIGNED→DISBURSED, условия/история и защита поздних команд. Проверка: fake clock gateway/UI tests (неверный код, expiry, повтор, выход), harness_check exit 0.
+- [x] 8.1 (60–90 мин) Challenge/sign, TTL/3 попытки, восстановление SIGNING, SIGNED→DISBURSED, условия/история и защита поздних команд. Проверка: fake clock gateway/UI tests (неверный код, expiry, повтор, выход), harness_check exit 0.
 
 ## 9. Контроффер и симулятор
 - [ ] 9.1 (60–90 мин) Сравнение альтернатив, ограничения Python, конечная сетка simulate, debounce/cancellation без изменений заявки. Проверка: counter-offer, границы, гонки, неизвестная комбинация, harness_check exit 0.

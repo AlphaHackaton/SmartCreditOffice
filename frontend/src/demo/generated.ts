@@ -610,6 +610,23 @@ export const demoData = {
       "actor": "SYSTEM"
     }
   ],
+  "signingEvents": {
+    "SIGNING_SIGNED": {
+      "from": "SIGNING",
+      "to": "SIGNED",
+      "actor": "CLIENT"
+    },
+    "SIGNING_EXPIRED": {
+      "from": "SIGNING",
+      "to": "EXPIRED",
+      "actor": "SYSTEM"
+    },
+    "SIGNED_DISBURSED": {
+      "from": "SIGNED",
+      "to": "DISBURSED",
+      "actor": "SYSTEM"
+    }
+  },
   "decisionEvents": {
     "APPROVED_SIGNING": {
       "from": "APPROVED",

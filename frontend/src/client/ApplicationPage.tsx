@@ -10,6 +10,8 @@ import { Timeline } from '../shared/components/Timeline';
 import { ButtonLink } from '../shared/components/ButtonLink';
 import { isApplicationStatus } from '../shared/status';
 import type { ApplicationStatus } from '../demo/generated';
+import { SigningPanel } from './panels/SigningPanel';
+import { DisbursedPanel } from './panels/DisbursedPanel';
 import { DecisionPanel } from './panels/DecisionPanel';
 import './workspace.css';
 
@@ -21,7 +23,7 @@ const descriptions: Record<ApplicationStatus, string> = {
   APPROVED: 'Проверка завершена. Изучите причины и выберите подходящие условия.',
   COUNTER_OFFER: 'В демонстрационном сценарии получено встречное предложение. Сравнение условий будет добавлено следующим этапом.',
   REJECTED: 'В демонстрационном сценарии получен отказ. Экран подробных причин и рекомендаций будет добавлен отдельно.',
-  SIGNING: 'Ожидается подписание. Интерфейс подписи будет добавлен отдельно.',
+  SIGNING: 'Условия выбраны. Подтвердите демо-подпись кодом внутри кабинета.',
   SIGNED: 'Договор подписан. Выдача ещё не подтверждена.',
   DISBURSED: 'В демонстрационных данных подтверждён статус «Кредит выдан». Реальные операции не выполняются.',
   CANCELLED: 'Рассмотрение этой заявки отменено.',
@@ -42,12 +44,14 @@ export function ApplicationPage() {
       <div className="application-meta"><span>№ {record.id}</span><StatusBadge status={record.status} /></div>
       <section className="workspace-card" aria-labelledby="application-state"><h2 id="application-state">Текущий этап</h2>
         {!isApplicationStatus(record.status) ? <p role="alert">Состояние заявки не поддерживается. Действия недоступны; обновите данные или обратитесь к специалисту.</p> : <>
-          <div className="application-progress">{['SUBMITTED', 'SCORING'].includes(record.status) && <span className="scoring-spinner" aria-hidden="true" />}<p role={['SUBMITTED', 'SCORING'].includes(record.status) ? 'status' : undefined}>{descriptions[record.status]}</p></div>
+          <div className="application-progress">{['SUBMITTED', 'SCORING', 'SIGNED'].includes(record.status) && <span className="scoring-spinner" aria-hidden="true" />}<p role={['SUBMITTED', 'SCORING', 'SIGNED'].includes(record.status) ? 'status' : undefined}>{descriptions[record.status]}</p></div>
           {record.status === 'DRAFT' && !application.error && <ButtonLink to={`/client/applications/new?draft=${encodeURIComponent(record.id)}`}>Продолжить оформление</ButtonLink>}
         </>}
         <p className="form-hint">Демо-режим: воспроизводится последовательность, проверенная backend FSM. Это не результат реального банковского рассмотрения.</p>
       </section>
       {record.status === 'APPROVED' && !application.error && <DecisionPanel record={record} />}
+      {record.status === 'SIGNING' && !application.error && <SigningPanel record={record} />}
+      {record.status === 'DISBURSED' && !application.error && <DisbursedPanel record={record} />}
       <div className="application-columns"><section className="workspace-card" aria-labelledby="terms-title"><h2 id="terms-title">Запрошенные условия</h2><dl className="facts"><div><dt>Продукт</dt><dd>{products.data?.find((p) => p.code === record.productCode)?.name ?? record.productCode}</dd></div><div><dt>Сумма</dt><dd><MoneyText value={record.amount} /></dd></div><div><dt>Срок</dt><dd>{record.termMonths} мес.</dd></div><div><dt>Цель</dt><dd>{purposes[record.purpose] ?? 'Неизвестная цель'}</dd></div><div><dt>Создана</dt><dd><DateTimeText value={record.createdAt} /></dd></div><div><dt>Версия</dt><dd>{record.version}</dd></div></dl></section>
         <section className="workspace-card" aria-labelledby="history-title"><h2 id="history-title">История рассмотрения</h2><Timeline history={record.history} current={record.status} /></section></div>
     </>}

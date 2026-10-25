@@ -26,6 +26,6 @@ export function useApplication(id: string) {
     queryKey: [...scope.key, 'application', id],
     queryFn: ({ signal }) => scope.gateway.application(scope.token, id, signal),
     enabled: scope.enabled && Boolean(id),
-    refetchInterval: (query) => !query.state.error && query.state.data && POLLING_STATUSES.includes(query.state.data.status) ? 1500 : false,
+    refetchInterval: (query) => !query.state.error && query.state.data && (POLLING_STATUSES.includes(query.state.data.status) || query.state.data.status === 'SIGNED') ? 1500 : false,
   });
 }
