@@ -1,17 +1,22 @@
 """Политика кредитования v1 (значения — design.md §2).
 
 `POLICY_V1` immutable: `Mapping`-поля обёрнуты в `MappingProxyType`.
-`version` и `with_key_rate` реализуются в К4.
+Версия считается из канонического JSON политики (sha256), `with_key_rate`
+возвращает новую политику, не меняя исходную.
 """
 
+import json
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from decimal import Decimal
+from hashlib import sha256
 from types import MappingProxyType
 from typing import Final
 
 from ..enums import Grade, ReasonCode
 from ..errors import PolicyViolation
+from ..serialization import canonical
+from .inputs import LoanRequest
 
 
 @dataclass(frozen=True, slots=True)
@@ -73,12 +78,60 @@ class Policy:
 
     @property
     def version(self) -> str:
-        """Стабильная версия из содержимого (канонический JSON, sha256) — К4."""
-        raise NotImplementedError("version — К4")
+        """Стабильная версия из содержимого (канонический JSON, sha256)."""
+        canonical_data = json.dumps(
+            canonical(self),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        )
+        digest = sha256(canonical_data.encode("utf-8")).hexdigest()[:8]
+        return f"{self.name}-{digest}"
 
     def with_key_rate(self, key_rate_pct: Decimal) -> "Policy":
-        """Новая политика с другой ключевой ставкой; исходная не меняется — К4."""
-        raise NotImplementedError("with_key_rate — К4")
+        """Новая политика с другой ключевой ставкой; исходная не меняется."""
+        if not isinstance(key_rate_pct, Decimal):
+            msg = f"key_rate_pct: ожидаются Decimal, получено {type(key_rate_pct).__name__}"
+            raise TypeError(msg)
+        if key_rate_pct < 0:
+            msg = f"key_rate_pct: ставка не может быть отрицательной ({key_rate_pct})"
+            raise ValueError(msg)
+        return replace(self, key_rate_pct=key_rate_pct)
+
+
+def validate_request(req: LoanRequest, p: Policy) -> Product:
+    """Проверить запрос до скоринга; нарушение — PolicyViolation с кодом."""
+    product = p.product(req.product_code)
+    if not isinstance(req.amount, Decimal):
+        msg = f"amount: ожидаются Decimal, получено {type(req.amount).__name__}"
+        raise TypeError(msg)
+    if req.amount < product.min_amount or req.amount > product.max_amount:
+        raise PolicyViolation(
+            "AMOUNT_OUT_OF_RANGE",
+            (f"сумма {req.amount} вне диапазона {product.min_amount}…{product.max_amount}"),
+            {
+                "amount": str(req.amount),
+                "min": str(product.min_amount),
+                "max": str(product.max_amount),
+            },
+        )
+    if req.amount % p.amount_step != 0:
+        raise PolicyViolation(
+            "AMOUNT_OUT_OF_RANGE",
+            f"сумма {req.amount} не кратна шагу {p.amount_step}",
+            {"amount": str(req.amount), "step": str(p.amount_step)},
+        )
+    if req.term_months < product.min_term or req.term_months > product.max_term:
+        raise PolicyViolation(
+            "TERM_OUT_OF_RANGE",
+            (f"срок {req.term_months} вне диапазона {product.min_term}…{product.max_term}"),
+            {
+                "term_months": str(req.term_months),
+                "min": str(product.min_term),
+                "max": str(product.max_term),
+            },
+        )
+    return product
 
 
 #: Политика v1: ключевая ставка — плейсхолдер 16,50 (сверка с cbr.ru перед сдачей).

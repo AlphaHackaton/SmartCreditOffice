@@ -12,7 +12,11 @@ if [ -f backend/pyproject.toml ]; then
   step "backend: mypy";   run bash -c "cd backend && uv run mypy app"
   step "backend: pytest"; run bash -c "cd backend && uv run pytest -q -x"
   step "backend: openapi export"
-  run bash -c "cd backend && uv run python -c 'import json;from app.main import app;print(json.dumps(app.openapi(),ensure_ascii=False,indent=2))' > ../docs/openapi.json"
+  if [ -f backend/app/main.py ]; then
+    run bash -c "cd backend && uv run python -c 'import json;from app.main import app;print(json.dumps(app.openapi(),ensure_ascii=False,indent=2))' > ../docs/openapi.json"
+  else
+    echo "SKIP openapi export (нет backend/app/main.py, создаётся Dev 2)"
+  fi
 else echo "SKIP backend (нет backend/pyproject.toml)"; fi
 
 if [ -f frontend/package.json ]; then

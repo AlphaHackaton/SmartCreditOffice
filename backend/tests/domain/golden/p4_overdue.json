@@ -1,0 +1,27 @@
+{
+  "recommendation": "REJECTED",
+  "route": "AUTO",
+  "score": null,
+  "grade": null,
+  "factors": [
+    {
+      "code": "BKI_CURRENT_OVERDUE",
+      "source": "BKI",
+      "value": "45 дн.",
+      "points": 0,
+      "max_points": 0,
+      "impact": "KNOCKOUT",
+      "rule_id": "KO_BKI_CURRENT_OVERDUE",
+      "client_text": "Есть текущая просрочка по действующим обязательствам.",
+      "hint": null
+    }
+  ],
+  "constraints": [],
+  "binding_constraint": null,
+  "offers": [],
+  "top_reasons": [
+    "BKI_CURRENT_OVERDUE"
+  ],
+  "review_flags": [],
+  "policy_version": "v1-02f2028a"
+}

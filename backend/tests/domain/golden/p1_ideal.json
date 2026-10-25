@@ -1,0 +1,99 @@
+{
+  "recommendation": "APPROVED",
+  "route": "AUTO",
+  "score": 100,
+  "grade": "A",
+  "factors": [
+    {
+      "code": "TURNOVER_STABLE",
+      "source": "ACCOUNT",
+      "value": "0.10",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M1",
+      "client_text": "Поступления по счёту стабильные.",
+      "hint": null
+    },
+    {
+      "code": "DEBT_BURDEN_NONE",
+      "source": "BKI",
+      "value": "0.00",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M2",
+      "client_text": "Действующей долговой нагрузки нет.",
+      "hint": null
+    },
+    {
+      "code": "BKI_CLEAN",
+      "source": "BKI",
+      "value": "0 дн.",
+      "points": 25,
+      "max_points": 25,
+      "impact": "POSITIVE",
+      "rule_id": "M3",
+      "client_text": "Кредитная история без просрочек.",
+      "hint": null
+    },
+    {
+      "code": "FNS_MATCH",
+      "source": "FNS",
+      "value": "2.9%",
+      "points": 15,
+      "max_points": 15,
+      "impact": "POSITIVE",
+      "rule_id": "M4",
+      "client_text": "Обороты по счёту соответствуют отчётности.",
+      "hint": null
+    },
+    {
+      "code": "BUSINESS_MATURE",
+      "source": "FNS",
+      "value": "74 мес.",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M5",
+      "client_text": "Бизнес работает давно.",
+      "hint": null
+    }
+  ],
+  "constraints": [
+    {
+      "name": "DSCR",
+      "limit": "6736391.184954498068672118698",
+      "binding": true
+    },
+    {
+      "name": "REVENUE",
+      "limit": "8640000.0000",
+      "binding": false
+    },
+    {
+      "name": "GRADE_CAP",
+      "limit": "10000000.00",
+      "binding": false
+    },
+    {
+      "name": "PRODUCT_MAX",
+      "limit": "10000000.00",
+      "binding": false
+    }
+  ],
+  "binding_constraint": "DSCR",
+  "offers": [
+    {
+      "kind": "REQUESTED",
+      "amount": "2000000.00",
+      "term_months": 24,
+      "rate_pct": "21.00",
+      "monthly_payment": "102771.30",
+      "overpayment": "466511.20"
+    }
+  ],
+  "top_reasons": [],
+  "review_flags": [],
+  "policy_version": "v1-02f2028a"
+}

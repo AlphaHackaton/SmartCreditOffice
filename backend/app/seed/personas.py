@@ -8,7 +8,7 @@ import json
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
-from typing import Any, Final
+from typing import Final, TypedDict, cast
 
 from app.domain.enums import BkiSubject, FnsStatus, LegalForm
 from app.domain.scoring.inputs import (
@@ -23,21 +23,83 @@ from app.domain.scoring.inputs import (
 _PATH: Final[Path] = Path(__file__).resolve().parent / "personas.json"
 
 
-def load_raw() -> dict[str, Any]:
+class RawCompany(TypedDict):
+    inn: str
+    legal_form: str
+    registered_at: str
+    okved: str
+
+
+class RawFns(TypedDict):
+    status: str
+    accounts_blocked: bool
+    declared_revenue_12m: str | None
+    tax_debt: str
+
+
+class RawBkiReport(TypedDict):
+    subject: str
+    current_overdue_days: str
+    max_overdue_days_12m: str
+    max_overdue_days_24m: str
+    inquiries_30d: str
+    monthly_payments: str
+    active_loans: str
+
+
+class RawAccount(TypedDict):
+    inflows: list[str]
+    outflows: list[str]
+
+
+class RawRequest(TypedDict):
+    product_code: str
+    amount: str
+    term_months: str
+
+
+class RawExpected(TypedDict):
+    outcome: str
+    route: str
+    score: str | None
+    grade: str | None
+    offer_kinds: list[str]
+    binding: str | None
+    top_reasons: list[str]
+    review_flags: list[str]
+
+
+class RawPersona(TypedDict):
+    id: str
+    login: str
+    as_of: str
+    company: RawCompany
+    fns: RawFns
+    bki: list[RawBkiReport]
+    account: RawAccount
+    request: RawRequest
+    expected: RawExpected
+
+
+class RawPersonasData(TypedDict):
+    personas: list[RawPersona]
+
+
+def load_raw() -> RawPersonasData:
     """Сырой JSON персон (проверки данных и блока expected — в тестах)."""
     with _PATH.open(encoding="utf-8") as fh:
-        data: dict[str, Any] = json.load(fh)
+        data: RawPersonasData = cast(RawPersonasData, json.load(fh))
     return data
 
 
 def persona_ids() -> tuple[str, ...]:
     """id всех персон в порядке файла."""
-    personas: list[dict[str, Any]] = load_raw()["personas"]
-    return tuple(str(persona["id"]) for persona in personas)
+    personas: list[RawPersona] = load_raw()["personas"]
+    return tuple(persona["id"] for persona in personas)
 
 
-def _persona(persona_id: str) -> dict[str, Any]:
-    personas: list[dict[str, Any]] = load_raw()["personas"]
+def _persona(persona_id: str) -> RawPersona:
+    personas: list[RawPersona] = load_raw()["personas"]
     for persona in personas:
         if persona["id"] == persona_id:
             return persona
