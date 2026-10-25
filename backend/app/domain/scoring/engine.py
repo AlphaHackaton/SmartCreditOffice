@@ -159,11 +159,10 @@ def _core(inp: ScoringInputs, req: LoanRequest, policy: Policy) -> _CoreResult:
     max_amount_for_term = round_down(requested_limit, policy.amount_step)
 
     if outcome is Outcome.REJECTED:
-        limit = next((item.limit for item in constraints if item.binding), Decimal("0"))
         factors.append(
             _decision_factor(
-                reject_reason(limit),
-                f"лимит {limit:.0f} ₽",
+                reject_reason(requested_limit),
+                f"лимит {requested_limit:.0f} ₽",
                 "DECISION_AMOUNT",
             )
         )

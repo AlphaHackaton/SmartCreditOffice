@@ -92,7 +92,9 @@ def test_decimal_scale_preserved() -> None:
     )
 
     payload = inputs_to_json(inp)
-    assert payload["fns"]["declared_revenue_12m"] == "2500000.00"  # type: ignore[index]
+    fns_data = payload["fns"]
+    assert isinstance(fns_data, dict)
+    assert fns_data["declared_revenue_12m"] == "2500000.00"
 
     restored = inputs_from_json(payload)
     restored_val = restored.fns.declared_revenue_12m

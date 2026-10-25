@@ -6,6 +6,7 @@ __pycache__/
 .ruff_cache/
 .pytest_cache/
 *.egg-info/
+.hypothesis/
 
 # Node
 node_modules/
@@ -25,10 +26,11 @@ coverage/
 *.log
 
 # OpenCode
-.opencode/node_modules/
+.opencode/
+.agents/
 
 # Песочница openspec
 /tmp/
 
 openspec/
-docs/
+docs/dev1_instruction.md
