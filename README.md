@@ -36,17 +36,28 @@
 
 ## 🚀 Быстрый запуск
 
-### 1. Запуск всей системы через Docker Compose
+### 1. Разработка frontend сейчас
+
+Среда Dev 3: [DEV_CODEX.md](DEV_CODEX.md). Рабочая ветка — `codex/frontend-development`: frontend объединён с доменным backend из `origin/main`.
+
+Из корня репозитория:
+
 ```bash
-docker compose up --build
+npm ci --prefix frontend
+npm run dev --prefix frontend
 ```
-- Веб-интерфейс: `http://localhost:5173` (или `http://localhost:3000`)
-- Swagger API: `http://localhost:8000/docs`
+
+Веб-интерфейс: `http://localhost:5173`. Для текущего каркаса API, БД, Docker и LLM не нужны. Тесты/сборка: `npm test --prefix frontend -- --run`, `npm run build --prefix frontend`.
 
 ### 2. Запуск локальной проверки харнесса
 ```bash
+UV_CACHE_DIR="$PWD/tmp/uv-cache" uv sync --project backend --locked
 bash scripts/check.sh
 ```
+
+### 3. Полный запуск после подключения платформы Dev 2
+
+`backend/app/main.py`, `docs/openapi.json` и Compose пока отсутствуют. Команды `uv run uvicorn app.main:app --reload` и `docker compose up --build` станут доступны после появления соответствующих файлов. Скоринговое ядро работает и тестируется отдельно; оно не является HTTP API.
 
 ---
 

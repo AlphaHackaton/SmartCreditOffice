@@ -4,23 +4,34 @@
 
 ## Backend: инструменты разработки
 
-Версии из backend/uv.lock и установленного окружения; dev-only, в поставку не входят.
-Воспроизведение: `uv sync --project backend --locked`, затем чтение `importlib.metadata` в backend/.venv.
+Зависимости зафиксированы в `backend/uv.lock` и `backend/pyproject.toml`.
+Все текущие пакеты являются инструментами разработки/тестирования (dev-only, в runtime поставку docker-образа не входят).
 
-| Пакет | Версия | Лицензия |
-|---|---|---|
-| ast_serialize | 0.13.1 | MIT |
-| iniconfig | 2.3.1 | MIT |
-| librt | 0.16.0 | MIT |
-| mypy | 2.4.0 | MIT |
-| mypy_extensions | 1.1.0 | MIT |
-| packaging | 26.3 | Apache-2.0 OR BSD-2-Clause |
-| pathspec | 1.1.1 | MPL-2.0 (из dist-info/licenses/LICENSE) |
-| pluggy | 1.7.0 | MIT |
-| Pygments | 2.21.0 | BSD-2-Clause |
-| pytest | 9.1.1 | MIT |
-| ruff | 0.17.2 | MIT |
-| typing_extensions | 4.16.0 | PSF-2.0 |
+### Прямые зависимости (dev-only)
+
+| Пакет | Версия | Лицензия | Ссылка / Репозиторий |
+|---|---|---|---|
+| `hypothesis` | 6.170.9 | MPL-2.0 | https://hypothesis.readthedocs.io/ |
+| `mypy` | 2.4.0 | MIT | https://www.mypy-lang.org/ |
+| `pytest` | 9.1.1 | MIT | https://docs.pytest.org/ |
+| `ruff` | 0.17.2 | MIT | https://docs.astral.sh/ruff |
+
+### Транзитивные зависимости (dev-only)
+
+| Пакет | Версия | Лицензия | Ссылка / Репозиторий |
+|---|---|---|---|
+| `ast-serialize` | 0.13.1 | MIT | https://github.com/mypyc/ast_serialize |
+| `colorama` | 0.4.6 | BSD-3-Clause | https://github.com/tartley/colorama |
+| `iniconfig` | 2.3.1 | MIT | https://github.com/pytest-dev/iniconfig |
+| `librt` | 0.16.0 | MIT | https://github.com/mypyc/librt |
+| `mypy-extensions` | 1.1.0 | MIT | https://github.com/python/mypy_extensions |
+| `packaging` | 26.3 | Apache-2.0 OR BSD-2-Clause | https://packaging.pypa.io/ |
+| `pathspec` | 1.1.1 | MPL-2.0 | https://github.com/cpburnz/python-pathspec |
+| `pluggy` | 1.7.0 | MIT | https://github.com/pytest-dev/pluggy |
+| `pygments` | 2.21.0 | BSD-2-Clause | https://pygments.org/ |
+| `sortedcontainers` | 2.4.0 | Apache-2.0 | http://www.grantjenks.com/docs/sortedcontainers/ |
+| `typing-extensions` | 4.16.0 | PSF-2.0 | https://github.com/python/typing_extensions |
+
 
 ## Frontend
 

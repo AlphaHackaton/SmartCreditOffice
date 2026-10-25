@@ -1,0 +1,39 @@
+{
+  "recommendation": "REJECTED",
+  "route": "AUTO",
+  "score": null,
+  "grade": null,
+  "factors": [
+    {
+      "code": "BUSINESS_TOO_YOUNG",
+      "source": "FNS",
+      "value": "2 мес.",
+      "points": 0,
+      "max_points": 0,
+      "impact": "KNOCKOUT",
+      "rule_id": "KO_BUSINESS_TOO_YOUNG",
+      "client_text": "Бизнес зарегистрирован слишком недавно.",
+      "hint": null
+    },
+    {
+      "code": "INSUFFICIENT_DATA",
+      "source": "ACCOUNT",
+      "value": "2 мес.",
+      "points": 0,
+      "max_points": 0,
+      "impact": "KNOCKOUT",
+      "rule_id": "DATA_HISTORY",
+      "client_text": "Недостаточно данных для автоматического решения.",
+      "hint": null
+    }
+  ],
+  "constraints": [],
+  "binding_constraint": null,
+  "offers": [],
+  "top_reasons": [
+    "BUSINESS_TOO_YOUNG",
+    "INSUFFICIENT_DATA"
+  ],
+  "review_flags": [],
+  "policy_version": "v1-02f2028a"
+}

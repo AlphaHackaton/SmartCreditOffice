@@ -2,11 +2,45 @@
 
 Среда подготовлена 25.10.2026 для Dev 3 (Frontend / UX).
 
+## Откуда продолжать
+
+Рабочая ветка — `codex/frontend-development`, создана от `codex/frontend-client-flow` и объединена с `origin/main` (`5a8c263`). В ней сохранены все frontend-коммиты, шесть основных OpenSpec specs, четыре архивных change и новое скоринговое ядро Dev 1. Исходные ветки сохранены.
+
+`openspec doctor --json` должен показывать healthy. Конфигурация `openspec/config.yaml` сохранена при слиянии: русский язык, правила SPEC и обязательные проверки продолжают действовать. Удаление общей OpenCode-конфигурации из main принято; навыки OpenSpec и MCP для Codex от неё не зависят. Пользовательские локальные настройки OpenCode сохранены отдельно и не входят в коммит среды.
+
+## Ежедневный запуск
+
+Из корня проекта:
+
+```bash
+npm run dev --prefix frontend
+```
+
+Открыть http://localhost:5173. Vite использует фиксированный порт и проксирует `/api` на `http://localhost:8000`; занятый порт не подменяется автоматически. Backend, Docker и LLM для разработки каркаса не нужны.
+
+Проверки перед коммитом:
+
+```bash
+bash scripts/check.sh
+npm run build --prefix frontend
+openspec validate --specs --strict
+```
+
+Если зависимости удалены или изменились lock-файлы:
+
+```bash
+npm ci --prefix frontend --cache "$PWD/tmp/npm-cache"
+UV_CACHE_DIR="$PWD/tmp/uv-cache" uv sync --project backend --locked
+```
+
+Локальный `.env` создан из `.env.example`, если его не было; существующий файл не перезаписывается. LLM выключен пустыми параметрами. DATABASE_URL — шаблон для будущей платформы; нынешнее доменное ядро эти параметры не читает. `.env` не включать в Git.
+
 ## Что установлено
 
 - Node.js 24.21.0, npm 11.19.0.
 - OpenSpec CLI 1.15.0 (глобальный npm-пакет `@fission-ai/openspec`).
 - uv 0.13.5, управляемый Python 3.12.15, зависимости `backend/uv.lock` в `backend/.venv`.
+- Hypothesis 6.170.9 и sortedcontainers 2.4.0 для новых тестов домена; версии заданы lock-файлом main.
 - Шесть официальных навыков OpenSpec в `~/.agents/skills/openspec-*`.
 - MCP-сервер `smartcredit-harness` в пользовательской конфигурации Codex. Он привязан к абсолютному пути этого репозитория.
 
@@ -22,7 +56,7 @@
 
 Можно просить обычным языком: «Используй openspec-propose, подготовь изменение frontend-shell, пока без реализации». В CLI/IDE навыки также вызываются через `$openspec-propose` и `$openspec-apply-change`.
 
-Артефакты общие с OpenCode: `openspec/`. Настройки OpenCode сохраняются. В конфигурации проекта уже заданы русский язык и требования кейса.
+Артефакты проекта находятся в `openspec/`; основные specs меняются через archive. Новые возможности сначала оформляются отдельным change, затем реализуются. Архивированный `frontend-client-flow` содержит 11 незавершённых задач: архивация не означает, что вход и кредитный путь уже реализованы.
 
 ## Проверка среды
 
@@ -55,13 +89,17 @@ codex mcp add smartcredit-harness -- "$(command -v node)" "$PWD/scripts/harness-
 
 ## Frontend
 
-`frontend-shell` реализован: `cd frontend && npm ci && npm run dev`. Маршруты и API-слой описаны в frontend/README.md. Это предварительный просмотр без реального входа и банковских операций.
+Реализованы каркас, маршрутизация, API-транспорт, генератор типов, самостоятельная LoginView, точное форматирование значений, MoneyText/DateTimeText, ErrorBanner и ConfirmDialog. Маршруты, компоненты и API-слой описаны в frontend/README.md. Это предварительный просмотр без реального входа и банковских операций.
+
+Порядок Dev 3 — `docs/ARCHITECTURE.md`, раздел «Dev 3: фронтенд (оба контура)» (строка 621). Контрольная точка для интеграции — [API_HANDOFF.md](openspec/changes/archive/2026-10-25-frontend-client-flow/API_HANDOFF.md): получить stub и OpenAPI от Dev 2 → `npm run gen:api --prefix frontend` → авторизация и роли → кабинет → оформление заявки → решение и подписание. До этого не создавать ручные HTTP DTO/enum или фиктивный успешный вход.
+
+В main уже доступны доменные enum/FSM, evaluate/simulate/pre_approve, объяснения факторов, готовые финансовые значения и golden-примеры в `backend/tests/domain/golden/`. Это материалы доменного контракта и тестов; они не заменяют экспорт HTTP API. Финансовые вычисления остаются в backend, денежные значения во frontend — строками.
 
 ## Что ещё отсутствует в проекте
 
 - API-сервер `backend/app/main.py`, OpenAPI и Docker Compose проекта. Поэтому текущая проверка явно пропускает отсутствующие части. Зелёная проверка подтверждает доменный backend и frontend-каркас, а не готовность сквозного приложения целиком.
 - Доступ к Docker daemon: CLI и Compose установлены, но `docker info` возвращает permission denied для `/var/run/docker.sock`, в том числе вне песочницы. Нужно проверить Docker в обычном терминале хоста; если ошибка сохраняется, настроить доступ средствами ОС. Не менять права сокета на общедоступные.
 
-`.env.example` пока содержит только закомментированный шаблон необязательного LLM. Настройки БД и API добавляет Dev 2 вместе с соответствующей реализацией.
+`.env.example` содержит пустые параметры необязательного LLM и шаблон DATABASE_URL для Dev 2. База данных и API пока не запускаются.
 
-Существующие локальные правила `.gitignore` скрывают новые файлы в `docs/` и `openspec/`. Они сохранены: артефакты frontend-shell адресно включены в Git. Для новых артефактов нужно проверять исключения, иначе файлы не попадут в обычный `git add`.
+Правила main скрывают `openspec/` и локальную `.opencode/`, но не весь `docs/`. Основные specs и архив уже отслеживаются. Новые OpenSpec-артефакты добавлять адресно через `git add -f openspec/changes/<id>/...`; перед коммитом проверять `git status` и `git diff --cached`.
