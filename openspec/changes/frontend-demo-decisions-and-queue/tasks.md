@@ -10,7 +10,7 @@
 - [x] 9.1 (60–90 мин) Сравнение альтернатив, ограничения Python, конечная сетка simulate, debounce/cancellation без изменений заявки. Проверка: counter-offer, границы, гонки, неизвестная комбинация, harness_check exit 0.
 
 ## 10. Отказ и рассмотрение
-- [ ] 10.1 (30–60 мин) RejectedPanel и UnderwritingPanel, причины/hints/безопасные действия, без утечки трассы и обещания решения. Проверка: P4/P5/P6 и custom, отсутствие подписания, harness_check exit 0.
+- [x] 10.1 (30–60 мин) RejectedPanel и UnderwritingPanel, причины/hints/безопасные действия, без утечки трассы и обещания решения. Проверка: P4/P5/P6 и custom, отсутствие подписания, harness_check exit 0.
 
 ## 11. Очередь
 - [ ] 11.1 (60–90 мин) Bank QueuePage, синтетические и текущие заявки, фильтры/сортировка/поиск, loading/empty/error/retry, ссылка в досье. Проверка: bank/client isolation, filter/sort, reset, harness_check exit 0.

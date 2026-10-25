@@ -14,7 +14,7 @@ export interface Offer { id: string; kind: string; amount: string; term_months: 
 export interface Simulation { amount: string; termMonths: number; outcome: string; requiresReview: boolean; offers: Omit<Offer, 'id' | 'expiresAt'>[]; constraints: Decision['constraints']; maxAmount: string; headroom: string }
 export interface SimulationOptions { amounts: string[]; terms: number[] }
 export interface SigningChallenge { id: string; code: string; expiresAt: string; attemptsLeft: number }
-export interface Decision { factors: Factor[]; offers: Offer[]; constraints: { name: string; limit: string; binding: boolean }[]; binding: string | null; policyVersion: string }
+export interface Decision { factors: Factor[]; offers: Offer[]; constraints: { name: string; limit: string; binding: boolean }[]; binding: string | null; recommendations: string[]; policyVersion: string }
 export interface Application extends ApplicationInput { id: string; companyId: string; status: ApplicationStatus; version: number; history: HistoryEvent[]; createdAt: string; decision?: Decision; selectedOffer?: Offer }
 export interface Persona { login: string; label: string }
 export interface WorkspaceGateway {
@@ -130,7 +130,7 @@ export class MockGateway implements WorkspaceGateway {
     let status: ApplicationStatus = journey[phase].to;
     const expiresAt = new Date((at ?? this.now()) + 4500 + 30 * 60_000).toISOString();
     const decision: Decision | undefined = phase === 3 && exact ? {
-      ...persona.decision, factors: persona.decision.factors.map((f) => ({ ...f })),
+      ...persona.decision, recommendations: [...persona.decision.recommendations], factors: persona.decision.factors.map((f) => ({ ...f })),
       constraints: persona.decision.constraints.map((c) => ({ ...c })),
       offers: persona.decision.offers.map((offer, i) => ({ ...offer, id: `${record.id}-offer-${i}`, expiresAt })),
     } : undefined;

@@ -13,6 +13,8 @@ from app.domain.application_status import IN_PROGRESS, initial_event, replay, tr
 from app.domain.enums import Actor, ApplicationStatus
 from app.domain.scoring.engine import evaluate, simulate
 from app.domain.scoring.policy import POLICY_V1
+from app.domain.scoring.explain import hints
+from app.domain.scoring.metrics import compute_metrics
 from app.domain.serialization import canonical, result_to_json
 from app.seed.personas import load_inputs, load_raw, load_request
 
@@ -57,6 +59,7 @@ for raw in load_raw()['personas']:
             'offers': result_to_json(result)['offers'],
             'constraints': result_to_json(result)['constraints'],
             'binding': result.binding_constraint,
+            'recommendations': list(hints(compute_metrics(load_inputs(raw['id'])), result, load_inputs(raw['id']), POLICY_V1).values()),
             'policyVersion': result.policy_version,
         },
     })

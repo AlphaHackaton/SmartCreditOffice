@@ -877,6 +877,7 @@ export const demoData = {
           }
         ],
         "binding": "DSCR",
+        "recommendations": [],
         "policyVersion": "v1-02f2028a"
       }
     },
@@ -2027,6 +2028,9 @@ export const demoData = {
           }
         ],
         "binding": "DSCR",
+        "recommendations": [
+          "Увеличьте срок кредита до 30 мес, чтобы снизить ежемесячный платёж."
+        ],
         "policyVersion": "v1-02f2028a"
       }
     },
@@ -3215,6 +3219,9 @@ export const demoData = {
           }
         ],
         "binding": "DSCR",
+        "recommendations": [
+          "Снизьте сумму кредита до 3 450 000 ₽ (максимально доступная сумма на этом сроке)."
+        ],
         "policyVersion": "v1-02f2028a"
       }
     },
@@ -3466,6 +3473,7 @@ export const demoData = {
         "offers": [],
         "constraints": [],
         "binding": null,
+        "recommendations": [],
         "policyVersion": "v1-02f2028a"
       }
     },
@@ -3723,6 +3731,9 @@ export const demoData = {
         "offers": [],
         "constraints": [],
         "binding": null,
+        "recommendations": [
+          "Подайте заявку после 24.11.2026, когда бизнесу исполнится 3 мес."
+        ],
         "policyVersion": "v1-02f2028a"
       }
     },
@@ -4939,6 +4950,7 @@ export const demoData = {
           }
         ],
         "binding": "DSCR",
+        "recommendations": [],
         "policyVersion": "v1-02f2028a"
       }
     }

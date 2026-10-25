@@ -10,6 +10,8 @@ import { Timeline } from '../shared/components/Timeline';
 import { ButtonLink } from '../shared/components/ButtonLink';
 import { isApplicationStatus } from '../shared/status';
 import type { ApplicationStatus } from '../demo/generated';
+import { RejectedPanel } from './panels/RejectedPanel';
+import { UnderwritingPanel } from './panels/UnderwritingPanel';
 import { Simulator } from './panels/Simulator';
 import { SigningPanel } from './panels/SigningPanel';
 import { DisbursedPanel } from './panels/DisbursedPanel';
@@ -20,10 +22,10 @@ const descriptions: Record<ApplicationStatus, string> = {
   DRAFT: 'Заявка сохранена в черновиках. Проверьте параметры и согласия перед подачей.',
   SUBMITTED: 'Заявка принята. Готовим данные к проверке. Статус обновится автоматически.',
   SCORING: 'Проверяем данные компании и кредитную историю. Статус обновляется автоматически.',
-  UNDERWRITING: 'Заявка передана кредитному специалисту. Демо не рассчитывает решение для произвольных условий.',
+  UNDERWRITING: 'Для решения нужна дополнительная проверка кредитного специалиста.',
   APPROVED: 'Проверка завершена. Изучите причины и выберите подходящие условия.',
   COUNTER_OFFER: 'На запрошенных условиях финансирование недоступно. Сравните альтернативы и ограничения суммы.',
-  REJECTED: 'В демонстрационном сценарии получен отказ. Экран подробных причин и рекомендаций будет добавлен отдельно.',
+  REJECTED: 'Рассмотрение завершено отказом. Причины и следующие шаги приведены ниже.',
   SIGNING: 'Условия выбраны. Подтвердите демо-подпись кодом внутри кабинета.',
   SIGNED: 'Договор подписан. Выдача ещё не подтверждена.',
   DISBURSED: 'В демонстрационных данных подтверждён статус «Кредит выдан». Реальные операции не выполняются.',
@@ -52,6 +54,8 @@ export function ApplicationPage() {
       </section>
       {['APPROVED', 'COUNTER_OFFER'].includes(record.status) && !application.error && <DecisionPanel record={record} />}
       {['APPROVED', 'COUNTER_OFFER'].includes(record.status) && !application.error && <Simulator key={record.id} record={record} />}
+      {record.status === 'REJECTED' && !application.error && <RejectedPanel record={record} />}
+      {record.status === 'UNDERWRITING' && !application.error && <UnderwritingPanel record={record} />}
       {record.status === 'SIGNING' && !application.error && <SigningPanel record={record} />}
       {record.status === 'DISBURSED' && !application.error && <DisbursedPanel record={record} />}
       <div className="application-columns"><section className="workspace-card" aria-labelledby="terms-title"><h2 id="terms-title">Запрошенные условия</h2><dl className="facts"><div><dt>Продукт</dt><dd>{products.data?.find((p) => p.code === record.productCode)?.name ?? record.productCode}</dd></div><div><dt>Сумма</dt><dd><MoneyText value={record.amount} /></dd></div><div><dt>Срок</dt><dd>{record.termMonths} мес.</dd></div><div><dt>Цель</dt><dd>{purposes[record.purpose] ?? 'Неизвестная цель'}</dd></div><div><dt>Создана</dt><dd><DateTimeText value={record.createdAt} /></dd></div><div><dt>Версия</dt><dd>{record.version}</dd></div></dl></section>
