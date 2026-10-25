@@ -215,6 +215,187 @@
           }
         }
       }
+    },
+    "/api/v1/bank/applications": {
+      "get": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "Queue",
+        "operationId": "queue_api_v1_bank_applications_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankQueueOut"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bank/applications/{application_id}": {
+      "get": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "Dossier",
+        "operationId": "dossier_api_v1_bank_applications__application_id__get",
+        "parameters": [
+          {
+            "name": "application_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Application Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankDossierOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bank/applications/{application_id}/decision": {
+      "post": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "Decision",
+        "operationId": "decision_api_v1_bank_applications__application_id__decision_post",
+        "parameters": [
+          {
+            "name": "application_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Application Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnderwriterDecisionIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bank/applications/{application_id}/rescore": {
+      "post": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "Rescore",
+        "operationId": "rescore_api_v1_bank_applications__application_id__rescore_post",
+        "parameters": [
+          {
+            "name": "application_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Application Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/bank/metrics": {
+      "get": {
+        "tags": [
+          "bank"
+        ],
+        "summary": "Metrics",
+        "operationId": "metrics_api_v1_bank_metrics_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricsOut"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -347,6 +528,92 @@
         ],
         "title": "ApplicationStatus",
         "description": "Статусы заявки (FSM, 12 статусов, 20 рёбер)."
+      },
+      "BankApplicationSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "company_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Company Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApplicationStatus"
+          },
+          "product_code": {
+            "type": "string",
+            "title": "Product Code"
+          },
+          "amount": {
+            "type": "string",
+            "format": "decimal",
+            "title": "Amount"
+          },
+          "term_months": {
+            "type": "integer",
+            "title": "Term Months"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "company_id",
+          "status",
+          "product_code",
+          "amount",
+          "term_months",
+          "version"
+        ],
+        "title": "BankApplicationSummary"
+      },
+      "BankDossierOut": {
+        "properties": {
+          "application": {
+            "$ref": "#/components/schemas/ApplicationOut"
+          },
+          "inputs_snapshot": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Inputs Snapshot"
+          },
+          "audit": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Audit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "application"
+        ],
+        "title": "BankDossierOut"
+      },
+      "BankQueueOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BankApplicationSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "BankQueueOut"
       },
       "DecisionOut": {
         "properties": {
@@ -560,6 +827,44 @@
         ],
         "title": "LoginOut"
       },
+      "MetricsOut": {
+        "properties": {
+          "total_applications": {
+            "type": "integer",
+            "title": "Total Applications"
+          },
+          "automated_decisions": {
+            "type": "integer",
+            "title": "Automated Decisions"
+          },
+          "underwriting_decisions": {
+            "type": "integer",
+            "title": "Underwriting Decisions"
+          },
+          "approved": {
+            "type": "integer",
+            "title": "Approved"
+          },
+          "counter_offer": {
+            "type": "integer",
+            "title": "Counter Offer"
+          },
+          "rejected": {
+            "type": "integer",
+            "title": "Rejected"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_applications",
+          "automated_decisions",
+          "underwriting_decisions",
+          "approved",
+          "counter_offer",
+          "rejected"
+        ],
+        "title": "MetricsOut"
+      },
       "OfferOut": {
         "properties": {
           "id": {
@@ -714,6 +1019,25 @@
           "at"
         ],
         "title": "StatusEventOut"
+      },
+      "UnderwriterDecisionIn": {
+        "properties": {
+          "outcome": {
+            "$ref": "#/components/schemas/Outcome"
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Comment"
+          }
+        },
+        "type": "object",
+        "required": [
+          "outcome",
+          "comment"
+        ],
+        "title": "UnderwriterDecisionIn"
       },
       "UserOut": {
         "properties": {

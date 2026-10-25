@@ -140,3 +140,37 @@ class ApplicationOut(BaseModel):
 
 class ApplicationListOut(BaseModel):
     items: list[ApplicationOut]
+
+
+class BankApplicationSummary(BaseModel):
+    id: UUID
+    company_id: UUID
+    status: ApplicationStatus
+    product_code: str
+    amount: Money
+    term_months: int
+    version: int
+
+
+class BankQueueOut(BaseModel):
+    items: list[BankApplicationSummary]
+
+
+class BankDossierOut(BaseModel):
+    application: ApplicationOut
+    inputs_snapshot: dict[str, Any] = Field(default_factory=dict)
+    audit: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class UnderwriterDecisionIn(BaseModel):
+    outcome: Outcome
+    comment: str = Field(min_length=1, max_length=2000)
+
+
+class MetricsOut(BaseModel):
+    total_applications: int
+    automated_decisions: int
+    underwriting_decisions: int
+    approved: int
+    counter_offer: int
+    rejected: int

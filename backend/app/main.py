@@ -5,9 +5,10 @@ from collections.abc import Awaitable, Callable
 from fastapi import FastAPI, Request
 from starlette.responses import JSONResponse, Response
 
-from app.api.routers import applications, auth, demo, health
+from app.api.routers import applications, auth, bank, demo, health
 from app.api.schemas import ErrorDTO
 from app.config import Settings, settings
+from app.services.bank import BankService
 from app.services.stub import StubApplicationService
 
 
@@ -20,6 +21,7 @@ def create_app(app_settings: Settings | None = None) -> FastAPI:
     )
     application.state.settings = runtime
     application.state.service = StubApplicationService(runtime.jwt_secret)
+    application.state.bank_service = BankService(application.state.service)
 
     @application.middleware("http")
     async def attach_identity(
@@ -48,6 +50,7 @@ def create_app(app_settings: Settings | None = None) -> FastAPI:
     application.include_router(demo.router, prefix=prefix)
     application.include_router(auth.router, prefix=prefix)
     application.include_router(applications.router, prefix=prefix)
+    application.include_router(bank.router, prefix=prefix)
     return application
 
 
