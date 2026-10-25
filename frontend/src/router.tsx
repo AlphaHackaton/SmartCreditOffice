@@ -6,6 +6,7 @@ import { AuthProvider } from './auth/AuthProvider';
 import { RequireRole } from './auth/RequireRole';
 import { LoginPage } from './auth/LoginPage';
 import { DashboardPage } from './client/DashboardPage';
+import { NewApplicationPage } from './client/NewApplicationPage';
 
 export const routes: RouteObject[] = [{
   element: <AuthProvider><AppLayout /></AuthProvider>,
@@ -14,7 +15,7 @@ export const routes: RouteObject[] = [{
     { path: '/login', element: <LoginPage /> },
     { element: <RequireRole role="client" />, children: [
     { path: '/client', element: <DashboardPage /> },
-    { path: '/client/applications/new', element: <PlaceholderPage title="Новая заявка" description="Здесь можно будет выбрать сумму, срок и цель финансирования." /> },
+    { path: '/client/applications/new', element: <NewApplicationPage /> },
     { path: '/client/applications/:id', element: <PlaceholderPage title="Заявка на финансирование" description="Здесь появятся этапы рассмотрения, решение и доступные условия." /> },
     ] },
     { element: <RequireRole role="bank" />, children: [

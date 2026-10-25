@@ -19,3 +19,16 @@
 .application-table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
 .application-table th { color: #737984; font-weight: 500; font-size: 11px; }
 .application-table td, .application-table th { padding: 16px 10px 16px 0; border-bottom: 1px solid #edf0f3; }
+.application-form { max-width: 760px; }
+.application-form fieldset { border: 0; padding: 0; margin: 0 0 28px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+.application-form legend { font-size: 18px; font-weight: 600; padding: 0 0 22px; }
+.form-field { display: flex; flex-direction: column; gap: 9px; font-size: 14px; }
+.form-field select, .form-field > input { padding: 14px 12px; min-height: 48px; border: 1px solid #b9bec6; border-radius: 8px; background: white; font: inherit; color: #202328; }
+.form-field [aria-invalid="true"] { border-color: #b72920; }
+.form-field input:focus-visible, .form-field select:focus-visible, .consent-field input:focus-visible, .demo-controls select:focus-visible { outline: 3px solid #2355ba; outline-offset: 3px; }
+.form-hint { font-size: 12px; color: #6b7380; line-height: 1.8; margin: 0; }
+.consent-field { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.6; }
+.consent-field input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: #ef3124; flex-shrink: 0; }
+.field-error { color: #a5211a; font-size: 13px; margin: 0; }
+.form-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 26px; }
+.save-notice { color: #24633e; line-height: 1.6; font-size: 14px; }
