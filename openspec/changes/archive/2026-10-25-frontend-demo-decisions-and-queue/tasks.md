@@ -16,8 +16,12 @@
 - [x] 11.1 (60–90 мин) Bank QueuePage, синтетические и текущие заявки, фильтры/сортировка/поиск, loading/empty/error/retry, ссылка в досье. Проверка: bank/client isolation, filter/sort, reset, harness_check exit 0.
 
 ## 12. Проверка
-- [ ] 12.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Проверка: harness_check exit 0, build, OpenSpec strict, browser 1280/1440, diff --check; без HTTP/новых зависимостей экспорт и notices не менять искусственно. Обновить README и DEV_CODEX.
+- [x] 12.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Проверка: harness_check exit 0, build, OpenSpec strict, browser 1280/1440, diff --check; без HTTP/новых зависимостей экспорт и notices не менять искусственно. Обновить README и DEV_CODEX.
 
 ## Workflow follow-up
 
 После всех проверок синхронизировать обе новые спецификации и архивировать изменение; сохранить небольшие Conventional Commits. Пользователь разрешил реализацию без промежуточного ревью.
+
+## Verification
+
+25.10.2026: фичи 7–11 реализованы последовательно отдельными коммитами. Итоговый harness_check: exit 0, 788 backend + 249 frontend тестов, lint/typecheck/fixture --check зелёные. Production build: 538 modules, JS 450,91 кБ (gzip 128,75 кБ). Browser: P1 → оффер/диалог → неверный код → SIGNED → DISBURSED; P2 → контроффер/ограничения → меньшая сумма/прогноз APPROVED → неизвестная комбинация; bank → 7 строк, фильтры/сортировка/пустой поиск/сброс. Ширины 1280/1440 без горизонтального переполнения. Исправлено отображение лимитов с высокой Decimal-точностью в Python-проекции и добавлен регрессионный тест. После регенерации выполнен свежий reload (HMR сохранял старый gateway). Реальный API не реализован; зависимости/lock/notices/API-экспорт не менялись. Досье/ручное решение, метрики, расширенная песочница остаются №12–14.

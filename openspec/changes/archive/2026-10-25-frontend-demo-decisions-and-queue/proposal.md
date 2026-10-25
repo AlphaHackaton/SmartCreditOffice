@@ -20,7 +20,7 @@
 
 ### Modified Capabilities
 
-Нет: базовый demo-client-workspace сохраняет свою область, новые возможности расширяют его.
+- `demo-client-workspace`: ожидание включает SIGNED; результат скоринга останавливает его опрос, а дальнейшие офферы/подпись регулирует demo-credit-decisions.
 
 ## Impact
 
