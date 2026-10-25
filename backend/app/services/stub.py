@@ -3,7 +3,6 @@
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
 from decimal import Decimal
-from hashlib import sha256
 from uuid import UUID, uuid4
 
 from app.api.schemas import (
@@ -18,6 +17,7 @@ from app.api.schemas import (
     UserOut,
     UserRole,
 )
+from app.api.security import create_access_token, hash_password, verify_password
 from app.domain.enums import ApplicationStatus, Grade, Outcome, Route
 from app.seed.personas import load_raw
 
@@ -29,6 +29,7 @@ class _StubUser:
     role: UserRole
     company_id: UUID | None
     persona_id: str | None
+    password_hash: str
 
 
 @dataclass(slots=True)
@@ -46,7 +47,8 @@ class _StubApplication:
 
 
 class StubApplicationService:
-    def __init__(self) -> None:
+    def __init__(self, jwt_secret: str = "dev-only-secret-change-me-please-32-bytes") -> None:
+        self._jwt_secret = jwt_secret
         self._users: dict[UUID, _StubUser] = {}
         self._by_login: dict[str, _StubUser] = {}
         self._applications: dict[UUID, _StubApplication] = {}
@@ -55,10 +57,17 @@ class StubApplicationService:
 
     def _seed_users(self) -> None:
         for item in self._personas.values():
-            user = _StubUser(uuid4(), str(item["login"]), UserRole.CLIENT, uuid4(), str(item["id"]))
+            user = _StubUser(
+                uuid4(),
+                str(item["login"]),
+                UserRole.CLIENT,
+                uuid4(),
+                str(item["id"]),
+                hash_password("demo"),
+            )
             self._users[user.id] = user
             self._by_login[user.login] = user
-        bank = _StubUser(uuid4(), "underwriter", UserRole.BANK, None, None)
+        bank = _StubUser(uuid4(), "underwriter", UserRole.BANK, None, None, hash_password("demo"))
         self._users[bank.id] = bank
         self._by_login[bank.login] = bank
 
@@ -74,16 +83,15 @@ class StubApplicationService:
 
     def login(self, login: str, password: str) -> LoginOut:
         user = self._by_login.get(login)
-        if user is None or password != "demo":
+        if user is None or not verify_password(password, user.password_hash):
             raise ValueError("INVALID_CREDENTIALS")
-        token = sha256(f"{user.id}:demo".encode()).hexdigest()
+        token = create_access_token(user.id, user.role, self._jwt_secret)
         return LoginOut(access_token=token, user=self._public(user))
 
-    def user_id_from_token(self, token: str) -> UUID | None:
-        for user in self._users.values():
-            if token == sha256(f"{user.id}:demo".encode()).hexdigest():
-                return user.id
-        return None
+    def user_id_from_token(self, token: str) -> tuple[UUID, UserRole]:
+        from app.api.security import decode_access_token
+
+        return decode_access_token(token, self._jwt_secret)
 
     def user(self, user_id: UUID) -> UserOut:
         return self._public(self._user(user_id))

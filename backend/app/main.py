@@ -19,7 +19,7 @@ def create_app(app_settings: Settings | None = None) -> FastAPI:
         separate_input_output_schemas=False,
     )
     application.state.settings = runtime
-    application.state.service = StubApplicationService()
+    application.state.service = StubApplicationService(runtime.jwt_secret)
 
     @application.middleware("http")
     async def attach_identity(
@@ -27,9 +27,13 @@ def create_app(app_settings: Settings | None = None) -> FastAPI:
     ) -> Response:
         token = request.headers.get("Authorization", "")
         if token.startswith("Bearer "):
-            user_id = application.state.service.user_id_from_token(token[7:])
-            if user_id is not None:
+            try:
+                user_id, role = application.state.service.user_id_from_token(token[7:])
+            except Exception:
+                pass
+            else:
                 request.state.user_id = user_id
+                request.state.role = role
         return await call_next(request)
 
     @application.exception_handler(ValueError)
