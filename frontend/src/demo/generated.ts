@@ -65,7 +65,75 @@ export const demoData = {
           "to": "APPROVED",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "TURNOVER_STABLE",
+            "text": "Поступления по счёту стабильные.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "DEBT_BURDEN_NONE",
+            "text": "Действующей долговой нагрузки нет.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "BKI_CLEAN",
+            "text": "Кредитная история без просрочек.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "FNS_MATCH",
+            "text": "Обороты по счёту соответствуют отчётности.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "BUSINESS_MATURE",
+            "text": "Бизнес работает давно.",
+            "hint": null,
+            "impact": "POSITIVE"
+          }
+        ],
+        "offers": [
+          {
+            "kind": "REQUESTED",
+            "amount": "2000000.00",
+            "term_months": 24,
+            "rate_pct": "21.00",
+            "monthly_payment": "102771.30",
+            "overpayment": "466511.20"
+          }
+        ],
+        "constraints": [
+          {
+            "name": "DSCR",
+            "limit": "6736391.184954498068672118698",
+            "binding": true
+          },
+          {
+            "name": "REVENUE",
+            "limit": "8640000.0000",
+            "binding": false
+          },
+          {
+            "name": "GRADE_CAP",
+            "limit": "10000000.00",
+            "binding": false
+          },
+          {
+            "name": "PRODUCT_MAX",
+            "limit": "10000000.00",
+            "binding": false
+          }
+        ],
+        "binding": "DSCR",
+        "policyVersion": "v1-02f2028a"
+      }
     },
     {
       "id": "p2_longer_term",
@@ -105,7 +173,83 @@ export const demoData = {
           "to": "COUNTER_OFFER",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "TURNOVER_MODERATE",
+            "text": "Поступления по счёту умеренно колеблются.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "DEBT_BURDEN_MODERATE",
+            "text": "Текущая долговая нагрузка умеренная.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "BKI_PAST_OVERDUE_MINOR",
+            "text": "В кредитной истории была короткая просрочка.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "FNS_MISMATCH_MODERATE",
+            "text": "Отчётность расходится с оборотами по счёту.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "BUSINESS_MATURE",
+            "text": "Бизнес работает давно.",
+            "hint": null,
+            "impact": "POSITIVE"
+          }
+        ],
+        "offers": [
+          {
+            "kind": "LONGER_TERM",
+            "amount": "2500000.00",
+            "term_months": 30,
+            "rate_pct": "23.50",
+            "monthly_payment": "110986.30",
+            "overpayment": "829589.00"
+          },
+          {
+            "kind": "REDUCED_AMOUNT",
+            "amount": "1210000.00",
+            "term_months": 12,
+            "rate_pct": "22.50",
+            "monthly_payment": "113540.57",
+            "overpayment": "152486.84"
+          }
+        ],
+        "constraints": [
+          {
+            "name": "DSCR",
+            "limit": "1213256.578367478729020051296",
+            "binding": true
+          },
+          {
+            "name": "REVENUE",
+            "limit": "5760000.0000",
+            "binding": false
+          },
+          {
+            "name": "GRADE_CAP",
+            "limit": "5000000.00",
+            "binding": false
+          },
+          {
+            "name": "PRODUCT_MAX",
+            "limit": "10000000.00",
+            "binding": false
+          }
+        ],
+        "binding": "DSCR",
+        "policyVersion": "v1-02f2028a"
+      }
     },
     {
       "id": "p3_reduced",
@@ -145,7 +289,81 @@ export const demoData = {
           "to": "COUNTER_OFFER",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "TURNOVER_MODERATE",
+            "text": "Поступления по счёту умеренно колеблются.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "DEBT_BURDEN_HIGH",
+            "text": "Текущая долговая нагрузка высокая.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "BKI_CLEAN",
+            "text": "Кредитная история без просрочек.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "BKI_MANY_INQUIRIES",
+            "text": "За последний месяц было много запросов в бюро.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "FNS_MATCH",
+            "text": "Обороты по счёту соответствуют отчётности.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "BUSINESS_MATURE",
+            "text": "Бизнес работает давно.",
+            "hint": null,
+            "impact": "POSITIVE"
+          }
+        ],
+        "offers": [
+          {
+            "kind": "REDUCED_AMOUNT",
+            "amount": "3450000.00",
+            "term_months": 36,
+            "rate_pct": "23.50",
+            "monthly_payment": "134449.28",
+            "overpayment": "1390174.08"
+          }
+        ],
+        "constraints": [
+          {
+            "name": "DSCR",
+            "limit": "3454262.309051012222425598857",
+            "binding": true
+          },
+          {
+            "name": "REVENUE",
+            "limit": "12000000.0000",
+            "binding": false
+          },
+          {
+            "name": "GRADE_CAP",
+            "limit": "5000000.00",
+            "binding": false
+          },
+          {
+            "name": "PRODUCT_MAX",
+            "limit": "10000000.00",
+            "binding": false
+          }
+        ],
+        "binding": "DSCR",
+        "policyVersion": "v1-02f2028a"
+      }
     },
     {
       "id": "p4_overdue",
@@ -185,7 +403,21 @@ export const demoData = {
           "to": "REJECTED",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "BKI_CURRENT_OVERDUE",
+            "text": "Есть текущая просрочка по действующим обязательствам.",
+            "hint": null,
+            "impact": "KNOCKOUT"
+          }
+        ],
+        "offers": [],
+        "constraints": [],
+        "binding": null,
+        "policyVersion": "v1-02f2028a"
+      }
     },
     {
       "id": "p5_young",
@@ -225,7 +457,27 @@ export const demoData = {
           "to": "REJECTED",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "BUSINESS_TOO_YOUNG",
+            "text": "Бизнес зарегистрирован слишком недавно.",
+            "hint": null,
+            "impact": "KNOCKOUT"
+          },
+          {
+            "code": "INSUFFICIENT_DATA",
+            "text": "Недостаточно данных для автоматического решения.",
+            "hint": null,
+            "impact": "KNOCKOUT"
+          }
+        ],
+        "offers": [],
+        "constraints": [],
+        "binding": null,
+        "policyVersion": "v1-02f2028a"
+      }
     },
     {
       "id": "p6_mismatch",
@@ -265,7 +517,75 @@ export const demoData = {
           "to": "UNDERWRITING",
           "actor": "SYSTEM"
         }
-      ]
+      ],
+      "decision": {
+        "factors": [
+          {
+            "code": "TURNOVER_MODERATE",
+            "text": "Поступления по счёту умеренно колеблются.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "DEBT_BURDEN_NONE",
+            "text": "Действующей долговой нагрузки нет.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "BKI_CLEAN",
+            "text": "Кредитная история без просрочек.",
+            "hint": null,
+            "impact": "POSITIVE"
+          },
+          {
+            "code": "FNS_MISMATCH",
+            "text": "Отчётность существенно расходится с оборотами по счёту.",
+            "hint": null,
+            "impact": "NEGATIVE"
+          },
+          {
+            "code": "BUSINESS_MATURE",
+            "text": "Бизнес работает давно.",
+            "hint": null,
+            "impact": "POSITIVE"
+          }
+        ],
+        "offers": [
+          {
+            "kind": "REQUESTED",
+            "amount": "3000000.00",
+            "term_months": 24,
+            "rate_pct": "20.00",
+            "monthly_payment": "152687.41",
+            "overpayment": "664497.84"
+          }
+        ],
+        "constraints": [
+          {
+            "name": "DSCR",
+            "limit": "4896882.577484560724961308632",
+            "binding": true
+          },
+          {
+            "name": "REVENUE",
+            "limit": "7200000.0000",
+            "binding": false
+          },
+          {
+            "name": "GRADE_CAP",
+            "limit": "10000000.00",
+            "binding": false
+          },
+          {
+            "name": "PRODUCT_MAX",
+            "limit": "15000000.00",
+            "binding": false
+          }
+        ],
+        "binding": "DSCR",
+        "policyVersion": "v1-02f2028a"
+      }
     }
   ],
   "customJourney": [
@@ -289,5 +609,27 @@ export const demoData = {
       "to": "UNDERWRITING",
       "actor": "SYSTEM"
     }
-  ]
+  ],
+  "decisionEvents": {
+    "APPROVED_SIGNING": {
+      "from": "APPROVED",
+      "to": "SIGNING",
+      "actor": "CLIENT"
+    },
+    "APPROVED_EXPIRED": {
+      "from": "APPROVED",
+      "to": "EXPIRED",
+      "actor": "SYSTEM"
+    },
+    "COUNTER_OFFER_SIGNING": {
+      "from": "COUNTER_OFFER",
+      "to": "SIGNING",
+      "actor": "CLIENT"
+    },
+    "COUNTER_OFFER_EXPIRED": {
+      "from": "COUNTER_OFFER",
+      "to": "EXPIRED",
+      "actor": "SYSTEM"
+    }
+  }
 } as const;

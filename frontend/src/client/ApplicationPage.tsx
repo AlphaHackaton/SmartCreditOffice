@@ -10,6 +10,7 @@ import { Timeline } from '../shared/components/Timeline';
 import { ButtonLink } from '../shared/components/ButtonLink';
 import { isApplicationStatus } from '../shared/status';
 import type { ApplicationStatus } from '../demo/generated';
+import { DecisionPanel } from './panels/DecisionPanel';
 import './workspace.css';
 
 const descriptions: Record<ApplicationStatus, string> = {
@@ -17,7 +18,7 @@ const descriptions: Record<ApplicationStatus, string> = {
   SUBMITTED: 'Заявка принята. Готовим данные к проверке. Статус обновится автоматически.',
   SCORING: 'Проверяем данные компании и кредитную историю. Статус обновляется автоматически.',
   UNDERWRITING: 'Заявка передана кредитному специалисту. Демо не рассчитывает решение для произвольных условий.',
-  APPROVED: 'Демонстрационный сценарий завершился одобрением. Подробные офферы и принятие условий будут добавлены следующим этапом.',
+  APPROVED: 'Проверка завершена. Изучите причины и выберите подходящие условия.',
   COUNTER_OFFER: 'В демонстрационном сценарии получено встречное предложение. Сравнение условий будет добавлено следующим этапом.',
   REJECTED: 'В демонстрационном сценарии получен отказ. Экран подробных причин и рекомендаций будет добавлен отдельно.',
   SIGNING: 'Ожидается подписание. Интерфейс подписи будет добавлен отдельно.',
@@ -46,6 +47,7 @@ export function ApplicationPage() {
         </>}
         <p className="form-hint">Демо-режим: воспроизводится последовательность, проверенная backend FSM. Это не результат реального банковского рассмотрения.</p>
       </section>
+      {record.status === 'APPROVED' && !application.error && <DecisionPanel record={record} />}
       <div className="application-columns"><section className="workspace-card" aria-labelledby="terms-title"><h2 id="terms-title">Запрошенные условия</h2><dl className="facts"><div><dt>Продукт</dt><dd>{products.data?.find((p) => p.code === record.productCode)?.name ?? record.productCode}</dd></div><div><dt>Сумма</dt><dd><MoneyText value={record.amount} /></dd></div><div><dt>Срок</dt><dd>{record.termMonths} мес.</dd></div><div><dt>Цель</dt><dd>{purposes[record.purpose] ?? 'Неизвестная цель'}</dd></div><div><dt>Создана</dt><dd><DateTimeText value={record.createdAt} /></dd></div><div><dt>Версия</dt><dd>{record.version}</dd></div></dl></section>
         <section className="workspace-card" aria-labelledby="history-title"><h2 id="history-title">История рассмотрения</h2><Timeline history={record.history} current={record.status} /></section></div>
     </>}

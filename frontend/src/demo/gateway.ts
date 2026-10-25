@@ -9,7 +9,10 @@ export interface Company { id: string; name: string; inn: string; legal_form: st
 export interface Product { code: string; name: string; min_amount: string; max_amount: string; min_term: number; max_term: number }
 export interface HistoryEvent { from: string | null; to: string; actor: string; at: string; reason?: string }
 export interface ApplicationInput { productCode: string; amount: string; termMonths: number; purpose: string; consents: string[] }
-export interface Application extends ApplicationInput { id: string; companyId: string; status: ApplicationStatus; version: number; history: HistoryEvent[]; createdAt: string }
+export interface Factor { code: string; text: string; hint: string | null; impact: string }
+export interface Offer { id: string; kind: string; amount: string; term_months: number; rate_pct: string; monthly_payment: string; overpayment: string; expiresAt: string }
+export interface Decision { factors: Factor[]; offers: Offer[]; constraints: { name: string; limit: string; binding: boolean }[]; binding: string | null; policyVersion: string }
+export interface Application extends ApplicationInput { id: string; companyId: string; status: ApplicationStatus; version: number; history: HistoryEvent[]; createdAt: string; decision?: Decision; selectedOffer?: Offer }
 export interface Persona { login: string; label: string }
 export interface WorkspaceGateway {
   personas(signal?: AbortSignal): Promise<Persona[]>;
@@ -20,6 +23,7 @@ export interface WorkspaceGateway {
   applications(token: string, signal?: AbortSignal): Promise<Application[]>;
   application(token: string, id: string, signal?: AbortSignal): Promise<Application>;
   save(token: string, input: ApplicationInput, id?: string, version?: number): Promise<Application>;
+  accept(token: string, id: string, version: number, offerId: string): Promise<Application>;
   submit(token: string, id: string, version: number): Promise<Application>;
 }
 export type FailureStatus = 401 | 403 | 404 | 409 | 422 | 503;
@@ -51,12 +55,13 @@ export class MockGateway implements WorkspaceGateway {
   private nextCommand: FailureStatus | null = null;
   private sessions = new Map<string, User>();
   private records = new Map<string, Application>();
+  private accepted = new Map<string, { offer: Offer; event: HistoryEvent }>();
   private submitted = new Map<string, number>();
   private now: () => number;
   constructor(now = Date.now, private unauthorized: (token: string) => void = () => {}) { this.now = now; }
   setUnauthorized(callback: (token: string) => void) { this.unauthorized = callback; }
   failNext(kind: 'read' | 'command', status: FailureStatus) { if (kind === 'read') this.nextRead = status; else this.nextCommand = status; }
-  reset() { this.generation++; this.records.clear(); this.sessions.clear(); this.submitted.clear(); this.nextRead = null; this.nextCommand = null; }
+  reset() { this.generation++; this.records.clear(); this.sessions.clear(); this.submitted.clear(); this.accepted.clear(); this.nextRead = null; this.nextCommand = null; }
   async logout(token: string) { this.sessions.delete(token); }
   private async wait(kind: 'read' | 'command', signal?: AbortSignal, token?: string) {
     const generation = this.generation;
@@ -114,8 +119,21 @@ export class MockGateway implements WorkspaceGateway {
     const exact = record.productCode === persona.request.product_code && record.amount.replace(/\.0+$/, '') === persona.request.amount.replace(/\.0+$/, '') && record.termMonths === persona.request.term_months;
     const journey = exact ? persona.journey : demoData.customJourney;
     const phase = at === undefined ? 0 : this.now() - at >= 4500 ? 3 : this.now() - at >= 1500 ? 2 : 1;
-    const history = journey.slice(0, phase + 1).map((event, index) => ({ ...event, at: index === 0 ? record.createdAt : new Date(at! + [0, 0, 1500, 4500][index]).toISOString() }));
-    return structuredClone({ ...record, status: journey[phase].to, version: record.version + phase, history });
+    const history: HistoryEvent[] = journey.slice(0, phase + 1).map((event, index) => ({ ...event, at: index === 0 ? record.createdAt : new Date(at! + [0, 0, 1500, 4500][index]).toISOString() }));
+    let status: ApplicationStatus = journey[phase].to;
+    const expiresAt = new Date((at ?? this.now()) + 4500 + 30 * 60_000).toISOString();
+    const decision: Decision | undefined = phase === 3 && exact ? {
+      ...persona.decision, factors: persona.decision.factors.map((f) => ({ ...f })),
+      constraints: persona.decision.constraints.map((c) => ({ ...c })),
+      offers: persona.decision.offers.map((offer, i) => ({ ...offer, id: `${record.id}-offer-${i}`, expiresAt })),
+    } : undefined;
+    const accepted = this.accepted.get(record.id);
+    if (accepted) { history.push(accepted.event); status = 'SIGNING'; }
+    else if ((status === 'APPROVED' || status === 'COUNTER_OFFER') && this.now() >= Date.parse(expiresAt)) {
+      const event = demoData.decisionEvents[`${status}_EXPIRED`];
+      history.push({ ...event, at: expiresAt }); status = event.to;
+    }
+    return structuredClone({ ...record, status, version: record.version + history.length - 1, history, decision, selectedOffer: accepted?.offer });
   }
   async application(token: string, id: string, signal?: AbortSignal) { await this.wait('read', signal, token); return this.snapshot(this.owned(token, id)); }
   async save(token: string, input: ApplicationInput, id?: string, version?: number) {
@@ -127,6 +145,15 @@ export class MockGateway implements WorkspaceGateway {
     const createdAt = existing?.createdAt ?? new Date(this.now()).toISOString();
     const record: Application = { ...structuredClone(input), id: id ?? crypto.randomUUID(), companyId: user.companyId!, status: 'DRAFT', version: existing ? existing.version + 1 : 1, history: [], createdAt };
     this.records.set(record.id, record); return this.snapshot(record);
+  }
+  async accept(token: string, id: string, version: number, offerId: string) {
+    await this.wait('command', undefined, token); const record = this.owned(token, id); const current = this.snapshot(record);
+    if (current.version !== version || (current.status !== 'APPROVED' && current.status !== 'COUNTER_OFFER')) throw error(409, 'VERSION_CONFLICT', 'Условия изменились или истекли. Обновите заявку.');
+    const offer = current.decision?.offers.find((o) => o.id === offerId);
+    if (!offer || this.now() >= Date.parse(offer.expiresAt)) throw error(409, 'OFFER_EXPIRED', 'Предложение недоступно. Обновите заявку.');
+    const event = demoData.decisionEvents[`${current.status}_SIGNING`];
+    this.accepted.set(id, { offer, event: { ...event, at: new Date(this.now()).toISOString() } });
+    return this.snapshot(record);
   }
   async submit(token: string, id: string, version: number) {
     await this.wait('command', undefined, token); const record = this.owned(token, id);
@@ -140,5 +167,5 @@ export class MockGateway implements WorkspaceGateway {
 
 export function unavailableGateway(): WorkspaceGateway {
   const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'API Dev 2 ещё не подключён. Выберите mock-режим для демонстрации.'); };
-  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, submit: unavailable };
+  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, submit: unavailable };
 }
