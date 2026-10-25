@@ -9,7 +9,7 @@ import { formatMoney } from '../../shared/format';
 import { statusLabel } from '../../shared/status';
 import { OfferTerms } from './OffersList';
 
-const constraintLabels: Record<string, string> = { DSCR: 'Платёжная способность', REVENUE: 'Оборот компании', PRODUCT: 'Условия продукта', GRADE: 'Лимит по риск-профилю' };
+const constraintLabels: Record<string, string> = { DSCR: 'Платёжная способность', REVENUE: 'Оборот компании', PRODUCT_MAX: 'Условия продукта', GRADE_CAP: 'Лимит по риск-профилю' };
 export function Constraints({ constraints }: { constraints: Decision['constraints'] }) {
   return <ul className="constraints" aria-label="Ограничения суммы">{constraints.map((c) => <li className={c.binding ? 'constraint-binding' : ''} key={c.name}><span>{constraintLabels[c.name] ?? c.name}{c.binding ? ' — ограничивает сумму' : ''}</span><strong><MoneyText value={c.limit} /></strong></li>)}</ul>;
 }

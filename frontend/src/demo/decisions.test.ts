@@ -69,3 +69,9 @@ it('очередь доступна bank, включает примеры и ж�
   gateway.reset(); const next = await gateway.login('underwriter', 'demo');
   expect(await gateway.queue(next.token)).toHaveLength(6);
 });
+
+it('лимиты публичной проекции имеют денежную точность для отображения', async () => {
+  const { gateway, token, record } = await decisionScenario('p2');
+  const sim = await gateway.simulate(token, record.id, record.amount, record.termMonths);
+  for (const c of [...record.decision!.constraints, ...sim.constraints]) expect(c.limit).toMatch(/^\d+\.\d{2}$/);
+});

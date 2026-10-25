@@ -29,6 +29,11 @@ def journey(outcome):
     return [{'from': e.from_status, 'to': e.to_status, 'actor': e.actor} for e in events]
 
 
+def client_constraints(constraints):
+    # Presentation precision only; the domain keeps the original exact limits.
+    return [{'name': c.name, 'limit': str(c.limit.quantize(Decimal('0.01'))), 'binding': c.binding} for c in constraints]
+
+
 def simulations(persona_id, result):
     req = load_request(persona_id)
     product = POLICY_V1.product(req.product_code)
@@ -40,7 +45,7 @@ def simulations(persona_id, result):
             value = simulate(load_inputs(persona_id), replace(req, amount=Decimal(amount), term_months=term), POLICY_V1)
             rows.append({'amount': str(amount), 'termMonths': term, 'outcome': value.predicted_outcome,
                          'requiresReview': value.requires_review, 'offers': canonical(value.offers),
-                         'constraints': canonical(value.constraints), 'maxAmount': str(value.max_amount_for_term), 'headroom': str(value.headroom)})
+                         'constraints': client_constraints(value.constraints), 'maxAmount': str(value.max_amount_for_term), 'headroom': str(value.headroom)})
     return {'amounts': [str(a) for a in amounts], 'terms': terms, 'rows': rows}
 
 
@@ -57,7 +62,7 @@ for raw in load_raw()['personas']:
         'decision': {
             'factors': [{'code': f.code, 'text': f.client_text, 'hint': f.hint, 'impact': f.impact} for f in result.factors],
             'offers': result_to_json(result)['offers'],
-            'constraints': result_to_json(result)['constraints'],
+            'constraints': client_constraints(result.constraints),
             'binding': result.binding_constraint,
             'recommendations': list(hints(compute_metrics(load_inputs(raw['id'])), result, load_inputs(raw['id']), POLICY_V1).values()),
             'policyVersion': result.policy_version,

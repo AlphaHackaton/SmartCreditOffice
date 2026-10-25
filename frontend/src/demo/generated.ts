@@ -99,12 +99,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1958187.350537224132248662977",
+                "limit": "1958187.35",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -139,12 +139,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3727135.138667454881577859683",
+                "limit": "3727135.14",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -179,12 +179,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5305452.480109413743832687438",
+                "limit": "5305452.48",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -219,12 +219,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6736391.184954498068672118698",
+                "limit": "6736391.18",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -259,12 +259,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7979375.545973495274375679830",
+                "limit": "7979375.55",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -299,12 +299,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9125575.986198247493767556314",
+                "limit": "9125575.99",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": true
               },
               {
@@ -339,12 +339,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1958187.350537224132248662977",
+                "limit": "1958187.35",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -379,12 +379,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3727135.138667454881577859683",
+                "limit": "3727135.14",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -419,12 +419,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5305452.480109413743832687438",
+                "limit": "5305452.48",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -459,12 +459,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6736391.184954498068672118698",
+                "limit": "6736391.18",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -499,12 +499,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7979375.545973495274375679830",
+                "limit": "7979375.55",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -539,12 +539,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9125575.986198247493767556314",
+                "limit": "9125575.99",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": true
               },
               {
@@ -587,12 +587,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1958187.350537224132248662977",
+                "limit": "1958187.35",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -627,12 +627,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3727135.138667454881577859683",
+                "limit": "3727135.14",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -667,12 +667,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5305452.480109413743832687438",
+                "limit": "5305452.48",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -707,12 +707,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6736391.184954498068672118698",
+                "limit": "6736391.18",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -747,12 +747,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7979375.545973495274375679830",
+                "limit": "7979375.55",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": false
               },
               {
@@ -787,12 +787,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9125575.986198247493767556314",
+                "limit": "9125575.99",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "8640000.0000",
+                "limit": "8640000.00",
                 "binding": true
               },
               {
@@ -857,12 +857,12 @@ export const demoData = {
         "constraints": [
           {
             "name": "DSCR",
-            "limit": "6736391.184954498068672118698",
+            "limit": "6736391.18",
             "binding": true
           },
           {
             "name": "REVENUE",
-            "limit": "8640000.0000",
+            "limit": "8640000.00",
             "binding": false
           },
           {
@@ -954,12 +954,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "640400.2171549188906614188119",
+                "limit": "640400.22",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -994,12 +994,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1213256.578367478729020051296",
+                "limit": "1213256.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1034,12 +1034,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1719356.951844847850765059539",
+                "limit": "1719356.95",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1074,12 +1074,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2173743.887415593640194607953",
+                "limit": "2173743.89",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1114,12 +1114,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2564419.078478947023326360240",
+                "limit": "2564419.08",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1154,12 +1154,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2921318.981368856050965649319",
+                "limit": "2921318.98",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1202,12 +1202,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "640400.2171549188906614188119",
+                "limit": "640400.22",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1242,12 +1242,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1213256.578367478729020051296",
+                "limit": "1213256.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1282,12 +1282,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1719356.951844847850765059539",
+                "limit": "1719356.95",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1322,12 +1322,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2173743.887415593640194607953",
+                "limit": "2173743.89",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1362,12 +1362,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2564419.078478947023326360240",
+                "limit": "2564419.08",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1402,12 +1402,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2921318.981368856050965649319",
+                "limit": "2921318.98",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1450,12 +1450,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "640400.2171549188906614188119",
+                "limit": "640400.22",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1498,12 +1498,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1213256.578367478729020051296",
+                "limit": "1213256.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1538,12 +1538,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1719356.951844847850765059539",
+                "limit": "1719356.95",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1578,12 +1578,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2173743.887415593640194607953",
+                "limit": "2173743.89",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1618,12 +1618,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2564419.078478947023326360240",
+                "limit": "2564419.08",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1658,12 +1658,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2921318.981368856050965649319",
+                "limit": "2921318.98",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1706,12 +1706,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "640400.2171549188906614188119",
+                "limit": "640400.22",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1754,12 +1754,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1213256.578367478729020051296",
+                "limit": "1213256.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1802,12 +1802,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1719356.951844847850765059539",
+                "limit": "1719356.95",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1850,12 +1850,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2173743.887415593640194607953",
+                "limit": "2173743.89",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1890,12 +1890,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2564419.078478947023326360240",
+                "limit": "2564419.08",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -1930,12 +1930,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2921318.981368856050965649319",
+                "limit": "2921318.98",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "5760000.0000",
+                "limit": "5760000.00",
                 "binding": false
               },
               {
@@ -2008,12 +2008,12 @@ export const demoData = {
         "constraints": [
           {
             "name": "DSCR",
-            "limit": "1213256.578367478729020051296",
+            "limit": "1213256.58",
             "binding": true
           },
           {
             "name": "REVENUE",
-            "limit": "5760000.0000",
+            "limit": "5760000.00",
             "binding": false
           },
           {
@@ -2107,12 +2107,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "757229.9865007486882820830550",
+                "limit": "757229.99",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2147,12 +2147,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1434593.927123707956611547141",
+                "limit": "1434593.93",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2187,12 +2187,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2033023.422789516039755982564",
+                "limit": "2033023.42",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2227,12 +2227,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2570305.272281951939419299945",
+                "limit": "2570305.27",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2267,12 +2267,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3032252.288741998169473736772",
+                "limit": "3032252.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2307,12 +2307,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3454262.309051012222425598857",
+                "limit": "3454262.31",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2355,12 +2355,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "757229.9865007486882820830550",
+                "limit": "757229.99",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2403,12 +2403,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1434593.927123707956611547141",
+                "limit": "1434593.93",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2443,12 +2443,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2033023.422789516039755982564",
+                "limit": "2033023.42",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2483,12 +2483,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2570305.272281951939419299945",
+                "limit": "2570305.27",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2523,12 +2523,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3032252.288741998169473736772",
+                "limit": "3032252.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2563,12 +2563,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3454262.309051012222425598857",
+                "limit": "3454262.31",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2611,12 +2611,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "757229.9865007486882820830550",
+                "limit": "757229.99",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2659,12 +2659,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1434593.927123707956611547141",
+                "limit": "1434593.93",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2707,12 +2707,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2033023.422789516039755982564",
+                "limit": "2033023.42",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2755,12 +2755,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2570305.272281951939419299945",
+                "limit": "2570305.27",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2803,12 +2803,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3032252.288741998169473736772",
+                "limit": "3032252.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2843,12 +2843,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3454262.309051012222425598857",
+                "limit": "3454262.31",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2891,12 +2891,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "757229.9865007486882820830550",
+                "limit": "757229.99",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2939,12 +2939,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "1434593.927123707956611547141",
+                "limit": "1434593.93",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -2987,12 +2987,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2033023.422789516039755982564",
+                "limit": "2033023.42",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -3035,12 +3035,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2570305.272281951939419299945",
+                "limit": "2570305.27",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -3083,12 +3083,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3032252.288741998169473736772",
+                "limit": "3032252.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -3123,12 +3123,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3454262.309051012222425598857",
+                "limit": "3454262.31",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "12000000.0000",
+                "limit": "12000000.00",
                 "binding": false
               },
               {
@@ -3199,12 +3199,12 @@ export const demoData = {
         "constraints": [
           {
             "name": "DSCR",
-            "limit": "3454262.309051012222425598857",
+            "limit": "3454262.31",
             "binding": true
           },
           {
             "name": "REVENUE",
-            "limit": "12000000.0000",
+            "limit": "12000000.00",
             "binding": false
           },
           {
@@ -3812,12 +3812,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2697437.732625625186038352138",
+                "limit": "2697437.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -3852,12 +3852,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3848339.286796027647889914895",
+                "limit": "3848339.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -3892,12 +3892,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "4896882.577484560724961308632",
+                "limit": "4896882.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -3932,12 +3932,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5812384.693892075801899168694",
+                "limit": "5812384.69",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -3972,12 +3972,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6660569.729603785021563803851",
+                "limit": "6660569.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4012,12 +4012,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7369205.878026989658483309622",
+                "limit": "7369205.88",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4052,12 +4052,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8048608.936773408154400081928",
+                "limit": "8048608.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4092,12 +4092,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8660847.935967520330213164638",
+                "limit": "8660847.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4132,12 +4132,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9212562.543826112131976272301",
+                "limit": "9212562.54",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4172,12 +4172,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2697437.732625625186038352138",
+                "limit": "2697437.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4212,12 +4212,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3848339.286796027647889914895",
+                "limit": "3848339.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4252,12 +4252,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "4896882.577484560724961308632",
+                "limit": "4896882.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4292,12 +4292,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5812384.693892075801899168694",
+                "limit": "5812384.69",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4332,12 +4332,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6660569.729603785021563803851",
+                "limit": "6660569.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4372,12 +4372,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7369205.878026989658483309622",
+                "limit": "7369205.88",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4412,12 +4412,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8048608.936773408154400081928",
+                "limit": "8048608.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4452,12 +4452,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8660847.935967520330213164638",
+                "limit": "8660847.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4492,12 +4492,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9212562.543826112131976272301",
+                "limit": "9212562.54",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4540,12 +4540,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "2697437.732625625186038352138",
+                "limit": "2697437.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4580,12 +4580,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "3848339.286796027647889914895",
+                "limit": "3848339.29",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4620,12 +4620,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "4896882.577484560724961308632",
+                "limit": "4896882.58",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4660,12 +4660,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "5812384.693892075801899168694",
+                "limit": "5812384.69",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4700,12 +4700,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "6660569.729603785021563803851",
+                "limit": "6660569.73",
                 "binding": true
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": false
               },
               {
@@ -4740,12 +4740,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "7369205.878026989658483309622",
+                "limit": "7369205.88",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4780,12 +4780,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8048608.936773408154400081928",
+                "limit": "8048608.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4820,12 +4820,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "8660847.935967520330213164638",
+                "limit": "8660847.94",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4860,12 +4860,12 @@ export const demoData = {
             "constraints": [
               {
                 "name": "DSCR",
-                "limit": "9212562.543826112131976272301",
+                "limit": "9212562.54",
                 "binding": false
               },
               {
                 "name": "REVENUE",
-                "limit": "7200000.0000",
+                "limit": "7200000.00",
                 "binding": true
               },
               {
@@ -4930,12 +4930,12 @@ export const demoData = {
         "constraints": [
           {
             "name": "DSCR",
-            "limit": "4896882.577484560724961308632",
+            "limit": "4896882.58",
             "binding": true
           },
           {
             "name": "REVENUE",
-            "limit": "7200000.0000",
+            "limit": "7200000.00",
             "binding": false
           },
           {
