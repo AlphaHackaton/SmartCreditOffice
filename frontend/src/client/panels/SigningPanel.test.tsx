@@ -36,3 +36,17 @@ it('поздняя подпись после выхода не восстана�
   expect(screen.getByRole('heading', { name: 'Вход в кабинет' })).toBeInTheDocument();
   expect(screen.queryByText('Запрошенные условия')).not.toBeInTheDocument();
 });
+
+it('обновляет заявку после истечения подтверждения и скрывает подпись', async () => {
+  const { gateway, token, record, clock } = await decisionScenario();
+  await gateway.accept(token, record.id, record.version, record.decision!.offers[0].id);
+  const challenge = await gateway.challenge(token, record.id);
+  // UI clock and gateway clock may differ. An expired UI challenge must offer a reread.
+  vi.spyOn(gateway, 'challenge').mockResolvedValue({ ...challenge, expiresAt: new Date(Date.now() - 1).toISOString() });
+  await renderWorkspace(`/client/applications/${record.id}`, { login: 'p1', gateway });
+  const refresh = await screen.findByRole('button', { name: 'Обновить заявку' });
+  clock.now += 5 * 60_000 + 50;
+  await userEvent.setup().click(refresh);
+  expect(await screen.findByText('Срок действия заявки истёк.')).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Подписать договор' })).not.toBeInTheDocument();
+});
