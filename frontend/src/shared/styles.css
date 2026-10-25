@@ -52,3 +52,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid #2355ba; outline-offs
 .skip-link:focus { top: 12px; }
 .not-found { padding: 46px 8px; }
 .not-found p { max-width: 550px; color: #737984; line-height: 1.7; margin-bottom: 26px; }
+.demo-controls { padding: 12px 32px; background: #fff6e9; border-bottom: 1px solid #eddac1; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 12px; }
+.demo-controls label { display: flex; align-items: center; gap: 8px; }
+.demo-controls select { max-width: 190px; padding: 7px; border: 1px solid #d1c9be; border-radius: 6px; background: white; font: inherit; }
+.demo-controls [role="status"] { flex-basis: 100%; color: #72542a; }
+.demo-accounts { margin-top: 32px; padding: 28px; border: 1px solid #e2e4e7; border-radius: 14px; background: white; }
+.demo-accounts h2 { margin: 0; font-size: 20px; }
+.demo-accounts p { color: #5b626d; line-height: 1.6; }
+.demo-account-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.current-role { padding: 14px 12px; margin: 0; background: #fff0ee; color: #9e211a; border-radius: 8px; font-weight: 600; }

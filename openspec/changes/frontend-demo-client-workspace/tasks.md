@@ -4,7 +4,7 @@
 - [x] 1.1 (60–90 мин) Генератор backend-фикстур и статусов, gateway/mock-state, задержки/ошибки/reset и отмена/изоляция; README и тесты. Проверка: тесты gateway, typecheck, harness_check exit 0, повторная генерация без diff.
 
 ## 2. Вход и роли
-- [ ] 2.1 (60–90 мин) AuthProvider, LoginPage, RequireRole, выход, безопасный returnTo, явный режим и демо-панель. Тесты навигации, ролей, refresh, ошибок и позднего входа; README. Проверка: Vitest/typecheck/harness_check exit 0.
+- [x] 2.1 (60–90 мин) AuthProvider, LoginPage, RequireRole, выход, безопасный returnTo, явный режим и демо-панель. Тесты навигации, ролей, refresh, ошибок и позднего входа; README. Проверка: Vitest/typecheck/harness_check exit 0.
 
 ## 3. Статусы
 - [ ] 3.1 (30–60 мин) Exhaustive статус-карта, StatusBadge и Timeline с московскими датами и защитой неизвестного статуса. Тесты и README. Проверка: целевые тесты, lint и harness_check exit 0.

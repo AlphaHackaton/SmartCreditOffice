@@ -54,6 +54,7 @@ export class MockGateway implements WorkspaceGateway {
   private submitted = new Map<string, number>();
   private now: () => number;
   constructor(now = Date.now, private unauthorized: (token: string) => void = () => {}) { this.now = now; }
+  setUnauthorized(callback: (token: string) => void) { this.unauthorized = callback; }
   failNext(kind: 'read' | 'command', status: FailureStatus) { if (kind === 'read') this.nextRead = status; else this.nextCommand = status; }
   reset() { this.generation++; this.records.clear(); this.sessions.clear(); this.submitted.clear(); this.nextRead = null; this.nextCommand = null; }
   async logout(token: string) { this.sessions.delete(token); }

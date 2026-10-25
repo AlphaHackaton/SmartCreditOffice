@@ -1,74 +1,59 @@
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
-import { AppProviders } from './App';
-import { routes } from './router';
+import { renderWorkspace } from './test/renderWorkspace';
+import { safeReturnTo } from './auth/RequireRole';
 
-function renderRoute(path: string) {
-  const router = createMemoryRouter(routes, { initialEntries: [path] });
-  render(<AppProviders onSessionExpired={() => { void router.navigate('/login'); }}><RouterProvider router={router} /></AppProviders>);
-  return router;
-}
-
-describe('навигация кабинета', () => {
-  it.each([
-    ['/client', 'Кабинет предпринимателя'], ['/login', 'Вход в кабинет'],
-    ['/client/applications/new', 'Новая заявка'], ['/client/applications/test-id', 'Заявка на финансирование'],
-    ['/bank/applications', 'Очередь заявок'], ['/bank/applications/test-id', 'Досье заявки'],
-    ['/bank/metrics', 'Метрики конвейера'],
-  ])('открывает %s без запросов к API', (path, heading) => {
-    const fetch = vi.fn();
-    vi.stubGlobal('fetch', fetch);
-    renderRoute(path);
-    expect(screen.getByRole('heading', { level: 1, name: heading })).toBeInTheDocument();
-    expect(screen.getByText('Предварительный просмотр')).toBeInTheDocument();
-    expect(screen.getByText('Функциональность пока недоступна')).toBeInTheDocument();
-    expect(screen.getByRole('main')).toBeInTheDocument();
-    expect(screen.getByRole('navigation', { name: 'Выбор контура' })).toBeInTheDocument();
-    expect(fetch).not.toHaveBeenCalled();
-    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
-    if (path.endsWith('test-id')) expect(screen.getByText('test-id')).toBeInTheDocument();
+const demoClient = () => screen.findByRole('button', { name: /^Демо p1 ·/ });
+describe('защищённая навигация и демо-вход', () => {
+  it.each(['/client', '/client/applications/new', '/client/applications/test-id', '/bank/applications', '/bank/applications/test-id', '/bank/metrics'])('направляет %s на вход без запросов бизнес-данных', async (path) => {
+    const fetcher = vi.fn(); vi.stubGlobal('fetch', fetcher);
+    const { router, gateway } = await renderWorkspace(path); const read = vi.spyOn(gateway, 'applications');
+    await screen.findByRole('heading', { name: 'Вход в кабинет', level: 1 });
+    expect(router.state.location.pathname).toBe('/login'); expect(read).not.toHaveBeenCalled(); expect(fetcher).not.toHaveBeenCalled();
   });
-
-  it('перенаправляет корень в кабинет', async () => {
-    const router = renderRoute('/');
-    await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
+  it('после демо-входа восстанавливает собственный адрес, показывает только свою роль и выходит', async () => {
+    const user = userEvent.setup(); const { router } = await renderWorkspace('/client/applications/new');
+    await user.click(await demoClient()); await screen.findByRole('heading', { name: 'Новая заявка', level: 1 });
+    expect(router.state.location.pathname).toBe('/client/applications/new');
+    expect(screen.queryByRole('navigation', { name: 'Выбор контура' })).not.toBeInTheDocument();
+    expect(screen.getByRole('navigation', { name: 'Разделы клиента' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Выйти' }));
+    await screen.findByRole('heading', { name: 'Вход в кабинет', level: 1 });
+    expect(localStorage.length).toBe(0); expect(sessionStorage.length).toBe(0);
+  });
+  it('клиенту не даёт банковскую роль даже через служебный адрес', async () => {
+    const user = userEvent.setup(); const { router } = await renderWorkspace('/bank/applications');
+    await user.click(await demoClient()); await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
     expect(router.state.location.pathname).toBe('/client');
-    expect(router.state.historyAction).toBe('REPLACE');
+    await router.navigate('/bank/applications');
+    await screen.findByRole('heading', { name: 'Нет доступа' });
+    expect(screen.queryByRole('heading', { name: 'Очередь заявок' })).not.toBeInTheDocument();
   });
-
-  it('переключает контуры и отмечает активную ссылку', async () => {
-    const user = userEvent.setup();
-    const router = renderRoute('/client');
-    await user.click(screen.getByRole('link', { name: 'Сотрудник банка' }));
-    expect(router.state.location.pathname).toBe('/bank/applications');
-    expect(screen.getByText('Рабочее место кредитного специалиста')).toBeInTheDocument();
-    const menu = screen.getByRole('navigation', { name: 'Разделы сотрудника банка' });
-    expect(within(menu).getByRole('link', { name: 'Очередь заявок' })).toHaveAttribute('aria-current', 'page');
-    await user.click(within(menu).getByRole('link', { name: 'Метрики конвейера' }));
+  it('сотруднику открывает свой контур и рабочую навигацию', async () => {
+    const user = userEvent.setup(); await renderWorkspace();
+    await user.click(await screen.findByRole('button', { name: 'Сотрудник банка · демо' }));
+    await screen.findByRole('heading', { name: 'Очередь заявок' });
+    const nav = screen.getByRole('navigation', { name: 'Разделы сотрудника банка' });
+    await user.click(within(nav).getByRole('link', { name: 'Метрики конвейера' }));
     expect(screen.getByRole('heading', { name: 'Метрики конвейера' })).toBeInTheDocument();
-    expect(within(menu).getByRole('link', { name: 'Очередь заявок' })).not.toHaveAttribute('aria-current');
   });
-
-  it('открывает новую заявку с клавиатуры', async () => {
-    const user = userEvent.setup();
-    renderRoute('/client');
-    const menu = screen.getByRole('navigation', { name: 'Разделы клиента' });
-    const link = within(menu).getByRole('link', { name: 'Новая заявка' });
-    within(menu).getByRole('link', { name: 'Обзор кабинета' }).focus();
-    await user.tab();
-    expect(link).toHaveFocus();
-    await user.keyboard('{Enter}');
-    expect(screen.getByRole('heading', { name: 'Новая заявка' })).toBeInTheDocument();
-    expect(link).toHaveAttribute('aria-current', 'page');
+  it('показывает ошибку учётных данных без входа', async () => {
+    const user = userEvent.setup(); await renderWorkspace();
+    await user.type(screen.getByLabelText('Логин'), 'p1'); await user.type(screen.getByLabelText('Пароль'), 'wrong');
+    await user.click(screen.getByRole('button', { name: 'Войти' }));
+    expect(await screen.findByText('Проверьте логин и пароль')).toBeInTheDocument();
+    expect(screen.getByLabelText('Пароль')).toHaveValue('');
   });
-
-  it('показывает 404 и возвращает в кабинет', async () => {
-    const user = userEvent.setup();
-    renderRoute('/does-not-exist');
-    expect(screen.getByRole('heading', { name: 'Страница не найдена' })).toBeInTheDocument();
-    await user.click(screen.getByRole('link', { name: 'В клиентский кабинет' }));
-    expect(screen.getByRole('heading', { name: 'Кабинет предпринимателя' })).toBeInTheDocument();
+  it('API-режим не предлагает фиктивный вход и явно сообщает отсутствие адаптера', async () => {
+    await renderWorkspace('/login', { mode: 'api' });
+    expect(screen.getByText(/API Dev 2 ещё не подключён\. Переключитесь/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^Демо p1/ })).not.toBeInTheDocument();
   });
+  it('после refresh требует новый вход, неизвестный маршрут показывает 404', async () => {
+    const first = await renderWorkspace('/client', { login: 'p1' }); await screen.findByRole('heading', { name: 'Кабинет предпринимателя' }); first.unmount();
+    const next = await renderWorkspace('/client'); await screen.findByRole('heading', { name: 'Вход в кабинет', level: 1 });
+    await next.router.navigate('/missing'); await screen.findByRole('heading', { name: 'Страница не найдена' });
+  });
+  it.each(['https://evil.test', '//evil.test', '/bank/applications', '/clientish', '/client/../bank', '/client/%2fsecret', '/client\\evil'])('отклоняет опасный returnTo %s', (path) => { expect(safeReturnTo(path, 'client')).toBe('/client'); });
 });
