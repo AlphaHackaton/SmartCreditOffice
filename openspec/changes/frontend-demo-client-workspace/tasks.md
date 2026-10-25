@@ -7,7 +7,7 @@
 - [x] 2.1 (60–90 мин) AuthProvider, LoginPage, RequireRole, выход, безопасный returnTo, явный режим и демо-панель. Тесты навигации, ролей, refresh, ошибок и позднего входа; README. Проверка: Vitest/typecheck/harness_check exit 0.
 
 ## 3. Статусы
-- [ ] 3.1 (30–60 мин) Exhaustive статус-карта, StatusBadge и Timeline с московскими датами и защитой неизвестного статуса. Тесты и README. Проверка: целевые тесты, lint и harness_check exit 0.
+- [x] 3.1 (30–60 мин) Exhaustive статус-карта, StatusBadge и Timeline с московскими датами и защитой неизвестного статуса. Тесты и README. Проверка: целевые тесты, lint и harness_check exit 0.
 
 ## 4. Кабинет
 - [ ] 4.1 (60–90 мин) Query keys/хуки профиля, продуктов и заявок; DashboardPage с независимыми состояниями и ссылками. Тесты загрузки, empty/error/retry и сессий; README. Проверка: Vitest/typecheck/harness_check exit 0.
