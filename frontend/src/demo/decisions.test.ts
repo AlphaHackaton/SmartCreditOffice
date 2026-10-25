@@ -58,3 +58,14 @@ it('симуляция совпадает с Python, отменяется и н�
   const controller = new AbortController(); const request = gateway.simulate(token, record.id, options.amounts[0], options.terms[0], controller.signal); controller.abort();
   await expect(request).rejects.toMatchObject({ name: 'AbortError' });
 });
+
+it('очередь доступна bank, включает примеры и живую заявку, reset очищает сеанс', async () => {
+  const { gateway, token, record } = await decisionScenario();
+  await expect(gateway.queue(token)).rejects.toMatchObject({ status: 403 });
+  const bank = await gateway.login('underwriter', 'demo');
+  const rows = await gateway.queue(bank.token); expect(rows).toHaveLength(7);
+  expect(rows.find((a) => a.id === record.id)?.status).toBe('APPROVED');
+  rows[0].amount = '0'; expect((await gateway.queue(bank.token))[0].amount).not.toBe('0');
+  gateway.reset(); const next = await gateway.login('underwriter', 'demo');
+  expect(await gateway.queue(next.token)).toHaveLength(6);
+});

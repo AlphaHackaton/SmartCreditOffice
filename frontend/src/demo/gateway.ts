@@ -11,6 +11,7 @@ export interface HistoryEvent { from: string | null; to: string; actor: string; 
 export interface ApplicationInput { productCode: string; amount: string; termMonths: number; purpose: string; consents: string[] }
 export interface Factor { code: string; text: string; hint: string | null; impact: string }
 export interface Offer { id: string; kind: string; amount: string; term_months: number; rate_pct: string; monthly_payment: string; overpayment: string; expiresAt: string }
+export interface QueueItem { id: string; companyName: string; inn: string; productCode: string; productName: string; amount: string; termMonths: number; status: ApplicationStatus; createdAt: string; synthetic: boolean }
 export interface Simulation { amount: string; termMonths: number; outcome: string; requiresReview: boolean; offers: Omit<Offer, 'id' | 'expiresAt'>[]; constraints: Decision['constraints']; maxAmount: string; headroom: string }
 export interface SimulationOptions { amounts: string[]; terms: number[] }
 export interface SigningChallenge { id: string; code: string; expiresAt: string; attemptsLeft: number }
@@ -26,6 +27,7 @@ export interface WorkspaceGateway {
   applications(token: string, signal?: AbortSignal): Promise<Application[]>;
   application(token: string, id: string, signal?: AbortSignal): Promise<Application>;
   save(token: string, input: ApplicationInput, id?: string, version?: number): Promise<Application>;
+  queue(token: string, signal?: AbortSignal): Promise<QueueItem[]>;
   simulationOptions(token: string, id: string, signal?: AbortSignal): Promise<SimulationOptions>;
   simulate(token: string, id: string, amount: string, termMonths: number, signal?: AbortSignal): Promise<Simulation>;
   challenge(token: string, id: string, signal?: AbortSignal): Promise<SigningChallenge>;
@@ -166,6 +168,16 @@ export class MockGateway implements WorkspaceGateway {
     const record: Application = { ...structuredClone(input), id: id ?? crypto.randomUUID(), companyId: user.companyId!, status: 'DRAFT', version: existing ? existing.version + 1 : 1, history: [], createdAt };
     this.records.set(record.id, record); return this.snapshot(record);
   }
+  async queue(token: string, signal?: AbortSignal): Promise<QueueItem[]> {
+    await this.wait('read', signal, token);
+    if (this.user(token).role !== 'bank') throw error(403, 'FORBIDDEN', 'Очередь доступна только сотруднику банка.');
+    const examples: QueueItem[] = demoData.personas.map((p, i) => ({ id: `seed-${p.id}`, companyName: p.company.name, inn: p.company.inn, productCode: p.request.product_code, productName: demoData.products.find((v) => v.code === p.request.product_code)!.name, amount: p.request.amount, termMonths: p.request.term_months, status: p.journey.at(-1)!.to, createdAt: new Date(Date.parse('2026-10-25T09:00:00Z') + i * 60_000).toISOString(), synthetic: true }));
+    const live: QueueItem[] = [...this.records.values()].map((record) => {
+      const app = this.snapshot(record); const p = demoData.personas.find((v) => v.id === app.companyId)!;
+      return { id: app.id, companyName: p.company.name, inn: p.company.inn, productCode: app.productCode, productName: demoData.products.find((v) => v.code === app.productCode)!.name, amount: app.amount, termMonths: app.termMonths, status: app.status, createdAt: app.createdAt, synthetic: false };
+    });
+    return structuredClone([...examples, ...live]);
+  }
   async simulationOptions(token: string, id: string, signal?: AbortSignal) {
     await this.wait('read', signal, token); const record = this.owned(token, id);
     const persona = demoData.personas.find((p) => p.id === record.companyId)!;
@@ -216,5 +228,5 @@ export class MockGateway implements WorkspaceGateway {
 
 export function unavailableGateway(): WorkspaceGateway {
   const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'API Dev 2 ещё не подключён. Выберите mock-режим для демонстрации.'); };
-  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, simulationOptions: unavailable, simulate: unavailable, challenge: unavailable, sign: unavailable, submit: unavailable };
+  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, queue: unavailable, simulationOptions: unavailable, simulate: unavailable, challenge: unavailable, sign: unavailable, submit: unavailable };
 }

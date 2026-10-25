@@ -13,7 +13,7 @@
 - [x] 10.1 (30–60 мин) RejectedPanel и UnderwritingPanel, причины/hints/безопасные действия, без утечки трассы и обещания решения. Проверка: P4/P5/P6 и custom, отсутствие подписания, harness_check exit 0.
 
 ## 11. Очередь
-- [ ] 11.1 (60–90 мин) Bank QueuePage, синтетические и текущие заявки, фильтры/сортировка/поиск, loading/empty/error/retry, ссылка в досье. Проверка: bank/client isolation, filter/sort, reset, harness_check exit 0.
+- [x] 11.1 (60–90 мин) Bank QueuePage, синтетические и текущие заявки, фильтры/сортировка/поиск, loading/empty/error/retry, ссылка в досье. Проверка: bank/client isolation, filter/sort, reset, harness_check exit 0.
 
 ## 12. Проверка
 - [ ] 12.1 (30–60 мин) Прогнать scripts/check.sh, обновить docs/openapi.json и THIRD_PARTY_NOTICES.md. Проверка: harness_check exit 0, build, OpenSpec strict, browser 1280/1440, diff --check; без HTTP/новых зависимостей экспорт и notices не менять искусственно. Обновить README и DEV_CODEX.

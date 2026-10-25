@@ -6,7 +6,7 @@ import { POLLING_STATUSES } from '../demo/generated';
 
 export function useWorkspaceScope() {
   const { user } = useAuth(); const { token } = useSession(); const workspace = useWorkspace();
-  return { ...workspace, token: token!, enabled: Boolean(user && token && user.role === 'client'), key: ['workspace', workspace.mode, workspace.epoch, user?.id] as const };
+  return { ...workspace, token: token!, enabled: Boolean(user && token && user.role === 'client'), bankEnabled: Boolean(user && token && user.role === 'bank'), key: ['workspace', workspace.mode, workspace.epoch, user?.id] as const };
 }
 export function useCompany() {
   const scope = useWorkspaceScope();
@@ -28,4 +28,9 @@ export function useApplication(id: string) {
     enabled: scope.enabled && Boolean(id),
     refetchInterval: (query) => !query.state.error && query.state.data && (POLLING_STATUSES.includes(query.state.data.status) || query.state.data.status === 'SIGNED') ? 1500 : false,
   });
+}
+
+export function useQueue() {
+  const scope = useWorkspaceScope();
+  return useQuery({ queryKey: [...scope.key, 'queue'], queryFn: ({ signal }) => scope.gateway.queue(scope.token, signal), enabled: scope.bankEnabled });
 }
