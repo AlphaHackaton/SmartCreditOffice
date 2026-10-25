@@ -1,7 +1,7 @@
 # Tasks
 
 ## 1. Мок-режим
-- [ ] 1.1 (60–90 мин) Генератор backend-фикстур и статусов, gateway/mock-state, задержки/ошибки/reset и отмена/изоляция; README и тесты. Проверка: тесты gateway, typecheck, harness_check exit 0, повторная генерация без diff.
+- [x] 1.1 (60–90 мин) Генератор backend-фикстур и статусов, gateway/mock-state, задержки/ошибки/reset и отмена/изоляция; README и тесты. Проверка: тесты gateway, typecheck, harness_check exit 0, повторная генерация без diff.
 
 ## 2. Вход и роли
 - [ ] 2.1 (60–90 мин) AuthProvider, LoginPage, RequireRole, выход, безопасный returnTo, явный режим и демо-панель. Тесты навигации, ролей, refresh, ошибок и позднего входа; README. Проверка: Vitest/typecheck/harness_check exit 0.

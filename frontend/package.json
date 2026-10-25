@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit -p .",
     "test": "vitest",
     "gen:api": "node scripts/gen-api.mjs",
-    "notices": "node scripts/update-notices.mjs"
+    "notices": "node scripts/update-notices.mjs",
+    "gen:demo": "cd .. && UV_CACHE_DIR=\"$PWD/tmp/uv-cache\" uv run --project backend python scripts/export_frontend_demo.py"
   },
   "dependencies": {
     "@alfalab/core-components-button": "13.2.4",
