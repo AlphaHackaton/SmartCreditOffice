@@ -48,5 +48,10 @@ output += 'export const POLLING_STATUSES: readonly ApplicationStatus[] = ' + jso
 output += 'export const demoData = ' + json.dumps(data, ensure_ascii=False, indent=2) + ' as const;\n'
 target = ROOT / 'frontend/src/demo/generated.ts'
 target.parent.mkdir(parents=True, exist_ok=True)
-target.write_text(output)
-print(f'Exported {len(personas)} personas, {len(POLICY_V1.products)} products, domain statuses and validated histories')
+if '--check' in sys.argv:
+    if not target.exists() or target.read_text() != output:
+        raise SystemExit('Demo fixtures are stale. Run npm run gen:demo --prefix frontend')
+    print('Demo fixtures match backend seed, policy and FSM')
+else:
+    target.write_text(output)
+    print(f'Exported {len(personas)} personas, {len(POLICY_V1.products)} products, domain statuses and validated histories')

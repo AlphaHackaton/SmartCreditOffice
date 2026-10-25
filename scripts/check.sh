@@ -21,6 +21,7 @@ if [ -f backend/pyproject.toml ]; then
 else echo "SKIP backend (нет backend/pyproject.toml)"; fi
 
 if [ -f frontend/package.json ]; then
+  step "frontend: domain demo fixtures"; run uv run --project backend python scripts/export_frontend_demo.py --check
   step "frontend: eslint"; run bash -c "cd frontend && npx eslint . --max-warnings=0"
   step "frontend: tsc";    run bash -c "cd frontend && npx tsc --noEmit -p ."
   step "frontend: vitest"; run bash -c "cd frontend && npx vitest run --passWithNoTests"
