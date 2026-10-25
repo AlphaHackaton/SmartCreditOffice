@@ -8,7 +8,7 @@
 
 - [x] Добавить Dockerfile, Compose, `.env.example`, PostgreSQL settings и healthcheck; проверка: `docker compose config -q`.
 - [x] Добавить SQLAlchemy base/session/models и Alembic initial migration; проверка: migration upgrade в Compose.
-- [ ] Добавить repositories, status history и optimistic version conflict; проверка: сервисные тесты с fake session/PostgreSQL.
+- [x] Добавить repositories, status history и optimistic version conflict; проверка: сервисные тесты с fake session/PostgreSQL.
 
 ## 3. Auth, mocks and real service
 
