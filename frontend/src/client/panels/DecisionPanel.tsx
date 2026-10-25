@@ -4,6 +4,8 @@ import { FactorList } from '../../shared/components/FactorList';
 import { ConfirmDialog } from '../../shared/components/ConfirmDialog';
 import { ErrorBanner } from '../../shared/components/ErrorBanner';
 import { formatMoney, formatPct } from '../../shared/format';
+import { MoneyText } from '../../shared/components/MoneyText';
+import { Constraints } from './Simulator';
 import { OffersList } from './OffersList';
 import { useApplicationCommand } from './useApplicationCommand';
 
@@ -13,7 +15,7 @@ export function DecisionPanel({ record }: { record: Application }) {
   if (!record.decision) return <section className="workspace-card"><h2>Решение</h2><p>Условия ещё не получены. Обновите заявку.</p></section>;
   return <section className="workspace-card" aria-labelledby="decision-title"><h2 id="decision-title">{record.status === 'COUNTER_OFFER' ? 'Встречное предложение' : 'Финансирование одобрено'}</h2>
     <FactorList factors={record.decision.factors} audience="client" />
-    <h3>Доступные условия</h3><OffersList offers={record.decision.offers} pending={command.pending} onAccept={setSelected} />
+    {record.status === 'COUNTER_OFFER' && <><p>Запрошено <MoneyText value={record.amount} /> на {record.termMonths} мес. Ниже — доступные альтернативы.</p><Constraints constraints={record.decision.constraints} /></>}<h3>Доступные условия</h3><OffersList offers={record.decision.offers} pending={command.pending} onAccept={setSelected} />
     {!record.decision.offers.length && <p>Доступных предложений пока нет.</p>}
     <ErrorBanner message={command.error} />
     <p className="form-hint">Политика {record.decision.policyVersion}. Условия рассчитаны Python-движком на синтетических данных.</p>

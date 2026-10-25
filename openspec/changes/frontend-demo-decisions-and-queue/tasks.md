@@ -7,7 +7,7 @@
 - [x] 8.1 (60–90 мин) Challenge/sign, TTL/3 попытки, восстановление SIGNING, SIGNED→DISBURSED, условия/история и защита поздних команд. Проверка: fake clock gateway/UI tests (неверный код, expiry, повтор, выход), harness_check exit 0.
 
 ## 9. Контроффер и симулятор
-- [ ] 9.1 (60–90 мин) Сравнение альтернатив, ограничения Python, конечная сетка simulate, debounce/cancellation без изменений заявки. Проверка: counter-offer, границы, гонки, неизвестная комбинация, harness_check exit 0.
+- [x] 9.1 (60–90 мин) Сравнение альтернатив, ограничения Python, конечная сетка simulate, debounce/cancellation без изменений заявки. Проверка: counter-offer, границы, гонки, неизвестная комбинация, harness_check exit 0.
 
 ## 10. Отказ и рассмотрение
 - [ ] 10.1 (30–60 мин) RejectedPanel и UnderwritingPanel, причины/hints/безопасные действия, без утечки трассы и обещания решения. Проверка: P4/P5/P6 и custom, отсутствие подписания, harness_check exit 0.

@@ -10,6 +10,7 @@ import { Timeline } from '../shared/components/Timeline';
 import { ButtonLink } from '../shared/components/ButtonLink';
 import { isApplicationStatus } from '../shared/status';
 import type { ApplicationStatus } from '../demo/generated';
+import { Simulator } from './panels/Simulator';
 import { SigningPanel } from './panels/SigningPanel';
 import { DisbursedPanel } from './panels/DisbursedPanel';
 import { DecisionPanel } from './panels/DecisionPanel';
@@ -21,7 +22,7 @@ const descriptions: Record<ApplicationStatus, string> = {
   SCORING: 'Проверяем данные компании и кредитную историю. Статус обновляется автоматически.',
   UNDERWRITING: 'Заявка передана кредитному специалисту. Демо не рассчитывает решение для произвольных условий.',
   APPROVED: 'Проверка завершена. Изучите причины и выберите подходящие условия.',
-  COUNTER_OFFER: 'В демонстрационном сценарии получено встречное предложение. Сравнение условий будет добавлено следующим этапом.',
+  COUNTER_OFFER: 'На запрошенных условиях финансирование недоступно. Сравните альтернативы и ограничения суммы.',
   REJECTED: 'В демонстрационном сценарии получен отказ. Экран подробных причин и рекомендаций будет добавлен отдельно.',
   SIGNING: 'Условия выбраны. Подтвердите демо-подпись кодом внутри кабинета.',
   SIGNED: 'Договор подписан. Выдача ещё не подтверждена.',
@@ -49,7 +50,8 @@ export function ApplicationPage() {
         </>}
         <p className="form-hint">Демо-режим: воспроизводится последовательность, проверенная backend FSM. Это не результат реального банковского рассмотрения.</p>
       </section>
-      {record.status === 'APPROVED' && !application.error && <DecisionPanel record={record} />}
+      {['APPROVED', 'COUNTER_OFFER'].includes(record.status) && !application.error && <DecisionPanel record={record} />}
+      {['APPROVED', 'COUNTER_OFFER'].includes(record.status) && !application.error && <Simulator key={record.id} record={record} />}
       {record.status === 'SIGNING' && !application.error && <SigningPanel record={record} />}
       {record.status === 'DISBURSED' && !application.error && <DisbursedPanel record={record} />}
       <div className="application-columns"><section className="workspace-card" aria-labelledby="terms-title"><h2 id="terms-title">Запрошенные условия</h2><dl className="facts"><div><dt>Продукт</dt><dd>{products.data?.find((p) => p.code === record.productCode)?.name ?? record.productCode}</dd></div><div><dt>Сумма</dt><dd><MoneyText value={record.amount} /></dd></div><div><dt>Срок</dt><dd>{record.termMonths} мес.</dd></div><div><dt>Цель</dt><dd>{purposes[record.purpose] ?? 'Неизвестная цель'}</dd></div><div><dt>Создана</dt><dd><DateTimeText value={record.createdAt} /></dd></div><div><dt>Версия</dt><dd>{record.version}</dd></div></dl></section>

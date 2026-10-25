@@ -11,6 +11,8 @@ export interface HistoryEvent { from: string | null; to: string; actor: string; 
 export interface ApplicationInput { productCode: string; amount: string; termMonths: number; purpose: string; consents: string[] }
 export interface Factor { code: string; text: string; hint: string | null; impact: string }
 export interface Offer { id: string; kind: string; amount: string; term_months: number; rate_pct: string; monthly_payment: string; overpayment: string; expiresAt: string }
+export interface Simulation { amount: string; termMonths: number; outcome: string; requiresReview: boolean; offers: Omit<Offer, 'id' | 'expiresAt'>[]; constraints: Decision['constraints']; maxAmount: string; headroom: string }
+export interface SimulationOptions { amounts: string[]; terms: number[] }
 export interface SigningChallenge { id: string; code: string; expiresAt: string; attemptsLeft: number }
 export interface Decision { factors: Factor[]; offers: Offer[]; constraints: { name: string; limit: string; binding: boolean }[]; binding: string | null; policyVersion: string }
 export interface Application extends ApplicationInput { id: string; companyId: string; status: ApplicationStatus; version: number; history: HistoryEvent[]; createdAt: string; decision?: Decision; selectedOffer?: Offer }
@@ -24,6 +26,8 @@ export interface WorkspaceGateway {
   applications(token: string, signal?: AbortSignal): Promise<Application[]>;
   application(token: string, id: string, signal?: AbortSignal): Promise<Application>;
   save(token: string, input: ApplicationInput, id?: string, version?: number): Promise<Application>;
+  simulationOptions(token: string, id: string, signal?: AbortSignal): Promise<SimulationOptions>;
+  simulate(token: string, id: string, amount: string, termMonths: number, signal?: AbortSignal): Promise<Simulation>;
   challenge(token: string, id: string, signal?: AbortSignal): Promise<SigningChallenge>;
   sign(token: string, id: string, version: number, challengeId: string, code: string): Promise<Application>;
   accept(token: string, id: string, version: number, offerId: string): Promise<Application>;
@@ -162,6 +166,19 @@ export class MockGateway implements WorkspaceGateway {
     const record: Application = { ...structuredClone(input), id: id ?? crypto.randomUUID(), companyId: user.companyId!, status: 'DRAFT', version: existing ? existing.version + 1 : 1, history: [], createdAt };
     this.records.set(record.id, record); return this.snapshot(record);
   }
+  async simulationOptions(token: string, id: string, signal?: AbortSignal) {
+    await this.wait('read', signal, token); const record = this.owned(token, id);
+    const persona = demoData.personas.find((p) => p.id === record.companyId)!;
+    if (record.productCode !== persona.request.product_code) throw error(422, 'NO_DEMO_SIMULATION', 'Для этого продукта демо-расчёты ещё не подготовлены.');
+    return { amounts: [...persona.simulation.amounts], terms: [...persona.simulation.terms] };
+  }
+  async simulate(token: string, id: string, amount: string, termMonths: number, signal?: AbortSignal): Promise<Simulation> {
+    await this.wait('read', signal, token); const record = this.owned(token, id);
+    const persona = demoData.personas.find((p) => p.id === record.companyId)!;
+    const result = record.productCode === persona.request.product_code ? persona.simulation.rows.find((r) => r.amount.replace(/\.0+$/, '') === amount.replace(/\.0+$/, '') && r.termMonths === termMonths) : undefined;
+    if (!result) throw error(422, 'NO_DEMO_SIMULATION', 'Для этой комбинации нет демо-расчёта. Выберите подготовленную сумму и срок.');
+    return structuredClone({ ...result, offers: result.offers.map((o) => ({ ...o })), constraints: result.constraints.map((c) => ({ ...c })) });
+  }
   async challenge(token: string, id: string, signal?: AbortSignal) {
     await this.wait('read', signal, token); const current = this.snapshot(this.owned(token, id));
     if (current.status !== 'SIGNING') throw error(409, 'CHALLENGE_UNAVAILABLE', 'Подтверждение недоступно или истекло. Обновите заявку.');
@@ -199,5 +216,5 @@ export class MockGateway implements WorkspaceGateway {
 
 export function unavailableGateway(): WorkspaceGateway {
   const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'API Dev 2 ещё не подключён. Выберите mock-режим для демонстрации.'); };
-  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, challenge: unavailable, sign: unavailable, submit: unavailable };
+  return { personas: unavailable, login: unavailable, me: unavailable, company: unavailable, products: unavailable, applications: unavailable, application: unavailable, save: unavailable, accept: unavailable, simulationOptions: unavailable, simulate: unavailable, challenge: unavailable, sign: unavailable, submit: unavailable };
 }

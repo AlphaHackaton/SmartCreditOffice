@@ -47,3 +47,14 @@ it('блокирует три неверных кода и истёкшее по
   expect((await gateway.application(token, record.id)).status).toBe('EXPIRED');
   await expect(gateway.challenge(token, record.id)).rejects.toMatchObject({ status: 409 });
 });
+
+it('симуляция совпадает с Python, отменяется и не меняет заявку', async () => {
+  const { gateway, token, record } = await decisionScenario('p2');
+  const options = await gateway.simulationOptions(token, record.id);
+  const result = await gateway.simulate(token, record.id, record.amount, record.termMonths);
+  expect(result.outcome).toBe('COUNTER_OFFER'); expect(result.offers.length).toBeGreaterThan(0);
+  expect((await gateway.application(token, record.id)).version).toBe(record.version);
+  await expect(gateway.simulate(token, record.id, '1234567', record.termMonths)).rejects.toMatchObject({ code: 'NO_DEMO_SIMULATION' });
+  const controller = new AbortController(); const request = gateway.simulate(token, record.id, options.amounts[0], options.terms[0], controller.signal); controller.abort();
+  await expect(request).rejects.toMatchObject({ name: 'AbortError' });
+});

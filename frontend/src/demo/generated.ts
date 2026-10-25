@@ -66,6 +66,751 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "300000.00",
+          "1000000.00",
+          "2000000.00"
+        ],
+        "terms": [
+          6,
+          12,
+          18,
+          24,
+          30,
+          36
+        ],
+        "rows": [
+          {
+            "amount": "300000.00",
+            "termMonths": 6,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 6,
+                "rate_pct": "20.50",
+                "monthly_payment": "53031.78",
+                "overpayment": "18190.68"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1958187.350537224132248662977",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1950000.00",
+            "headroom": "1650000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 12,
+                "rate_pct": "20.50",
+                "monthly_payment": "27862.19",
+                "overpayment": "34346.28"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3727135.138667454881577859683",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3720000.00",
+            "headroom": "3420000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 18,
+                "rate_pct": "21.00",
+                "monthly_payment": "19573.48",
+                "overpayment": "52322.64"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5305452.480109413743832687438",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5300000.00",
+            "headroom": "5000000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 24,
+                "rate_pct": "21.00",
+                "monthly_payment": "15415.70",
+                "overpayment": "69976.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6736391.184954498068672118698",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6730000.00",
+            "headroom": "6430000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 30,
+                "rate_pct": "21.50",
+                "monthly_payment": "13014.32",
+                "overpayment": "90429.60"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7979375.545973495274375679830",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7970000.00",
+            "headroom": "7670000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 36,
+                "rate_pct": "21.50",
+                "monthly_payment": "11379.68",
+                "overpayment": "109668.48"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9125575.986198247493767556314",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "8640000.00",
+            "headroom": "8340000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 6,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 6,
+                "rate_pct": "20.50",
+                "monthly_payment": "176772.59",
+                "overpayment": "60635.54"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1958187.350537224132248662977",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1950000.00",
+            "headroom": "950000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 12,
+                "rate_pct": "20.50",
+                "monthly_payment": "92873.97",
+                "overpayment": "114487.64"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3727135.138667454881577859683",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3720000.00",
+            "headroom": "2720000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 18,
+                "rate_pct": "21.00",
+                "monthly_payment": "65244.92",
+                "overpayment": "174408.56"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5305452.480109413743832687438",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5300000.00",
+            "headroom": "4300000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 24,
+                "rate_pct": "21.00",
+                "monthly_payment": "51385.65",
+                "overpayment": "233255.60"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6736391.184954498068672118698",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6730000.00",
+            "headroom": "5730000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 30,
+                "rate_pct": "21.50",
+                "monthly_payment": "43381.07",
+                "overpayment": "301432.10"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7979375.545973495274375679830",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7970000.00",
+            "headroom": "6970000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1000000.00",
+                "term_months": 36,
+                "rate_pct": "21.50",
+                "monthly_payment": "37932.27",
+                "overpayment": "365561.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9125575.986198247493767556314",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "8640000.00",
+            "headroom": "7640000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2000000.00",
+                "term_months": 12,
+                "rate_pct": "20.50",
+                "monthly_payment": "185747.94",
+                "overpayment": "228975.28"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1950000.00",
+                "term_months": 6,
+                "rate_pct": "20.50",
+                "monthly_payment": "344706.55",
+                "overpayment": "118239.30"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1958187.350537224132248662977",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1950000.00",
+            "headroom": "-50000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 12,
+                "rate_pct": "20.50",
+                "monthly_payment": "185747.94",
+                "overpayment": "228975.28"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3727135.138667454881577859683",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3720000.00",
+            "headroom": "1720000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 18,
+                "rate_pct": "21.00",
+                "monthly_payment": "130489.85",
+                "overpayment": "348817.30"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5305452.480109413743832687438",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5300000.00",
+            "headroom": "3300000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 24,
+                "rate_pct": "21.00",
+                "monthly_payment": "102771.30",
+                "overpayment": "466511.20"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6736391.184954498068672118698",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6730000.00",
+            "headroom": "4730000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 30,
+                "rate_pct": "21.50",
+                "monthly_payment": "86762.14",
+                "overpayment": "602864.20"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7979375.545973495274375679830",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7970000.00",
+            "headroom": "5970000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 36,
+                "rate_pct": "21.50",
+                "monthly_payment": "75864.55",
+                "overpayment": "731123.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9125575.986198247493767556314",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "8640000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "8640000.00",
+            "headroom": "6640000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {
@@ -174,6 +919,1040 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "300000.00",
+          "1210000.00",
+          "1250000.00",
+          "2500000.00"
+        ],
+        "terms": [
+          6,
+          12,
+          18,
+          24,
+          30,
+          36
+        ],
+        "rows": [
+          {
+            "amount": "300000.00",
+            "termMonths": 6,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "53332.03",
+                "overpayment": "19992.18"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "640400.2171549188906614188119",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "640000.00",
+            "headroom": "340000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "28150.56",
+                "overpayment": "37806.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1213256.578367478729020051296",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1210000.00",
+            "headroom": "910000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "19864.31",
+                "overpayment": "57557.58"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1719356.951844847850765059539",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1710000.00",
+            "headroom": "1410000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "15711.99",
+                "overpayment": "77087.76"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2173743.887415593640194607953",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2170000.00",
+            "headroom": "1870000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "13318.36",
+                "overpayment": "99550.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2564419.078478947023326360240",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2560000.00",
+            "headroom": "2260000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "11691.24",
+                "overpayment": "120884.64"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2921318.981368856050965649319",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2920000.00",
+            "headroom": "2620000.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "1210000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "113540.57",
+                "overpayment": "152486.84"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "640000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "113775.01",
+                "overpayment": "42650.06"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "640400.2171549188906614188119",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "640000.00",
+            "headroom": "-570000.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1210000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "113540.57",
+                "overpayment": "152486.84"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1213256.578367478729020051296",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1210000.00",
+            "headroom": "0.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1210000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "80119.40",
+                "overpayment": "232149.20"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1719356.951844847850765059539",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1710000.00",
+            "headroom": "500000.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1210000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "63371.70",
+                "overpayment": "310920.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2173743.887415593640194607953",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2170000.00",
+            "headroom": "960000.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1210000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "53717.37",
+                "overpayment": "401521.10"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2564419.078478947023326360240",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2560000.00",
+            "headroom": "1350000.00"
+          },
+          {
+            "amount": "1210000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1210000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "47154.67",
+                "overpayment": "487568.12"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2921318.981368856050965649319",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2920000.00",
+            "headroom": "1710000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "1250000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "82767.97",
+                "overpayment": "239823.46"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "640000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "113775.01",
+                "overpayment": "42650.06"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "640400.2171549188906614188119",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "640000.00",
+            "headroom": "-610000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "1250000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "82767.97",
+                "overpayment": "239823.46"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1210000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "113540.57",
+                "overpayment": "152486.84"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1213256.578367478729020051296",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1210000.00",
+            "headroom": "-40000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1250000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "82767.97",
+                "overpayment": "239823.46"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1719356.951844847850765059539",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1710000.00",
+            "headroom": "460000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1250000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "65466.63",
+                "overpayment": "321199.12"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2173743.887415593640194607953",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2170000.00",
+            "headroom": "920000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1250000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "55493.15",
+                "overpayment": "414794.50"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2564419.078478947023326360240",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2560000.00",
+            "headroom": "1310000.00"
+          },
+          {
+            "amount": "1250000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1250000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "48713.51",
+                "overpayment": "503686.36"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2921318.981368856050965649319",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2920000.00",
+            "headroom": "1670000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2500000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "110986.30",
+                "overpayment": "829589.00"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "640000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "113775.01",
+                "overpayment": "42650.06"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "640400.2171549188906614188119",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "640000.00",
+            "headroom": "-1860000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2500000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "110986.30",
+                "overpayment": "829589.00"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1210000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "113540.57",
+                "overpayment": "152486.84"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1213256.578367478729020051296",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1210000.00",
+            "headroom": "-1290000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 18,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2500000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "110986.30",
+                "overpayment": "829589.00"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1710000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "113226.59",
+                "overpayment": "328078.62"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1719356.951844847850765059539",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1710000.00",
+            "headroom": "-790000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 24,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2500000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "110986.30",
+                "overpayment": "829589.00"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2170000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "113650.07",
+                "overpayment": "557601.68"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2173743.887415593640194607953",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2170000.00",
+            "headroom": "-330000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2500000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "110986.30",
+                "overpayment": "829589.00"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2564419.078478947023326360240",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2560000.00",
+            "headroom": "60000.00"
+          },
+          {
+            "amount": "2500000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2500000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "97427.01",
+                "overpayment": "1007372.36"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2921318.981368856050965649319",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "5760000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2920000.00",
+            "headroom": "420000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {
@@ -290,6 +2069,1080 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "300000.00",
+          "2000000.00",
+          "3450000.00",
+          "4000000.00"
+        ],
+        "terms": [
+          6,
+          12,
+          18,
+          24,
+          30,
+          36
+        ],
+        "rows": [
+          {
+            "amount": "300000.00",
+            "termMonths": 6,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "53332.03",
+                "overpayment": "19992.18"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "757229.9865007486882820830550",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "750000.00",
+            "headroom": "450000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "28150.56",
+                "overpayment": "37806.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1434593.927123707956611547141",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1430000.00",
+            "headroom": "1130000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "19864.31",
+                "overpayment": "57557.58"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2033023.422789516039755982564",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2030000.00",
+            "headroom": "1730000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "15711.99",
+                "overpayment": "77087.76"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2570305.272281951939419299945",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2570000.00",
+            "headroom": "2270000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "13318.36",
+                "overpayment": "99550.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3032252.288741998169473736772",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3030000.00",
+            "headroom": "2730000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "300000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "11691.24",
+                "overpayment": "120884.64"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3454262.309051012222425598857",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3450000.00",
+            "headroom": "3150000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2000000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "132428.76",
+                "overpayment": "383717.68"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "750000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "133330.08",
+                "overpayment": "49980.48"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "757229.9865007486882820830550",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "750000.00",
+            "headroom": "-1250000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "2000000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "132428.76",
+                "overpayment": "383717.68"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1430000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "134184.31",
+                "overpayment": "180211.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1434593.927123707956611547141",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1430000.00",
+            "headroom": "-570000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "132428.76",
+                "overpayment": "383717.68"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2033023.422789516039755982564",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2030000.00",
+            "headroom": "30000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "104746.61",
+                "overpayment": "513918.64"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2570305.272281951939419299945",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2570000.00",
+            "headroom": "570000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "88789.04",
+                "overpayment": "663671.20"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3032252.288741998169473736772",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3030000.00",
+            "headroom": "1030000.00"
+          },
+          {
+            "amount": "2000000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "2000000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "77941.61",
+                "overpayment": "805897.96"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3454262.309051012222425598857",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3450000.00",
+            "headroom": "1450000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "750000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "133330.08",
+                "overpayment": "49980.48"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "757229.9865007486882820830550",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "750000.00",
+            "headroom": "-2700000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1430000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "134184.31",
+                "overpayment": "180211.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1434593.927123707956611547141",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1430000.00",
+            "headroom": "-2020000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 18,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2030000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "134415.19",
+                "overpayment": "389473.42"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2033023.422789516039755982564",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2030000.00",
+            "headroom": "-1420000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 24,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2570000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "134599.40",
+                "overpayment": "660385.60"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2570305.272281951939419299945",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2570000.00",
+            "headroom": "-880000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 30,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "3030000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "134515.40",
+                "overpayment": "1005462.00"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3032252.288741998169473736772",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3030000.00",
+            "headroom": "-420000.00"
+          },
+          {
+            "amount": "3450000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3454262.309051012222425598857",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3450000.00",
+            "headroom": "0.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 6,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "750000.00",
+                "term_months": 6,
+                "rate_pct": "22.50",
+                "monthly_payment": "133330.08",
+                "overpayment": "49980.48"
+              },
+              {
+                "kind": "MAX",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "757229.9865007486882820830550",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "750000.00",
+            "headroom": "-3250000.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "1430000.00",
+                "term_months": 12,
+                "rate_pct": "22.50",
+                "monthly_payment": "134184.31",
+                "overpayment": "180211.72"
+              },
+              {
+                "kind": "MAX",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "1434593.927123707956611547141",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "1430000.00",
+            "headroom": "-2570000.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 18,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2030000.00",
+                "term_months": 18,
+                "rate_pct": "23.00",
+                "monthly_payment": "134415.19",
+                "overpayment": "389473.42"
+              },
+              {
+                "kind": "MAX",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2033023.422789516039755982564",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2030000.00",
+            "headroom": "-1970000.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 24,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2570000.00",
+                "term_months": 24,
+                "rate_pct": "23.00",
+                "monthly_payment": "134599.40",
+                "overpayment": "660385.60"
+              },
+              {
+                "kind": "MAX",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2570305.272281951939419299945",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2570000.00",
+            "headroom": "-1430000.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 30,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "3030000.00",
+                "term_months": 30,
+                "rate_pct": "23.50",
+                "monthly_payment": "134515.40",
+                "overpayment": "1005462.00"
+              },
+              {
+                "kind": "MAX",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3032252.288741998169473736772",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3030000.00",
+            "headroom": "-970000.00"
+          },
+          {
+            "amount": "4000000.00",
+            "termMonths": 36,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": false,
+            "offers": [
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "3450000.00",
+                "term_months": 36,
+                "rate_pct": "23.50",
+                "monthly_payment": "134449.28",
+                "overpayment": "1390174.08"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3454262.309051012222425598857",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "12000000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "5000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "10000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3450000.00",
+            "headroom": "-550000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {
@@ -404,6 +3257,203 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "300000.00",
+          "500000.00",
+          "1000000.00"
+        ],
+        "terms": [
+          6,
+          12,
+          18,
+          24,
+          30,
+          36
+        ],
+        "rows": [
+          {
+            "amount": "300000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {
@@ -458,6 +3508,203 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "300000.00",
+          "500000.00",
+          "1000000.00"
+        ],
+        "terms": [
+          6,
+          12,
+          18,
+          24,
+          30,
+          36
+        ],
+        "rows": [
+          {
+            "amount": "300000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "300000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-300000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-500000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 6,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 12,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 18,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 24,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 30,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          },
+          {
+            "amount": "1000000.00",
+            "termMonths": 36,
+            "outcome": "REJECTED",
+            "requiresReview": false,
+            "offers": [],
+            "constraints": [],
+            "maxAmount": "0.00",
+            "headroom": "-1000000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {
@@ -518,6 +3765,1114 @@ export const demoData = {
           "actor": "SYSTEM"
         }
       ],
+      "simulation": {
+        "amounts": [
+          "500000.00",
+          "1500000.00",
+          "3000000.00"
+        ],
+        "terms": [
+          12,
+          18,
+          24,
+          30,
+          36,
+          42,
+          48,
+          54,
+          60
+        ],
+        "rows": [
+          {
+            "amount": "500000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 12,
+                "rate_pct": "19.50",
+                "monthly_payment": "46197.69",
+                "overpayment": "54372.28"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2697437.732625625186038352138",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2690000.00",
+            "headroom": "2190000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 18,
+                "rate_pct": "20.00",
+                "monthly_payment": "32381.60",
+                "overpayment": "82868.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3848339.286796027647889914895",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3840000.00",
+            "headroom": "3340000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 24,
+                "rate_pct": "20.00",
+                "monthly_payment": "25447.90",
+                "overpayment": "110749.60"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "4896882.577484560724961308632",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "4890000.00",
+            "headroom": "4390000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 30,
+                "rate_pct": "20.50",
+                "monthly_payment": "21439.63",
+                "overpayment": "143188.90"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5812384.693892075801899168694",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5810000.00",
+            "headroom": "5310000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 36,
+                "rate_pct": "20.50",
+                "monthly_payment": "18709.42",
+                "overpayment": "173539.12"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6660569.729603785021563803851",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6660000.00",
+            "headroom": "6160000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 42,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 42,
+                "rate_pct": "21.00",
+                "monthly_payment": "16910.29",
+                "overpayment": "210232.18"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7369205.878026989658483309622",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "6700000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 48,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 48,
+                "rate_pct": "21.00",
+                "monthly_payment": "15482.85",
+                "overpayment": "243176.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8048608.936773408154400081928",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "6700000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 54,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 54,
+                "rate_pct": "21.00",
+                "monthly_payment": "14388.36",
+                "overpayment": "276971.44"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8660847.935967520330213164638",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "6700000.00"
+          },
+          {
+            "amount": "500000.00",
+            "termMonths": 60,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "500000.00",
+                "term_months": 60,
+                "rate_pct": "21.00",
+                "monthly_payment": "13526.68",
+                "overpayment": "311600.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9212562.543826112131976272301",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "6700000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 12,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 12,
+                "rate_pct": "19.50",
+                "monthly_payment": "138593.06",
+                "overpayment": "163116.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2697437.732625625186038352138",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2690000.00",
+            "headroom": "1190000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 18,
+                "rate_pct": "20.00",
+                "monthly_payment": "97144.80",
+                "overpayment": "248606.40"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3848339.286796027647889914895",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3840000.00",
+            "headroom": "2340000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 24,
+                "rate_pct": "20.00",
+                "monthly_payment": "76343.70",
+                "overpayment": "332248.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "4896882.577484560724961308632",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "4890000.00",
+            "headroom": "3390000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 30,
+                "rate_pct": "20.50",
+                "monthly_payment": "64318.89",
+                "overpayment": "429566.70"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5812384.693892075801899168694",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5810000.00",
+            "headroom": "4310000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 36,
+                "rate_pct": "20.50",
+                "monthly_payment": "56128.25",
+                "overpayment": "520617.00"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6660569.729603785021563803851",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6660000.00",
+            "headroom": "5160000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 42,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 42,
+                "rate_pct": "21.00",
+                "monthly_payment": "50730.86",
+                "overpayment": "630696.12"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7369205.878026989658483309622",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "5700000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 48,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 48,
+                "rate_pct": "21.00",
+                "monthly_payment": "46448.54",
+                "overpayment": "729529.92"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8048608.936773408154400081928",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "5700000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 54,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 54,
+                "rate_pct": "21.00",
+                "monthly_payment": "43165.08",
+                "overpayment": "830914.32"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8660847.935967520330213164638",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "5700000.00"
+          },
+          {
+            "amount": "1500000.00",
+            "termMonths": 60,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "1500000.00",
+                "term_months": 60,
+                "rate_pct": "21.00",
+                "monthly_payment": "40580.04",
+                "overpayment": "934802.40"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9212562.543826112131976272301",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "5700000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 12,
+            "outcome": "COUNTER_OFFER",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "LONGER_TERM",
+                "amount": "3000000.00",
+                "term_months": 18,
+                "rate_pct": "20.00",
+                "monthly_payment": "194289.60",
+                "overpayment": "497212.80"
+              },
+              {
+                "kind": "REDUCED_AMOUNT",
+                "amount": "2690000.00",
+                "term_months": 12,
+                "rate_pct": "19.50",
+                "monthly_payment": "248543.56",
+                "overpayment": "292522.72"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "2697437.732625625186038352138",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "2690000.00",
+            "headroom": "-310000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 18,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 18,
+                "rate_pct": "20.00",
+                "monthly_payment": "194289.60",
+                "overpayment": "497212.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "3848339.286796027647889914895",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "3840000.00",
+            "headroom": "840000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 24,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 24,
+                "rate_pct": "20.00",
+                "monthly_payment": "152687.41",
+                "overpayment": "664497.84"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "4896882.577484560724961308632",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "4890000.00",
+            "headroom": "1890000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 30,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 30,
+                "rate_pct": "20.50",
+                "monthly_payment": "128637.79",
+                "overpayment": "859133.70"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "5812384.693892075801899168694",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "5810000.00",
+            "headroom": "2810000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 36,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 36,
+                "rate_pct": "20.50",
+                "monthly_payment": "112256.51",
+                "overpayment": "1041234.36"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "6660569.729603785021563803851",
+                "binding": true
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": false
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "6660000.00",
+            "headroom": "3660000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 42,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 42,
+                "rate_pct": "21.00",
+                "monthly_payment": "101461.72",
+                "overpayment": "1261392.24"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "7369205.878026989658483309622",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "4200000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 48,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 48,
+                "rate_pct": "21.00",
+                "monthly_payment": "92897.08",
+                "overpayment": "1459059.84"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8048608.936773408154400081928",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "4200000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 54,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 54,
+                "rate_pct": "21.00",
+                "monthly_payment": "86330.15",
+                "overpayment": "1661828.10"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "8660847.935967520330213164638",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "4200000.00"
+          },
+          {
+            "amount": "3000000.00",
+            "termMonths": 60,
+            "outcome": "APPROVED",
+            "requiresReview": true,
+            "offers": [
+              {
+                "kind": "REQUESTED",
+                "amount": "3000000.00",
+                "term_months": 60,
+                "rate_pct": "21.00",
+                "monthly_payment": "81160.08",
+                "overpayment": "1869604.80"
+              }
+            ],
+            "constraints": [
+              {
+                "name": "DSCR",
+                "limit": "9212562.543826112131976272301",
+                "binding": false
+              },
+              {
+                "name": "REVENUE",
+                "limit": "7200000.0000",
+                "binding": true
+              },
+              {
+                "name": "GRADE_CAP",
+                "limit": "10000000.00",
+                "binding": false
+              },
+              {
+                "name": "PRODUCT_MAX",
+                "limit": "15000000.00",
+                "binding": false
+              }
+            ],
+            "maxAmount": "7200000.00",
+            "headroom": "4200000.00"
+          }
+        ]
+      },
       "decision": {
         "factors": [
           {

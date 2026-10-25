@@ -1,8 +1,9 @@
 """Export public demo fixtures from the real domain; never an HTTP/OpenAPI schema."""
 import json
 import sys
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from datetime import datetime, timedelta, timezone
+from decimal import Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,9 +11,9 @@ sys.path.insert(0, str(ROOT / 'backend'))
 
 from app.domain.application_status import IN_PROGRESS, initial_event, replay, transition
 from app.domain.enums import Actor, ApplicationStatus
-from app.domain.scoring.engine import evaluate
+from app.domain.scoring.engine import evaluate, simulate
 from app.domain.scoring.policy import POLICY_V1
-from app.domain.serialization import result_to_json
+from app.domain.serialization import canonical, result_to_json
 from app.seed.personas import load_inputs, load_raw, load_request
 
 
@@ -26,6 +27,21 @@ def journey(outcome):
     return [{'from': e.from_status, 'to': e.to_status, 'actor': e.actor} for e in events]
 
 
+def simulations(persona_id, result):
+    req = load_request(persona_id)
+    product = POLICY_V1.product(req.product_code)
+    amounts = sorted({product.min_amount, req.amount, max(product.min_amount, (req.amount / 2 // POLICY_V1.amount_step) * POLICY_V1.amount_step), *(o.amount for o in result.offers)})
+    terms = list(range(product.min_term, product.max_term + 1, POLICY_V1.term_step))
+    rows = []
+    for amount in amounts:
+        for term in terms:
+            value = simulate(load_inputs(persona_id), replace(req, amount=Decimal(amount), term_months=term), POLICY_V1)
+            rows.append({'amount': str(amount), 'termMonths': term, 'outcome': value.predicted_outcome,
+                         'requiresReview': value.requires_review, 'offers': canonical(value.offers),
+                         'constraints': canonical(value.constraints), 'maxAmount': str(value.max_amount_for_term), 'headroom': str(value.headroom)})
+    return {'amounts': [str(a) for a in amounts], 'terms': terms, 'rows': rows}
+
+
 personas = []
 for raw in load_raw()['personas']:
     result = evaluate(load_inputs(raw['id']), load_request(raw['id']), POLICY_V1)
@@ -35,6 +51,7 @@ for raw in load_raw()['personas']:
         'company': {'id': raw['id'], 'name': f"{'ИП' if raw['company']['legal_form'] == 'IP' else 'ООО'} · {raw['company']['inn']}", **raw['company']},
         'request': {**raw['request'], 'term_months': int(raw['request']['term_months'])},
         'journey': journey(final),
+        'simulation': simulations(raw['id'], result),
         'decision': {
             'factors': [{'code': f.code, 'text': f.client_text, 'hint': f.hint, 'impact': f.impact} for f in result.factors],
             'offers': result_to_json(result)['offers'],
