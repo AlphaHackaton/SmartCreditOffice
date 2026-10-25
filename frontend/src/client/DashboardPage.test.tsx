@@ -1,4 +1,4 @@
-import { screen, within } from '@testing-library/react';
+import { act, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, it, vi } from 'vitest';
 import { renderWorkspace } from '../test/renderWorkspace';
@@ -29,4 +29,12 @@ it('выбор продукта передаёт его в форму, заяв�
   const section = screen.getByRole('heading', { name: 'Финансирование для бизнеса' }).closest('section')!;
   await userEvent.setup().click(within(section).getAllByRole('link', { name: 'Выбрать продукт →' })[1]);
   expect(router.state.location.search).toBe('?product=CAPEX');
+});
+it('сбой обновления пустого кеша не выдаётся за отсутствие заявок', async () => {
+  const { gateway, client } = await renderWorkspace('/client', { login: 'p1' });
+  await screen.findByText('У вас пока нет заявок');
+  gateway.failNext('read', 503);
+  await act(async () => { await client.invalidateQueries({ predicate: (query) => query.queryKey.at(-1) === 'applications' }); });
+  expect(screen.getByRole('alert')).toHaveTextContent('Демонстрационный сбой');
+  expect(screen.queryByText('У вас пока нет заявок')).not.toBeInTheDocument();
 });

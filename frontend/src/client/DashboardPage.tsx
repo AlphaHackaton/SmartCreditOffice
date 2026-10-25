@@ -24,9 +24,9 @@ export function DashboardPage() {
       <div className="product-grid">{products.data?.map((product) => <article className="workspace-card product-card" key={product.code}><span className="product-tag">{product.code === 'WC_FLEX' ? 'ОБОРОТНЫЕ СРЕДСТВА' : 'РАЗВИТИЕ БИЗНЕСА'}</span><h3>{product.name}</h3><p><MoneyText value={product.min_amount} /> — <MoneyText value={product.max_amount} /></p><p className="muted">От {product.min_term} до {product.max_term} месяцев</p><Link className="text-link" to={`/client/applications/new?product=${encodeURIComponent(product.code)}`}>Выбрать продукт →</Link></article>)}</div>
     </section>
     <section className="workspace-card" aria-labelledby="applications-title"><h2 id="applications-title">Ваши заявки</h2>
-      {applications.isPending && <p role="status">Загружаем заявки…</p>}
+      {(applications.isPending || applications.isFetching) && <p role="status">Загружаем заявки…</p>}
       <ErrorBanner message={applications.error?.message} onRetry={() => applications.refetch().then(() => {})} />
-      {applications.data?.length === 0 && <div className="workspace-empty"><h3>У вас пока нет заявок</h3><p>Выберите продукт и расскажите, какое финансирование нужно вашему бизнесу.</p><Link className="text-link" to="/client/applications/new">Подать первую заявку →</Link></div>}
+      {!applications.error && !applications.isFetching && applications.data?.length === 0 && <div className="workspace-empty"><h3>У вас пока нет заявок</h3><p>Выберите продукт и расскажите, какое финансирование нужно вашему бизнесу.</p><Link className="text-link" to="/client/applications/new">Подать первую заявку →</Link></div>}
       {Boolean(applications.data?.length) && <table className="application-table"><caption className="value-unavailable-description">Список заявок компании</caption><thead><tr><th>Заявка</th><th>Сумма</th><th>Срок</th><th>Статус</th><th>Создана</th></tr></thead><tbody>{applications.data?.map((a) => <tr key={a.id}><td><Link className="text-link" to={`/client/applications/${a.id}`}>№ {a.id.slice(0, 8)}</Link></td><td><MoneyText value={a.amount} /></td><td>{a.termMonths} мес.</td><td><StatusBadge status={a.status} /></td><td><DateTimeText value={a.createdAt} kind="timestamp" /></td></tr>)}</tbody></table>}
     </section>
   </>;

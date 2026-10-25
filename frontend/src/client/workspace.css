@@ -32,3 +32,9 @@
 .field-error { color: #a5211a; font-size: 13px; margin: 0; }
 .form-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 26px; }
 .save-notice { color: #24633e; line-height: 1.6; font-size: 14px; }
+.application-meta { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #737984; font-size: 12px; }
+.application-columns { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; }
+.application-progress { display: flex; align-items: center; gap: 16px; }
+.application-progress p { margin: 0 0 24px; line-height: 1.7; font-size: 14px; }
+.scoring-spinner { border: 2px solid #f4d2ce; border-top-color: #d62d22; width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; animation: scoring-spin 1s linear infinite; margin-bottom: 24px; }
+@keyframes scoring-spin { to { transform: rotate(360deg); } }
