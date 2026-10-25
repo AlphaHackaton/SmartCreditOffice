@@ -62,6 +62,12 @@ class LoginOut(BaseModel):
     user: UserOut
 
 
+class SigningChallenge(BaseModel):
+    application_id: UUID
+    code: str
+    expires_at: datetime
+
+
 class CompanyOut(BaseModel):
     id: UUID
     inn: str
