@@ -1,0 +1,111 @@
+{
+  "recommendation": "COUNTER_OFFER",
+  "route": "AUTO",
+  "score": 67,
+  "grade": "B",
+  "factors": [
+    {
+      "code": "TURNOVER_MODERATE",
+      "source": "ACCOUNT",
+      "value": "0.35",
+      "points": 12,
+      "max_points": 20,
+      "impact": "NEGATIVE",
+      "rule_id": "M1",
+      "client_text": "Поступления по счёту умеренно колеблются.",
+      "hint": null
+    },
+    {
+      "code": "DEBT_BURDEN_MODERATE",
+      "source": "BKI",
+      "value": "0.20",
+      "points": 12,
+      "max_points": 20,
+      "impact": "NEGATIVE",
+      "rule_id": "M2",
+      "client_text": "Текущая долговая нагрузка умеренная.",
+      "hint": null
+    },
+    {
+      "code": "BKI_PAST_OVERDUE_MINOR",
+      "source": "BKI",
+      "value": "12 дн.",
+      "points": 15,
+      "max_points": 25,
+      "impact": "NEGATIVE",
+      "rule_id": "M3",
+      "client_text": "В кредитной истории была короткая просрочка.",
+      "hint": null
+    },
+    {
+      "code": "FNS_MISMATCH_MODERATE",
+      "source": "FNS",
+      "value": "25.0%",
+      "points": 8,
+      "max_points": 15,
+      "impact": "NEGATIVE",
+      "rule_id": "M4",
+      "client_text": "Отчётность расходится с оборотами по счёту.",
+      "hint": null
+    },
+    {
+      "code": "BUSINESS_MATURE",
+      "source": "FNS",
+      "value": "48 мес.",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M5",
+      "client_text": "Бизнес работает давно.",
+      "hint": null
+    }
+  ],
+  "constraints": [
+    {
+      "name": "DSCR",
+      "limit": "1213256.578367478729020051296",
+      "binding": true
+    },
+    {
+      "name": "REVENUE",
+      "limit": "5760000.0000",
+      "binding": false
+    },
+    {
+      "name": "GRADE_CAP",
+      "limit": "5000000.00",
+      "binding": false
+    },
+    {
+      "name": "PRODUCT_MAX",
+      "limit": "10000000.00",
+      "binding": false
+    }
+  ],
+  "binding_constraint": "DSCR",
+  "offers": [
+    {
+      "kind": "LONGER_TERM",
+      "amount": "2500000.00",
+      "term_months": 30,
+      "rate_pct": "23.50",
+      "monthly_payment": "110986.30",
+      "overpayment": "829589.00"
+    },
+    {
+      "kind": "REDUCED_AMOUNT",
+      "amount": "1210000.00",
+      "term_months": 12,
+      "rate_pct": "22.50",
+      "monthly_payment": "113540.57",
+      "overpayment": "152486.84"
+    }
+  ],
+  "top_reasons": [
+    "DSCR_BELOW_MIN",
+    "BKI_PAST_OVERDUE_MINOR",
+    "DEBT_BURDEN_MODERATE"
+  ],
+  "review_flags": [],
+  "policy_version": "v1-02f2028a"
+}

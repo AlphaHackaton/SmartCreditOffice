@@ -1,0 +1,104 @@
+{
+  "recommendation": "APPROVED",
+  "route": "UNDERWRITING",
+  "score": 77,
+  "grade": "A",
+  "factors": [
+    {
+      "code": "TURNOVER_MODERATE",
+      "source": "ACCOUNT",
+      "value": "0.38",
+      "points": 12,
+      "max_points": 20,
+      "impact": "NEGATIVE",
+      "rule_id": "M1",
+      "client_text": "Поступления по счёту умеренно колеблются.",
+      "hint": null
+    },
+    {
+      "code": "DEBT_BURDEN_NONE",
+      "source": "BKI",
+      "value": "0.06",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M2",
+      "client_text": "Действующей долговой нагрузки нет.",
+      "hint": null
+    },
+    {
+      "code": "BKI_CLEAN",
+      "source": "BKI",
+      "value": "0 дн.",
+      "points": 25,
+      "max_points": 25,
+      "impact": "POSITIVE",
+      "rule_id": "M3",
+      "client_text": "Кредитная история без просрочек.",
+      "hint": null
+    },
+    {
+      "code": "FNS_MISMATCH",
+      "source": "FNS",
+      "value": "50.0%",
+      "points": 0,
+      "max_points": 15,
+      "impact": "NEGATIVE",
+      "rule_id": "M4",
+      "client_text": "Отчётность существенно расходится с оборотами по счёту.",
+      "hint": null
+    },
+    {
+      "code": "BUSINESS_MATURE",
+      "source": "FNS",
+      "value": "84 мес.",
+      "points": 20,
+      "max_points": 20,
+      "impact": "POSITIVE",
+      "rule_id": "M5",
+      "client_text": "Бизнес работает давно.",
+      "hint": null
+    }
+  ],
+  "constraints": [
+    {
+      "name": "DSCR",
+      "limit": "4896882.577484560724961308632",
+      "binding": true
+    },
+    {
+      "name": "REVENUE",
+      "limit": "7200000.0000",
+      "binding": false
+    },
+    {
+      "name": "GRADE_CAP",
+      "limit": "10000000.00",
+      "binding": false
+    },
+    {
+      "name": "PRODUCT_MAX",
+      "limit": "15000000.00",
+      "binding": false
+    }
+  ],
+  "binding_constraint": "DSCR",
+  "offers": [
+    {
+      "kind": "REQUESTED",
+      "amount": "3000000.00",
+      "term_months": 24,
+      "rate_pct": "20.00",
+      "monthly_payment": "152687.41",
+      "overpayment": "664497.84"
+    }
+  ],
+  "top_reasons": [
+    "FNS_MISMATCH",
+    "TURNOVER_MODERATE"
+  ],
+  "review_flags": [
+    "FNS_MISMATCH"
+  ],
+  "policy_version": "v1-02f2028a"
+}

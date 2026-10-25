@@ -30,6 +30,27 @@ class FnsData:
     declared_revenue_12m: Decimal | None
     tax_debt: Decimal
 
+    def __post_init__(self) -> None:
+        if self.declared_revenue_12m is not None:
+            if not isinstance(self.declared_revenue_12m, Decimal):
+                msg = (
+                    "declared_revenue_12m: ожидаются Decimal, получено "
+                    f"{type(self.declared_revenue_12m).__name__}"
+                )
+                raise TypeError(msg)
+            if self.declared_revenue_12m < 0:
+                msg = (
+                    "declared_revenue_12m: сумма не может быть отрицательной "
+                    f"({self.declared_revenue_12m})"
+                )
+                raise ValueError(msg)
+        if not isinstance(self.tax_debt, Decimal):
+            msg = f"tax_debt: ожидаются Decimal, получено {type(self.tax_debt).__name__}"
+            raise TypeError(msg)
+        if self.tax_debt < 0:
+            msg = f"tax_debt: сумма не может быть отрицательной ({self.tax_debt})"
+            raise ValueError(msg)
+
 
 @dataclass(frozen=True, slots=True)
 class BkiReport:
@@ -42,6 +63,17 @@ class BkiReport:
     inquiries_30d: int
     monthly_payments: Decimal
     active_loans: int
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.monthly_payments, Decimal):
+            msg = (
+                "monthly_payments: ожидаются Decimal, получено "
+                f"{type(self.monthly_payments).__name__}"
+            )
+            raise TypeError(msg)
+        if self.monthly_payments < 0:
+            msg = f"monthly_payments: сумма не может быть отрицательной ({self.monthly_payments})"
+            raise ValueError(msg)
 
 
 @dataclass(frozen=True, slots=True)
@@ -56,6 +88,8 @@ class AccountData:
     outflows: tuple[Decimal, ...]
 
     def __post_init__(self) -> None:
+        if len(self.inflows) == 0:
+            raise ValueError("ряды счёта не могут быть пустыми")
         for name, row in (("inflows", self.inflows), ("outflows", self.outflows)):
             for value in row:
                 if not isinstance(value, Decimal):

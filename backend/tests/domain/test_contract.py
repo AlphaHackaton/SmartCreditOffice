@@ -1,15 +1,15 @@
 """Контракт К0: enums, frozen dataclass'ы, POLICY_V1, персоны-оракулы."""
 
+from collections.abc import Callable
 from dataclasses import FrozenInstanceError, fields, is_dataclass
 from datetime import date
 from decimal import Decimal
 from enum import StrEnum
 from inspect import isclass
 from statistics import pstdev
-from typing import Any
+from typing import Any, cast
 
 import pytest
-from conftest import FIXED_AS_OF
 
 import app.domain.enums as enums_module
 from app.domain.enums import (
@@ -43,7 +43,9 @@ from app.domain.scoring.result import (
     ScoringResult,
     SimulationResult,
 )
-from app.seed.personas import load_raw, persona_ids
+from app.seed.personas import RawExpected, RawPersona, load_raw, persona_ids
+
+from .conftest import FIXED_AS_OF
 
 # --- enums ---------------------------------------------------------------------------
 
@@ -99,7 +101,7 @@ def _sample_inputs() -> ScoringInputs:
     )
 
 
-def _samples() -> list[tuple[str, Any]]:
+def _samples() -> list[tuple[str, object]]:
     inputs = _sample_inputs()
     factor = Factor(
         code=ReasonCode.TURNOVER_STABLE,
@@ -165,7 +167,7 @@ def _samples() -> list[tuple[str, Any]]:
 
 
 @pytest.mark.parametrize(("name", "instance"), _samples(), ids=[name for name, _ in _samples()])
-def test_dataclasses_are_frozen_with_slots(name: str, instance: Any) -> None:
+def test_dataclasses_are_frozen_with_slots(name: str, instance: object) -> None:
     assert is_dataclass(instance), f"{name} — не dataclass"
     slot_names = getattr(instance, "__slots__", None)
     assert slot_names is not None, f"{name} — без slots=True"
@@ -183,6 +185,11 @@ def test_account_data_rows_must_have_equal_length() -> None:
         AccountData(inflows=(Decimal("100.00"),), outflows=(Decimal("50.00"), Decimal("50.00")))
 
 
+def test_account_data_rejects_empty_rows() -> None:
+    with pytest.raises(ValueError, match="ряды счёта не могут быть пустыми"):
+        AccountData(inflows=(), outflows=())
+
+
 def test_account_data_rejects_negative_amounts() -> None:
     with pytest.raises(ValueError, match="отрицательн"):
         AccountData(inflows=(Decimal("-1.00"),), outflows=(Decimal("0.00"),))
@@ -191,7 +198,70 @@ def test_account_data_rejects_negative_amounts() -> None:
 def test_account_data_rejects_float() -> None:
     # float вместо Decimal — TypeError (в тест передаётся именно float)
     with pytest.raises(TypeError, match="Decimal"):
-        AccountData(inflows=(1.5,), outflows=(1.5,))
+        AccountData(inflows=cast(Any, (1.5,)), outflows=cast(Any, (1.5,)))
+
+
+# --- FnsData & BkiReport: runtime валидация типов и диапазонов ------------------------
+
+
+def test_fns_data_rejects_float() -> None:
+    with pytest.raises(TypeError, match="Decimal"):
+        FnsData(
+            status=FnsStatus.ACTIVE,
+            accounts_blocked=False,
+            declared_revenue_12m=Decimal("1000.00"),
+            tax_debt=cast(Any, 100.0),
+        )
+    with pytest.raises(TypeError, match="Decimal"):
+        FnsData(
+            status=FnsStatus.ACTIVE,
+            accounts_blocked=False,
+            declared_revenue_12m=cast(Any, 1000.0),
+            tax_debt=Decimal("0.00"),
+        )
+
+
+def test_fns_data_rejects_negative_amounts() -> None:
+    with pytest.raises(ValueError, match="отрицательн"):
+        FnsData(
+            status=FnsStatus.ACTIVE,
+            accounts_blocked=False,
+            declared_revenue_12m=Decimal("1000.00"),
+            tax_debt=Decimal("-1.00"),
+        )
+    with pytest.raises(ValueError, match="отрицательн"):
+        FnsData(
+            status=FnsStatus.ACTIVE,
+            accounts_blocked=False,
+            declared_revenue_12m=Decimal("-1.00"),
+            tax_debt=Decimal("0.00"),
+        )
+
+
+def test_bki_report_rejects_float_monthly_payments() -> None:
+    with pytest.raises(TypeError, match="Decimal"):
+        BkiReport(
+            subject=BkiSubject.COMPANY,
+            current_overdue_days=0,
+            max_overdue_days_12m=0,
+            max_overdue_days_24m=0,
+            inquiries_30d=0,
+            monthly_payments=cast(Any, 50000.0),
+            active_loans=1,
+        )
+
+
+def test_bki_report_rejects_negative_monthly_payments() -> None:
+    with pytest.raises(ValueError, match="отрицательн"):
+        BkiReport(
+            subject=BkiSubject.COMPANY,
+            current_overdue_days=0,
+            max_overdue_days_12m=0,
+            max_overdue_days_24m=0,
+            inquiries_30d=0,
+            monthly_payments=Decimal("-1.00"),
+            active_loans=1,
+        )
 
 
 # --- POLICY_V1 -----------------------------------------------------------------------
@@ -235,7 +305,7 @@ def test_products_min_less_than_max() -> None:
 # --- персоны -------------------------------------------------------------------------
 
 
-def _personas() -> list[dict[str, Any]]:
+def _personas() -> list[RawPersona]:
     return list(load_raw()["personas"])
 
 
@@ -259,7 +329,7 @@ _INN12_WEIGHTS = (3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8)
 
 
 @pytest.mark.parametrize("persona", _personas(), ids=lambda p: str(p["id"]))
-def test_inn_length_and_checksum(persona: dict[str, Any]) -> None:
+def test_inn_length_and_checksum(persona: RawPersona) -> None:
     inn = str(persona["company"]["inn"])
     digits = [int(ch) for ch in inn]
     if persona["company"]["legal_form"] == "IP":
@@ -289,15 +359,15 @@ _TOLERANCE = Decimal("0.001")
 def test_persona_row_statistics(
     persona_id: str,
     targets: tuple[Decimal, Decimal, Decimal],
-    persona_inputs: Any,
+    persona_inputs: Callable[[str], ScoringInputs],
 ) -> None:
     inputs = persona_inputs(persona_id)
     inflows = inputs.account.inflows
     outflows = inputs.account.outflows
     assert len(inflows) == len(outflows) >= 12
-    mean_inflow = sum(inflows) / len(inflows)
+    mean_inflow = sum(inflows, Decimal("0")) / len(inflows)
     cv = pstdev(inflows) / mean_inflow
-    ncf = sum(i - o for i, o in zip(inflows, outflows, strict=True)) / len(inflows)
+    ncf = sum((i - o for i, o in zip(inflows, outflows, strict=True)), Decimal("0")) / len(inflows)
     mean_target, cv_target, ncf_target = targets
     assert abs(mean_inflow - mean_target) <= mean_target * _TOLERANCE
     assert abs(cv - cv_target) <= cv_target * _TOLERANCE
@@ -305,13 +375,15 @@ def test_persona_row_statistics(
 
 
 @pytest.mark.parametrize("persona_id", persona_ids())
-def test_persona_as_of_is_fixed(persona_id: str, persona_inputs: Any) -> None:
+def test_persona_as_of_is_fixed(
+    persona_id: str, persona_inputs: Callable[[str], ScoringInputs]
+) -> None:
     assert persona_inputs(persona_id).as_of == FIXED_AS_OF
 
 
 @pytest.mark.parametrize("persona", _personas(), ids=lambda p: str(p["id"]))
-def test_expected_values_are_valid_enums(persona: dict[str, Any]) -> None:
-    expected: dict[str, Any] = persona["expected"]
+def test_expected_values_are_valid_enums(persona: RawPersona) -> None:
+    expected: RawExpected = persona["expected"]
     Outcome(str(expected["outcome"]))
     Route(str(expected["route"]))
     if expected["grade"] is not None:
