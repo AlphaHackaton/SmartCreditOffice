@@ -208,6 +208,40 @@ def test_every_offer_respects_product_bounds_and_step(
             assert offer.term_months == req.term_months
 
 
+def _longer_term_cases() -> list[tuple[str, Metrics, LoanRequest, Product, Grade]]:
+    """Кейсы, где алгоритм контроффера возвращает LONGER_TERM."""
+    cases: list[tuple[str, Metrics, LoanRequest, Product, Grade]] = []
+    inp2 = load_inputs("p2_longer_term")
+    m2 = compute_metrics(inp2)
+    req2 = load_request("p2_longer_term")
+    _, grade2, _ = score(m2, POLICY_V1)
+    cases.append(("p2_longer_term", m2, req2, POLICY_V1.product(req2.product_code), grade2))
+
+    inp1 = load_inputs("p1_ideal")
+    m1 = compute_metrics(inp1)
+    req1 = LoanRequest("WC_FLEX", Decimal("8000000.00"), 18)
+    _, grade1, _ = score(m1, POLICY_V1)
+    cases.append(("p1_longer_18m", m1, req1, POLICY_V1.product("WC_FLEX"), grade1))
+    return cases
+
+
+@pytest.mark.parametrize(
+    "case",
+    _longer_term_cases(),
+    ids=lambda case: case[0],
+)
+def test_longer_term_overpayment_exceeds_requested_at_same_amount(
+    case: tuple[str, Metrics, LoanRequest, Product, Grade],
+) -> None:
+    _, metrics, req, product, grade = case
+    outcome, offers, _, _ = build_offers(metrics, req, product, grade, POLICY_V1)
+    longer = next(offer for offer in offers if offer.kind is OfferKind.LONGER_TERM)
+    requested_rate = price(product, grade, req.term_months, POLICY_V1)
+    requested_payment = annuity_payment(req.amount, requested_rate, req.term_months)
+    requested_overpayment = overpayment(requested_payment, req.term_months, req.amount)
+    assert longer.overpayment > requested_overpayment
+
+
 def test_build_offers_is_finite(monkeypatch: pytest.MonkeyPatch) -> None:
     original = counter_offer.amount_limit
     calls: list[int] = []

@@ -58,8 +58,9 @@ def test_with_key_rate_returns_new_policy() -> None:
 
 
 def test_policy_is_frozen() -> None:
+    attr_name = "key_rate_pct"
     with pytest.raises(FrozenInstanceError):
-        POLICY_V1.key_rate_pct = Decimal("18.00")
+        setattr(POLICY_V1, attr_name, Decimal("18.00"))
 
 
 def test_bin_change_changes_version() -> None:

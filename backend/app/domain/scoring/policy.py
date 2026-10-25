@@ -7,47 +7,16 @@
 
 import json
 from collections.abc import Mapping
-from dataclasses import dataclass, fields, is_dataclass, replace
+from dataclasses import dataclass, replace
 from decimal import Decimal
-from enum import Enum
 from hashlib import sha256
 from types import MappingProxyType
-from typing import Any, Final, cast
+from typing import Final
 
 from ..enums import Grade, ReasonCode
 from ..errors import PolicyViolation
+from ..serialization import canonical
 from .inputs import LoanRequest
-
-
-def _json_scalar(value: object) -> object:
-    """Enum → его значение, остальные скаляры — без изменений."""
-    if isinstance(value, Enum):
-        return value.value
-    return value
-
-
-def _canonical(value: object) -> Any:
-    """Каноническое представление политики для стабильного хеша.
-
-    `Decimal` → строка, `Enum` → значение, `Mapping` → отсортированные пары,
-    dataclass → словарь полей, tuple/list → список.
-    """
-    if isinstance(value, Decimal):
-        return str(value)
-    if isinstance(value, Enum):
-        return value.value
-    if isinstance(value, Mapping):
-        items = sorted(value.items(), key=lambda item: str(_json_scalar(item[0])))
-        return [[str(_json_scalar(key)), _canonical(item)] for key, item in items]
-    if is_dataclass(value) and not isinstance(value, type):
-        record = cast(Any, value)
-        return {field.name: _canonical(getattr(record, field.name)) for field in fields(record)}
-    if isinstance(value, (tuple, list)):
-        return [_canonical(item) for item in value]
-    if value is None or isinstance(value, (str, int, bool)):
-        return value
-    msg = f"не удалось канонизировать значение типа {type(value).__name__}"
-    raise TypeError(msg)
 
 
 @dataclass(frozen=True, slots=True)
@@ -110,13 +79,13 @@ class Policy:
     @property
     def version(self) -> str:
         """Стабильная версия из содержимого (канонический JSON, sha256)."""
-        canonical = json.dumps(
-            _canonical(self),
+        canonical_data = json.dumps(
+            canonical(self),
             sort_keys=True,
             separators=(",", ":"),
             ensure_ascii=False,
         )
-        digest = sha256(canonical.encode("utf-8")).hexdigest()[:8]
+        digest = sha256(canonical_data.encode("utf-8")).hexdigest()[:8]
         return f"{self.name}-{digest}"
 
     def with_key_rate(self, key_rate_pct: Decimal) -> "Policy":

@@ -8,10 +8,15 @@
 
 from collections.abc import Mapping, Sequence
 from dataclasses import replace
-from typing import Final
+from decimal import Decimal
+from typing import Final, Protocol
 
-from ..enums import ConstraintName, Impact, Outcome, ReasonCode
-from .result import Factor
+from ..dates import add_months
+from ..enums import ConstraintName, Impact, OfferKind, Outcome, ReasonCode
+from .inputs import ScoringInputs
+from .metrics import Metrics
+from .policy import Policy
+from .result import Factor, OfferDraft
 
 #: Тексты причин для клиента: полный каталог всех `ReasonCode`.
 CATALOG: Final[Mapping[ReasonCode, str]] = {
@@ -96,4 +101,88 @@ def top_reasons(
     return tuple(unique[:TOP_LIMIT])
 
 
-__all__ = ["BINDING_CODES", "CATALOG", "TOP_LIMIT", "render", "top_reasons"]
+class ResultCore(Protocol):
+    """Протокол для сущностей, хранящих офферы и связывающее ограничение."""
+
+    @property
+    def offers(self) -> tuple[OfferDraft, ...]: ...
+
+    @property
+    def binding_constraint(self) -> ConstraintName | None: ...
+
+
+def hints(
+    m: Metrics,
+    result_core: ResultCore,
+    inp: ScoringInputs,
+    p: Policy,
+) -> Mapping[ReasonCode, str]:
+    """Контрфактические подсказки клиенту (design.md §4, SPEC_FOR_AGENT).
+
+    Подсказки контрфактически честные: проигрывание через `simulate` даёт
+    обещанный исход.
+    - P5: дата регистрации + 3 мес (ДД.ММ.ГГГГ) для `BUSINESS_TOO_YOUNG`.
+    - P2: увеличение срока (например, "30 мес") при `DSCR_BELOW_MIN`.
+    - P3: снижение суммы (максимально доступная) при `DSCR_BELOW_MIN`.
+    """
+    res: dict[ReasonCode, str] = {}
+
+    if m.business_age_months < p.min_business_age_months:
+        eligible_date = add_months(inp.company.registered_at, p.min_business_age_months)
+        date_str = eligible_date.strftime("%d.%m.%Y")
+        res[ReasonCode.BUSINESS_TOO_YOUNG] = (
+            f"Подайте заявку после {date_str}, когда бизнесу исполнится "
+            f"{p.min_business_age_months} мес."
+        )
+
+    if result_core.binding_constraint is ConstraintName.DSCR:
+        longer = next((o for o in result_core.offers if o.kind is OfferKind.LONGER_TERM), None)
+        if longer is not None:
+            res[ReasonCode.DSCR_BELOW_MIN] = (
+                f"Увеличьте срок кредита до {longer.term_months} мес, "
+                "чтобы снизить ежемесячный платёж."
+            )
+        else:
+            reduced = next(
+                (
+                    o
+                    for o in result_core.offers
+                    if o.kind in {OfferKind.REDUCED_AMOUNT, OfferKind.MAX}
+                ),
+                None,
+            )
+            if reduced is not None:
+                amount_str = f"{reduced.amount:,.0f}".replace(",", " ")
+                res[ReasonCode.DSCR_BELOW_MIN] = (
+                    f"Снизьте сумму кредита до {amount_str} ₽ "
+                    "(максимально доступная сумма на этом сроке)."
+                )
+
+    if result_core.binding_constraint is ConstraintName.REVENUE:
+        reduced = next(
+            (o for o in result_core.offers if o.kind in {OfferKind.REDUCED_AMOUNT, OfferKind.MAX}),
+            None,
+        )
+        if reduced is not None:
+            amount_str = f"{reduced.amount:,.0f}".replace(",", " ")
+            res[ReasonCode.REVENUE_LIMIT] = (
+                f"Снизьте сумму кредита до {amount_str} ₽ в соответствии с оборотами по счёту."
+            )
+
+    if m.ncf <= Decimal("0"):
+        res[ReasonCode.NO_DEBT_CAPACITY] = (
+            "Увеличьте свободный денежный поток (NCF) бизнеса для получения кредита."
+        )
+
+    return res
+
+
+__all__ = [
+    "BINDING_CODES",
+    "CATALOG",
+    "ResultCore",
+    "TOP_LIMIT",
+    "hints",
+    "render",
+    "top_reasons",
+]
