@@ -68,7 +68,7 @@ def test_client_cannot_submit_another_clients_application() -> None:
     second_headers = {"Authorization": f"Bearer {second_login.json()['access_token']}"}
     response = client.post(f"/api/v1/applications/{application_id}/submit", headers=second_headers)
     assert response.status_code == 400
-    assert response.json()["detail"] == "APPLICATION_NOT_FOUND"
+    assert response.json()["code"] == "APPLICATION_NOT_FOUND"
 
 
 def test_bank_contour_requires_bank_role_and_hides_dossier_from_client() -> None:
