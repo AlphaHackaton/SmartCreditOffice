@@ -30,6 +30,7 @@ def create_app(app_settings: Settings | None = None) -> FastAPI:
         separate_input_output_schemas=False,
     )
     application.state.settings = runtime
+    application.state.policy = runtime.policy()
 
     @application.middleware("http")
     async def attach_identity(
@@ -114,21 +115,24 @@ def _wire_real(application: FastAPI, runtime: Settings) -> None:
     ) -> Response:
         # Demo-scale concurrency note: one service per request is placed on app
         # state; routers resolve it without extra FastAPI dependency plumbing.
+        policy = runtime.policy()
         with _factory()() as session:
-            service = ApplicationService(session, jwt_secret=runtime.jwt_secret)
+            service = ApplicationService(session, jwt_secret=runtime.jwt_secret, policy=policy)
             request.app.state.service = service
             request.app.state.bank_service = BankService(service)
             return await call_next(request)
 
     def scoring_runner(application_id: UUID, version: int) -> None:
         with _factory()() as session:
-            ApplicationService(session, jwt_secret=runtime.jwt_secret).run_scoring(
-                application_id, version
-            )
+            ApplicationService(
+                session, jwt_secret=runtime.jwt_secret, policy=runtime.policy()
+            ).run_scoring(application_id, version)
 
     def disbursement_runner(application_id: UUID, version: int) -> None:
         with _factory()() as session:
-            service = ApplicationService(session, jwt_secret=runtime.jwt_secret)
+            service = ApplicationService(
+                session, jwt_secret=runtime.jwt_secret, policy=runtime.policy()
+            )
             row = service.repository.get(application_id)
             if row.status == "SIGNED" and row.version == version:
                 service.disburse(application_id)
