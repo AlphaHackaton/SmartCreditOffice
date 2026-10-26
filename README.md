@@ -30,19 +30,34 @@
 
 ---
 
+## Текущее состояние frontend
+
+Реализованы все frontend-фичи 1–14 в Mock и интеграция всех 21 опубликованной HTTP-операции Dev 2. В основном API-режиме работают профиль/продукты, черновик и подача, решение/объяснения/офферы, симуляция, подписание кодом внутри UI, выдача; банковская очередь/досье/прогоны/ручное решение/аудит и базовые метрики. Есть Docker frontend с nginx proxy и Compose (db/backend/frontend). Детали, ограничения и проверки: [frontend/README.md](frontend/README.md).
+
 ## 🚀 Быстрый запуск
 
-### 1. Запуск всей системы через Docker Compose
+### 1. Разработка frontend сейчас
+
+Среда Dev 3: [DEV_CODEX.md](DEV_CODEX.md). Рабочая ветка — `codex/frontend-development`: frontend объединён с доменным backend из `origin/main`.
+
+Из корня репозитория:
+
 ```bash
-docker compose up --build
+npm ci --prefix frontend
+npm run dev --prefix frontend
 ```
-- Веб-интерфейс: `http://localhost:5173` (или `http://localhost:3000`)
-- Swagger API: `http://localhost:8000/docs`
+
+Веб-интерфейс: `http://localhost:5173`. По умолчанию нужен API на :8000 (команда ниже). Для изолированного Mock задайте VITE_DATA_MODE=mock; БД/Docker/LLM тогда не нужны. Тесты/сборка: `npm test --prefix frontend -- --run`, `npm run build --prefix frontend`.
 
 ### 2. Запуск локальной проверки харнесса
 ```bash
+UV_CACHE_DIR="$PWD/tmp/uv-cache" uv sync --project backend --locked
 bash scripts/check.sh
 ```
+
+### 3. Полный запуск после подключения платформы Dev 2
+
+Для API без БД: `APP_MODE=stub uv run --project backend uvicorn app.main:app --app-dir backend --reload`. Для полного приложения с PostgreSQL: `APP_MODE=real docker compose up --build`, frontend на http://localhost:8080. HTTP smoke: `node frontend/scripts/smoke-api.mjs`. Локально проверен stub с настоящим доменным engine; запуск PostgreSQL/контейнеров здесь заблокирован доступом к Docker socket.
 
 ---
 

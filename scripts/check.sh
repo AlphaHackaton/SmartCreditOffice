@@ -3,6 +3,8 @@
 # Каталоги, которых ещё нет, пропускаются — скрипт работает с первого дня.
 set -uo pipefail
 cd "$(dirname "$0")/.."
+# Codex sandbox permits project-local caches, unlike the user's global cache.
+export UV_CACHE_DIR="${UV_CACHE_DIR:-$PWD/tmp/uv-cache}"
 FAIL=0
 step() { echo; echo "=== $1 ==="; }
 run()  { "$@" 2>&1 | tail -n 60; local rc=${PIPESTATUS[0]}; [ "$rc" -ne 0 ] && { echo "!! FAILED ($rc): $*"; FAIL=1; }; return 0; }
@@ -11,15 +13,15 @@ if [ -f backend/pyproject.toml ]; then
   step "backend: ruff";   run bash -c "cd backend && uv run ruff check . && uv run ruff format --check ."
   step "backend: mypy";   run bash -c "cd backend && uv run mypy app"
   step "backend: pytest"; run bash -c "cd backend && uv run pytest -q -x"
-  step "backend: openapi export"
   if [ -f backend/app/main.py ]; then
-    run bash -c "cd backend && uv run python -c 'import json;from app.main import app;print(json.dumps(app.openapi(),ensure_ascii=False,indent=2))' > ../docs/openapi.json"
-  else
-    echo "SKIP openapi export (нет backend/app/main.py, создаётся Dev 2)"
-  fi
+    step "backend: openapi export"
+    # Replace the schema only after a successful export; keep the last valid file on failure.
+    run bash -c 'tmp_schema=$(mktemp); if (cd backend && uv run python -c '\''import json;from app.main import app;print(json.dumps(app.openapi(),ensure_ascii=False,indent=2))'\'') > "$tmp_schema"; then mv "$tmp_schema" docs/openapi.json; else rc=$?; rm -f "$tmp_schema"; exit "$rc"; fi'
+  else echo "SKIP OpenAPI (нет backend/app/main.py)"; fi
 else echo "SKIP backend (нет backend/pyproject.toml)"; fi
 
 if [ -f frontend/package.json ]; then
+  step "frontend: domain demo fixtures"; run uv run --project backend python scripts/export_frontend_demo.py --check
   step "frontend: eslint"; run bash -c "cd frontend && npx eslint . --max-warnings=0"
   step "frontend: tsc";    run bash -c "cd frontend && npx tsc --noEmit -p ."
   step "frontend: vitest"; run bash -c "cd frontend && npx vitest run --passWithNoTests"

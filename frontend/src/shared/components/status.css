@@ -1,0 +1,12 @@
+.status-badge { display: inline-block; padding: 7px 11px; border-radius: 6px; font-size: 12px; font-weight: 600; line-height: 1.4; }
+.status-neutral { background: #eef0f3; color: #525b69; }
+.status-pending { background: #eaf0fe; color: #244f9a; }
+.status-positive { background: #e5f5eb; color: #24633e; }
+.status-attention { background: #fff0d7; color: #855915; }
+.status-negative { background: #fdebe9; color: #9e211a; }
+.status-timeline { list-style: none; padding: 0; margin: 24px 0 0; }
+.status-timeline li { position: relative; display: flex; gap: 16px; padding: 0 0 26px; font-size: 14px; }
+.status-timeline li:not(:last-child)::after { content: ''; position: absolute; width: 1px; background: #dce1e7; left: 5px; top: 14px; bottom: 2px; }
+.timeline-dot { width: 11px; height: 11px; margin-top: 3px; border: 2px solid #bbc2cb; background: white; border-radius: 50%; flex-shrink: 0; }
+.status-timeline [aria-current="step"] .timeline-dot { background: #ef3124; border-color: #ef3124; }
+.status-timeline p { color: #6b7380; font-size: 12px; margin: 8px 0 0; line-height: 1.5; }

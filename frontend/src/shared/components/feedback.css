@@ -1,0 +1,11 @@
+.error-banner { padding: 20px 24px; border: 1px solid #edb7b1; border-radius: 12px; background: #fff0ee; color: #9e211a; }
+.error-banner-message { margin: 0; line-height: 1.5; overflow-wrap: anywhere; }
+.error-banner button { margin-top: 14px; }
+.feedback-progress { display: block; margin-top: 12px; font-size: 14px; line-height: 1.5; color: #5b626d; }
+.confirm-dialog { width: 560px; max-width: calc(100vw - 80px); max-height: calc(100vh - 80px); overflow: auto; padding: 32px; border: 0; border-radius: 16px; color: #202328; background: white; box-shadow: 0 16px 64px #00000030; }
+.confirm-dialog::backdrop { background: #11182780; }
+.confirm-dialog:focus-visible { outline: 3px solid #2355ba; outline-offset: 4px; }
+.confirm-dialog h2 { overflow-wrap: anywhere; }
+.confirm-dialog-description { margin: 20px 0 0; color: #5b626d; line-height: 1.6; overflow-wrap: anywhere; }
+.confirm-dialog-error { margin-top: 20px; color: #9e211a; line-height: 1.5; }
+.confirm-dialog-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 28px; }

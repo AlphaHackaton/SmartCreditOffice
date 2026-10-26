@@ -188,7 +188,9 @@ class StubBankService:
     def scoring_runs(self, application_id: UUID) -> list[ScoringRunOut]:
         return []
 
-    def decide(self, application_id: UUID, data: UnderwriterDecisionIn) -> ApplicationOut:
+    def decide(
+        self, user_id: UUID, application_id: UUID, data: UnderwriterDecisionIn
+    ) -> ApplicationOut:
         from typing import cast
 
         item = self.service._applications.get(application_id)
@@ -207,7 +209,7 @@ class StubBankService:
         )
         return cast(ApplicationOut, self.service._out(item))
 
-    def rescore(self, application_id: UUID) -> ApplicationOut:
+    def rescore(self, user_id: UUID, application_id: UUID) -> ApplicationOut:
         from typing import cast
 
         item = self.service._applications.get(application_id)

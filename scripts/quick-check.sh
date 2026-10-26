@@ -3,6 +3,7 @@
 # Использование: scripts/quick-check.sh <путь-к-файлу>
 set -uo pipefail
 cd "$(dirname "$0")/.."
+export UV_CACHE_DIR="${UV_CACHE_DIR:-$PWD/tmp/uv-cache}"
 f="${1:?file}"
 rel="${f#"$PWD"/}"
 case "$rel" in
@@ -11,12 +12,14 @@ case "$rel" in
     p="${rel#backend/}"
     cd backend
     uv run ruff check "$p" --output-format=concise 2>&1 | tail -n 40; a=${PIPESTATUS[0]}
-    uv run ruff format --check "$p" >/dev/null 2>&1 || echo "format: запусти 'uv run ruff format $p'"
-    exit "$a" ;;
+    uv run ruff format --check "$p"; b=$?
+    [ "$b" -eq 0 ] || echo "format: запусти 'uv run ruff format $p'"
+    [ "$a" -eq 0 ] && [ "$b" -eq 0 ]; exit $? ;;
   frontend/*.ts|frontend/*.tsx)
     [ -f frontend/package.json ] || exit 0
     cd frontend
-    npx eslint "${rel#frontend/}" --max-warnings=0 -f unix 2>&1 | tail -n 40; exit "${PIPESTATUS[0]}" ;;
+    # Generated OpenAPI declarations are intentionally ignored by eslint.config.js.
+    npx eslint "${rel#frontend/}" --no-warn-ignored --max-warnings=0 2>&1 | tail -n 40; exit "${PIPESTATUS[0]}" ;;
   docker-compose.yml)
     command -v docker >/dev/null && docker compose config -q 2>&1 | tail -n 20 ;;
   openspec/changes/*)
