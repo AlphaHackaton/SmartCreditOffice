@@ -42,8 +42,9 @@ from app.domain.scoring.engine import evaluate as engine_evaluate
 from app.domain.scoring.engine import pre_approve as engine_pre_approve
 from app.domain.scoring.engine import simulate as engine_simulate
 from app.domain.scoring.inputs import LoanRequest
-from app.domain.scoring.policy import POLICY_V1, validate_request
+from app.domain.scoring.policy import validate_request
 from app.seed.personas import load_inputs, load_raw
+from app.services.application_service import runtime_policy
 from app.services.signing import OtpSigner, SigningError
 
 
@@ -83,6 +84,7 @@ class StubApplicationService:
         self._applications: dict[UUID, _StubApplication] = {}
         self._personas = {str(item["id"]): item for item in load_raw()["personas"]}
         self._signer: OtpSigner | None = None
+        self.policy = runtime_policy()
         self._seed_users()
 
     def _seed_users(self) -> None:
@@ -129,7 +131,7 @@ class StubApplicationService:
         if user.persona_id is None or user.company_id is None:
             raise StubError("COMPANY_NOT_FOUND")
         company = self._personas[user.persona_id]["company"]
-        approval = engine_pre_approve(load_inputs(user.persona_id), "WC_FLEX", POLICY_V1)
+        approval = engine_pre_approve(load_inputs(user.persona_id), "WC_FLEX", self.policy)
         return CompanyOut(
             id=user.company_id,
             inn=str(company["inn"]),
@@ -213,7 +215,7 @@ class StubApplicationService:
             amount=Decimal(item.amount),
             term_months=item.term_months,
         )
-        result = engine_evaluate(load_inputs(user.persona_id), request, POLICY_V1)
+        result = engine_evaluate(load_inputs(user.persona_id), request, self.policy)
         target = (
             ApplicationStatus.UNDERWRITING
             if result.route is Route.UNDERWRITING
@@ -239,7 +241,7 @@ class StubApplicationService:
             amount=Decimal(data.amount),
             term_months=data.term_months,
         )
-        simulation = engine_simulate(load_inputs(user.persona_id), request, POLICY_V1)
+        simulation = engine_simulate(load_inputs(user.persona_id), request, self.policy)
         return SimulationOut(
             predicted_outcome=simulation.predicted_outcome,
             requires_review=simulation.requires_review,
@@ -331,20 +333,19 @@ class StubApplicationService:
                 min_term_months=product.min_term,
                 max_term_months=product.max_term,
             )
-            for product in POLICY_V1.products
+            for product in self.policy.products
         ]
 
     # ---------- internals ----------
 
-    @staticmethod
-    def _validate(data: ApplicationIn) -> None:
+    def _validate(self, data: ApplicationIn) -> None:
         validate_request(
             LoanRequest(
                 product_code=data.product_code,
                 amount=Decimal(data.amount),
                 term_months=data.term_months,
             ),
-            POLICY_V1,
+            self.policy,
         )
 
     def _transition(

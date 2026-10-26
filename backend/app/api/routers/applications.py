@@ -3,7 +3,7 @@
 from typing import Annotated
 from uuid import UUID
 
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, Request, status
 
 from app.api.deps import current_user_id, require_role
 from app.api.schemas import (
@@ -16,7 +16,7 @@ from app.api.schemas import (
     SimulationOut,
     UserRole,
 )
-from app.services.application_service import ApplicationError, ApplicationService
+from app.services.application_service import ApplicationService
 
 router = APIRouter(prefix="/applications", tags=["applications"])
 
@@ -46,10 +46,7 @@ def list_applications(
 def create_application(
     data: ApplicationIn, request: Request, user_id: CurrentUser, _role: ClientUser
 ) -> ApplicationOut:
-    try:
-        return _service(request).create_application(user_id, data)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    return _service(request).create_application(user_id, data)
 
 
 @router.patch("/{application_id}", response_model=ApplicationOut)
@@ -61,10 +58,7 @@ def update_application(
     _role: ClientUser,
     version: Annotated[int, Depends(_version_query)],
 ) -> ApplicationOut:
-    try:
-        return _service(request).update_application(user_id, application_id, data, version)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    return _service(request).update_application(user_id, application_id, data, version)
 
 
 @router.post("/{application_id}/submit", response_model=ApplicationOut)
@@ -76,10 +70,7 @@ def submit_application(
     _role: ClientUser,
     version: Annotated[int, Depends(_version_query)],
 ) -> ApplicationOut:
-    try:
-        result = _service(request).submit_application(user_id, application_id, version)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    result = _service(request).submit_application(user_id, application_id, version)
     _schedule_scoring(request, background, application_id, result.version)
     return result
 
@@ -92,10 +83,7 @@ def simulate(
     user_id: CurrentUser,
     _role: ClientUser,
 ) -> SimulationOut:
-    try:
-        return _service(request).simulate(user_id, application_id, data)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    return _service(request).simulate(user_id, application_id, data)
 
 
 @router.post("/{application_id}/accept", response_model=SigningChallenge)
@@ -107,10 +95,7 @@ def accept_offer(
     version: Annotated[int, Depends(_version_query)],
     offer_id: UUID | None = None,
 ) -> SigningChallenge:
-    try:
-        return _service(request).accept_offer(user_id, application_id, version, offer_id)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    return _service(request).accept_offer(user_id, application_id, version, offer_id)
 
 
 @router.post("/{application_id}/sign", response_model=ApplicationOut)
@@ -123,10 +108,7 @@ def sign_application(
     _role: ClientUser,
     version: Annotated[int, Depends(_version_query)],
 ) -> ApplicationOut:
-    try:
-        result = _service(request).sign_application(user_id, application_id, version, data.code)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    result = _service(request).sign_application(user_id, application_id, version, data.code)
     _schedule_disbursement(request, background, application_id, result.version)
     return result
 
@@ -139,10 +121,7 @@ def cancel_application(
     _role: ClientUser,
     version: Annotated[int, Depends(_version_query)],
 ) -> ApplicationOut:
-    try:
-        return _service(request).cancel_application(user_id, application_id, version)
-    except ApplicationError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
+    return _service(request).cancel_application(user_id, application_id, version)
 
 
 def _schedule_scoring(

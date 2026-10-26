@@ -264,3 +264,89 @@ def _await_status(
 
 def _version(client: object, headers: dict, application_id: str) -> int:
     return int(_get_application(client, headers, application_id)["version"])
+
+
+def test_counter_offer_flow_uses_accepted_offer_terms(app_client: object) -> None:
+    client = app_client
+
+    # p2 requests 2.5M for 12 months but DSCR forces a counter-offer.
+    login = client.post("/api/v1/auth/login", json={"login": "p2", "password": "demo"})
+    headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+    created = client.post(
+        "/api/v1/applications",
+        headers=headers,
+        json={"product_code": "WC_FLEX", "amount": "2500000.00", "term_months": 12},
+    )
+    application_id = created.json()["id"]
+    client.post(f"/api/v1/applications/{application_id}/submit?version=1", headers=headers)
+    state = _await_status(client, headers, application_id, {"COUNTER_OFFER"})
+    assert state["decision"]["outcome"] == "COUNTER_OFFER"
+    offers = state["decision"]["offers"]
+    assert offers, "counter-offer must carry offers"
+
+    # accept without choosing an offer is rejected (no transition happened,
+    # so the version is still the one reported by the counter-offer)
+    stable_version = _version(client, headers, application_id)
+    rejected = client.post(
+        f"/api/v1/applications/{application_id}/accept?version={stable_version}",
+        headers=headers,
+    )
+    assert rejected.status_code == 400
+    assert rejected.json()["code"] == "OFFER_REQUIRED"
+
+    # pick the REDUCED_AMOUNT offer: 1.21M instead of the requested 2.5M
+    reduced = next(offer for offer in offers if offer["kind"] == "REDUCED_AMOUNT")
+    accepted = client.post(
+        f"/api/v1/applications/{application_id}/accept",
+        headers=headers,
+        params={"version": stable_version, "offer_id": str(reduced["id"])},
+    )
+    assert accepted.status_code == 200, accepted.text
+    code = accepted.json()["code"]
+
+    sign_version = _version(client, headers, application_id)
+    signed = client.post(
+        f"/api/v1/applications/{application_id}/sign?version={sign_version}",
+        headers=headers,
+        json={"code": code},
+    )
+    assert signed.status_code == 200, signed.text
+
+    disbursed = _await_status(client, headers, application_id, {"DISBURSED"}, timeout=10.0)
+    assert disbursed["status"] == "DISBURSED"
+
+    # the bank dossier proves disbursement used the accepted offer terms,
+    # and the signature carries a non-empty contract hash
+    bank_login = client.post(
+        "/api/v1/auth/login", json={"login": "underwriter", "password": "demo"}
+    )
+    bank_headers = {"Authorization": f"Bearer {bank_login.json()['access_token']}"}
+    dossier = client.get(f"/api/v1/bank/applications/{application_id}", headers=bank_headers).json()
+    disbursed_entries = [entry for entry in dossier["audit"] if entry["action"] == "DISBURSED"]
+    assert disbursed_entries, "disbursement audit entry must exist"
+    assert disbursed_entries[-1]["payload"]["amount"] == reduced["amount"]
+    assert str(disbursed_entries[-1]["payload"]["term_months"]) == str(reduced["term_months"])
+    signed_entries = [entry for entry in dossier["audit"] if entry["action"] == "SIGNED"]
+    assert signed_entries, "signing audit entry must exist"
+    contract_hash = signed_entries[-1]["payload"]["contract_hash"]
+    assert contract_hash and len(contract_hash) == 64
+
+
+def test_key_rate_from_settings_flows_into_offered_rate(app_client: object) -> None:
+    """KEY_RATE_PCT flows into pricing: rate = key rate + spread + premiums."""
+    client = app_client
+    login = client.post("/api/v1/auth/login", json={"login": "p1", "password": "demo"})
+    headers = {"Authorization": f"Bearer {login.json()['access_token']}"}
+    created = client.post(
+        "/api/v1/applications",
+        headers=headers,
+        json={"product_code": "WC_FLEX", "amount": "2000000.00", "term_months": 24},
+    )
+    application_id = created.json()["id"]
+    client.post(f"/api/v1/applications/{application_id}/submit?version=1", headers=headers)
+    state = _await_status(client, headers, application_id, {"APPROVED", "COUNTER_OFFER"})
+    from decimal import Decimal
+
+    rate = Decimal(state["decision"]["offers"][0]["rate_pct"])
+    # KEY_RATE_PCT=16.5 + WC_FLEX spread 4.0 + grade A premium 0 + term premium 0.5
+    assert rate == Decimal("21.0000"), f"rate {rate} does not reflect KEY_RATE_PCT=16.5"

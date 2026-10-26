@@ -6,6 +6,7 @@ from starlette.responses import JSONResponse
 from app.api.schemas import ErrorDTO
 from app.db.repositories import ApplicationNotFound, RepositoryError, VersionConflict
 from app.domain.errors import DomainError
+from app.services.application_service import ApplicationError
 from app.services.signing import SigningError
 
 
@@ -19,6 +20,10 @@ class ApiError(Exception):
         self.message = message
 
 
+#: Application-level codes that describe a state conflict rather than bad input.
+_CONFLICT_CODES = frozenset({"INVALID_STATUS"})
+
+
 def register_exception_handlers(app: FastAPI) -> None:
     """Attach uniform error handlers; `ValueError` keeps legacy stub behaviour."""
 
@@ -26,6 +31,17 @@ def register_exception_handlers(app: FastAPI) -> None:
     async def api_error_handler(request: Request, exc: ApiError) -> JSONResponse:
         body = ErrorDTO(code=exc.code, message=exc.message).model_dump(mode="json")
         return JSONResponse(status_code=exc.status_code, content=body)
+
+    @app.exception_handler(ApplicationError)
+    async def application_error_handler(request: Request, exc: ApplicationError) -> JSONResponse:
+        code = str(exc)
+        http_status = (
+            status.HTTP_409_CONFLICT if code in _CONFLICT_CODES else status.HTTP_400_BAD_REQUEST
+        )
+        body = ErrorDTO(code=code, message="Application command cannot be completed").model_dump(
+            mode="json"
+        )
+        return JSONResponse(status_code=http_status, content=body)
 
     @app.exception_handler(DomainError)
     async def domain_error_handler(request: Request, exc: DomainError) -> JSONResponse:

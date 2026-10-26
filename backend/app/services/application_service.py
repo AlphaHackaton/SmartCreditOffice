@@ -43,6 +43,7 @@ from app.db.models import (
 from app.db.repositories import ApplicationNotFound, ApplicationRepository, VersionConflict
 from app.domain.enums import Actor, ApplicationStatus
 from app.domain.scoring.inputs import LoanRequest
+from app.domain.scoring.policy import Policy
 from app.domain.serialization import inputs_to_json, result_to_json
 from app.mocks.core_banking import MockCoreBanking
 from app.mocks.registry import PersonaRegistry
@@ -52,6 +53,13 @@ from app.services.signing import SigningError
 OFFER_TTL = timedelta(days=14)
 OTP_TTL = timedelta(minutes=5)
 OTP_MAX_ATTEMPTS = 3
+
+
+def runtime_policy() -> Policy:
+    """Policy with the key rate from the effective runtime settings."""
+    from app.config import settings
+
+    return settings.policy()
 
 
 class ApplicationError(ValueError):
@@ -68,11 +76,13 @@ class ApplicationService:
         core_banking: MockCoreBanking | None = None,
         jwt_secret: str = "dev-only-secret-change-me-please-32-bytes",
         evaluator: DomainEvaluator | None = None,
+        policy: Policy | None = None,
     ) -> None:
         self.session = session
         self.repository = ApplicationRepository(session)
         self.registry = registry or PersonaRegistry()
-        self.evaluator = evaluator or DomainEvaluator(session, self.registry)
+        self.policy = policy or runtime_policy()
+        self.evaluator = evaluator or DomainEvaluator(session, self.registry, self.policy)
         self.core_banking = core_banking or MockCoreBanking()
         self.jwt_secret = jwt_secret
 
@@ -251,12 +261,19 @@ class ApplicationService:
         self, user_id: UUID, application_id: UUID, version: int, offer_id: UUID | None = None
     ) -> SigningChallenge:
         application = self._owned_application(user_id, application_id)
-        if application.status not in (ApplicationStatus.APPROVED.value,):
+        if application.status not in (
+            ApplicationStatus.APPROVED.value,
+            ApplicationStatus.COUNTER_OFFER.value,
+        ):
             raise ApplicationError("INVALID_STATUS")
+        offer = None
         if offer_id is not None:
             offer = self.session.get(Offer, offer_id)
             if offer is None or offer.application_id != application_id:
                 raise ApplicationError("OFFER_NOT_FOUND")
+        elif application.status == ApplicationStatus.COUNTER_OFFER.value:
+            # A counter-offer always requires an explicit choice among the bank's terms.
+            raise ApplicationError("OFFER_REQUIRED")
         self.repository.apply_transition(
             application_id,
             version,
@@ -269,6 +286,7 @@ class ApplicationService:
         self.session.add(
             Signature(
                 application_id=application_id,
+                offer_id=offer.id if offer is not None else None,
                 otp_hash=Signature.hash_code(code),
                 attempts=0,
                 expires_at=expires_at,
@@ -295,6 +313,7 @@ class ApplicationService:
             self.session.commit()
             raise SigningError("INVALID_OTP")
         signature.signed_at = datetime.now(UTC)
+        signature.contract_hash = self._contract_hash(signature, application)
         application = self.repository.apply_transition(
             application_id,
             version,
@@ -302,9 +321,26 @@ class ApplicationService:
             Actor.CLIENT,
             at=datetime.now(UTC),
         )
-        self._audit(None, application_id, "SIGNED", {"otp": "verified"})
+        self._audit(
+            None,
+            application_id,
+            "SIGNED",
+            {"otp": "verified", "contract_hash": signature.contract_hash},
+        )
         self.session.commit()
         return self._application_out(application)
+
+    @staticmethod
+    def _contract_hash(signature: Signature, application: Application) -> str:
+        """SHA-256 over the canonical signed terms; verifiable without a timestamp."""
+        import json
+        from hashlib import sha256
+
+        from app.domain.serialization import canonical
+
+        payload = canonical(signature.contract_terms(application))
+        serialized = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+        return sha256(serialized.encode("utf-8")).hexdigest()
 
     def cancel_application(
         self, user_id: UUID, application_id: UUID, version: int
@@ -373,7 +409,8 @@ class ApplicationService:
     def disburse(self, application_id: UUID) -> str:
         """SIGNED → DISBURSED through the core-banking mock; returns the account id."""
         application = self.repository.get(application_id)
-        account = self.core_banking.open_loan_account(application_id, Decimal(application.amount))
+        terms = self._accepted_terms(application_id, application)
+        account = self.core_banking.open_loan_account(application_id, Decimal(terms["amount"]))
         self.repository.apply_transition(
             application_id,
             application.version,
@@ -381,9 +418,30 @@ class ApplicationService:
             Actor.SYSTEM,
             at=datetime.now(UTC),
         )
-        self._audit(None, application_id, "DISBURSED", {"loan_account": account})
+        self._audit(
+            None,
+            application_id,
+            "DISBURSED",
+            {
+                "loan_account": account,
+                "amount": terms["amount"],
+                "term_months": terms["term_months"],
+                "rate_pct": terms.get("rate_pct", ""),
+            },
+        )
         self.session.commit()
         return account
+
+    def _accepted_terms(self, application_id: UUID, application: Application) -> dict[str, str]:
+        """The terms actually signed: accepted offer wins over the original request."""
+        signature = self._latest_signature(application_id)
+        if signature is not None:
+            return signature.contract_terms(application)
+        return {
+            "amount": str(application.amount),
+            "term_months": str(application.term_months),
+            "rate_pct": "",
+        }
 
     # ---------- decision projection ----------
 
@@ -454,7 +512,7 @@ class ApplicationService:
         )
         from app.domain.scoring.policy import validate_request
 
-        validate_request(request, self.evaluator.policy)
+        validate_request(request, self.policy)
 
     def _latest_signature(self, application_id: UUID) -> Signature | None:
         return self.session.scalar(
