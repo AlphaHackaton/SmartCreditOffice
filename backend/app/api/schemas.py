@@ -188,6 +188,7 @@ class ApplicationOut(BaseModel):
     version: int
     history: list[StatusEventOut] = Field(default_factory=list)
     decision: DecisionOut | None = None
+    selected_offer: OfferOut | None = None
 
 
 class ApplicationListOut(BaseModel):

@@ -477,7 +477,13 @@ class ApplicationService:
                 decision.offers = offers_from_rows(offers)
         elif application.status == ApplicationStatus.COUNTER_OFFER.value and decision is not None:
             decision.offers = offers_from_rows(offers)
-        return application_to_out(application, history, decision)
+        signature = self._latest_signature(application.id)
+        return application_to_out(
+            application,
+            history,
+            decision,
+            selected_offer=signature.offer if signature is not None else None,
+        )
 
     def _get_user(self, user_id: UUID) -> User:
         user = self.session.get(User, user_id)
