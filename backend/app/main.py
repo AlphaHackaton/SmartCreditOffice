@@ -82,20 +82,31 @@ def _wire_stub(application: FastAPI, runtime: Settings) -> None:
 def _wire_real(application: FastAPI, runtime: Settings) -> None:
     from contextlib import asynccontextmanager
 
+    # The engine is created inside the lifespan so importing this module never
+    # touches the database, even in real mode. Middleware and background runners
+    # resolve the session factory from this holder after startup.
+    from sqlalchemy.orm import Session
+
     from app.seed.seed import seed
     from app.services.application_service import ApplicationService
     from app.services.bank import BankService
 
-    engine = create_engine(runtime.database_url, pool_pre_ping=True)
-    session_factory = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
+    sessions: dict[str, sessionmaker[Session]] = {}
 
     @asynccontextmanager
     async def _lifespan(app: FastAPI) -> AsyncIterator[None]:
-        with session_factory() as session:
+        engine = create_engine(runtime.database_url, pool_pre_ping=True)
+        factory = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
+        sessions["factory"] = factory
+        with factory() as session:
             seed(session)
         yield
+        engine.dispose()
 
     application.router.lifespan_context = _lifespan
+
+    def _factory() -> sessionmaker[Session]:
+        return sessions["factory"]
 
     @application.middleware("http")
     async def per_request_service(
@@ -103,20 +114,20 @@ def _wire_real(application: FastAPI, runtime: Settings) -> None:
     ) -> Response:
         # Demo-scale concurrency note: one service per request is placed on app
         # state; routers resolve it without extra FastAPI dependency plumbing.
-        with session_factory() as session:
+        with _factory()() as session:
             service = ApplicationService(session, jwt_secret=runtime.jwt_secret)
             request.app.state.service = service
             request.app.state.bank_service = BankService(service)
             return await call_next(request)
 
     def scoring_runner(application_id: UUID, version: int) -> None:
-        with session_factory() as session:
+        with _factory()() as session:
             ApplicationService(session, jwt_secret=runtime.jwt_secret).run_scoring(
                 application_id, version
             )
 
     def disbursement_runner(application_id: UUID, version: int) -> None:
-        with session_factory() as session:
+        with _factory()() as session:
             service = ApplicationService(session, jwt_secret=runtime.jwt_secret)
             row = service.repository.get(application_id)
             if row.status == "SIGNED" and row.version == version:
@@ -126,4 +137,4 @@ def _wire_real(application: FastAPI, runtime: Settings) -> None:
     application.state.disbursement_runner = disbursement_runner
 
 
-app = create_app()
+app: FastAPI = create_app()
