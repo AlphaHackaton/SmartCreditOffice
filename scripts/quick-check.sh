@@ -18,7 +18,8 @@ case "$rel" in
   frontend/*.ts|frontend/*.tsx)
     [ -f frontend/package.json ] || exit 0
     cd frontend
-    npx eslint "${rel#frontend/}" --max-warnings=0 2>&1 | tail -n 40; exit "${PIPESTATUS[0]}" ;;
+    # Generated OpenAPI declarations are intentionally ignored by eslint.config.js.
+    npx eslint "${rel#frontend/}" --no-warn-ignored --max-warnings=0 2>&1 | tail -n 40; exit "${PIPESTATUS[0]}" ;;
   docker-compose.yml)
     command -v docker >/dev/null && docker compose config -q 2>&1 | tail -n 20 ;;
   openspec/changes/*)

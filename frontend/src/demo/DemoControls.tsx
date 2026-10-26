@@ -87,7 +87,7 @@ export function DemoControls() {
             }}
           >
             <option value="mock">Mock · демо</option>
-            <option value="api">API · пока не подключён</option>
+            <option value="api">API · backend v0.1.0</option>
           </select>
         </label>
 

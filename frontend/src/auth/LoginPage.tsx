@@ -20,11 +20,11 @@ export function LoginPage() {
     finally { setPending(false); }
   }
   return <><LoginView onSubmit={submit} pending={pending} error={error} />
-    {workspace.mode === 'mock' && <section className="demo-accounts" aria-labelledby="demo-accounts-title"><h2 id="demo-accounts-title">Демо-учётные записи</h2><p>Синтетические данные backend. Пароль: <strong>demo</strong>. Данные и вход сбрасываются при обновлении страницы.</p>
+    <section className="demo-accounts" aria-labelledby="demo-accounts-title"><h2 id="demo-accounts-title">Демо-учётные записи</h2><p>Учётки {workspace.mode === 'api' ? 'загружены из API' : 'синтетические'}. Пароль: <strong>demo</strong>. Сессия хранится только в памяти.</p>
       {personas.isPending && <p role="status">Загружаем демо-персоны…</p>}
       <ErrorBanner message={personas.error?.message} onRetry={() => personas.refetch().then(() => {})} />
       <div className="demo-account-list">{personas.data?.map((p) => <ButtonDesktop type="button" view="secondary" size={40} key={p.login} disabled={pending} onClick={() => { void submit({ login: p.login, password: 'demo' }); }}>{p.label}</ButtonDesktop>)}</div>
-    </section>}
-    {workspace.mode === 'api' && <ErrorBanner message="API Dev 2 ещё не подключён. Переключитесь в mock для демонстрации." />}
+    </section>
+    {workspace.mode === 'api' && <p>Тестовый сотрудник API: underwriter / demo. Роль подтверждает сервер.</p>}
   </>;
 }

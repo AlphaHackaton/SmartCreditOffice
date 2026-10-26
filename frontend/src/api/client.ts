@@ -10,6 +10,8 @@ export interface RequestOptions {
   method?: 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
   body?: unknown;
   signal?: AbortSignal;
+  // Explicit token lets /auth/me verify a new login before committing the session.
+  authToken?: string | null;
 }
 
 function apiPath(path: string): string {
@@ -32,14 +34,15 @@ function apiPath(path: string): string {
 export function createApiClient({ getToken, onUnauthorized, fetcher = (...args) => fetch(...args) }: ClientOptions) {
   return async function request(path: string, options: RequestOptions = {}): Promise<unknown> {
     const url = apiPath(path);
-    const token = getToken();
+    const { authToken, ...requestOptions } = options;
+    const token = authToken === undefined ? getToken() : authToken;
     const headers = new Headers({ Accept: 'application/json' });
     if (token) headers.set('Authorization', `Bearer ${token}`);
     if (options.body !== undefined) headers.set('Content-Type', 'application/json');
     const body = options.body === undefined ? undefined : JSON.stringify(options.body);
     let response: Response;
     try {
-      response = await fetcher(url, { ...options, headers, body, redirect: 'error' });
+      response = await fetcher(url, { ...requestOptions, headers, body, redirect: 'error' });
     } catch (error) {
       if (options.signal?.aborted || (error instanceof Error && error.name === 'AbortError')) throw error;
       throw new ApiError(null, 'NETWORK_ERROR', 'Не удалось связаться с сервером. Проверьте соединение.');

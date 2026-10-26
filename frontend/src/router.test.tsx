@@ -45,9 +45,10 @@ describe('защищённая навигация и демо-вход', () => {
     expect(await screen.findByText('Проверьте логин и пароль')).toBeInTheDocument();
     expect(screen.getByLabelText('Пароль')).toHaveValue('');
   });
-  it('API-режим не предлагает фиктивный вход и явно сообщает отсутствие адаптера', async () => {
+  it('API-режим при недоступности сервера не подставляет фиктивный вход', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('offline')));
     await renderWorkspace('/login', { mode: 'api' });
-    expect(screen.getByText(/API Dev 2 ещё не подключён\. Переключитесь/)).toBeInTheDocument();
+    expect((await screen.findAllByRole('alert')).some((a) => a.textContent?.includes('Не удалось связаться с сервером'))).toBe(true);
     expect(screen.queryByRole('button', { name: /^Демо p1/ })).not.toBeInTheDocument();
   });
   it('после refresh требует новый вход, неизвестный маршрут показывает 404', async () => {

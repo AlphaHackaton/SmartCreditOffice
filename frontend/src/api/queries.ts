@@ -61,6 +61,7 @@ export function useScenarios() {
   return useQuery({
     queryKey: ['scenarios', workspace.mode, workspace.epoch],
     queryFn: ({ signal }) => workspace.gateway.scenarios(signal),
+    enabled: workspace.mode === 'mock',
     staleTime: 300000,
   });
 }

@@ -1,11 +1,11 @@
 # Сторонние компоненты
 
-Состояние: 25.10.2026. Runtime-зависимости в backend/pyproject.toml пока отсутствуют.
+Состояние: 26.10.2026. Backend API-зависимости Dev 2 установлены из исправленного backend/uv.lock.
 
 ## Backend: инструменты разработки
 
 Зависимости зафиксированы в `backend/uv.lock` и `backend/pyproject.toml`.
-Все текущие пакеты являются инструментами разработки/тестирования (dev-only, в runtime поставку docker-образа не входят).
+Ниже перечислены исходные dev-инструменты; runtime и HTTP tooling добавленного API перечислены отдельно в конце документа.
 
 ### Прямые зависимости (dev-only)
 
@@ -415,3 +415,41 @@ uv 0.13.5 — MIT / Apache-2.0 (https://github.com/astral-sh/uv).
 
 Веса моделей не установлены. Персоны backend/app/seed/personas.json — синтетические данные.
 Интеграции ФНС, БКИ и выручки при реализации должны быть локальными моками: synthetic data, no real integration.
+
+## Backend API: runtime и HTTP tooling
+
+Прямые runtime: alembic, bcrypt, fastapi, psycopg[binary], pydantic, pyjwt, sqlalchemy, uvicorn[standard]. httpx — dev-only HTTP-тестирование; таблица включает их установленные транзитивные зависимости. Версии и лицензии сверены с metadata установленных дистрибутивов, source — PyPI.
+
+| Пакет | Версия | Лицензия | Источник |
+|---|---|---|---|
+| `alembic` | 1.20.1 | MIT | https://pypi.org/project/alembic/1.20.1/ |
+| `annotated-doc` | 0.0.5 | MIT | https://pypi.org/project/annotated-doc/0.0.5/ |
+| `annotated-types` | 0.8.0 | MIT | https://pypi.org/project/annotated-types/0.8.0/ |
+| `anyio` | 4.15.1 | MIT | https://pypi.org/project/anyio/4.15.1/ |
+| `bcrypt` | 5.0.0 | Apache-2.0 | https://pypi.org/project/bcrypt/5.0.0/ |
+| `certifi` | 2026.10.23 | MPL-2.0 | https://pypi.org/project/certifi/2026.10.23/ |
+| `click` | 8.5.0 | BSD-3-Clause | https://pypi.org/project/click/8.5.0/ |
+| `fastapi` | 0.162.0 | MIT | https://pypi.org/project/fastapi/0.162.0/ |
+| `h11` | 0.16.0 | MIT | https://pypi.org/project/h11/0.16.0/ |
+| `httpcore` | 1.0.9 | BSD-3-Clause | https://pypi.org/project/httpcore/1.0.9/ |
+| `httptools` | 0.9.0 | MIT | https://pypi.org/project/httptools/0.9.0/ |
+| `httpx` | 0.28.1 | BSD-3-Clause | https://pypi.org/project/httpx/0.28.1/ |
+| `idna` | 3.20 | BSD-3-Clause | https://pypi.org/project/idna/3.20/ |
+| `mako` | 1.4.3 | MIT | https://pypi.org/project/mako/1.4.3/ |
+| `markupsafe` | 3.0.4 | BSD-3-Clause | https://pypi.org/project/markupsafe/3.0.4/ |
+| `opentelemetry-api` | 1.45.1 | Apache-2.0 | https://pypi.org/project/opentelemetry-api/1.45.1/ |
+| `psycopg` | 3.3.6 | LGPL-3.0-only | https://pypi.org/project/psycopg/3.3.6/ |
+| `psycopg-binary` | 3.3.6 | LGPL-3.0-only | https://pypi.org/project/psycopg-binary/3.3.6/ |
+| `pydantic` | 2.14.1 | MIT | https://pypi.org/project/pydantic/2.14.1/ |
+| `pydantic-core` | 2.50.1 | MIT | https://pypi.org/project/pydantic-core/2.50.1/ |
+| `pyjwt` | 2.15.1 | MIT | https://pypi.org/project/pyjwt/2.15.1/ |
+| `python-dotenv` | 1.2.4 | BSD-3-Clause | https://pypi.org/project/python-dotenv/1.2.4/ |
+| `pyyaml` | 6.0.3 | MIT | https://pypi.org/project/pyyaml/6.0.3/ |
+| `sqlalchemy` | 2.1.6 | MIT | https://pypi.org/project/sqlalchemy/2.1.6/ |
+| `starlette` | 1.10.0 | BSD-3-Clause | https://pypi.org/project/starlette/1.10.0/ |
+| `typing-inspection` | 0.4.4 | MIT | https://pypi.org/project/typing-inspection/0.4.4/ |
+| `typing-extensions` | 4.16.0 | PSF-2.0 | https://pypi.org/project/typing-extensions/4.16.0/ |
+| `uvicorn` | 0.54.0 | BSD-3-Clause | https://pypi.org/project/uvicorn/0.54.0/ |
+| `uvloop` | 0.23.0 | MIT | https://pypi.org/project/uvloop/0.23.0/ |
+| `watchfiles` | 1.3.0 | MIT | https://pypi.org/project/watchfiles/1.3.0/ |
+| `websockets` | 17.3 | BSD-3-Clause | https://pypi.org/project/websockets/17.3/ |
