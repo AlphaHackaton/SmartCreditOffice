@@ -122,24 +122,11 @@ describe('форма входа без API', () => {
     expect(fetcher).not.toHaveBeenCalled();
   });
 
-  it('меняет только контекст формы, очищает пароль и не назначает роль', async () => {
-    const onSubmit = vi.fn().mockResolvedValue(undefined);
-    render(<LoginView onSubmit={onSubmit} />);
-    const user = await fillForm();
-    await user.click(screen.getByRole('button', { name: 'Вход для сотрудников' }));
-    expect(screen.getByRole('heading', { level: 1, name: 'Вход для сотрудников' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Пароль')).toHaveValue('');
-    expect(onSubmit).not.toHaveBeenCalled();
-    await user.type(screen.getByLabelText('Пароль'), 'employee-password');
-    await user.click(screen.getByRole('button', { name: 'Войти' }));
-    expect(onSubmit).toHaveBeenCalledExactlyOnceWith({ login: 'test-user', password: 'employee-password' });
-    await user.click(screen.getByRole('button', { name: 'Вход для предпринимателей' }));
+  it('предоставляет единую форму входа без переключателей ролей', () => {
+    render(<LoginView onSubmit={vi.fn()} />);
     expect(screen.getByRole('heading', { level: 1, name: 'Вход в кабинет' })).toBeInTheDocument();
-  });
-
-  it('может сразу открыться в контексте сотрудника', () => {
-    render(<LoginView initialAudience="employee" onSubmit={vi.fn()} />);
-    expect(screen.getByRole('heading', { name: 'Вход для сотрудников', level: 1 })).toBeInTheDocument();
-    expect(screen.getByText(/Рабочее место кредитного специалиста:/)).toBeInTheDocument();
+    expect(screen.getByText(/Единый вход для предпринимателей и сотрудников банка/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Вход для сотрудников' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Вход для предпринимателей' })).not.toBeInTheDocument();
   });
 });
