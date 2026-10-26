@@ -14,22 +14,19 @@ export interface LoginViewProps {
   onSubmit: (values: LoginValues) => void | Promise<void>;
   pending?: boolean;
   error?: string | null;
-  initialAudience?: 'client' | 'employee';
 }
 
-export function LoginView({ onSubmit, pending = false, error, initialAudience = 'client' }: LoginViewProps) {
+export function LoginView({ onSubmit, pending = false, error }: LoginViewProps) {
   const id = useId();
   const loginRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const inFlight = useRef(false);
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [audience, setAudience] = useState(initialAudience);
   const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof LoginValues, string>>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const busy = pending || submitting;
-  const employee = audience === 'employee';
   const message = submitError ?? error;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -59,28 +56,20 @@ export function LoginView({ onSubmit, pending = false, error, initialAudience = 
     }
   }
 
-  function changeAudience() {
-    if (busy) return;
-    setAudience(employee ? 'client' : 'employee');
-    setPassword('');
-    setFieldErrors({});
-    setSubmitError(null);
-  }
-
   return (
     <section className="login-view" aria-labelledby={`${id}-title`}>
       <div className="login-intro">
-        <p className="eyebrow">{employee ? 'СОТРУДНИК БАНКА' : 'ДЛЯ ПРЕДПРИНИМАТЕЛЕЙ'}</p>
+        <p className="eyebrow">КРЕДИТНЫЙ КАБИНЕТ</p>
         <TitleDesktop tag="h1" view="medium" font="system" defaultMargins={false} id={`${id}-title`}>
-          {employee ? 'Вход для сотрудников' : 'Вход в кабинет'}
+          Вход в кабинет
         </TitleDesktop>
         <Text tag="p" view="primary-medium" className="login-description">
-          {employee ? 'Рабочее место кредитного специалиста: рассмотрение заявок и кредитные решения.' : 'Заявки, условия финансирования и решения — в вашем личном кабинете.'}
+          Единый вход для предпринимателей и сотрудников банка: заявки, финансирование и кредитные решения.
         </Text>
         <div className="login-account-note">
           <span className="note-icon" aria-hidden="true">i</span>
           <p>Используйте свою учётную запись</p>
-          <span>Доступ к разделам определяется после проверки учётных данных.</span>
+          <span>Доступ к разделам определяется автоматически по вашей роли.</span>
         </div>
       </div>
       <div className="login-form-panel">
@@ -104,9 +93,6 @@ export function LoginView({ onSubmit, pending = false, error, initialAudience = 
           </ButtonDesktop>
           {busy && <span className="login-progress" role="status">Проверяем учётные данные</span>}
         </form>
-        <ButtonDesktop view="text" size={40} disabled={busy} onClick={changeAudience}>
-          {employee ? 'Вход для предпринимателей' : 'Вход для сотрудников'}
-        </ButtonDesktop>
       </div>
     </section>
   );
