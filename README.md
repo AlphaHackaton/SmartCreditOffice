@@ -32,7 +32,7 @@
 
 ## Текущее состояние frontend
 
-Реализован desktop-кабинет в явном mock-режиме: демо-вход и роли, профиль/продукты/заявки, форма с черновиками и согласиями, подача, статусы, история и опрос проверки. Демо-данные и последовательности генерируются из backend seed/политики/FSM; финансовых расчётов в JS нет. Реализованы клиентские объяснения/офферы, виртуальная подпись и выдача, контроффер/симулятор по Python-сетке, отказ/ручное рассмотрение и очередь сотрудника с фильтрами. Досье, решение сотрудника и метрики — следующие этапы. HTTP API-сервер и Compose пока отсутствуют, API-режим не подменяется моками. Запуск и сценарии проверки: [frontend/README.md](frontend/README.md).
+Реализованы все frontend-фичи 1–14 в Mock и интеграция всех 21 опубликованной HTTP-операции Dev 2. В основном API-режиме работают профиль/продукты, черновик и подача, решение/объяснения/офферы, симуляция, подписание кодом внутри UI, выдача; банковская очередь/досье/прогоны/ручное решение/аудит и базовые метрики. Есть Docker frontend с nginx proxy и Compose (db/backend/frontend). Детали, ограничения и проверки: [frontend/README.md](frontend/README.md).
 
 ## 🚀 Быстрый запуск
 
@@ -47,7 +47,7 @@ npm ci --prefix frontend
 npm run dev --prefix frontend
 ```
 
-Веб-интерфейс: `http://localhost:5173`. Для текущего каркаса API, БД, Docker и LLM не нужны. Тесты/сборка: `npm test --prefix frontend -- --run`, `npm run build --prefix frontend`.
+Веб-интерфейс: `http://localhost:5173`. По умолчанию нужен API на :8000 (команда ниже). Для изолированного Mock задайте VITE_DATA_MODE=mock; БД/Docker/LLM тогда не нужны. Тесты/сборка: `npm test --prefix frontend -- --run`, `npm run build --prefix frontend`.
 
 ### 2. Запуск локальной проверки харнесса
 ```bash
@@ -57,7 +57,7 @@ bash scripts/check.sh
 
 ### 3. Полный запуск после подключения платформы Dev 2
 
-`backend/app/main.py`, `docs/openapi.json` и Compose пока отсутствуют. Команды `uv run uvicorn app.main:app --reload` и `docker compose up --build` станут доступны после появления соответствующих файлов. Скоринговое ядро работает и тестируется отдельно; оно не является HTTP API.
+Для API без БД: `APP_MODE=stub uv run --project backend uvicorn app.main:app --app-dir backend --reload`. Для полного приложения с PostgreSQL: `APP_MODE=real docker compose up --build`, frontend на http://localhost:8080. HTTP smoke: `node frontend/scripts/smoke-api.mjs`. Локально проверен stub с настоящим доменным engine; запуск PostgreSQL/контейнеров здесь заблокирован доступом к Docker socket.
 
 ---
 

@@ -11,13 +11,51 @@ npm run typecheck --prefix frontend
 npm run build --prefix frontend
 ```
 
-http://localhost:5173. Только desktop; API, БД и LLM для демо не нужны. Используются официальные отдельные Alfa-пакеты: React 18 совместим, конфликтующий umbrella-пакет не подключён. Стили локальные, загрузки CDN/шрифтов нет.
+http://localhost:5173. Только desktop. Официальные отдельные Alfa-пакеты совместимы с React 18; стили локальные.
 
-## Демо и API
+## HTTP API — основной режим
 
-По разрешению пользователя интерфейс развивается на изолированных моках. По умолчанию включён явно обозначенный mock-режим, можно задать `VITE_DATA_MODE=api` при запуске Vite. Панель «Управление демо» переключает режим, задаёт задержку 0/400/1500 мс, одноразовый сбой следующего чтения (401/403/404/503) или команды (409/422/503), сбрасывает демо после подтверждения. Смена режима и сброс очищают сессию/кеш. Перезагрузка удаляет все данные в памяти.
+По умолчанию приложение использует настоящий `/api/v1` через Vite proxy на localhost:8000. Запустите backend в отдельном терминале:
 
-API Dev 2 ещё не опубликован. Режим API сообщает об этом и не подставляет моки. `src/demo/gateway.ts` определяет временные модели представления и интерфейс адаптера, не HTTP DTO. Будущий адаптер преобразует generated DTO в эти модели. Мок-режим не считается подтверждением сквозной HTTP-интеграции.
+```bash
+UV_CACHE_DIR="$PWD/tmp/uv-cache" uv sync --project backend --frozen
+APP_MODE=stub uv run --project backend uvicorn app.main:app --app-dir backend --reload
+npm run gen:api --prefix frontend
+npm run dev --prefix frontend
+```
+
+`APP_MODE=stub` — настоящий HTTP с доменным Python engine и хранением в памяти, без БД. `APP_MODE=real` использует PostgreSQL; контракты и frontend одинаковы. Учётки `p1`…`p6`, сотрудник `underwriter`, пароль `demo`; роль подтверждается `/auth/me`. Токен хранится только в памяти. Перезагрузка требует нового входа, заявки сохраняются на стороне сервера (до перезапуска stub).
+
+Подключены все **21 опубликованная HTTP-операция**: health/personas/login/me, профиль с предварительным лимитом, каталог, собственные заявки, create/PATCH/submit/simulate/accept/sign/cancel, банковская очередь/досье/scoring-runs/decision/rescore/метрики, reset. Карточка клиента читается из собственного списка: GET `/applications/:id` отсутствует. Денежные значения передаются строками; в JS нет расчёта скоринга/платежей/ставок. Оффер принимается после подтверждения с `offer_id` и `version`; код из `SigningChallenge` вводится внутри UI, `sign` передаёт только `{code}` и актуальную query-version. Опрос ждёт настоящий `DISBURSED`. Симулятор debounce 300 мс, отменяет старые запросы и скрывает старый прогноз; симулированные предложения не подменяют офферы заявки.
+
+Черновик можно отредактировать из карточки. После неудачного submit повтор использует тот же созданный id. Автоповтора команд нет; 401 очищает только соответствующую сессию, ошибки сохраняют ввод. Перед отменой/решением/пересчётом/сбросом требуется подтверждение. Reset удаляет серверные демонстрационные данные всех пользователей — кнопка предупреждает об этом.
+
+Ограничения опубликованного контракта: согласия проверяются в UI, сервер их не принимает/не сохраняет; ApplicationOut не содержит purpose/created_at. В SIGNING после reload API не восстанавливает код (нет challenge endpoint): интерфейс предлагает отменить заявку и начать новую. В bank DTO нет названий компаний/ИНН, выбора оффера/версии команды, расширенных KPI/фильтров метрик. Не имитируем эти поля. В stub нет сохранённых scoring-runs/inputs; rescore только пишет аудит. Sandbox, replay и подготовленные presets/failure injection доступны в **Mock**, а не через несуществующие HTTP endpoints. API-ошибка никогда не включает fallback на Mock.
+
+## Compose и сборка
+
+```bash
+# PostgreSQL + API + nginx frontend; доступный Docker daemon обязателен
+APP_MODE=real docker compose up --build
+# Интерфейс http://localhost:8080
+npm run build --prefix frontend
+```
+
+Frontend Dockerfile: Node build → nginx, SPA fallback и proxy `/api` на backend:8000. Необязательный LLM для работы не нужен. Проверка конфигурации `docker compose config -q` не заменяет запуск контейнеров.
+
+## Повторяемая проверка API
+
+```bash
+node frontend/scripts/smoke-api.mjs http://localhost:8000
+```
+
+Smoke создаёт собственные синтетические заявки (не сбрасывает существующие): profile/products, create/PATCH/submit/decision, simulate, accept/OTP/sign/DISBURSED, cancel, P6 UNDERWRITING/ручное решение, queue/dossier/runs/metrics, 401/403/ownership. `/demo/reset` проверяется изолированным UI contract test, без удаления данных запущенного сервера.
+
+26.10.2026: полный HTTP smoke прошёл на APP_MODE=stub; PostgreSQL E2E и Docker build/run в этой среде не проверены из-за permission denied Docker socket. Unit/contract tests не выдают себя за PostgreSQL E2E. UI проверяется в desktop 1280×900 и 1440×900.
+
+## Изолированный Mock
+
+Переключатель «Данные» включает отдельный frontend Mock. Можно запустить с `VITE_DATA_MODE=mock npm run dev --prefix frontend`. Смена режима, logout и reset очищают кеш/сессию. Для mock API, БД и Docker не требуются. Далее описаны богатые mock-сценарии; HTTP использует только возможности раздела выше.
 
 ## Данные и домен
 
@@ -72,7 +110,7 @@ NewApplicationPage принимает `?product=CODE` или `?draft=ID`. Пол
 
 ## Страница заявки
 
-ApplicationPage читает собственную заявку, показывает запрошенные условия, текущий статус и Timeline. Для DRAFT доступно продолжение по `?draft=ID`. SUBMITTED/SCORING и SIGNED опрашиваются каждые 1500 мс; ошибка, результат, logout или уход прекращают опрос. Ошибка чтения повторяется явно; 403/404 скрывают данные. Неизвестный runtime-статус не открывает действия. Демо воспроизводит backend-историю до APPROVED/COUNTER_OFFER/REJECTED/UNDERWRITING; офферы, подписание, симулятор и очередь реализованы ниже; реальные банковские команды ещё не подключены.
+ApplicationPage читает собственную заявку, показывает запрошенные условия, текущий статус и Timeline. Для DRAFT доступно продолжение по `?draft=ID`. SUBMITTED/SCORING и SIGNED опрашиваются каждые 1500 мс; ошибка, результат, logout или уход прекращают опрос. Ошибка чтения повторяется явно; 403/404 скрывают данные. Неизвестный runtime-статус не открывает действия. Демо воспроизводит backend-историю до APPROVED/COUNTER_OFFER/REJECTED/UNDERWRITING; офферы, подписание, симулятор и очередь реализованы ниже; доступные HTTP-команды описаны выше.
 
 ## Проверенный браузерный сценарий
 
