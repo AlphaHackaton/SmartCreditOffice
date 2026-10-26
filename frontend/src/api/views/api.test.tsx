@@ -12,6 +12,7 @@ function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = 
   const user = { id: '11111111-1111-4111-8111-111111111111', login: role === 'CLIENT' ? 'p1' : 'underwriter', role, company_id: '22222222-2222-4222-8222-222222222222' };
   const records = initial; let failSubmit = false; const audit: object[] = [];
   const fetcher = vi.fn().mockImplementation(async (path: string, init: RequestInit = {}) => {
+    const offerId = new URL(path, 'http://localhost').searchParams.get('offer_id');
     path = path.split('?')[0];
     const method = init.method ?? 'GET'; const body = init.body ? JSON.parse(String(init.body)) : undefined;
     const response = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status });
@@ -34,7 +35,7 @@ function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = 
       const record: ApiApplication = { id: '33333333-3333-4333-8333-333333333333', company_id: user.company_id, ...body, status: 'DRAFT', version: 1, history: [], decision: null }; records.push(record); return response(record, 201);
     }
     if (path.endsWith('/applications')) return response({ items: records });
-    if (path.endsWith('/accept')) { records[0].status = 'SIGNING'; records[0].version++; return response({ application_id: records[0].id, code: '654321', expires_at: new Date(Date.now() + 300000).toISOString() }); }
+    if (path.endsWith('/accept')) { records[0].selected_offer = records[0].decision?.offers?.find((offer) => offer.id === offerId); records[0].status = 'SIGNING'; records[0].version++; return response({ application_id: records[0].id, code: '654321', expires_at: new Date(Date.now() + 300000).toISOString() }); }
     if (path.endsWith('/sign')) { if (body.code !== '654321') return response({ code: 'INVALID_OTP', message: 'Signing challenge failed' }, 400); records[0].status = 'DISBURSED'; records[0].version++; return response(records[0]); }
     if (path.endsWith('/cancel')) { records[0].status = 'CANCELLED'; records[0].version++; return response(records[0]); }
     if (path.endsWith('/simulate')) return response({ predicted_outcome: 'COUNTER_OFFER', requires_review: false, max_amount_for_term: body.amount, headroom: '0.00', offers: [], constraints: [] });
@@ -50,8 +51,8 @@ function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = 
 }
 function view(path = '/login', token?: string, diagnostics = false) {
   const router = createMemoryRouter(diagnostics ? diagnosticRoutes : routes, { initialEntries: [path] }); const cache = createQueryClient();
-  render(<AppProviders initialMode="api" initialToken={token} queryClient={cache} onSessionExpired={() => { void router.navigate('/login'); }}><RouterProvider router={router} /></AppProviders>);
-  return { router, cache };
+  const rendered = render(<AppProviders initialMode="api" initialToken={token} queryClient={cache} onSessionExpired={() => { void router.navigate('/login'); }}><RouterProvider router={router} /></AppProviders>);
+  return { router, cache, unmount: rendered.unmount };
 }
 const application: ApiApplication = { id: '33333333-3333-4333-8333-333333333333', company_id: '22222222-2222-4222-8222-222222222222', product_code: 'SERVER_PRODUCT', amount: '4321000.00', term_months: 24, status: 'UNDERWRITING', version: 1, history: [] };
 it('входит по API, подтверждает свежий Bearer и читает серверные заявки без seed', async () => {
@@ -100,6 +101,54 @@ it('клиенту запрещён bank route, 401 прекращает сес�
 });
 
 const approved: ApiApplication = { ...application, status: 'APPROVED', version: 4, decision: { outcome: 'APPROVED', route: 'AUTO', factors: [{ code: 'M1', source: 'FNS', value: 'secret-value', points: 1, max_points: 1, impact: 'POSITIVE', rule_id: 'private-rule', client_text: 'Устойчивая выручка' }], offers: [{ id: '44444444-4444-4444-8444-444444444444', kind: 'BASE', amount: '2000000.00', term_months: 24, rate_pct: '24.00', monthly_payment: '100000.00', overpayment: '400000.00' }] } };
+const counter: ApiApplication = { ...approved, amount: '5000000.00', term_months: 6, status: 'COUNTER_OFFER', selected_offer: null, decision: { ...approved.decision!, outcome: 'COUNTER_OFFER', offers: [
+  { id: 'longer', kind: 'LONGER_TERM', amount: '5000000.00', term_months: 18, rate_pct: '21.00', monthly_payment: '326224.62', overpayment: '872043.16' },
+  { id: 'reduced', kind: 'REDUCED_AMOUNT', amount: '1950000.00', term_months: 6, rate_pct: '20.50', monthly_payment: '344706.55', overpayment: '118239.30' },
+] } };
+
+it('сохраняет выбор второго оффера после подписания и повторного открытия с новым кешем', async () => {
+  const backend = server('CLIENT', [structuredClone(counter)]); const first = view(`/client/applications/${counter.id}`, 'fresh'); const user = userEvent.setup();
+  const buttons = await screen.findAllByRole('button', { name: 'Принять предложение' });
+  expect(buttons).toHaveLength(2); await user.click(buttons[1]);
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Подтвердить' }));
+  expect(await screen.findByRole('article', { name: 'Выбранное предложение' })).toHaveTextContent(/1\s950\s000,00/);
+  expect(screen.queryByRole('article', { name: 'Предложение банка' })).not.toBeInTheDocument();
+  await user.type(screen.getByLabelText('Код подписи'), '654321'); await user.click(screen.getByRole('button', { name: 'Подписать' }));
+  await screen.findByRole('heading', { name: 'Кредит выдан' });
+  first.unmount(); view(`/client/applications/${counter.id}`, 'fresh');
+  const chosen = await screen.findByRole('article', { name: 'Выбранное предложение' });
+  expect(chosen).toHaveTextContent('Выбрано вами'); expect(chosen).toHaveTextContent(/1\s950\s000,00/); expect(chosen).toHaveTextContent('6 мес.');
+  expect(screen.getAllByRole('article')).toHaveLength(1);
+  expect(screen.getByText('Сумма по договору').parentElement).toHaveTextContent(/1\s950\s000,00/);
+  expect(screen.getByText(/Первоначально запрошено/)).toHaveTextContent(/5\s000\s000,00.*6 мес/);
+  expect(backend.records[0].selected_offer?.id).toBe('reduced');
+  expect(screen.queryByRole('button', { name: 'Принять предложение' })).not.toBeInTheDocument();
+});
+
+it.each(['SIGNING', 'SIGNED', 'DISBURSED'] as const)('восстанавливает выбранные условия из API на этапе %s', async (status) => {
+  const row = structuredClone(counter); row.status = status; row.selected_offer = row.decision!.offers![1];
+  server('CLIENT', [row]); view(`/client/applications/${row.id}`, 'fresh');
+  const chosen = await screen.findByRole('article', { name: 'Выбранное предложение' });
+  expect(chosen).toHaveTextContent(/1\s950\s000,00/); expect(chosen).toHaveTextContent('Выбрано вами');
+  expect(screen.getAllByRole('article')).toHaveLength(1);
+  expect(screen.getByText('Срок по договору').parentElement).toHaveTextContent('6 мес.');
+  expect(screen.queryByRole('button', { name: 'Принять предложение' })).not.toBeInTheDocument();
+});
+
+it('при отсутствии сохранённого выбора явно показывает только запрошенные условия', async () => {
+  server('CLIENT', [{ ...structuredClone(counter), status: 'DISBURSED' }]); view(`/client/applications/${counter.id}`, 'fresh');
+  await screen.findByText('Выбранные условия недоступны. Обновите заявку.');
+  expect(screen.getByText('Запрошенная сумма').parentElement).toHaveTextContent(/5\s000\s000,00/);
+  expect(screen.queryByRole('article')).not.toBeInTheDocument();
+});
+
+it('в списке выданных заявок показывает сумму и срок выбранного предложения', async () => {
+  const row = structuredClone(counter); row.status = 'DISBURSED'; row.selected_offer = row.decision!.offers![0];
+  server('CLIENT', [row]); view('/client', 'fresh');
+  const table = await screen.findByRole('table', { name: 'Ваши заявки' });
+  expect(table).toHaveTextContent('18 мес.'); expect(table).not.toHaveTextContent('6 мес.');
+});
+
 it('подписывает настоящий оффер с version/offer_id, обрабатывает неверный OTP и показывает только подтверждённую выдачу', async () => {
   const backend = server('CLIENT', [structuredClone(approved)]); view(`/client/applications/${approved.id}`, 'fresh'); const user = userEvent.setup();
   await user.click(await screen.findByRole('button', { name: 'Принять предложение' }));

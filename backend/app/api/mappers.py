@@ -74,6 +74,7 @@ def application_to_out(
     history: list[StatusHistory],
     decision: DecisionOut | None = None,
     offers: list[Offer] | None = None,
+    selected_offer: Offer | None = None,
 ) -> ApplicationOut:
     return ApplicationOut(
         id=application.id,
@@ -85,6 +86,9 @@ def application_to_out(
         version=application.version,
         history=history_to_out(history),
         decision=decision,
+        selected_offer=offers_from_rows([selected_offer])[0]
+        if selected_offer is not None
+        else None,
     )
 
 

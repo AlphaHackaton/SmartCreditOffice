@@ -304,6 +304,11 @@ def test_counter_offer_flow_uses_accepted_offer_terms(app_client: object) -> Non
     assert accepted.status_code == 200, accepted.text
     code = accepted.json()["code"]
 
+    signing = _get_application(client, headers, application_id)
+    assert signing["selected_offer"] == reduced
+    assert signing["amount"] == state["amount"]
+    assert signing["term_months"] == state["term_months"]
+
     sign_version = _version(client, headers, application_id)
     signed = client.post(
         f"/api/v1/applications/{application_id}/sign?version={sign_version}",
@@ -311,9 +316,13 @@ def test_counter_offer_flow_uses_accepted_offer_terms(app_client: object) -> Non
         json={"code": code},
     )
     assert signed.status_code == 200, signed.text
+    assert signed.json()["selected_offer"] == reduced
 
     disbursed = _await_status(client, headers, application_id, {"DISBURSED"}, timeout=10.0)
     assert disbursed["status"] == "DISBURSED"
+    assert disbursed["selected_offer"] == reduced
+    assert disbursed["amount"] == state["amount"]
+    assert disbursed["term_months"] == state["term_months"]
 
     # the bank dossier proves disbursement used the accepted offer terms,
     # and the signature carries a non-empty contract hash

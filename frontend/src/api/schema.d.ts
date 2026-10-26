@@ -394,6 +394,7 @@ export interface components {
             /** History */
             history?: components["schemas"]["StatusEventOut"][];
             decision?: components["schemas"]["DecisionOut"] | null;
+            selected_offer?: components["schemas"]["OfferOut"] | null;
         };
         /**
          * ApplicationStatus

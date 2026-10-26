@@ -946,6 +946,16 @@
                 "type": "null"
               }
             ]
+          },
+          "selected_offer": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OfferOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",

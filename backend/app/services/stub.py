@@ -74,6 +74,7 @@ class _StubApplication:
     version: int = 1
     history: list[StatusEventOut] = field(default_factory=list)
     decision: DecisionOut | None = None
+    selected_offer: OfferOut | None = None
 
 
 class StubApplicationService:
@@ -152,6 +153,7 @@ class StubApplicationService:
             version=item.version,
             history=list(item.history),
             decision=item.decision,
+            selected_offer=item.selected_offer,
         )
 
     def list_applications(self, user_id: UUID) -> ApplicationListOut:
@@ -278,7 +280,19 @@ class StubApplicationService:
         item = self._owned(user_id, application_id)
         if item.status not in (ApplicationStatus.APPROVED, ApplicationStatus.COUNTER_OFFER):
             raise StubError("INVALID_STATUS")
+        offer = None
+        if offer_id is not None:
+            offer = (
+                next((o for o in item.decision.offers if o.id == offer_id), None)
+                if item.decision
+                else None
+            )
+            if offer is None:
+                raise StubError("OFFER_NOT_FOUND")
+        elif item.status == ApplicationStatus.COUNTER_OFFER:
+            raise StubError("OFFER_REQUIRED")
         self._transition(item, ApplicationStatus.SIGNING, Actor.CLIENT, expected_version=version)
+        item.selected_offer = offer
         if self._signer is None:
             self._signer = OtpSigner()
         assert self._signer is not None
