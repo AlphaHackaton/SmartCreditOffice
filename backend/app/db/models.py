@@ -138,6 +138,9 @@ class Signature(Base):
 
     id: Mapped[UUID] = mapped_column(UUIDType, primary_key=True, default=uuid4)
     application_id: Mapped[UUID] = mapped_column(ForeignKey("applications.id", ondelete="CASCADE"))
+    offer_id: Mapped[UUID | None] = mapped_column(
+        ForeignKey("offers.id", ondelete="SET NULL"), nullable=True
+    )
     otp_hash: Mapped[str] = mapped_column(String(128))
     attempts: Mapped[int] = mapped_column(Integer, default=0)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
@@ -145,6 +148,7 @@ class Signature(Base):
     signed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     application: Mapped[Application] = relationship(back_populates="signatures")
+    offer: Mapped[Offer | None] = relationship()
 
     @staticmethod
     def hash_code(code: str) -> str:
@@ -156,6 +160,27 @@ class Signature(Base):
         import secrets
 
         return secrets.compare_digest(self.otp_hash, self.hash_code(code))
+
+    def contract_terms(self, application: Application) -> dict[str, str]:
+        """Canonical contract terms being signed; from the accepted offer if any."""
+        offer = self.offer
+        if offer is not None:
+            return {
+                "application_id": str(application.id),
+                "offer_id": str(offer.id),
+                "offer_kind": offer.kind,
+                "amount": str(offer.amount),
+                "term_months": str(offer.term_months),
+                "rate_pct": str(offer.rate_pct),
+                "monthly_payment": str(offer.monthly_payment),
+                "overpayment": str(offer.overpayment),
+            }
+        return {
+            "application_id": str(application.id),
+            "product_code": application.product_code,
+            "amount": str(application.amount),
+            "term_months": str(application.term_months),
+        }
 
 
 class AuditLog(Base):
