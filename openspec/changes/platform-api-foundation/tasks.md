@@ -14,7 +14,7 @@
 
 - [x] Добавить JWT auth, bcrypt seed users, dependencies и CLIENT/BANK RBAC; проверка: API-тесты 401/403/ownership.
 - [x] Добавить registry и моки ФНС, БКИ, account и core banking на `personas.json`; проверка: mock tests для шести персон.
-- [ ] Подключить real application service, фоновой scoring runner и OTP signing; проверка: API E2E create → submit → score → sign → disburse.
+- [x] Подключить real application service, фоновой scoring runner и OTP signing; проверка: API E2E create → submit → score → sign → disburse.
 - [x] Добавить bank queue/dossier/decision/rescore/metrics и audit log; проверка: bank E2E и запрет утечки клиентских данных.
 
 ## 4. Delivery
