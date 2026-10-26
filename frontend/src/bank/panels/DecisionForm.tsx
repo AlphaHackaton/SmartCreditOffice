@@ -4,6 +4,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 import { ApiError } from '../../api/errors';
 import { useWorkspaceScope } from '../../api/queries';
+import { recordValue } from '../../shared/components/RecordDetails';
 import type { BankDossier } from '../../demo/gateway';
 import { ConfirmDialog } from '../../shared/components/ConfirmDialog';
 import { ErrorBanner } from '../../shared/components/ErrorBanner';
@@ -141,7 +142,7 @@ export function DecisionForm({ dossier }: Props) {
         Принятие ручного решения андеррайтера
       </TitleDesktop>
       <p className="page-description" style={{ marginBottom: 20 }}>
-        Заявка находится на этапе ручного рассмотрения (<code>UNDERWRITING</code>). Выберите исход, зафиксируйте предложение и внесите обязательное обоснование.
+        Заявка находится на этапе ручного рассмотрения . Выберите исход, зафиксируйте предложение и внесите обязательное обоснование.
       </p>
 
       {generalError && <ErrorBanner message={generalError} />}
@@ -171,7 +172,7 @@ export function DecisionForm({ dossier }: Props) {
                   }}
                 />
                 <div>
-                  <strong>{outcome}</strong>
+                  <strong>{recordValue(outcome)}</strong>
                   {outcome === 'APPROVED' && ' — Одобрить на запрошенных условиях'}
                   {outcome === 'COUNTER_OFFER' && ' — Сформировать встречное предложение (альтернатива)'}
                   {outcome === 'REJECTED' && ' — Отказать в выдаче кредита'}
@@ -267,7 +268,7 @@ export function DecisionForm({ dossier }: Props) {
               marginBottom: '20px',
             }}
           >
-            <strong>Внимание (OVERRIDE):</strong> Выбранный исход (<code>{selectedOutcome}</code>) отличается от рекомендации скорингового ядра (<code>{engineRecommendation}</code>). Переопределение будет явно зафиксировано в журнале аудита.
+            <strong>Изменение рекомендации:</strong> Выбранный исход (<strong>{recordValue(selectedOutcome)}</strong>) отличается от рекомендации скорингового ядра (<strong>{recordValue(engineRecommendation)}</strong>). Переопределение будет явно зафиксировано в журнале аудита.
           </div>
         )}
 
@@ -287,13 +288,13 @@ export function DecisionForm({ dossier }: Props) {
         open={confirmOpen}
         title="Подтверждение кредитного решения"
         description={
-          `Вы уверены, что хотите зафиксировать решение ${selectedOutcome}? ${
+          `Вы уверены, что хотите зафиксировать решение «${recordValue(selectedOutcome)}»? ${
             isPositive && chosenOffer
               ? `Выбранные условия: ${chosenOffer.amount} ₽ на ${chosenOffer.term_months} мес. под ${chosenOffer.rate_pct}%. `
               : ''
           }${
             isOverride
-              ? `Внимание: Действие приведёт к переопределению автоматической рекомендации ядра (${engineRecommendation} → ${selectedOutcome}). `
+              ? `Внимание: Действие приведёт к переопределению автоматической рекомендации ядра (${recordValue(engineRecommendation)} → ${recordValue(selectedOutcome)}). `
               : ''
           }Комментарий: «${comment.trim()}»`
         }

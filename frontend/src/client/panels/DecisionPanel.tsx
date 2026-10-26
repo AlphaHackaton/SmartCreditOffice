@@ -18,7 +18,7 @@ export function DecisionPanel({ record }: { record: Application }) {
     {record.status === 'COUNTER_OFFER' && <><p>Запрошено <MoneyText value={record.amount} /> на {record.termMonths} мес. Ниже — доступные альтернативы.</p><Constraints constraints={record.decision.constraints} /></>}<h3>Доступные условия</h3><OffersList offers={record.decision.offers} pending={command.pending} onAccept={setSelected} />
     {!record.decision.offers.length && <p>Доступных предложений пока нет.</p>}
     <ErrorBanner message={command.error} />
-    <p className="form-hint">Политика {record.decision.policyVersion}. Условия рассчитаны Python-движком на синтетических данных.</p>
-    <ConfirmDialog open={Boolean(offer)} title="Подтвердите выбор условий" description={offer ? `${formatMoney(offer.amount)}, ${offer.term_months} мес., ${formatPct(offer.rate_pct)}. Платёж ${formatMoney(offer.monthly_payment)}. После принятия откроется демо-подписание.` : ''} confirmLabel="Принять условия" pending={command.pending} onCancel={() => setSelected(undefined)} onConfirm={async () => { if (offer) { await command.execute(() => command.gateway.accept(command.token, record.id, record.version, offer.id)); if (command.isCurrent()) setSelected(undefined); } }} />
+
+    <ConfirmDialog open={Boolean(offer)} title="Подтвердите выбор условий" description={offer ? `${formatMoney(offer.amount)}, ${offer.term_months} мес., ${formatPct(offer.rate_pct)}. Платёж ${formatMoney(offer.monthly_payment)}. После принятия откроется подписание договора.` : ''} confirmLabel="Принять условия" pending={command.pending} onCancel={() => setSelected(undefined)} onConfirm={async () => { if (offer) { await command.execute(() => command.gateway.accept(command.token, record.id, record.version, offer.id)); if (command.isCurrent()) setSelected(undefined); } }} />
   </section>;
 }

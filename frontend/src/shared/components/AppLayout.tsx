@@ -1,34 +1,29 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { ButtonDesktop } from '@alfalab/core-components-button/esm/desktop';
-import { ApiNotice } from '../../api/views/common';
 import { useAuth } from '../../auth/AuthProvider';
 import { useWorkspace } from '../../demo/provider';
-import { DemoControls } from '../../demo/DemoControls';
 
 export function AppLayout() {
   const auth = useAuth(); const { mode } = useWorkspace(); const navigate = useNavigate();
   const bank = auth.user?.role === 'bank';
-  return <div className="workspace">
+  return <div className={`workspace${auth.user ? '' : ' workspace--login'}`}>
     <a className="skip-link" href="#main">К содержимому</a>
     <header className="app-header">
       <NavLink className="brand" to={bank ? '/bank/applications' : '/client'} aria-label="Кредитный кабинет — главная"><span className="brand-mark" aria-hidden="true">А</span><span>Кредитный кабинет<span className="brand-subtitle">ДЛЯ ПРЕДПРИНИМАТЕЛЕЙ</span></span></NavLink>
       <span className="header-caption">Сервисы для бизнеса</span>
-      <span className="preview-label"><span aria-hidden="true" />{mode === 'mock' ? 'Демо-режим · синтетические данные' : 'Режим API'}</span>
-      {auth.user && <ButtonDesktop size={32} view="text" onClick={() => { auth.logout(); void navigate('/login', { replace: true }); }}>Выйти</ButtonDesktop>}
+      {auth.user && <div className="header-account"><span>{auth.user.name}</span><ButtonDesktop size={32} view="text" onClick={() => { auth.logout(); void navigate('/login', { replace: true }); }}>Выйти</ButtonDesktop></div>}
     </header>
-    <DemoControls />
     <div className="app-body">
-      <aside className="sidebar">
-        <p className="nav-caption">КОНТУР</p><p className="current-role">{auth.user ? bank ? 'Сотрудник банка' : 'Клиент' : 'Вход в кабинет'}</p>
-        <p className="nav-caption section-caption">{bank ? 'Рабочее место кредитного специалиста' : 'МОЙ КАБИНЕТ'}</p>
-        {auth.user && <nav className="section-nav" aria-label={bank ? 'Разделы сотрудника банка' : 'Разделы клиента'}>
-          {bank ? <><NavLink to="/bank/applications" end>Очередь заявок</NavLink><NavLink to="/bank/metrics">Метрики конвейера</NavLink><NavLink to="/bank/sandbox">Песочница скоринга</NavLink></> : <><NavLink to="/client" end>Обзор кабинета</NavLink><NavLink to="/client/applications/new">Новая заявка</NavLink></>}
-        </nav>}
-        <div className="sidebar-note"><span className="note-icon" aria-hidden="true">i</span><p>{auth.user?.name ?? 'Демонстрация кабинета'}</p><span>{mode === 'mock' ? 'Данные в памяти. Обновление страницы сбрасывает демонстрацию.' : 'Данные загружаются с сервера. Поддерживаются опубликованные методы API.'}</span></div>
-        <div className="sidebar-footer">Клиент и сотрудник — в одном кабинете</div>
-      </aside>
-      <main id="main" className="main-content" tabIndex={-1}>{mode === 'api' && <ApiNotice />}<Outlet /></main>
+      {auth.user && <aside className="sidebar">
+        <p className="nav-caption">{bank ? 'РАБОЧЕЕ ПРОСТРАНСТВО' : 'МОЙ КАБИНЕТ'}</p><p className="current-role">{bank ? 'Сотрудник банка' : 'Предприниматель'}</p>
+        <p className="nav-caption section-caption">{bank ? 'Рабочее место кредитного специалиста' : 'ФИНАНСИРОВАНИЕ БИЗНЕСА'}</p>
+        <nav className="section-nav" aria-label={bank ? 'Разделы сотрудника банка' : 'Разделы клиента'}>
+          {bank ? <><NavLink to="/bank/applications" end>Очередь заявок</NavLink><NavLink to="/bank/metrics">Метрики конвейера</NavLink>{mode === 'mock' && <NavLink to="/bank/sandbox">Анализ условий</NavLink>}</> : <><NavLink to="/client" end>Обзор кабинета</NavLink><NavLink to="/client/applications/new">Новая заявка</NavLink></>}
+        </nav>
+        <div className="sidebar-footer">{bank ? 'Рассмотрение заявок и кредитные решения' : 'Заявки и решения по финансированию вашего бизнеса'}</div>
+      </aside>}
+      <main id="main" className="main-content" tabIndex={-1}><Outlet /></main>
     </div>
-    <footer className="app-footer"><span>Умный кредитный кабинет предпринимателя</span><span>Альфа-Будущее · 2026</span></footer>
+    <footer className="app-footer"><span>Кредитный кабинет предпринимателя</span><span>Финансирование бизнеса</span></footer>
   </div>;
 }

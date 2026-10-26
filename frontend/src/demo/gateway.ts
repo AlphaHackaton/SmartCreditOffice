@@ -214,7 +214,7 @@ export interface SandboxResult {
   disclaimer: string;
 }
 
-const message = 'Демонстрационный сбой. Повторите действие.';
+const message = 'Не удалось выполнить действие. Повторите попытку.';
 const error = (status: number, code: string, text = message) => new ApiError(status, code, text);
 
 export function validateInput(input: ApplicationInput, product: Product | undefined, submitting: boolean): Record<string, string> {
@@ -413,7 +413,7 @@ export class MockGateway implements WorkspaceGateway {
       const timer = setTimeout(() => { signal?.removeEventListener('abort', abort); resolve(); }, this.delayMs);
       signal?.addEventListener('abort', abort, { once: true });
     });
-    if (generation !== this.generation) throw error(409, 'DEMO_RESET', 'Демо было сброшено. Войдите снова.');
+    if (generation !== this.generation) throw error(409, 'DEMO_RESET', 'Данные обновлены. Войдите снова.');
 
     // Check targeted failure plan
     const plan = kind === 'read' ? this.readPlan : this.commandPlan;
@@ -511,7 +511,7 @@ export class MockGateway implements WorkspaceGateway {
     const persona = demoData.personas.find((p) => p.login === login);
     if (password !== 'demo' || (!persona && login !== 'underwriter')) throw error(401, 'BAD_CREDENTIALS', 'Проверьте логин и пароль');
     const token = `demo-${crypto.randomUUID()}`;
-    this.sessions.set(token, { id: persona?.id ?? 'underwriter', login, name: persona?.label ?? 'Кредитный специалист', role: persona ? 'client' : 'bank', companyId: persona?.id ?? null });
+    this.sessions.set(token, { id: persona?.id ?? 'underwriter', login, name: persona?.company.name ?? 'Кредитный специалист', role: persona ? 'client' : 'bank', companyId: persona?.id ?? null });
     return { token };
   }
   async me(token: string, signal?: AbortSignal) { await this.wait('read', 'any', signal, token); return { ...this.user(token) }; }
@@ -661,14 +661,14 @@ export class MockGateway implements WorkspaceGateway {
   async simulationOptions(token: string, id: string, signal?: AbortSignal) {
     await this.wait('read', 'application_read', signal, token); const record = this.owned(token, id);
     const persona = demoData.personas.find((p) => p.id === record.companyId)!;
-    if (record.productCode !== persona.request.product_code) throw error(422, 'NO_DEMO_SIMULATION', 'Для этого продукта демо-расчёты ещё не подготовлены.');
+    if (record.productCode !== persona.request.product_code) throw error(422, 'NO_DEMO_SIMULATION', 'Предварительный расчёт для этого продукта пока недоступен.');
     return { amounts: [...persona.simulation.amounts], terms: [...persona.simulation.terms] };
   }
   async simulate(token: string, id: string, amount: string, termMonths: number, signal?: AbortSignal): Promise<Simulation> {
     await this.wait('read', 'application_read', signal, token); const record = this.owned(token, id);
     const persona = demoData.personas.find((p) => p.id === record.companyId)!;
     const result = record.productCode === persona.request.product_code ? persona.simulation.rows.find((r) => r.amount.replace(/\.0+$/, '') === amount.replace(/\.0+$/, '') && r.termMonths === termMonths) : undefined;
-    if (!result) throw error(422, 'NO_DEMO_SIMULATION', 'Для этой комбинации нет демо-расчёта. Выберите подготовленную сумму и срок.');
+    if (!result) throw error(422, 'NO_DEMO_SIMULATION', 'Расчёт для выбранных условий недоступен. Выберите другую сумму и срок.');
     return structuredClone({ ...result, offers: result.offers.map((o) => ({ ...o })), constraints: result.constraints.map((c) => ({ ...c })) });
   }
   async challenge(token: string, id: string, signal?: AbortSignal) {
@@ -680,7 +680,7 @@ export class MockGateway implements WorkspaceGateway {
     await this.wait('command', 'sign', undefined, token); const record = this.owned(token, id); const current = this.snapshot(record);
     if (current.status !== 'SIGNING' || current.version !== version) throw error(409, 'VERSION_CONFLICT', 'Заявка изменилась или подтверждение истекло. Обновите заявку.');
     const state = this.accepted.get(id)!;
-    if (state.challenge.id !== challengeId || state.challenge.attemptsLeft === 0) throw error(409, 'CHALLENGE_BLOCKED', 'Подписание заблокировано. Сбросьте демо для нового сценария.');
+    if (state.challenge.id !== challengeId || state.challenge.attemptsLeft === 0) throw error(409, 'CHALLENGE_BLOCKED', 'Подписание заблокировано. Отмените заявку и создайте новую.');
     if (code !== state.challenge.code) {
       state.challenge.attemptsLeft--;
       throw new ApiError(422, 'INVALID_CODE', `Неверный код. Осталось попыток: ${state.challenge.attemptsLeft}`, { code: 'Неверный код' });
@@ -926,14 +926,14 @@ export class MockGateway implements WorkspaceGateway {
   async sandboxCatalog(token: string, signal?: AbortSignal): Promise<SandboxCatalog> {
     await this.wait('read', 'sandbox_read', signal, token);
     const user = this.user(token);
-    if (user.role !== 'bank') throw error(403, 'FORBIDDEN', 'Синтетическая песочница доступна только сотруднику банка.');
+    if (user.role !== 'bank') throw error(403, 'FORBIDDEN', 'Анализ условий доступен только сотруднику банка.');
     return structuredClone(bankDemoData.sandboxCatalog as unknown as SandboxCatalog);
   }
 
   async sandboxRun(token: string, input: SandboxRunInput, signal?: AbortSignal): Promise<SandboxResult> {
     await this.wait('read', 'sandbox_read', signal, token);
     const user = this.user(token);
-    if (user.role !== 'bank') throw error(403, 'FORBIDDEN', 'Синтетическая песочница доступна только сотруднику банка.');
+    if (user.role !== 'bank') throw error(403, 'FORBIDDEN', 'Анализ условий доступен только сотруднику банка.');
 
     const key = input.isExactBaseline
       ? `${input.personaId}:exact_baseline:${input.policyId}`
@@ -941,7 +941,7 @@ export class MockGateway implements WorkspaceGateway {
 
     const entry = (bankDemoData.sandboxRegistry as unknown as Record<string, SandboxResult>)[key];
     if (!entry) {
-      throw error(422, 'SANDBOX_COMBINATION_NOT_FOUND', 'Синтетическая комбинация не найдена в подготовленном реестре.');
+      throw error(422, 'SANDBOX_COMBINATION_NOT_FOUND', 'Расчёт для выбранных условий недоступен.');
     }
 
     return structuredClone(entry);
@@ -949,7 +949,7 @@ export class MockGateway implements WorkspaceGateway {
 }
 
 export function unavailableGateway(): WorkspaceGateway {
-  const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'API Dev 2 ещё не подключён. Выберите mock-режим для демонстрации.'); };
+  const unavailable = async (): Promise<never> => { throw error(503, 'API_NOT_CONFIGURED', 'Сервис временно недоступен. Повторите попытку позже.'); };
   return {
     personas: unavailable,
     login: unavailable,

@@ -11,7 +11,7 @@ describe('Кредитное досье андеррайтера (DossierPage)',
 
     await screen.findByRole('heading', { name: 'Досье заявки', level: 1 });
     expect(screen.getByText(/ИП · 770123456703/i)).toBeInTheDocument();
-    expect(screen.getByText(/КРЕДИТНОЕ ДОСЬЕ ЗАЯВКИ № seed-p1_ideal · СИНТЕТИЧЕСКИЙ ПРИМЕР/i)).toBeInTheDocument();
+    expect(screen.getByText(/КРЕДИТНОЕ ДОСЬЕ ЗАЯВКИ № seed-p1_ideal/i)).toBeInTheDocument();
     expect(screen.getAllByText('Одобрено').length).toBeGreaterThan(0);
     expect(screen.getByText('A')).toBeInTheDocument();
     expect(screen.getByText(/Снимки входных данных и расчетные метрики/i)).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('Кредитное досье андеррайтера (DossierPage)',
     expect(screen.getByText(/M1/)).toBeInTheDocument();
 
     // Replay сверка
-    const replayBtn = screen.getByRole('button', { name: /Сверить с ядром скоринга/i });
+    const replayBtn = screen.getByRole('button', { name: /Проверить расчёт/i });
     await user.click(replayBtn);
     await screen.findByText(/Сверка успешна:/i);
   });

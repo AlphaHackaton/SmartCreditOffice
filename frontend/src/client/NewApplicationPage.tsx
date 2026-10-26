@@ -85,7 +85,7 @@ function ApplicationForm({ products, initial, preferredProduct }: { products: Pr
       </fieldset>
       <ErrorBanner message={mutation.error?.message} />
       {notice && <p role="status" className="save-notice">{notice}</p>}
-      <p className="form-hint">Это демонстрация. Параметры по умолчанию взяты из сценария backend; произвольные условия направляются на ручное рассмотрение. Ставка и платёж здесь не рассчитываются.</p>
+      <p className="form-hint">Выберите сумму и срок. После проверки заявки вы получите решение и доступные условия финансирования.</p>
       <div className="form-actions"><ButtonDesktop type="button" view="secondary" size={48} disabled={mutation.isPending} onClick={() => { void run(false); }}>Сохранить черновик</ButtonDesktop><ButtonDesktop type="submit" view="primary" size={48} disabled={mutation.isPending}>{mutation.isPending ? 'Сохраняем…' : 'Подать заявку'}</ButtonDesktop></div>
     </form>
   </>;

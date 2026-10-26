@@ -71,21 +71,21 @@ export function SandboxPanel() {
     <div className="sandbox-panel">
       <div className="workspace-header">
         <TitleDesktop tag="h1" view="large" font="system" defaultMargins={false}>
-          Синтетическая песочница скоринга
+          Анализ условий
         </TitleDesktop>
         <p className="workspace-subtitle">
-          Исследование расчётного ядра Python на 144 подготовленных комбинациях и baseline-снимках.
-          Песочница не создаёт заявку, не добавляет аудит и не меняет KPI очереди.
+          Сравните влияние оборотов, кредитной истории и возраста бизнеса на условия финансирования.
+          Расчёт не изменяет текущие заявки и решения.
         </p>
       </div>
 
-      {catalogQuery.isPending && <p role="status">Загрузка параметров песочницы…</p>}
+      {catalogQuery.isPending && <p role="status">Загружаем параметры расчёта…</p>}
       <ErrorBanner message={catalogQuery.error?.message} />
 
       {catalog && (
-        <section className="workspace-card" role="region" aria-label="Параметры песочницы">
+        <section className="workspace-card" role="region" aria-label="Параметры расчёта">
           <TitleDesktop tag="h2" view="small" font="system" defaultMargins={false} style={{ marginBottom: 16 }}>
-            Параметры синтетического расчёта
+            Параметры расчёта
           </TitleDesktop>
 
           <form
@@ -96,9 +96,9 @@ export function SandboxPanel() {
             className="sandbox-controls-grid"
           >
             <label>
-              Синтетическая основа
+              Компания
               <select
-                aria-label="Синтетическая основа"
+                aria-label="Компания"
                 value={personaId}
                 onChange={(e) => {
                   setPersonaId(e.target.value);
@@ -190,7 +190,7 @@ export function SandboxPanel() {
             <div className="sandbox-policy-info">
               <span>Версия политики: <strong>{selectedPolicy.version}</strong></span>
               <span>Ключевая ставка ЦБ: <strong>{selectedPolicy.keyRatePct}%</strong></span>
-              {isExactBaseline && <span className="sandbox-badge">Исходный baseline-снимок</span>}
+              {isExactBaseline && <span className="sandbox-badge">Исходные данные</span>}
             </div>
           )}
 
@@ -232,7 +232,7 @@ export function SandboxPanel() {
 
       {runQuery.isLoading && (
         <section className="workspace-card">
-          <p role="status">Выполняем синтетический расчёт…</p>
+          <p role="status">Рассчитываем условия…</p>
         </section>
       )}
 
@@ -240,7 +240,7 @@ export function SandboxPanel() {
         <ErrorBanner
           message={
             runQuery.error instanceof ApiError && runQuery.error.status === 422
-              ? 'Синтетическая комбинация не найдена в подготовленном реестре.'
+              ? 'Расчёт для выбранного сочетания условий недоступен. Измените параметры.'
               : runQuery.error.message
           }
         />
@@ -254,14 +254,14 @@ export function SandboxPanel() {
                 Сравнение кредитных политик для выбранного снимка
               </TitleDesktop>
               <p className="muted" style={{ marginBottom: 16 }}>
-                Снимок входов идентичен (<code className="sandbox-hash">{result.inputHash}</code>).
+                Для всех вариантов используются одинаковые данные компании.
                 Различаются только ключевая ставка и версии расчётной политики.
               </p>
 
               <div className="sandbox-compare-grid">
                 {[
                   { title: 'Сниженная (-2 п.п.)', query: queryMinus2 },
-                  { title: 'Базовая демо-политика', query: queryV1 },
+                  { title: 'Базовая политика', query: queryV1 },
                   { title: 'Повышенная (+2 п.п.)', query: queryPlus2 },
                 ].map(({ title, query }, idx) => {
                   const res = query.data;
@@ -312,10 +312,6 @@ export function SandboxPanel() {
                   )}
                 </p>
               </div>
-              <div className="sandbox-hashes">
-                <div>Hash входов: <code>{result.inputHash}</code></div>
-                <div>Hash решения: <code>{result.resultHash}</code></div>
-              </div>
             </div>
 
             {result.result.topReasons.length > 0 && (
@@ -362,7 +358,7 @@ export function SandboxPanel() {
             )}
 
             <TitleDesktop tag="h3" view="small" font="system" defaultMargins={false} style={{ margin: '24px 0 12px' }}>
-              Ограничения лимита (констрейнты)
+              Ограничения суммы кредита
             </TitleDesktop>
             <ul className="constraints">
               {result.constraints.map((c, idx) => (
@@ -401,7 +397,7 @@ export function SandboxPanel() {
               ))}
             </ul>
 
-            <p className="sandbox-disclaimer">{result.disclaimer}</p>
+            <p className="sandbox-disclaimer">Предварительный расчёт. Для получения решения необходимо подать заявку.</p>
           </section>
         </>
       )}

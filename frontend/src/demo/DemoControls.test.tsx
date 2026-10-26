@@ -8,7 +8,7 @@ describe('DemoControls component', () => {
   it('рендерит основные элементы управления демо в mock-режиме', async () => {
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    await renderWorkspace('/login', { gateway });
+    await renderWorkspace('/login', { gateway, diagnostics: true });
 
     expect(screen.getByLabelText('Режим данных')).toBeInTheDocument();
     expect(screen.getByLabelText('Демо-сценарий')).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe('DemoControls component', () => {
   it('показывает описание активного сценария и подсказку входа', async () => {
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    await renderWorkspace('/login', { gateway });
+    await renderWorkspace('/login', { gateway, diagnostics: true });
 
     expect(screen.getByLabelText('Описание текущего сценария')).toBeInTheDocument();
     expect(screen.getByText(/Старт: DRAFT/)).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe('DemoControls component', () => {
   it('загружает сценарий напрямую, когда пользователь не авторизован', async () => {
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    await renderWorkspace('/login', { gateway });
+    await renderWorkspace('/login', { gateway, diagnostics: true });
 
     const scenarioSelect = screen.getByLabelText('Демо-сценарий');
     fireEvent.change(scenarioSelect, { target: { value: 'p1-approved' } });
@@ -46,7 +46,7 @@ describe('DemoControls component', () => {
     const user = userEvent.setup();
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    const { router } = await renderWorkspace('/client', { login: 'p1', gateway });
+    const { router } = await renderWorkspace('/client', { login: 'p1', gateway, diagnostics: true });
 
     // Ждём завершения авторизации и загрузки кабинета
     await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
@@ -73,7 +73,7 @@ describe('DemoControls component', () => {
     const user = userEvent.setup();
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    await renderWorkspace('/login', { gateway });
+    await renderWorkspace('/login', { gateway, diagnostics: true });
 
     // Планируем сбой sign -> 422
     await user.click(screen.getByRole('button', { name: 'Запланировать' }));
@@ -92,7 +92,7 @@ describe('DemoControls component', () => {
     const user = userEvent.setup();
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    const { router } = await renderWorkspace('/client', { login: 'p1', gateway });
+    const { router } = await renderWorkspace('/client', { login: 'p1', gateway, diagnostics: true });
 
     await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
     await user.click(screen.getByRole('button', { name: 'Сбросить демо' }));
@@ -109,7 +109,7 @@ describe('DemoControls component', () => {
     const user = userEvent.setup();
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    const { router } = await renderWorkspace('/bank/applications', { login: 'underwriter', gateway });
+    const { router } = await renderWorkspace('/bank/applications', { login: 'underwriter', gateway, diagnostics: true });
 
     await screen.findByRole('heading', { level: 1, name: 'Очередь заявок' });
 
@@ -123,7 +123,7 @@ describe('DemoControls component', () => {
   it('скрывает элементы mock-управления при переключении в API-режим', async () => {
     const gateway = new MockGateway();
     gateway.delayMs = 0;
-    await renderWorkspace('/login', { gateway, mode: 'api' });
+    await renderWorkspace('/login', { gateway, mode: 'api', diagnostics: true });
 
     expect(screen.getByLabelText('Режим данных')).toBeInTheDocument();
     expect(screen.queryByLabelText('Демо-сценарий')).not.toBeInTheDocument();

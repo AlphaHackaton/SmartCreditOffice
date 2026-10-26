@@ -12,7 +12,7 @@ export type ApiQueueItem = DTO['BankApplicationSummary'];
 export type ApiMetrics = DTO['MetricsOut'];
 export type ApiApplicationInput = DTO['ApplicationIn'];
 export type ApiDecisionInput = DTO['UnderwriterDecisionIn'];
-export const unsupported = async (): Promise<never> => { throw new ApiError(501, 'API_UNSUPPORTED', 'Эта возможность ещё не опубликована в API. Доступна только в mock-режиме.'); };
+export const unsupported = async (): Promise<never> => { throw new ApiError(501, 'API_UNSUPPORTED', 'Эта возможность пока недоступна.'); };
 
 export function createHttpApi(client: ApiClient) {
   async function request<T>(path: string, options?: RequestOptions): Promise<T> { return await client(path, options) as T; }
@@ -42,7 +42,7 @@ export function createHttpApi(client: ApiClient) {
   };
   return { ...api, application: async (token: string, id: string, signal?: AbortSignal) => {
     const list = await api.applications(token, signal);
-    if (!Array.isArray(list.items)) throw new ApiError(502, 'INVALID_RESPONSE', 'API вернул некорректный список заявок.');
+    if (!Array.isArray(list.items)) throw new ApiError(502, 'INVALID_RESPONSE', 'Не удалось загрузить список заявок. Повторите попытку.');
     const record = list.items.find((a) => a.id === id);
     if (!record) throw new ApiError(404, 'APPLICATION_NOT_FOUND', 'Заявка не найдена в доступном вам списке.');
     return record;
@@ -52,7 +52,7 @@ export type HttpApi = ReturnType<typeof createHttpApi>;
 export function useHttpApi() { const client = useApiClient(); return useMemo(() => createHttpApi(client), [client]); }
 
 function user(data: DTO['UserOut']): User {
-  if (!data.id || !data.login || !['CLIENT', 'BANK'].includes(data.role)) throw new ApiError(502, 'INVALID_USER', 'API вернул неизвестного пользователя или роль.');
+  if (!data.id || !data.login || !['CLIENT', 'BANK'].includes(data.role)) throw new ApiError(502, 'INVALID_USER', 'Не удалось подтвердить учётную запись. Войдите снова.');
   return { id: data.id, login: data.login, name: data.login, role: data.role === 'BANK' ? 'bank' : 'client', companyId: data.company_id ?? null };
 }
 function application(data: ApiApplication): Application {

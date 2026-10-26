@@ -33,7 +33,7 @@ export const routes: RouteObject[] = [{
     { path: '/bank/applications', element: <DataView mock={<QueuePage />} api={<ApiBankQueue />} /> },
     { path: '/bank/applications/:id', element: <DataView mock={<DossierPage />} api={<ApiBankDossier />} /> },
     { path: '/bank/metrics', element: <DataView mock={<MetricsPage />} api={<ApiBankMetrics />} /> },
-    { path: '/bank/sandbox', element: <DataView mock={<SandboxPanel />} api={<ApiUnavailable title="Синтетическая песочница" />} /> },
+    { path: '/bank/sandbox', element: <DataView mock={<SandboxPanel />} api={<ApiUnavailable title="Анализ условий" />} /> },
     ] },
     { path: '*', element: <NotFoundPage /> },
   ],

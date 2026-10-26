@@ -1,3 +1,4 @@
+import { recordValue } from '../../shared/components/RecordDetails';
 import type { BankDossier } from '../../demo/gateway';
 import { MoneyText } from '../../shared/components/MoneyText';
 
@@ -25,12 +26,12 @@ export function ScoringTrace({ dossier }: Props) {
       <div className="trace-summary" style={{ marginBottom: 20 }}>
         <dl className="facts">
           <div>
-            <dt>Рекомендация ядра</dt>
-            <dd><strong>{result.recommendation}</strong></dd>
+            <dt>Рекомендация системы</dt>
+            <dd><strong>{recordValue(result.recommendation)}</strong></dd>
           </div>
           <div>
             <dt>Маршрут</dt>
-            <dd>{result.route}</dd>
+            <dd>{recordValue(result.route)}</dd>
           </div>
           <div>
             <dt>Итоговый скоринговый балл</dt>
@@ -42,7 +43,7 @@ export function ScoringTrace({ dossier }: Props) {
           </div>
           <div>
             <dt>Лимитирующее ограничение</dt>
-            <dd>{result.bindingConstraint ?? 'Отсутствует'}</dd>
+            <dd>{result.bindingConstraint ? recordValue(result.bindingConstraint) : 'Отсутствует'}</dd>
           </div>
           <div>
             <dt>Версия риск-политики</dt>
@@ -59,7 +60,7 @@ export function ScoringTrace({ dossier }: Props) {
             <th scope="col">Правило</th>
             <th scope="col">Источник</th>
             <th scope="col">Значение</th>
-            <th scope="col">Бин политики</th>
+            <th scope="col">Диапазон значений</th>
             <th scope="col">Баллы</th>
             <th scope="col">Влияние</th>
             <th scope="col">Описание фактора</th>
@@ -91,7 +92,7 @@ export function ScoringTrace({ dossier }: Props) {
               </td>
               <td>
                 <span className={`impact-badge impact-badge--${f.impact.toLowerCase()}`}>
-                  {f.impact}
+                  {recordValue(f.impact)}
                 </span>
               </td>
               <td>
@@ -108,9 +109,9 @@ export function ScoringTrace({ dossier }: Props) {
           <h3>Ограничения суммы кредита</h3>
           <ul className="constraints">
             {constraints.map((c) => (
-              <li key={c.name} className={c.binding ? 'constraint-binding' : undefined}>
+              <li key={recordValue(c.name)} className={c.binding ? 'constraint-binding' : undefined}>
                 <div>
-                  <strong>{c.name}</strong>
+                  <strong>{recordValue(c.name)}</strong>
                   {c.binding && <span className="binding-tag" style={{ marginLeft: 8, color: '#e4791a', fontWeight: 600 }}>[Лимитирующий фактор]</span>}
                 </div>
                 <div>

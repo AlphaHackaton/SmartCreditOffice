@@ -68,3 +68,16 @@ a:focus-visible, button:focus-visible { outline: 3px solid #2355ba; outline-offs
 .demo-accounts p { color: #5b626d; line-height: 1.6; }
 .demo-account-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .current-role { padding: 14px 12px; margin: 0; background: #fff0ee; color: #9e211a; border-radius: 8px; font-weight: 600; }
+
+.header-account { margin-left: auto; display: flex; align-items: center; gap: 20px; color: #626a75; font-size: 13px; }
+.workspace--login .app-body { display: flex; align-items: center; justify-content: center; }
+.workspace--login .main-content { width: 100%; max-width: 1100px; padding: 64px 48px; }
+.workspace--login .login-view { margin: 0 auto; box-shadow: 0 12px 48px #20232808; }
+.record-fields { display: grid; gap: 0; margin: 0; }
+.record-fields > div { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(0, 2fr); gap: 20px; padding: 12px 0; border-bottom: 1px solid #eceef1; }
+.record-fields dt { color: #626a75; overflow-wrap: anywhere; }
+.record-fields dd { margin: 0; overflow-wrap: anywhere; }
+.record-fields details { min-width: 0; }
+.record-fields summary { cursor: pointer; font-weight: 600; }
+.record-list { padding-left: 20px; display: grid; gap: 16px; }
+.record-fields .record-fields > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }

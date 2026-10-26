@@ -4,7 +4,7 @@ import { ButtonLink } from '../../shared/components/ButtonLink';
 
 export function UnderwritingPanel({ record }: { record: Application }) {
   return <section className="workspace-card" aria-labelledby="review-title"><h2 id="review-title">Заявка на ручном рассмотрении</h2><p>Для решения нужна проверка кредитного специалиста. Это ещё не одобрение и не отказ. Подписание сейчас недоступно.</p>
-    {record.decision ? <><h3>Данные, требующие внимания</h3><FactorList factors={record.decision.factors} audience="client" /></> : <p>Для выбранных параметров готовое демо-решение не подготовлено. Заявка оставлена на рассмотрении; расчёт в браузере не выполняется.</p>}
-    <p className="form-hint">В демо решение принимается сотрудником банка в кредитном досье (/bank/applications). После ручного решения статус обновится.</p><ButtonLink to="/client">Вернуться в кабинет</ButtonLink>
+    {record.decision ? <><h3>Данные, требующие внимания</h3><FactorList factors={record.decision.factors} audience="client" /></> : <p>Специалист проверяет данные и подбирает подходящие условия финансирования.</p>}
+    <p className="form-hint">Когда специалист примет решение, статус заявки обновится автоматически.</p><ButtonLink to="/client">Вернуться в кабинет</ButtonLink>
   </section>;
 }

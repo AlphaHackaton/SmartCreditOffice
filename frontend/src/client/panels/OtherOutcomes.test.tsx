@@ -26,6 +26,6 @@ it('нестандартные условия явно оставляет без
   const draft = await gateway.save(token, { productCode: 'WC_FLEX', amount: '500000.00', termMonths: 12, purpose: 'OTHER', consents: ['BKI_REQUEST', 'PD_PROCESSING'] });
   await gateway.submit(token, draft.id, draft.version); clock.now += 4500;
   await renderWorkspace(`/client/applications/${draft.id}`, { login: 'p4', gateway });
-  expect(await screen.findByText(/готовое демо-решение не подготовлено/)).toBeInTheDocument();
+  expect(await screen.findByText(/Специалист проверяет данные/)).toBeInTheDocument();
   expect(screen.queryByRole('list', { name: 'Объяснение решения' })).not.toBeInTheDocument();
 });

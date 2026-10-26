@@ -10,8 +10,8 @@ describe('SandboxPanel component', () => {
     gateway.delayMs = 0;
     await renderWorkspace('/bank/sandbox', { login: 'underwriter', gateway });
 
-    expect(await screen.findByRole('heading', { level: 1, name: 'Синтетическая песочница скоринга' })).toBeInTheDocument();
-    expect(await screen.findByLabelText('Синтетическая основа')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { level: 1, name: 'Анализ условий' })).toBeInTheDocument();
+    expect(await screen.findByLabelText('Компания')).toBeInTheDocument();
     expect(screen.getByLabelText('Обороты по счёту')).toBeInTheDocument();
     expect(screen.getByLabelText('Кредитная история')).toBeInTheDocument();
     expect(screen.getByLabelText('Возраст бизнеса')).toBeInTheDocument();
@@ -28,8 +28,8 @@ describe('SandboxPanel component', () => {
     gateway.delayMs = 0;
     await renderWorkspace('/bank/sandbox', { login: 'underwriter', gateway });
 
-    await screen.findByRole('heading', { level: 1, name: 'Синтетическая песочница скоринга' });
-    await screen.findByLabelText('Синтетическая основа');
+    await screen.findByRole('heading', { level: 1, name: 'Анализ условий' });
+    await screen.findByLabelText('Компания');
 
     // Нажимаем «Рассчитать»
     await user.click(screen.getByRole('button', { name: 'Рассчитать' }));
@@ -37,12 +37,12 @@ describe('SandboxPanel component', () => {
     // Появляется секция с результатами скоринга
     expect(await screen.findByRole('region', { name: 'Результат расчёта' })).toBeInTheDocument();
     expect(screen.getByText(/Маршрут:/)).toBeInTheDocument();
-    expect(screen.getByText(/Hash входов:/)).toBeInTheDocument();
-    expect(screen.getByText(/Hash решения:/)).toBeInTheDocument();
+    expect(screen.queryByText(/Hash входов:/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Hash решения:/)).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: /Кредитные предложения/ })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: /Ограничения лимита/ })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: /Ограничения суммы кредита/ })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: /Факторы оценки/ })).toBeInTheDocument();
-    expect(screen.getByText(/Синтетический демо-расчёт в песочнице/)).toBeInTheDocument();
+    expect(screen.getByText(/Предварительный расчёт/)).toBeInTheDocument();
   });
 
   it('вычисляет исходный baseline-снимок при нажатии на соответствующую кнопку', async () => {
@@ -51,12 +51,12 @@ describe('SandboxPanel component', () => {
     gateway.delayMs = 0;
     await renderWorkspace('/bank/sandbox', { login: 'underwriter', gateway });
 
-    await screen.findByRole('heading', { level: 1, name: 'Синтетическая песочница скоринга' });
-    await screen.findByLabelText('Синтетическая основа');
+    await screen.findByRole('heading', { level: 1, name: 'Анализ условий' });
+    await screen.findByLabelText('Компания');
 
     await user.click(screen.getByRole('button', { name: 'Исходный снимок' }));
 
-    expect(await screen.findByText('Исходный baseline-снимок')).toBeInTheDocument();
+    expect(await screen.findByText('Исходные данные')).toBeInTheDocument();
     expect(await screen.findByRole('region', { name: 'Результат расчёта' })).toBeInTheDocument();
   });
 
@@ -66,15 +66,15 @@ describe('SandboxPanel component', () => {
     gateway.delayMs = 0;
     await renderWorkspace('/bank/sandbox', { login: 'underwriter', gateway });
 
-    await screen.findByRole('heading', { level: 1, name: 'Синтетическая песочница скоринга' });
-    await screen.findByLabelText('Синтетическая основа');
+    await screen.findByRole('heading', { level: 1, name: 'Анализ условий' });
+    await screen.findByLabelText('Компания');
 
     // Включаем сравнение политик
     await user.click(screen.getByRole('button', { name: 'Сравнить политики' }));
 
     expect(await screen.findByRole('region', { name: 'Сравнение политик' })).toBeInTheDocument();
     expect(screen.getByText('Сниженная (-2 п.п.)')).toBeInTheDocument();
-    expect(screen.getByText('Базовая демо-политика')).toBeInTheDocument();
+    expect(screen.getByText('Базовая политика')).toBeInTheDocument();
     expect(screen.getByText('Повышенная (+2 п.п.)')).toBeInTheDocument();
     expect(screen.getByText('14.50%')).toBeInTheDocument();
     expect(screen.getAllByText('16.50%').length).toBeGreaterThanOrEqual(1);
@@ -87,8 +87,8 @@ describe('SandboxPanel component', () => {
     gateway.delayMs = 0;
     await renderWorkspace('/bank/sandbox', { login: 'underwriter', gateway });
 
-    await screen.findByRole('heading', { level: 1, name: 'Синтетическая песочница скоринга' });
-    await screen.findByLabelText('Синтетическая основа');
+    await screen.findByRole('heading', { level: 1, name: 'Анализ условий' });
+    await screen.findByLabelText('Компания');
 
     // Выбираем просрочку 45 дней
     const overdueSelect = screen.getByLabelText('Кредитная история');

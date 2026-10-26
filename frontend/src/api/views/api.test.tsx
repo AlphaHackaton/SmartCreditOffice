@@ -4,6 +4,7 @@ import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { expect, it, vi } from 'vitest';
 import { AppProviders } from '../../App';
 import { routes } from '../../router';
+import { diagnosticRoutes } from '../../test/renderWorkspace';
 import { createQueryClient } from '../query-client';
 import type { ApiApplication } from '../http';
 
@@ -47,16 +48,17 @@ function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = 
   vi.stubGlobal('fetch', fetcher);
   return { fetcher, failNextSubmit: () => { failSubmit = true; }, records };
 }
-function view(path = '/login', token?: string) {
-  const router = createMemoryRouter(routes, { initialEntries: [path] }); const cache = createQueryClient();
+function view(path = '/login', token?: string, diagnostics = false) {
+  const router = createMemoryRouter(diagnostics ? diagnosticRoutes : routes, { initialEntries: [path] }); const cache = createQueryClient();
   render(<AppProviders initialMode="api" initialToken={token} queryClient={cache} onSessionExpired={() => { void router.navigate('/login'); }}><RouterProvider router={router} /></AppProviders>);
   return { router, cache };
 }
 const application: ApiApplication = { id: '33333333-3333-4333-8333-333333333333', company_id: '22222222-2222-4222-8222-222222222222', product_code: 'SERVER_PRODUCT', amount: '4321000.00', term_months: 24, status: 'UNDERWRITING', version: 1, history: [] };
 it('входит по API, подтверждает свежий Bearer и читает серверные заявки без seed', async () => {
   const backend = server('CLIENT', [{ ...application }]); view(); const user = userEvent.setup();
-  await user.click(await screen.findByRole('button', { name: 'Компания API · ИНН 1234567890' }));
-  expect(await screen.findByRole('table', { name: 'Заявки из API' })).toHaveTextContent('SERVER_PRODUCT');
+  await user.type(await screen.findByLabelText('Логин'), 'p1'); await user.type(screen.getByLabelText('Пароль'), 'demo'); await user.click(screen.getByRole('button', { name: 'Войти' }));
+  expect(backend.fetcher.mock.calls.some((c) => /personas|health/.test(c[0]))).toBe(false);
+  expect(await screen.findByRole('table', { name: 'Ваши заявки' })).toHaveTextContent('SERVER_PRODUCT');
   expect(await screen.findByText('Серверная компания')).toBeInTheDocument();
   const me = backend.fetcher.mock.calls.find((c) => c[0].endsWith('/auth/me'))!;
   expect(new Headers(me[1].headers).get('Authorization')).toBe('Bearer fresh');
@@ -67,26 +69,26 @@ it('после сбоя submit повторяет только подачу, н�
   await user.click(screen.getByRole('button', { name: 'Подать заявку' })); expect(screen.getByRole('alert')).toHaveTextContent('Примите оба согласия');
   await user.click(screen.getByRole('checkbox', { name: 'Согласие на запрос в БКИ' })); await user.click(screen.getByRole('checkbox', { name: 'Согласие на обработку персональных данных' })); backend.failNextSubmit();
   await user.click(screen.getByRole('button', { name: 'Подать заявку' })); expect(await screen.findByRole('alert')).toHaveTextContent('Повторите подачу');
-  await user.click(screen.getByRole('button', { name: 'Подать заявку' })); await screen.findByRole('heading', { name: 'Заявка из API' });
+  await user.click(screen.getByRole('button', { name: 'Подать заявку' })); await screen.findByRole('heading', { name: 'Ваша заявка' });
   expect(router.state.location.pathname).toContain(backend.records[0].id);
   expect(backend.fetcher.mock.calls.filter((c) => c[0] === '/api/v1/applications' && c[1].method === 'POST')).toHaveLength(1);
   expect(screen.queryByRole('button', { name: /Подписать|Принять условия/ })).not.toBeInTheDocument();
 });
 it('bank читает досье, отправляет decision и rescore только после подтверждения', async () => {
   const backend = server('BANK', [{ ...application }]); view(`/bank/applications/${application.id}`, 'fresh'); const user = userEvent.setup();
-  expect(await screen.findByText('Сервер вернул пустой снимок входов.')).toBeInTheDocument();
-  await user.type(screen.getByLabelText('Комментарий API'), 'Проверка завершена');
+  expect(await screen.findByText('Данные проверки пока отсутствуют.')).toBeInTheDocument();
+  await user.type(screen.getByLabelText('Комментарий сотрудника'), 'Проверка завершена');
   await user.click(screen.getByRole('button', { name: 'Подтвердить решение' }));
   await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Отправить' }));
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   expect(backend.fetcher.mock.calls.filter((c) => c[0].endsWith('/decision'))).toHaveLength(1);
   await user.click(screen.getByRole('button', { name: 'Пересчитать решение' }));
   await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Отправить' }));
-  expect(await screen.findByText(/RESCORE/)).toBeInTheDocument();
+  expect(await within(screen.getByRole('heading', { name: 'История действий' }).closest('section')!).findByText('Повторная проверка', { exact: true })).toBeInTheDocument();
 });
 it('bank получает базовые метрики без подстановки STP и mock-данных', async () => {
   server('BANK', [{ ...application }]); view('/bank/metrics', 'fresh');
-  await screen.findByText('Всего заявок'); expect(screen.getByRole('heading', { name: 'Метрики API' })).toBeInTheDocument();
+  await screen.findByText('Всего заявок'); expect(screen.getByRole('heading', { name: 'Метрики конвейера' })).toBeInTheDocument();
   expect(screen.queryByText('STP, %')).not.toBeInTheDocument();
 });
 it('клиенту запрещён bank route, 401 прекращает сессию', async () => {
@@ -109,13 +111,13 @@ it('подписывает настоящий оффер с version/offer_id, о
   await user.type(screen.getByLabelText('Код подписи'), '111111'); await user.click(screen.getByRole('button', { name: 'Подписать' }));
   expect(await screen.findByRole('alert')).toHaveTextContent('Неверный код'); expect(screen.queryByText(/Кредит выдан/)).not.toBeInTheDocument();
   await user.clear(screen.getByLabelText('Код подписи')); await user.type(screen.getByLabelText('Код подписи'), '654321'); await user.click(screen.getByRole('button', { name: 'Подписать' }));
-  await screen.findByRole('heading', { name: 'Кредит выдан — статус подтверждён API' });
+  await screen.findByRole('heading', { name: 'Кредит выдан' });
   const sign = backend.fetcher.mock.calls.filter((c) => c[0].includes('/sign?')).at(-1)!; expect(sign[0]).toContain('version=5'); expect(JSON.parse(sign[1].body)).toEqual({ code: '654321' });
 });
 it('редактирует существующий DRAFT через PATCH с текущей версией без POST create', async () => {
   const backend = server('CLIENT', [{ ...application, status: 'DRAFT', product_code: 'WC_FLEX', version: 7 }]); view(`/client/applications/new?draft=${application.id}`, 'fresh'); const user = userEvent.setup();
   const amount = await screen.findByLabelText('Сумма, ₽'); await waitFor(() => expect(amount).toHaveValue('4321000.00')); await user.clear(amount); await user.type(amount, '2500000.00');
-  await user.click(screen.getByRole('button', { name: 'Сохранить черновик' })); await screen.findByRole('heading', { name: 'Заявка из API' });
+  await user.click(screen.getByRole('button', { name: 'Сохранить черновик' })); await screen.findByRole('heading', { name: 'Ваша заявка' });
   const patch = backend.fetcher.mock.calls.find((c) => c[1].method === 'PATCH')!; expect(patch[0]).toContain('version=7'); expect(JSON.parse(patch[1].body).amount).toBe('2500000.00'); expect(backend.fetcher.mock.calls.some((c) => c[0] === '/api/v1/applications' && c[1].method === 'POST')).toBe(false);
 });
 it('симулятор скрывает устаревший прогноз и передаёт десятичную строку после debounce', async () => {
@@ -126,7 +128,7 @@ it('симулятор скрывает устаревший прогноз и �
 });
 it('при восстановлении SIGNING не выдумывает код, отмена требует подтверждения', async () => {
   const backend = server('CLIENT', [{ ...application, status: 'SIGNING', version: 6 }]); view(`/client/applications/${application.id}`, 'fresh'); const user = userEvent.setup();
-  await screen.findByText(/API не предоставляет восстановление кода/); expect(screen.queryByLabelText('Код подписи')).not.toBeInTheDocument();
+  await screen.findByText(/Код подтверждения больше недоступен/); expect(screen.queryByLabelText('Код подписи')).not.toBeInTheDocument();
   await user.click(screen.getByRole('button', { name: 'Отменить заявку' })); expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/cancel'))).toBe(false); await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Подтвердить' })); await screen.findByText('Отменена');
   expect(backend.fetcher.mock.calls.find((c) => c[0].includes('/cancel?'))![0]).toContain('version=6');
 });
@@ -151,6 +153,24 @@ it('истёкший серверный код блокирует sign, а ба�
 it('сброс API подтверждается и вызывает сервер, затем очищает сессию', async () => {
   const backend = server(); const original = backend.fetcher.getMockImplementation()!;
   backend.fetcher.mockImplementation((path: string, init: RequestInit) => path.endsWith('/demo/reset') ? Promise.resolve(new Response(JSON.stringify({ reset: true }))) : original(path, init));
-  const { router } = view('/client', 'fresh'); const user = userEvent.setup(); await screen.findByText('Серверная компания'); await user.click(screen.getByRole('button', { name: 'Сбросить данные API' })); expect(backend.fetcher.mock.calls.some((c) => c[0].endsWith('/demo/reset'))).toBe(false);
+  const { router } = view('/client', 'fresh', true); const user = userEvent.setup(); await screen.findByText('Серверная компания'); await user.click(screen.getByRole('button', { name: 'Сбросить данные API' })); expect(backend.fetcher.mock.calls.some((c) => c[0].endsWith('/demo/reset'))).toBe(false);
   await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: /^Сбросить$/ })); await screen.findByRole('heading', { name: 'Вход в кабинет' }); expect(router.state.location.pathname).toBe('/login'); expect(backend.fetcher.mock.calls.filter((c) => c[0].endsWith('/demo/reset'))).toHaveLength(1);
+});
+
+it('сохраняет финансовые данные и объяснение решения в читаемом банковском досье', async () => {
+  const backend = server('BANK', [{ ...application }]); const original = backend.fetcher.getMockImplementation()!;
+  backend.fetcher.mockImplementation((path: string, init: RequestInit) => {
+    if (path.endsWith('/scoring-runs')) return Promise.resolve(new Response(JSON.stringify([{ id: 'run-1', policy_version: 'v1', created_at: '2026-10-26T09:00:00Z', factors: [{ code: 'M1', source: 'FNS', value: '1200.00', points: 8, max_points: 10, rule_id: 'TAX_DEBT', client_text: 'Проверена налоговая задолженность' }], result: { recommendation: 'APPROVED', score: 81, constraints: [{ name: 'DSCR', limit: '4500000.00', binding: true }] } }])));
+    if (path.endsWith(`/bank/applications/${application.id}`)) return Promise.resolve(new Response(JSON.stringify({ application, inputs_snapshot: { fns: { tax_debt: '1200.00', accounts_blocked: false } }, audit: [{ actor: 'BANK', action: 'DECISION', comment: 'Отчётность проверена' }] })));
+    return original(path, init);
+  });
+  view(`/bank/applications/${application.id}`, 'fresh');
+  expect(await screen.findByText('Налоговая задолженность')).toBeInTheDocument();
+  expect(screen.getAllByText('1200.00').length).toBeGreaterThan(0);
+  expect(await screen.findByText('Проверена налоговая задолженность')).toBeInTheDocument();
+  expect(screen.getByText('Отчётность проверена')).toBeInTheDocument();
+  expect(screen.getByText('Нет')).toBeInTheDocument();
+  expect(screen.queryByLabelText('Состояние API')).not.toBeInTheDocument();
+  expect(document.querySelector('pre')).toBeNull();
+  expect(screen.getByRole('button', { name: 'Пересчитать решение' })).toBeEnabled();
 });

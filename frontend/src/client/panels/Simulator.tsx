@@ -21,10 +21,10 @@ export function Simulator({ record }: { record: Application }) {
   const waiting = amount !== debounced.amount || term !== debounced.term;
   const result = useQuery({ queryKey: [...scope.key, 'simulation', record.id, debounced.amount, debounced.term], queryFn: ({ signal }) => scope.gateway.simulate(scope.token, record.id, debounced.amount, debounced.term, signal), enabled: scope.enabled && !waiting && Boolean(options.data) && /^\d+(?:\.\d{1,2})?$/.test(amount) });
   return <section className="workspace-card" aria-labelledby="simulator-title"><h2 id="simulator-title">Что, если изменить условия?</h2>
-    <p>Демо: расчёты подготовлены Python для ограниченной сетки. Симуляция не меняет заявку и не заменяет её предложения.</p>
+    <p>Сравните сумму, срок и платёж. Предварительный расчёт не меняет условия вашей заявки.</p>
     <div className="simulator-controls"><InputDesktop label="Сумма для симуляции" value={amount} inputMode="decimal" onChange={(e) => setAmount(e.target.value)} />
       {options.data && <label>Срок для симуляции: {term} мес.<input aria-label="Срок для симуляции" type="range" min={options.data.terms[0]} max={options.data.terms.at(-1)} step={6} value={term} onChange={(e) => setTerm(Number(e.target.value))} /></label>}</div>
-    {options.data && <label className="prepared-amounts">Подготовленные суммы<select aria-label="Подготовленные суммы" value={options.data.amounts.find((a) => a.replace(/\.0+$/, '') === amount.replace(/\.0+$/, '')) ?? ''} onChange={(e) => { if (e.target.value) setAmount(e.target.value); }}><option value="">Выберите сумму</option>{options.data.amounts.map((a) => <option key={a} value={a}>{formatMoney(a)}</option>)}</select></label>}
+    {options.data && <label className="prepared-amounts">Доступные суммы<select aria-label="Доступные суммы" value={options.data.amounts.find((a) => a.replace(/\.0+$/, '') === amount.replace(/\.0+$/, '')) ?? ''} onChange={(e) => { if (e.target.value) setAmount(e.target.value); }}><option value="">Выберите сумму</option>{options.data.amounts.map((a) => <option key={a} value={a}>{formatMoney(a)}</option>)}</select></label>}
     {!/^\d+(?:\.\d{1,2})?$/.test(amount) && <p role="alert">Введите сумму цифрами, до двух знаков после точки.</p>}
     {(waiting || result.isFetching || options.isPending) && <p role="status">Обновляем расчёт…</p>}
     <ErrorBanner message={options.error?.message} onRetry={() => options.refetch().then(() => {})} />

@@ -109,16 +109,16 @@ export function MetricsPage() {
 
       <div className="metrics-meta workspace-card">
         <div>
-          <p className="metrics-meta-title">Синтетические демо-показатели</p>
+          <p className="metrics-meta-title">Обзор кредитного портфеля</p>
           <p className="metrics-meta-note">
-            Показатели рассчитаны по аналитическому снимку синтетических примеров и сеанса. Не отражают SLA реального бэкенда.
+            Статистика заявок и решений за выбранный период.
           </p>
         </div>
         {data && (
           <div className="metrics-meta-asof">
             <span>Срез на:</span>
             <strong>{formatDateTime(data.asOf)}</strong>
-            <small>Europe/Moscow</small>
+            <small>Московское время</small>
           </div>
         )}
       </div>
@@ -131,15 +131,15 @@ export function MetricsPage() {
         )}
         <div className="queue-filters">
           <label>
-            Источник данных
+            Группа заявок
             <select
-              aria-label="Источник данных метрик"
+              aria-label="Группа заявок метрик"
               value={draftSource}
               onChange={(e) => setDraftSource(e.target.value as MetricSourceFilter)}
             >
-              <option value="all">Все демо-данные</option>
-              <option value="example">Синтетические примеры</option>
-              <option value="session">Сеанс пользователя</option>
+              <option value="all">Все заявки</option>
+              <option value="example">Основной портфель</option>
+              <option value="session">Текущая работа</option>
             </select>
           </label>
           <label>
@@ -219,7 +219,7 @@ export function MetricsPage() {
                   <div className="metric-card" aria-label="Подано заявок">
                     <p className="metric-card-label">Подано заявок</p>
                     <p className="metric-card-value">{data.submitted}</p>
-                    <p className="metric-card-desc">Заявки с этапом SUBMITTED в истории</p>
+                    <p className="metric-card-desc">Заявки, переданные на рассмотрение</p>
                   </div>
 
                   <div className="metric-card" aria-label="Принято решений">
@@ -231,7 +231,7 @@ export function MetricsPage() {
                   <div className="metric-card" aria-label="Ожидают решения">
                     <p className="metric-card-label">Ожидают решения</p>
                     <p className="metric-card-value">{data.awaitingDecision}</p>
-                    <p className="metric-card-desc">Текущие SUBMITTED / SCORING / UNDERWRITING</p>
+                    <p className="metric-card-desc">Поданные заявки, проверка и ручное рассмотрение</p>
                   </div>
 
                   <div className="metric-card" aria-label="Уровень автоматизации (STP)">
@@ -239,13 +239,13 @@ export function MetricsPage() {
                     <p className="metric-card-value">{data.stpPct !== null ? `${data.stpPct} %` : UNAVAILABLE_VALUE}</p>
                     <p className="metric-card-desc">
                       {data.decided > 0
-                        ? `Авторешений SYSTEM: ${data.automaticDecisions} из ${data.decided}`
+                        ? `Автоматических решений: ${data.automaticDecisions} из ${data.decided}`
                         : 'Нет принятых решений'}
                     </p>
                   </div>
 
                   <div className="metric-card" aria-label="Среднее время до решения">
-                    <p className="metric-card-label">Среднее время (mean)</p>
+                    <p className="metric-card-label">Среднее время</p>
                     <p className="metric-card-value">{formatDuration(data.timeToDecision.meanMs)}</p>
                     <p className="metric-card-desc">Выборка: {data.timeToDecision.sampleCount} заявок</p>
                   </div>
@@ -253,7 +253,7 @@ export function MetricsPage() {
                   <div className="metric-card" aria-label="95-й процентиль времени">
                     <p className="metric-card-label">Время p95</p>
                     <p className="metric-card-value">{formatDuration(data.timeToDecision.p95Ms)}</p>
-                    <p className="metric-card-desc">Nearest-rank 95-й процентиль времени</p>
+                    <p className="metric-card-desc">95% решений приняты за это время</p>
                   </div>
 
                   {data.dataIssuesCount > 0 && (
@@ -274,7 +274,7 @@ export function MetricsPage() {
               <section className="workspace-card" aria-label="Распределение по текущим статусам">
                 <h2>Распределение по текущим статусам</h2>
                 <p className="page-description">
-                  Текущий статус всех заявок в когорте (сумма бакетов: {data.total}).
+                  Текущие статусы выбранных заявок. Всего: {data.total}.
                 </p>
 
                 {/* Accessible Bar */}
@@ -348,7 +348,7 @@ export function MetricsPage() {
               <section className="workspace-card" aria-label="Распределение по принятым решениям">
                 <h2>Распределение по принятым решениям</h2>
                 <p className="page-description">
-                  Первый зафиксированный бизнес-исход (APPROVED / COUNTER_OFFER / REJECTED). Сохраняется после выдачи или отмены.
+                  Распределение первых решений: одобрение, встречное предложение и отказ.
                 </p>
 
                 {/* Accessible Bar */}

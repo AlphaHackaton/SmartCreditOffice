@@ -1,3 +1,4 @@
+import { recordValue } from '../../shared/components/RecordDetails';
 import type { BankDossier } from '../../demo/gateway';
 import { DateTimeText } from '../../shared/components/DateTimeText';
 import { Timeline } from '../../shared/components/Timeline';
@@ -42,15 +43,15 @@ export function AuditLog({ dossier }: Props) {
                 <td>
                   {entry.override ? (
                     <span className="override-badge" style={{ color: '#c8353b', fontWeight: 600 }}>
-                      [OVERRIDE]
+                      Изменение рекомендации
                     </span>
                   ) : (
-                    <span>{entry.action}</span>
+                    <span>{recordValue(entry.action)}</span>
                   )}
                 </td>
                 <td>v{entry.versionBefore} → v{entry.versionAfter}</td>
                 <td>
-                  <strong>{entry.engineOutcome}</strong> → <strong>{entry.selectedOutcome}</strong>
+                  <strong>{recordValue(entry.engineOutcome)}</strong> → <strong>{recordValue(entry.selectedOutcome)}</strong>
                 </td>
                 <td>
                   <p style={{ margin: 0, fontStyle: 'italic' }}>«{entry.comment ?? '—'}»</p>

@@ -11,7 +11,7 @@ it('показывает контроффер и ограничение, сим�
   expect(screen.getAllByText(/ограничивает сумму/).length).toBeGreaterThan(0);
   const simulate = vi.spyOn(gateway, 'simulate');
   fireEvent.change(screen.getByLabelText('Сумма для симуляции'), { target: { value: '1234567' } });
-  expect(await screen.findByRole('alert')).toHaveTextContent('нет демо-расчёта');
+  expect(await screen.findByRole('alert')).toHaveTextContent('Расчёт для выбранных условий недоступен');
   expect(simulate).toHaveBeenCalledTimes(1);
 });
 it('debounce 300 мс отправляет только последнее значение и скрывает старый прогноз', async () => {

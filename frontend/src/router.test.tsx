@@ -4,7 +4,11 @@ import { describe, expect, it, vi } from 'vitest';
 import { renderWorkspace } from './test/renderWorkspace';
 import { safeReturnTo } from './auth/RequireRole';
 
-const demoClient = () => screen.findByRole('button', { name: /^Демо p1 ·/ });
+async function login(user: ReturnType<typeof userEvent.setup>, name = 'p1') {
+  await user.type(await screen.findByLabelText('Логин'), name);
+  await user.type(screen.getByLabelText('Пароль'), 'demo');
+  await user.click(screen.getByRole('button', { name: 'Войти' }));
+}
 describe('защищённая навигация и демо-вход', () => {
   it.each(['/client', '/client/applications/new', '/client/applications/test-id', '/bank/applications', '/bank/applications/test-id', '/bank/metrics'])('направляет %s на вход без запросов бизнес-данных', async (path) => {
     const fetcher = vi.fn(); vi.stubGlobal('fetch', fetcher);
@@ -14,7 +18,7 @@ describe('защищённая навигация и демо-вход', () => {
   });
   it('после демо-входа восстанавливает собственный адрес, показывает только свою роль и выходит', async () => {
     const user = userEvent.setup(); const { router } = await renderWorkspace('/client/applications/new');
-    await user.click(await demoClient()); await screen.findByRole('heading', { name: 'Новая заявка', level: 1 });
+    await login(user); await screen.findByRole('heading', { name: 'Новая заявка', level: 1 });
     expect(router.state.location.pathname).toBe('/client/applications/new');
     expect(screen.queryByRole('navigation', { name: 'Выбор контура' })).not.toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Разделы клиента' })).toBeInTheDocument();
@@ -24,7 +28,7 @@ describe('защищённая навигация и демо-вход', () => {
   });
   it('клиенту не даёт банковскую роль даже через служебный адрес', async () => {
     const user = userEvent.setup(); const { router } = await renderWorkspace('/bank/applications');
-    await user.click(await demoClient()); await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
+    await login(user); await screen.findByRole('heading', { name: 'Кабинет предпринимателя' });
     expect(router.state.location.pathname).toBe('/client');
     await router.navigate('/bank/applications');
     await screen.findByRole('heading', { name: 'Нет доступа' });
@@ -32,7 +36,7 @@ describe('защищённая навигация и демо-вход', () => {
   });
   it('сотруднику открывает свой контур и рабочую навигацию', async () => {
     const user = userEvent.setup(); await renderWorkspace();
-    await user.click(await screen.findByRole('button', { name: 'Сотрудник банка · демо' }));
+    await login(user, 'underwriter');
     await screen.findByRole('heading', { name: 'Очередь заявок' });
     const nav = screen.getByRole('navigation', { name: 'Разделы сотрудника банка' });
     await user.click(within(nav).getByRole('link', { name: 'Метрики конвейера' }));
@@ -48,6 +52,7 @@ describe('защищённая навигация и демо-вход', () => {
   it('API-режим при недоступности сервера не подставляет фиктивный вход', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('offline')));
     await renderWorkspace('/login', { mode: 'api' });
+    await login(userEvent.setup());
     expect((await screen.findAllByRole('alert')).some((a) => a.textContent?.includes('Не удалось связаться с сервером'))).toBe(true);
     expect(screen.queryByRole('button', { name: /^Демо p1/ })).not.toBeInTheDocument();
   });
@@ -57,4 +62,18 @@ describe('защищённая навигация и демо-вход', () => {
     await next.router.navigate('/missing'); await screen.findByRole('heading', { name: 'Страница не найдена' });
   });
   it.each(['https://evil.test', '//evil.test', '/bank/applications', '/clientish', '/client/../bank', '/client/%2fsecret', '/client\\evil'])('отклоняет опасный returnTo %s', (path) => { expect(safeReturnTo(path, 'client')).toBe('/client'); });
+});
+
+it.each(['mock', 'api'] as const)('показывает продуктовый вход без диагностики и каталога пользователей (%s)', async (mode) => {
+  const fetcher = vi.fn(); vi.stubGlobal('fetch', fetcher);
+  await renderWorkspace('/login', { mode });
+  await screen.findByRole('heading', { name: 'Вход в кабинет', level: 1 });
+  expect(screen.getByLabelText('Логин')).toBeInTheDocument();
+  expect(screen.getByLabelText('Пароль')).toBeInTheDocument();
+  expect(screen.queryByLabelText('Управление демо')).not.toBeInTheDocument();
+  expect(screen.queryByLabelText('Режим данных')).not.toBeInTheDocument();
+  expect(screen.queryByLabelText('Состояние API')).not.toBeInTheDocument();
+  expect(screen.queryByRole('heading', { name: 'Демо-учётные записи' })).not.toBeInTheDocument();
+  expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
+  expect(fetcher).not.toHaveBeenCalled();
 });

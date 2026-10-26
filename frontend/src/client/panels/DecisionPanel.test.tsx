@@ -12,7 +12,7 @@ it('показывает причины и подтверждает однокр
   const dialog = screen.getByRole('dialog', { name: 'Подтвердите выбор условий' });
   expect(dialog).toHaveTextContent('2 000 000');
   await user.dblClick(within(dialog).getByRole('button', { name: 'Принять условия' }));
-  expect(await screen.findByText('Условия выбраны. Подтвердите демо-подпись кодом внутри кабинета.')).toBeInTheDocument();
+  expect(await screen.findByText('Условия выбраны. Подтвердите подписание кодом внутри кабинета.')).toBeInTheDocument();
   expect(accept).toHaveBeenCalledTimes(1);
 });
 it('ошибка 409 перечитывает заявку и не повторяет команду', async () => {
@@ -20,6 +20,6 @@ it('ошибка 409 перечитывает заявку и не повтор�
   await renderWorkspace(`/client/applications/${record.id}`, { login: 'p1', gateway }); const user = userEvent.setup();
   await user.click(await screen.findByRole('button', { name: 'Выбрать предложение 1' })); gateway.failNext('command', 409);
   await user.click(screen.getByRole('button', { name: 'Принять условия' }));
-  expect(await screen.findByRole('alert')).toHaveTextContent('Демонстрационный сбой');
+  expect(await screen.findByRole('alert')).toHaveTextContent('Не удалось выполнить действие');
   expect(read.mock.calls.length).toBeGreaterThan(1); expect(accept).toHaveBeenCalledTimes(1);
 });

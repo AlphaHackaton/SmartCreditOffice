@@ -12,12 +12,12 @@ describe('MetricsPage UI', () => {
     await renderWorkspace('/bank/metrics', { login: 'underwriter', gateway });
 
     expect(await screen.findByRole('heading', { level: 1, name: 'Метрики конвейера' })).toBeInTheDocument();
-    expect(screen.getByText(/Синтетические демо-показатели/)).toBeInTheDocument();
+    expect(screen.getByText(/Обзор кредитного портфеля/)).toBeInTheDocument();
 
     // Ждём загрузки данных метрик
     const totalCard = await screen.findByLabelText('Всего заявок');
     expect(within(totalCard).getByText('6')).toBeInTheDocument();
-    expect(screen.getByText(/Europe\/Moscow/)).toBeInTheDocument();
+    expect(screen.getByText(/Московское время/)).toBeInTheDocument();
 
     const submittedCard = screen.getByLabelText('Подано заявок');
     expect(within(submittedCard).getByText('6')).toBeInTheDocument();

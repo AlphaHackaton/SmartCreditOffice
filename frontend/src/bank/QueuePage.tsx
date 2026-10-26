@@ -95,7 +95,7 @@ export function QueuePage() {
           <TitleDesktop tag="h1" view="large" font="system" defaultMargins={false}>
             Очередь заявок
           </TitleDesktop>
-          <p className="page-description">Синтетические примеры и заявки текущего демо-сеанса.</p>
+          <p className="page-description">Заявки компаний и текущие обращения на рассмотрении.</p>
         </div>
         <ButtonDesktop
           view="secondary"
@@ -151,15 +151,15 @@ export function QueuePage() {
             </select>
           </label>
           <label>
-            Источник данных
+            Группа заявок
             <select
-              aria-label="Источник данных"
+              aria-label="Группа заявок"
               value={source}
               onChange={(e) => updateParam('source', e.target.value)}
             >
-              <option value="all">Все демо-данные</option>
-              <option value="example">Синтетические примеры</option>
-              <option value="session">Сеанс пользователя</option>
+              <option value="all">Все заявки</option>
+              <option value="example">Основной портфель</option>
+              <option value="session">Текущая работа</option>
             </select>
           </label>
           <label>
@@ -229,7 +229,7 @@ export function QueuePage() {
                       <small>ИНН {a.inn}</small>
                       <small>
                         № {a.id}
-                        {a.synthetic ? ' · пример' : ' · текущий сеанс'}
+
                       </small>
                     </td>
                     <td>{a.productName}</td>
@@ -257,7 +257,7 @@ export function QueuePage() {
       )}
 
       <p className="form-hint">
-        Досье и решение сотрудника — раздел «Досье». Сброс демо удалит заявки сеанса и сохранит шесть исходных примеров.
+        Откройте досье, чтобы изучить данные проверки и принять решение.
       </p>
     </>
   );

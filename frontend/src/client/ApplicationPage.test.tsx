@@ -64,7 +64,7 @@ it('401 при опросе завершает сессию и прекраща�
 it('ошибка останавливает поллинг до явного повтора', async () => {
   const { gateway, read } = await pollingView(); gateway.failNext('read', 503);
   await act(async () => { await vi.advanceTimersByTimeAsync(1600); });
-  expect(screen.getByRole('alert')).toHaveTextContent('Демонстрационный сбой');
+  expect(screen.getByRole('alert')).toHaveTextContent('Не удалось выполнить действие');
   const calls = read.mock.calls.length;
   await act(async () => { await vi.advanceTimersByTimeAsync(5000); }); expect(read).toHaveBeenCalledTimes(calls);
 });

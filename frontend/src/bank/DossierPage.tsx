@@ -56,7 +56,7 @@ export function DossierPage() {
     );
   }
 
-  const { application, source, runs, currentRunId } = dossier;
+  const { application, runs, currentRunId } = dossier;
   const currentRun = runs.find((r) => r.id === currentRunId) ?? runs[0];
 
   async function handleReplay() {
@@ -65,7 +65,7 @@ export function DossierPage() {
     setReplayResult(null);
     try {
       const res = await scope.gateway.replayDossier(scope.token, application.id, currentRun.id);
-      setReplayResult({ match: res.match, message: res.message });
+      setReplayResult({ match: res.match, message: res.match ? 'Сохранённые данные и результат расчёта совпадают.' : 'Обнаружены расхождения в данных расчёта.' });
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Ошибка сверки снимка';
       setReplayResult({ match: false, message: msg });
@@ -83,7 +83,7 @@ export function DossierPage() {
       <div className="workspace-heading">
         <div>
           <p className="eyebrow">
-            КРЕДИТНОЕ ДОСЬЕ ЗАЯВКИ № {application.id} {source === 'example' ? '· СИНТЕТИЧЕСКИЙ ПРИМЕР' : '· ТЕКУЩИЙ СЕАНС'}
+            КРЕДИТНОЕ ДОСЬЕ ЗАЯВКИ № {application.id}
           </p>
           <TitleDesktop tag="h1" view="large" font="system" defaultMargins={false}>
             Досье заявки
@@ -100,7 +100,7 @@ export function DossierPage() {
             disabled={replayPending || !currentRun}
             onClick={handleReplay}
           >
-            Сверить с ядром скоринга (Replay)
+            Проверить расчёт
           </ButtonDesktop>
         </div>
       </div>
@@ -138,16 +138,8 @@ export function DossierPage() {
             <dd>{application.productCode}</dd>
           </div>
           <div>
-            <dt>Версия досье</dt>
-            <dd>Версия {application.version}</dd>
-          </div>
-          <div>
             <dt>Дата и время создания</dt>
             <dd><DateTimeText value={application.createdAt} /></dd>
-          </div>
-          <div>
-            <dt>Хеш снимка входов</dt>
-            <dd><code>{currentRun?.inputHash.slice(0, 16)}...</code></dd>
           </div>
         </dl>
       </section>

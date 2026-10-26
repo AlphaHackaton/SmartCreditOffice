@@ -35,6 +35,6 @@ it('сбой обновления пустого кеша не выдаётся 
   await screen.findByText('У вас пока нет заявок');
   gateway.failNext('read', 503);
   await act(async () => { await client.invalidateQueries({ predicate: (query) => query.queryKey.at(-1) === 'applications' }); });
-  expect(screen.getByRole('alert')).toHaveTextContent('Демонстрационный сбой');
+  expect(screen.getByRole('alert')).toHaveTextContent('Не удалось выполнить действие');
   expect(screen.queryByText('У вас пока нет заявок')).not.toBeInTheDocument();
 });
