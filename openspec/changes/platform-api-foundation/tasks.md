@@ -19,4 +19,4 @@
 
 ## 4. Delivery
 
-- [ ] Прогнать `scripts/check.sh`, обновить `docs/openapi.json` и `THIRD_PARTY_NOTICES.md`; проверка: exit 0.
+- [x] Прогнать `scripts/check.sh`, обновить `docs/openapi.json` и `THIRD_PARTY_NOTICES.md`; проверка: exit 0.
