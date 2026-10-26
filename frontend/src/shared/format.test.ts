@@ -78,3 +78,8 @@ describe('formatDateTime — Europe/Moscow', () => {
     expect(formatDateTime(value)).toBe('—');
   });
 });
+
+it('сохраняет точность ограничений API без финансового округления в браузере', () => {
+  expect(formatMoney('6736391.184954498068672118698', true)).toBe('6\u00a0736\u00a0391,184954498068672118698\u00a0₽');
+  expect(formatMoney('6736391.184954498068672118698')).toBe('—');
+});

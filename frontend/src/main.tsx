@@ -9,7 +9,7 @@ import './shared/styles.css';
 const router = createBrowserRouter(routes);
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppProviders onSessionExpired={() => { void router.navigate('/login', { replace: true }); }}>
+    <AppProviders initialMode={import.meta.env.VITE_DATA_MODE === 'mock' ? 'mock' : 'api'} onSessionExpired={() => { void router.navigate('/login', { replace: true }); }}>
       <RouterProvider router={router} />
     </AppProviders>
   </StrictMode>,

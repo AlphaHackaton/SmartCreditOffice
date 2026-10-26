@@ -6,10 +6,12 @@ import { useAuth } from '../auth/AuthProvider';
 import { demoData } from './generated';
 import type { FailurePlan, FailureTarget, FailureVariant } from './gateway';
 import { ConfirmDialog } from '../shared/components/ConfirmDialog';
+import { useHttpApi } from '../api/http';
 import { useScenarios } from '../api/queries';
 
 export function DemoControls() {
   const workspace = useWorkspace();
+  const api = useHttpApi();
   const auth = useAuth();
   const navigate = useNavigate();
 
@@ -91,6 +93,7 @@ export function DemoControls() {
           </select>
         </label>
 
+        {workspace.mode === 'api' && <ButtonDesktop type="button" size={32} view="text" onClick={() => setResetting(true)}>Сбросить данные API</ButtonDesktop>}
         {workspace.mode === 'mock' && (
           <>
             <label>
@@ -276,10 +279,11 @@ export function DemoControls() {
       <ConfirmDialog
         open={resetting}
         title="Сбросить демонстрацию?"
-        description="Все заявки в памяти, аудит, пресеты и сбои будут удалены. Кабинет вернётся к заводскому состоянию из 6 примеров."
+        description={workspace.mode === 'api' ? 'Сервер удалит все демонстрационные заявки и связанные данные всех пользователей. Вы выйдете из кабинета.' : 'Все заявки в памяти, аудит, пресеты и сбои будут удалены. Кабинет вернётся к заводскому состоянию из 6 примеров.'}
         confirmLabel="Сбросить"
         onCancel={() => setResetting(false)}
-        onConfirm={() => {
+        onConfirm={async () => {
+          if (workspace.mode === 'api') await api.reset();
           auth.logout();
           workspace.reset();
           setResetting(false);

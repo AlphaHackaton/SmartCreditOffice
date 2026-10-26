@@ -14,9 +14,9 @@ function parseDecimal(value: Value) {
   return { integer, fraction, sign };
 }
 
-export function formatMoney(value: Value): string {
+export function formatMoney(value: Value, exactPrecision = false): string {
   const decimal = parseDecimal(value);
-  if (!decimal || decimal.fraction.length > 2) return UNAVAILABLE_VALUE;
+  if (!decimal || (!exactPrecision && decimal.fraction.length > 2)) return UNAVAILABLE_VALUE;
   const { integer, fraction, sign } = decimal;
   const groups: string[] = [];
   for (let end = integer.length; end > 0; end -= 3) {

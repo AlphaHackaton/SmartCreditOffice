@@ -12,6 +12,8 @@ import { MoneyText } from '../../shared/components/MoneyText';
 import { STATUS_VIEW } from '../../shared/status';
 import '../../client/workspace.css';
 
+function field(value: unknown): string { return value == null ? '—' : typeof value === 'object' ? JSON.stringify(value) : String(value); }
+
 export function ApiBankQueue() {
   const scope = useApiScope(); const queue = useQuery({ queryKey: [...scope.httpKey, 'queue'], queryFn: ({ signal }) => scope.api.queue(scope.token, signal), enabled: scope.bankEnabled });
   const [status, setStatus] = useState(''); const [search, setSearch] = useState('');
@@ -26,6 +28,7 @@ export function ApiBankDossier() { const { id = '' } = useParams(); return <ApiB
 function ApiBankRecord({ id }: { id: string }) {
   const command = useApiCommand<ApiApplication>();
   const dossier = useQuery({ queryKey: [...command.httpKey, 'dossier', id], queryFn: ({ signal }) => command.api.dossier(command.token, id, signal), enabled: command.bankEnabled && Boolean(id) });
+  const runs = useQuery({ queryKey: [...command.httpKey, 'scoring-runs', id], queryFn: ({ signal }) => command.api.scoringRuns(command.token, id, signal), enabled: command.bankEnabled && Boolean(id) });
   const [action, setAction] = useState<'decision' | 'rescore'>(); const [outcome, setOutcome] = useState<ApiDecisionInput['outcome']>('REJECTED'); const [comment, setComment] = useState(''); const [validation, setValidation] = useState('');
   const data = dossier.data;
   async function execute() {
@@ -34,16 +37,17 @@ function ApiBankRecord({ id }: { id: string }) {
   }
   return <><Link to="/bank/applications">← В очередь</Link><TitleDesktop tag="h1" view="large" font="system">Досье заявки API</TitleDesktop>
     {dossier.isPending && <p role="status">Загружаем досье…</p>}<ErrorBanner message={dossier.error?.message} onRetry={() => dossier.refetch().then(() => {})} />
-    {!dossier.error && data && <><section className="workspace-card"><ApiApplicationFacts record={data.application} /><p>Полная трасса, прогоны, допустимые офферы и версия политики не представлены в этом контракте.</p><ButtonDesktop view="secondary" disabled={command.pending} onClick={() => setAction('rescore')}>Повторная проверка (stub)</ButtonDesktop><p className="form-hint">Текущий rescore записывает событие аудита; пересчёт риска сервер пока не выполняет.</p></section>
+    {!dossier.error && data && <><section className="workspace-card"><ApiApplicationFacts record={data.application} /><p>Прогоны скоринга и входные данные получены с сервера. Выбор оффера и передача версии в ручном решении не предусмотрены контрактом.</p><ButtonDesktop view="secondary" disabled={command.pending || !['UNDERWRITING', 'REJECTED', 'COUNTER_OFFER'].includes(data.application.status)} onClick={() => setAction('rescore')}>Пересчитать решение</ButtonDesktop><p className="form-hint">Повторный скоринг изменяет решение, если текущий статус допускает пересчёт. Это не сверка прежнего снимка.</p></section>
       {data.application.status === 'UNDERWRITING' && <section className="workspace-card"><h2>Решение сотрудника</h2><p>API принимает только исход и комментарий. Он пока не поддерживает передачу версии и выбор оффера; интерфейс не обещает защиту от конфликта, которой нет на сервере.</p>
         <form className="application-form" aria-label="Решение API" onSubmit={(e) => { e.preventDefault(); if (!comment.trim() || comment.trim().length > 2000) setValidation('Введите комментарий от 1 до 2000 символов.'); else { setValidation(''); setAction('decision'); } }}>
           <fieldset disabled={command.pending}><label>Итоговое решение<select aria-label="Итоговое решение API" value={outcome} onChange={(e) => setOutcome(e.target.value as ApiDecisionInput['outcome'])}><option value="APPROVED">Одобрить</option><option value="COUNTER_OFFER">Встречное предложение</option><option value="REJECTED">Отказать</option></select></label><label>Комментарий<textarea aria-label="Комментарий API" maxLength={2000} value={comment} onChange={(e) => setComment(e.target.value)} /></label><ButtonDesktop type="submit" view="primary">Подтвердить решение</ButtonDesktop></fieldset>{validation && <p role="alert">{validation}</p>}
         </form></section>}
       <ErrorBanner message={command.error?.message} />
+      <section className="workspace-card"><h2>Прогоны скоринга</h2><ErrorBanner message={runs.error?.message} onRetry={() => runs.refetch().then(() => {})} />{!runs.error && (runs.data?.length ? runs.data.map((r) => <article key={r.id}><h3>Прогон {r.id}</h3><p>Политика: {r.policy_version} · {r.created_at}</p><dl className="facts"><div><dt>Рекомендация</dt><dd>{field(r.result.recommendation)}</dd></div><div><dt>Маршрут</dt><dd>{field(r.result.route)}</dd></div><div><dt>Баллы / грейд</dt><dd>{field(r.result.score)} / {field(r.result.grade)}</dd></div></dl><h4>Факторы и правила</h4><div className="api-trace"><table className="workspace-table"><thead><tr><th>Фактор</th><th>Источник</th><th>Значение</th><th>Баллы / максимум</th><th>Правило</th><th>Объяснение</th></tr></thead><tbody>{r.factors.map((f, index) => <tr key={index}><td>{field(f.code)}</td><td>{field(f.source)}</td><td>{field(f.value)}</td><td>{field(f.points)} / {field(f.max_points)}</td><td>{field(f.rule_id)}</td><td>{field(f.client_text)}{f.hint != null && <p>{field(f.hint)}</p>}</td></tr>)}</tbody></table></div><details><summary>Полный результат и ограничения</summary><pre className="api-json">{JSON.stringify(r.result, null, 2)}</pre></details></article>) : <p>Прогоны ещё не получены либо сервер не сохраняет их в текущем режиме.</p>)}</section>
       <section className="workspace-card"><h2>Снимок входных данных</h2>{Object.keys(data.inputs_snapshot ?? {}).length ? <pre className="api-json">{JSON.stringify(data.inputs_snapshot, null, 2)}</pre> : <p>Сервер вернул пустой снимок входов.</p>}</section>
-      <section className="workspace-card"><h2>Аудит API</h2>{data.audit?.length ? <pre className="api-json">{JSON.stringify(data.audit, null, 2)}</pre> : <p>Записей аудита нет.</p>}</section><ApiHistory record={data.application} />
+      <section className="workspace-card"><h2>Аудит API</h2>{data.audit?.length ? <pre className="api-json">{JSON.stringify(data.audit, null, 2)}</pre> : <p>Записей аудита нет.</p>}</section><ApiHistory record={data.application} showReasons />
     </>}
-    <ConfirmDialog open={Boolean(action) && !dossier.error} title={action === 'decision' ? 'Отправить решение в API?' : 'Запустить повторную проверку?'} description={action === 'decision' ? `Исход: ${outcome}. Комментарий: ${comment.trim()}. Оффер и версия этой командой не передаются.` : 'В текущем stub это добавит запись RESCORE в аудит без нового расчёта кредитного решения.'} confirmLabel="Отправить" pending={command.pending} onCancel={() => setAction(undefined)} onConfirm={execute} />
+    <ConfirmDialog open={Boolean(action) && !dossier.error} title={action === 'decision' ? 'Отправить решение в API?' : 'Запустить повторную проверку?'} description={action === 'decision' ? `Исход: ${outcome}. Комментарий: ${comment.trim()}. Оффер и версия этой командой не передаются.` : 'Сервер повторно проверит заявку в допустимом статусе. В stub-режиме операция только добавляет запись аудита.'} confirmLabel="Отправить" pending={command.pending} onCancel={() => setAction(undefined)} onConfirm={execute} />
   </>;
 }
 export function ApiBankMetrics() {

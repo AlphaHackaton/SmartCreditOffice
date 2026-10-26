@@ -133,3 +133,9 @@
 .api-filter-row input, .api-filter-row select, .application-form textarea { display: block; padding: 12px; font: inherit; border-radius: 8px; border: 1px solid #b7bcc4; }
 .api-metrics-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .api-metrics-grid dd { font-size: 32px; font-weight: 700; margin: 16px 0 0; }
+
+.api-trace { overflow-x: auto; }
+.api-trace td { overflow-wrap: anywhere; min-width: 90px; }
+.workspace-card > article { padding: 18px 0; border-top: 1px solid #eceef0; }
+.workspace-card > article:first-of-type { border-top: 0; }
+section[aria-label="Подписание"] input { padding: 12px; margin: 12px; border: 1px solid #b7bcc4; border-radius: 8px; font: inherit; letter-spacing: 3px; width: 170px; }

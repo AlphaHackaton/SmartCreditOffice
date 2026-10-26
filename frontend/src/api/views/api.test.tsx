@@ -1,4 +1,4 @@
-import { render, screen, within, act } from '@testing-library/react';
+import { render, screen, within, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { expect, it, vi } from 'vitest';
@@ -9,10 +9,14 @@ import type { ApiApplication } from '../http';
 
 function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = []) {
   const user = { id: '11111111-1111-4111-8111-111111111111', login: role === 'CLIENT' ? 'p1' : 'underwriter', role, company_id: '22222222-2222-4222-8222-222222222222' };
-  let records = initial; let failSubmit = false; const audit: object[] = [];
+  const records = initial; let failSubmit = false; const audit: object[] = [];
   const fetcher = vi.fn().mockImplementation(async (path: string, init: RequestInit = {}) => {
+    path = path.split('?')[0];
     const method = init.method ?? 'GET'; const body = init.body ? JSON.parse(String(init.body)) : undefined;
     const response = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status });
+    if (path.endsWith('/products')) return response({ items: [{ code: 'WC_FLEX', name: 'Оборотный кредит API', min_amount: '100000', max_amount: '10000000', min_term_months: 6, max_term_months: 36 }] });
+    if (path.endsWith('/companies/me')) return response({ id: user.company_id, name: 'Серверная компания', inn: '1234567890', legal_form: 'IP', registered_at: '2020-01-01', pre_approved_limit: '5000000' });
+    if (path.endsWith('/scoring-runs')) return response([]);
     if (path.endsWith('/health')) return response({ status: 'ok', mode: 'stub' });
     if (path.endsWith('/personas')) return response([{ id: 'p1', login: 'p1', company_name: 'Компания API', inn: '1234567890', legal_form: 'IP', expected_outcome: 'APPROVED' }]);
     if (path.endsWith('/auth/login')) return response({ access_token: 'fresh', token_type: 'bearer', user });
@@ -29,6 +33,11 @@ function server(role: 'CLIENT' | 'BANK' = 'CLIENT', initial: ApiApplication[] = 
       const record: ApiApplication = { id: '33333333-3333-4333-8333-333333333333', company_id: user.company_id, ...body, status: 'DRAFT', version: 1, history: [], decision: null }; records.push(record); return response(record, 201);
     }
     if (path.endsWith('/applications')) return response({ items: records });
+    if (path.endsWith('/accept')) { records[0].status = 'SIGNING'; records[0].version++; return response({ application_id: records[0].id, code: '654321', expires_at: new Date(Date.now() + 300000).toISOString() }); }
+    if (path.endsWith('/sign')) { if (body.code !== '654321') return response({ code: 'INVALID_OTP', message: 'Signing challenge failed' }, 400); records[0].status = 'DISBURSED'; records[0].version++; return response(records[0]); }
+    if (path.endsWith('/cancel')) { records[0].status = 'CANCELLED'; records[0].version++; return response(records[0]); }
+    if (path.endsWith('/simulate')) return response({ predicted_outcome: 'COUNTER_OFFER', requires_review: false, max_amount_for_term: body.amount, headroom: '0.00', offers: [], constraints: [] });
+    if (method === 'PATCH') { Object.assign(records[0], body); records[0].version++; return response(records[0]); }
     if (path.endsWith('/submit')) {
       if (failSubmit) { failSubmit = false; return response({ code: 'UNAVAILABLE', message: 'Повторите подачу' }, 503); }
       records[0].status = 'APPROVED'; records[0].version++; return response(records[0]);
@@ -48,13 +57,13 @@ it('входит по API, подтверждает свежий Bearer и чи�
   const backend = server('CLIENT', [{ ...application }]); view(); const user = userEvent.setup();
   await user.click(await screen.findByRole('button', { name: 'Компания API · ИНН 1234567890' }));
   expect(await screen.findByRole('table', { name: 'Заявки из API' })).toHaveTextContent('SERVER_PRODUCT');
-  expect(screen.queryByText('Ваша компания')).not.toBeInTheDocument();
+  expect(await screen.findByText('Серверная компания')).toBeInTheDocument();
   const me = backend.fetcher.mock.calls.find((c) => c[0].endsWith('/auth/me'))!;
   expect(new Headers(me[1].headers).get('Authorization')).toBe('Bearer fresh');
 });
 it('после сбоя submit повторяет только подачу, не создаёт дубль черновика', async () => {
   const backend = server(); const { router } = view('/client/applications/new', 'fresh'); const user = userEvent.setup();
-  await user.type(await screen.findByLabelText('Код продукта'), 'WC_FLEX'); await user.type(screen.getByLabelText('Сумма, ₽'), '4321000.00');
+  await screen.findByRole('option', { name: 'Оборотный кредит API' }); await user.selectOptions(screen.getByLabelText('Код продукта'), 'WC_FLEX'); await user.type(screen.getByLabelText('Сумма, ₽'), '4321000.00');
   await user.click(screen.getByRole('button', { name: 'Подать заявку' })); expect(screen.getByRole('alert')).toHaveTextContent('Примите оба согласия');
   await user.click(screen.getByRole('checkbox', { name: 'Согласие на запрос в БКИ' })); await user.click(screen.getByRole('checkbox', { name: 'Согласие на обработку персональных данных' })); backend.failNextSubmit();
   await user.click(screen.getByRole('button', { name: 'Подать заявку' })); expect(await screen.findByRole('alert')).toHaveTextContent('Повторите подачу');
@@ -69,9 +78,9 @@ it('bank читает досье, отправляет decision и rescore то�
   await user.type(screen.getByLabelText('Комментарий API'), 'Проверка завершена');
   await user.click(screen.getByRole('button', { name: 'Подтвердить решение' }));
   await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Отправить' }));
-  await screen.findByText('REJECTED', { exact: false }).catch(() => {});
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   expect(backend.fetcher.mock.calls.filter((c) => c[0].endsWith('/decision'))).toHaveLength(1);
-  await user.click(screen.getByRole('button', { name: 'Повторная проверка (stub)' }));
+  await user.click(screen.getByRole('button', { name: 'Пересчитать решение' }));
   await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Отправить' }));
   expect(await screen.findByText(/RESCORE/)).toBeInTheDocument();
 });
@@ -83,6 +92,65 @@ it('bank получает базовые метрики без подстано�
 it('клиенту запрещён bank route, 401 прекращает сессию', async () => {
   const backend = server(); const { router } = view('/bank/applications', 'fresh'); await screen.findByRole('heading', { name: 'Нет доступа' });
   expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/bank/'))).toBe(false);
-  backend.fetcher.mockImplementation(async () => new Response(JSON.stringify({ detail: 'AUTH_REQUIRED' }), { status: 401 }));
+  const previous = backend.fetcher.getMockImplementation()!;
+  backend.fetcher.mockImplementation(async (path: string, init: RequestInit) => path.includes('/applications') || path.includes('/companies/me') ? new Response(JSON.stringify({ detail: 'AUTH_REQUIRED' }), { status: 401 }) : previous(path, init));
   await act(() => router.navigate('/client')); await screen.findByRole('heading', { name: 'Вход в кабинет' });
+});
+
+const approved: ApiApplication = { ...application, status: 'APPROVED', version: 4, decision: { outcome: 'APPROVED', route: 'AUTO', factors: [{ code: 'M1', source: 'FNS', value: 'secret-value', points: 1, max_points: 1, impact: 'POSITIVE', rule_id: 'private-rule', client_text: 'Устойчивая выручка' }], offers: [{ id: '44444444-4444-4444-8444-444444444444', kind: 'BASE', amount: '2000000.00', term_months: 24, rate_pct: '24.00', monthly_payment: '100000.00', overpayment: '400000.00' }] } };
+it('подписывает настоящий оффер с version/offer_id, обрабатывает неверный OTP и показывает только подтверждённую выдачу', async () => {
+  const backend = server('CLIENT', [structuredClone(approved)]); view(`/client/applications/${approved.id}`, 'fresh'); const user = userEvent.setup();
+  await user.click(await screen.findByRole('button', { name: 'Принять предложение' }));
+  expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/accept?'))).toBe(false);
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Подтвердить' }));
+  await screen.findByText('654321'); const accept = backend.fetcher.mock.calls.find((c) => c[0].includes('/accept?'))!;
+  expect(accept[0]).toContain('version=4&offer_id=44444444-4444-4444-8444-444444444444');
+  expect(screen.queryByText('secret-value')).not.toBeInTheDocument(); expect(screen.queryByText('private-rule')).not.toBeInTheDocument();
+  await user.type(screen.getByLabelText('Код подписи'), '111111'); await user.click(screen.getByRole('button', { name: 'Подписать' }));
+  expect(await screen.findByRole('alert')).toHaveTextContent('Неверный код'); expect(screen.queryByText(/Кредит выдан/)).not.toBeInTheDocument();
+  await user.clear(screen.getByLabelText('Код подписи')); await user.type(screen.getByLabelText('Код подписи'), '654321'); await user.click(screen.getByRole('button', { name: 'Подписать' }));
+  await screen.findByRole('heading', { name: 'Кредит выдан — статус подтверждён API' });
+  const sign = backend.fetcher.mock.calls.filter((c) => c[0].includes('/sign?')).at(-1)!; expect(sign[0]).toContain('version=5'); expect(JSON.parse(sign[1].body)).toEqual({ code: '654321' });
+});
+it('редактирует существующий DRAFT через PATCH с текущей версией без POST create', async () => {
+  const backend = server('CLIENT', [{ ...application, status: 'DRAFT', product_code: 'WC_FLEX', version: 7 }]); view(`/client/applications/new?draft=${application.id}`, 'fresh'); const user = userEvent.setup();
+  const amount = await screen.findByLabelText('Сумма, ₽'); await waitFor(() => expect(amount).toHaveValue('4321000.00')); await user.clear(amount); await user.type(amount, '2500000.00');
+  await user.click(screen.getByRole('button', { name: 'Сохранить черновик' })); await screen.findByRole('heading', { name: 'Заявка из API' });
+  const patch = backend.fetcher.mock.calls.find((c) => c[1].method === 'PATCH')!; expect(patch[0]).toContain('version=7'); expect(JSON.parse(patch[1].body).amount).toBe('2500000.00'); expect(backend.fetcher.mock.calls.some((c) => c[0] === '/api/v1/applications' && c[1].method === 'POST')).toBe(false);
+});
+it('симулятор скрывает устаревший прогноз и передаёт десятичную строку после debounce', async () => {
+  const backend = server('CLIENT', [structuredClone(approved)]); view(`/client/applications/${approved.id}`, 'fresh'); const user = userEvent.setup();
+  await screen.findByLabelText('Результат симуляции'); const amount = screen.getByLabelText('Сумма для расчёта, ₽'); await user.clear(amount); await user.type(amount, '1234567.89');
+  expect(screen.queryByLabelText('Результат симуляции')).not.toBeInTheDocument(); await screen.findByLabelText('Результат симуляции');
+  const call = backend.fetcher.mock.calls.filter((c) => c[0].endsWith('/simulate')).at(-1)!; expect(JSON.parse(call[1].body)).toEqual({ amount: '1234567.89', term_months: 24 });
+});
+it('при восстановлении SIGNING не выдумывает код, отмена требует подтверждения', async () => {
+  const backend = server('CLIENT', [{ ...application, status: 'SIGNING', version: 6 }]); view(`/client/applications/${application.id}`, 'fresh'); const user = userEvent.setup();
+  await screen.findByText(/API не предоставляет восстановление кода/); expect(screen.queryByLabelText('Код подписи')).not.toBeInTheDocument();
+  await user.click(screen.getByRole('button', { name: 'Отменить заявку' })); expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/cancel'))).toBe(false); await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Подтвердить' })); await screen.findByText('Отменена');
+  expect(backend.fetcher.mock.calls.find((c) => c[0].includes('/cancel?'))![0]).toContain('version=6');
+});
+
+it('не отправляет submit и не возвращает клиента после logout во время create', async () => {
+  const backend = server(); const original = backend.fetcher.getMockImplementation()!; let finish!: (response: Response) => void;
+  backend.fetcher.mockImplementation((path: string, init: RequestInit) => path === '/api/v1/applications' && init.method === 'POST' ? new Promise<Response>((resolve) => { finish = resolve; }) : original(path, init));
+  const { router } = view('/client/applications/new', 'fresh'); const user = userEvent.setup();
+  await screen.findByRole('option', { name: 'Оборотный кредит API' }); await user.type(screen.getByLabelText('Сумма, ₽'), '2000000.00');
+  await user.click(screen.getByRole('checkbox', { name: 'Согласие на запрос в БКИ' })); await user.click(screen.getByRole('checkbox', { name: 'Согласие на обработку персональных данных' })); await user.click(screen.getByRole('button', { name: 'Подать заявку' }));
+  await waitFor(() => expect(finish).toBeDefined()); await user.click(screen.getByRole('button', { name: 'Выйти' })); await screen.findByRole('heading', { name: 'Вход в кабинет' });
+  await act(async () => finish(new Response(JSON.stringify({ ...application, status: 'DRAFT' }), { status: 201 })));
+  expect(router.state.location.pathname).toBe('/login'); expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/submit'))).toBe(false);
+});
+it('истёкший серверный код блокирует sign, а банковские комментарии не отображаются клиенту', async () => {
+  const row = structuredClone(approved); row.history = [{ from_status: 'UNDERWRITING', to_status: 'APPROVED', actor: 'BANK', at: '2026-10-26T09:00:00Z', reason: 'Внутренний комментарий сотрудника' }];
+  const backend = server('CLIENT', [row]); const original = backend.fetcher.getMockImplementation()!;
+  backend.fetcher.mockImplementation(async (path: string, init: RequestInit) => { const response = await original(path, init); if (!path.includes('/accept?')) return response; const challenge = await response.json(); return new Response(JSON.stringify({ ...challenge, expires_at: '2000-01-01T00:00:00Z' })); });
+  view(`/client/applications/${approved.id}`, 'fresh'); const user = userEvent.setup(); await user.click(await screen.findByRole('button', { name: 'Принять предложение' })); expect(screen.queryByText('Внутренний комментарий сотрудника')).not.toBeInTheDocument();
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Подтвердить' })); await screen.findByText(/Срок кода истёк/); expect(screen.getByRole('button', { name: 'Подписать' })).toBeDisabled(); expect(backend.fetcher.mock.calls.some((c) => c[0].includes('/sign?'))).toBe(false);
+});
+it('сброс API подтверждается и вызывает сервер, затем очищает сессию', async () => {
+  const backend = server(); const original = backend.fetcher.getMockImplementation()!;
+  backend.fetcher.mockImplementation((path: string, init: RequestInit) => path.endsWith('/demo/reset') ? Promise.resolve(new Response(JSON.stringify({ reset: true }))) : original(path, init));
+  const { router } = view('/client', 'fresh'); const user = userEvent.setup(); await screen.findByText('Серверная компания'); await user.click(screen.getByRole('button', { name: 'Сбросить данные API' })); expect(backend.fetcher.mock.calls.some((c) => c[0].endsWith('/demo/reset'))).toBe(false);
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: /^Сбросить$/ })); await screen.findByRole('heading', { name: 'Вход в кабинет' }); expect(router.state.location.pathname).toBe('/login'); expect(backend.fetcher.mock.calls.filter((c) => c[0].endsWith('/demo/reset'))).toHaveLength(1);
 });

@@ -1,7 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createHttpGateway, useHttpApi } from '../api/http';
-import { useMemo } from 'react';
 import { useSession } from '../auth/session';
 import { MockGateway, type DataMode, type LoadScenarioResult, type WorkspaceGateway } from './gateway';
 
