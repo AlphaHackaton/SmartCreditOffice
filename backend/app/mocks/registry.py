@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
 from uuid import UUID
 
-from app.seed.personas import load_raw
+from app.seed.personas import RawPersona, load_raw
 
 
 class SourceUnavailable(RuntimeError):
@@ -18,7 +17,7 @@ class PersonaRegistry:
     """Resolve synthetic persona fixtures without network access."""
 
     def __init__(self) -> None:
-        self._personas: dict[str, dict[str, Any]] = {
+        self._personas: dict[str, RawPersona] = {
             str(item["id"]): item for item in load_raw()["personas"]
         }
         self._by_inn = {
@@ -27,13 +26,13 @@ class PersonaRegistry:
         self._company_ids: dict[UUID, str] = {}
         self._unavailable: set[str] = set()
 
-    def persona(self, persona_id: str) -> dict[str, Any]:
+    def persona(self, persona_id: str) -> RawPersona:
         try:
             return self._personas[persona_id]
         except KeyError as exc:
             raise KeyError(f"unknown persona: {persona_id}") from exc
 
-    def by_inn(self, inn: str) -> tuple[str, dict[str, Any]]:
+    def by_inn(self, inn: str) -> tuple[str, RawPersona]:
         try:
             persona_id = self._by_inn[inn]
         except KeyError as exc:
@@ -47,7 +46,7 @@ class PersonaRegistry:
             raise KeyError(f"unknown INN: {inn}")
         self._company_ids[company_id] = persona_id
 
-    def persona_for_company(self, company_id: UUID) -> tuple[str, dict[str, Any]]:
+    def persona_for_company(self, company_id: UUID) -> tuple[str, RawPersona]:
         try:
             persona_id = self._company_ids[company_id]
         except KeyError as exc:

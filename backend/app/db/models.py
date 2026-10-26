@@ -146,6 +146,17 @@ class Signature(Base):
 
     application: Mapped[Application] = relationship(back_populates="signatures")
 
+    @staticmethod
+    def hash_code(code: str) -> str:
+        import hashlib
+
+        return hashlib.sha256(code.encode()).hexdigest()
+
+    def matches(self, code: str) -> bool:
+        import secrets
+
+        return secrets.compare_digest(self.otp_hash, self.hash_code(code))
+
 
 class AuditLog(Base):
     __tablename__ = "audit_log"
