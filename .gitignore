@@ -28,6 +28,7 @@ coverage/
 # OpenCode
 .opencode/
 opencode.jsonc
+opencode.json
 
 # Antigravity
 .agents/
