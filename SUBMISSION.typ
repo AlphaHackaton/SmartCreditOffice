@@ -57,8 +57,8 @@
   rect(
     fill: light-gray, stroke: 0.5pt + border-gray, radius: 4pt, width: 100%, inset: 6pt,
     [
-      #text(weight: "bold", size: 8pt, fill: rgb("#475569"))[🔑 Доступ жюри:] \
-      #text(weight: "bold")[alfa-hack-2026] (права Read/Clone)
+      #text(weight: "bold", size: 8pt, fill: rgb("#475569"))[🔓 Доступ к репозиторию:] \
+      #text(weight: "bold")[Публичный (Public)] (открыт для всех)
     ]
   )
 )
