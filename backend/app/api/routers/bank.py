@@ -78,9 +78,11 @@ def rescore(
 ) -> ApplicationOut:
     bank = _bank(request)
     try:
-        bank.rescore(user_id, application_id)
+        result = bank.rescore(user_id, application_id)
     except ApplicationError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
+    if isinstance(result, ApplicationOut):
+        return result
     return cast(
         ApplicationOut,
         bank.service._application_out(bank.repository.get(application_id)),

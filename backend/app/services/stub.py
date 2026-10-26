@@ -21,6 +21,7 @@ from app.api.schemas import (
     LoginOut,
     OfferOut,
     PersonaOut,
+    ProductOut,
     SignIn,
     SigningChallenge,
     SimulationIn,
@@ -320,15 +321,15 @@ class StubApplicationService:
     def reset_demo(self) -> None:
         self._applications.clear()
 
-    def products(self) -> list[tuple[str, str, str, str, int, int]]:
+    def products(self) -> list[ProductOut]:
         return [
-            (
-                product.code,
-                product.name,
-                str(product.min_amount),
-                str(product.max_amount),
-                product.min_term,
-                product.max_term,
+            ProductOut(
+                code=product.code,
+                name=product.name,
+                min_amount=product.min_amount,
+                max_amount=product.max_amount,
+                min_term_months=product.min_term,
+                max_term_months=product.max_term,
             )
             for product in POLICY_V1.products
         ]
