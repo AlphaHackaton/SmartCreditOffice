@@ -67,4 +67,72 @@ describe('демо gateway', () => {
     expect(validateInput({ ...input, consents: [] }, product, false)).toEqual({});
     expect(validateInput({ ...input, consents: [] }, product, true).consents).toBeTruthy();
   });
+  it('изолирует досье для bank, запрещает seed клиенту и синхронизирует статус с очередью', async () => {
+    const { gateway, token } = await setup();
+    await expect(gateway.dossier(token, 'seed-p1_ideal')).rejects.toMatchObject({ status: 403 });
+    await expect(gateway.application(token, 'seed-p1_ideal')).rejects.toMatchObject({ status: 404 });
+    expect(await gateway.applications(token)).toEqual([]);
+
+    const bank = await gateway.login('underwriter', 'demo');
+    const dossierP1 = await gateway.dossier(bank.token, 'seed-p1_ideal');
+    expect(dossierP1.source).toBe('example');
+    expect(dossierP1.application.status).toBe('APPROVED');
+    expect(dossierP1.runs[0].result.grade).toBe('A');
+
+    const queueBefore = await gateway.queue(bank.token);
+    expect(queueBefore.find((q) => q.id === 'seed-p6_mismatch')?.status).toBe('UNDERWRITING');
+
+    const dossierP6 = await gateway.dossier(bank.token, 'seed-p6_mismatch');
+    expect(dossierP6.application.status).toBe('UNDERWRITING');
+    expect(dossierP6.allowedOutcomes).toContain('APPROVED');
+    expect(dossierP6.allowedOutcomes).toContain('REJECTED');
+
+    // Проверка ограничений decide
+    await expect(gateway.decide(token, 'seed-p6_mismatch', { outcome: 'APPROVED', comment: 'тест', version: dossierP6.application.version })).rejects.toMatchObject({ status: 403 });
+    await expect(gateway.decide(bank.token, 'seed-p1_ideal', { outcome: 'REJECTED', comment: 'тест', version: dossierP1.application.version })).rejects.toMatchObject({ status: 409 });
+    await expect(gateway.decide(bank.token, 'seed-p6_mismatch', { outcome: 'APPROVED', comment: '   ', version: dossierP6.application.version })).rejects.toMatchObject({ status: 422 });
+    await expect(gateway.decide(bank.token, 'seed-p6_mismatch', { outcome: 'APPROVED', comment: 'тест', version: 999 })).rejects.toMatchObject({ status: 409 });
+    await expect(gateway.decide(bank.token, 'seed-p6_mismatch', { outcome: 'COUNTER_OFFER', comment: 'тест', version: dossierP6.application.version })).rejects.toMatchObject({ status: 422 });
+    await expect(gateway.decide(bank.token, 'seed-p6_mismatch', { outcome: 'APPROVED', comment: 'тест', version: dossierP6.application.version })).rejects.toMatchObject({ status: 422 });
+    await expect(gateway.decide(bank.token, 'seed-p6_mismatch', { outcome: 'REJECTED', offerId: dossierP6.eligibleOffers[0].id, comment: 'тест', version: dossierP6.application.version })).rejects.toMatchObject({ status: 422 });
+
+    // Успешный decide
+    const decided = await gateway.decide(bank.token, 'seed-p6_mismatch', {
+      outcome: 'APPROVED',
+      offerId: dossierP6.eligibleOffers[0].id,
+      comment: 'Документы проверены, обороты подтверждены контрактами',
+      version: dossierP6.application.version,
+    });
+    expect(decided.application.status).toBe('APPROVED');
+    expect(decided.application.version).toBe(dossierP6.application.version + 1);
+    expect(decided.audit).toHaveLength(1);
+    expect(decided.audit[0]).toMatchObject({
+      action: 'DECISION',
+      actorId: 'underwriter',
+      selectedOutcome: 'APPROVED',
+      override: false,
+      comment: 'Документы проверены, обороты подтверждены контрактами',
+    });
+
+    const queueAfter = await gateway.queue(bank.token);
+    expect(queueAfter.find((q) => q.id === 'seed-p6_mismatch')?.status).toBe('APPROVED');
+
+    // Сверка replayDossier
+    await expect(gateway.replayDossier(token, 'seed-p6_mismatch', decided.runs[0].id)).rejects.toMatchObject({ status: 403 });
+    const replay = await gateway.replayDossier(bank.token, 'seed-p6_mismatch', decided.runs[0].id);
+    expect(replay.match).toBe(true);
+
+    // Reset возвращает исходные примеры
+    gateway.reset();
+    const bank2 = await gateway.login('underwriter', 'demo');
+    const p6Reset = await gateway.dossier(bank2.token, 'seed-p6_mismatch');
+    expect(p6Reset.application.status).toBe('UNDERWRITING');
+    expect(p6Reset.audit).toEqual([]);
+  });
+  it('unavailableGateway отклоняет банковские методы с кодом API_NOT_CONFIGURED', async () => {
+    const api = unavailableGateway();
+    await expect(api.dossier('token', 'id')).rejects.toMatchObject({ code: 'API_NOT_CONFIGURED' });
+    await expect(api.decide('token', 'id', { outcome: 'REJECTED', comment: 'c', version: 1 })).rejects.toMatchObject({ code: 'API_NOT_CONFIGURED' });
+    await expect(api.replayDossier('token', 'id', 'runId')).rejects.toMatchObject({ code: 'API_NOT_CONFIGURED' });
+  });
 });

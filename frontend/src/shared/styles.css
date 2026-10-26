@@ -52,10 +52,17 @@ a:focus-visible, button:focus-visible { outline: 3px solid #2355ba; outline-offs
 .skip-link:focus { top: 12px; }
 .not-found { padding: 46px 8px; }
 .not-found p { max-width: 550px; color: #737984; line-height: 1.7; margin-bottom: 26px; }
-.demo-controls { padding: 12px 32px; background: #fff6e9; border-bottom: 1px solid #eddac1; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 12px; }
-.demo-controls label { display: flex; align-items: center; gap: 8px; }
-.demo-controls select { max-width: 190px; padding: 7px; border: 1px solid #d1c9be; border-radius: 6px; background: white; font: inherit; }
-.demo-controls [role="status"] { flex-basis: 100%; color: #72542a; }
+.demo-controls { padding: 10px 32px; background: #fff6e9; border-bottom: 1px solid #eddac1; display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
+.demo-controls-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; width: 100%; }
+.demo-controls label { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.demo-controls select { max-width: 220px; padding: 6px 8px; border: 1px solid #d1c9be; border-radius: 6px; background: white; font: inherit; }
+.failure-planner { display: flex; align-items: center; gap: 8px; background: #faede0; padding: 4px 10px; border-radius: 6px; border: 1px solid #e5d3bf; flex-wrap: wrap; }
+.active-plan-badge { display: flex; align-items: center; gap: 6px; background: #fbe0cc; padding: 2px 8px; border-radius: 4px; font-weight: 500; color: #8c3b12; }
+.demo-scenario-info { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #5a4225; padding: 4px 0; border-top: 1px dashed #eddac1; width: 100%; }
+.demo-scenario-badge { background: #fee2cb; color: #9a3412; font-weight: 600; padding: 2px 6px; border-radius: 4px; font-size: 11px; }
+.demo-scenario-persona { color: #3b2814; }
+.demo-scenario-steps { color: #6e5436; font-size: 11px; }
+.demo-notice { color: #854d0e; font-weight: 500; font-size: 12px; width: 100%; }
 .demo-accounts { margin-top: 32px; padding: 28px; border: 1px solid #e2e4e7; border-radius: 14px; background: white; }
 .demo-accounts h2 { margin: 0; font-size: 20px; }
 .demo-accounts p { color: #5b626d; line-height: 1.6; }

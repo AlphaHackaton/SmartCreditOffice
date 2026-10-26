@@ -61,9 +61,66 @@
 .constraints li { display: flex; justify-content: space-between; padding: 12px 16px; background: #f4f5f7; border-left: 4px solid #c4c8cf; margin: 8px 0; gap: 16px; }
 .constraints .constraint-binding { border-color: #e4791a; background: #fff4e6; }
 
-.queue-filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 16px; align-items: end; margin-bottom: 16px; }
+.queue-filters { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; align-items: end; margin-bottom: 16px; }
 .queue-filters label { font-size: 14px; }
 .queue-filters select { display: block; width: 100%; padding: 12px 8px; margin-top: 8px; font: inherit; border: 1px solid #b7bcc4; border-radius: 8px; background: #fff; }
+.queue-date-input { display: block; width: 100%; padding: 10px 8px; margin-top: 8px; font: inherit; border: 1px solid #b7bcc4; border-radius: 8px; background: #fff; box-sizing: border-box; }
 .queue-table small { display: block; font-size: 12px; color: #626973; margin-top: 6px; overflow-wrap: anywhere; }
 .queue-table td:first-child { width: 30%; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.metrics-meta { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border-left: 4px solid #0050cf; }
+.metrics-meta-title { font-weight: 600; font-size: 16px; margin: 0 0 4px 0; color: #0b1f33; }
+.metrics-meta-note { margin: 0; font-size: 13px; color: #626973; }
+.metrics-meta-asof { text-align: right; font-size: 13px; color: #40464f; }
+.metrics-meta-asof span { display: block; font-size: 11px; text-transform: uppercase; color: #8c939d; }
+.metrics-meta-asof strong { font-size: 15px; color: #0b1f33; }
+.metrics-meta-asof small { display: block; font-size: 11px; color: #8c939d; margin-top: 2px; }
+.metrics-filter-actions { display: flex; gap: 12px; margin-top: 16px; }
+
+.metrics-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; margin-top: 16px; }
+.metric-card { background: #fafbfc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+.metric-card-label { font-size: 13px; font-weight: 500; color: #626973; margin: 0 0 8px 0; }
+.metric-card-value { font-size: 26px; font-weight: 700; color: #0b1f33; margin: 0 0 6px 0; line-height: 1.2; }
+.metric-card-desc { font-size: 12px; color: #8c939d; margin: 0; }
+.metric-card--warning { border-color: #fca5a5; background: #fff8f8; }
+.metric-card--warning .metric-card-value { color: #dc2626; }
+
+.distribution-bar { height: 26px; border-radius: 6px; overflow: hidden; display: flex; background: #eef2f6; margin: 16px 0 20px 0; border: 1px solid #e2e8f0; }
+.distribution-segment { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #0b1f33; background: #cbd5e1; border-right: 1px solid #fff; transition: width 0.2s ease; overflow: hidden; }
+.distribution-segment:last-child { border-right: none; }
+.distribution-segment-text { padding: 0 4px; white-space: nowrap; }
+.distribution-segment--approved { background: #22c55e; color: #fff; }
+.distribution-segment--counter { background: #f59e0b; color: #fff; }
+.distribution-segment--rejected { background: #ef4444; color: #fff; }
+
+.dossier-details { margin: 16px 0; border: 1px solid #edf0f3; border-radius: 8px; padding: 12px 16px; background: #fafbfc; }
+.dossier-summary { font-weight: 600; cursor: pointer; padding: 4px 0; font-size: 15px; }
+.dossier-section-content { margin-top: 14px; }
+.bin-badge { font-family: monospace; font-size: 12px; background: #eef2f6; padding: 2px 6px; border-radius: 4px; }
+.impact-badge { font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
+.impact-badge--positive { background: #eaf5ea; color: #168253; }
+.impact-badge--negative { background: #fbebeb; color: #c8353b; }
+.impact-badge--knockout { background: #ffeae9; color: #a5211a; border: 1px solid #f4c2be; }
+.offer-card--selected { border-color: #ef3124 !important; background: #fff8f7 !important; }
+
+.sandbox-controls-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; align-items: end; margin-bottom: 16px; }
+.sandbox-controls-grid label { font-size: 14px; display: flex; flex-direction: column; gap: 6px; }
+.sandbox-controls-grid select { width: 100%; padding: 10px 8px; border: 1px solid #b7bcc4; border-radius: 8px; background: white; font: inherit; }
+.sandbox-policy-info { display: flex; gap: 20px; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; color: #334155; }
+.sandbox-badge { background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.sandbox-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.sandbox-result-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 1px solid #edf0f3; padding-bottom: 16px; margin-bottom: 16px; }
+.sandbox-hashes { text-align: right; font-size: 11px; color: #64748b; font-family: monospace; }
+.sandbox-hashes code { background: #f1f5f9; padding: 2px 4px; border-radius: 4px; }
+.sandbox-reasons { background: #f8fafc; border-left: 4px solid #64748b; padding: 10px 14px; margin: 12px 0; font-size: 13px; }
+.sandbox-reasons ul { margin: 6px 0 0 16px; padding: 0; }
+.sandbox-flags { border-left-color: #f59e0b; background: #fffbeb; }
+.sandbox-binding-tag { color: #d97706; font-size: 12px; font-weight: 600; }
+.sandbox-disclaimer { margin-top: 24px; padding: 12px 16px; background: #f1f5f9; border-radius: 8px; font-size: 12px; color: #475569; font-style: italic; }
+.sandbox-compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 12px; }
+.sandbox-compare-col { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; font-size: 13px; }
+.sandbox-compare-col h3 { margin: 0 0 8px 0; font-size: 14px; color: #0f172a; }
+.sandbox-compare-offers { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.sandbox-offer-compact { background: white; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 12px; }
+.sandbox-hash { font-family: monospace; font-size: 11px; background: #e2e8f0; padding: 2px 4px; border-radius: 4px; }

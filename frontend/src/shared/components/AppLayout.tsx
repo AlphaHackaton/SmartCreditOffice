@@ -21,7 +21,7 @@ export function AppLayout() {
         <p className="nav-caption">КОНТУР</p><p className="current-role">{auth.user ? bank ? 'Сотрудник банка' : 'Клиент' : 'Вход в кабинет'}</p>
         <p className="nav-caption section-caption">{bank ? 'Рабочее место кредитного специалиста' : 'МОЙ КАБИНЕТ'}</p>
         {auth.user && <nav className="section-nav" aria-label={bank ? 'Разделы сотрудника банка' : 'Разделы клиента'}>
-          {bank ? <><NavLink to="/bank/applications" end>Очередь заявок</NavLink><NavLink to="/bank/metrics">Метрики конвейера</NavLink></> : <><NavLink to="/client" end>Обзор кабинета</NavLink><NavLink to="/client/applications/new">Новая заявка</NavLink></>}
+          {bank ? <><NavLink to="/bank/applications" end>Очередь заявок</NavLink><NavLink to="/bank/metrics">Метрики конвейера</NavLink><NavLink to="/bank/sandbox">Песочница скоринга</NavLink></> : <><NavLink to="/client" end>Обзор кабинета</NavLink><NavLink to="/client/applications/new">Новая заявка</NavLink></>}
         </nav>}
         <div className="sidebar-note"><span className="note-icon" aria-hidden="true">i</span><p>{auth.user?.name ?? 'Демонстрация кабинета'}</p><span>{mode === 'mock' ? 'Данные в памяти. Обновление страницы сбрасывает демонстрацию.' : 'Требуется подключение API Dev 2.'}</span></div>
         <div className="sidebar-footer">Клиент и сотрудник — в одном кабинете</div>

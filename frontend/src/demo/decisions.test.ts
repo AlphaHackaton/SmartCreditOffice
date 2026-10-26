@@ -75,3 +75,57 @@ it('лимиты публичной проекции имеют денежную
   const sim = await gateway.simulate(token, record.id, record.amount, record.termMonths);
   for (const c of [...record.decision!.constraints, ...sim.constraints]) expect(c.limit).toMatch(/^\d+\.\d{2}$/);
 });
+
+it('банковская проекция содержит полные трассы, метрики, хеши и допустимые переходы', async () => {
+  const { bankDemoData } = await import('./generated');
+  expect(bankDemoData.policy.version).toBeTruthy();
+  expect(bankDemoData.bankTransitions.UNDERWRITING_APPROVED).toMatchObject({
+    from: 'UNDERWRITING',
+    to: 'APPROVED',
+    actor: 'BANK',
+    reasonRequired: true,
+  });
+  expect(bankDemoData.bankTransitions.UNDERWRITING_COUNTER_OFFER).toMatchObject({
+    from: 'UNDERWRITING',
+    to: 'COUNTER_OFFER',
+    actor: 'BANK',
+    reasonRequired: true,
+  });
+  expect(bankDemoData.bankTransitions.UNDERWRITING_REJECTED).toMatchObject({
+    from: 'UNDERWRITING',
+    to: 'REJECTED',
+    actor: 'BANK',
+    reasonRequired: true,
+  });
+
+  const p1Run = bankDemoData.scoringRuns.p1_ideal;
+  expect(p1Run.result.score).toBeGreaterThan(0);
+  expect(p1Run.result.grade).toBe('A');
+  expect(p1Run.factors.find((f) => f.ruleId === 'M1')?.bin).toMatchObject({
+    upper: '0.25',
+    points: 20,
+    rule: 'M1',
+  });
+
+  const p4Run = bankDemoData.scoringRuns.p4_overdue;
+  expect(p4Run.result.score).toBeNull();
+  expect(p4Run.result.grade).toBeNull();
+  expect(p4Run.result.recommendation).toBe('REJECTED');
+
+  const p5Run = bankDemoData.scoringRuns.p5_young;
+  expect(p5Run.result.score).toBeNull();
+  expect(p5Run.result.grade).toBeNull();
+  expect(p5Run.metrics.fns_mismatch).toBeNull();
+
+  const p6Dossier = bankDemoData.dossiers.p6_mismatch;
+  expect(p6Dossier.status).toBe('UNDERWRITING');
+  expect(p6Dossier.engineRecommendation).toBe('APPROVED');
+  expect(p6Dossier.allowedOutcomes).toContain('APPROVED');
+  expect(p6Dossier.allowedOutcomes).toContain('REJECTED');
+
+  const p6Review = bankDemoData.reviewVariants.p6_capex_6m_24m;
+  expect(p6Review.request.amount).toBe('6000000.00');
+  expect(p6Review.scoringRun.result.recommendation).toBe('COUNTER_OFFER');
+  expect(p6Review.eligibleOffers).toHaveLength(2);
+  expect(p6Review.allowedOutcomes).toEqual(['COUNTER_OFFER', 'REJECTED']);
+});

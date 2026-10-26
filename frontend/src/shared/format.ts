@@ -75,3 +75,15 @@ export function formatDateTime(value: Value): string {
   const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)!.value;
   return `${part('day')}.${part('month')}.${part('year').padStart(4, '0')}, ${part('hour')}:${part('minute')}`;
 }
+
+export function formatDuration(ms: number | null | undefined): string {
+  if (ms === null || ms === undefined || !Number.isFinite(ms) || ms < 0) return UNAVAILABLE_VALUE;
+  if (ms < 1000) return `${ms} мс`;
+  if (ms < 60_000) {
+    const sec = (ms / 1000).toFixed(1);
+    return `${sec} с`;
+  }
+  const min = Math.floor(ms / 60_000);
+  const sec = Math.round((ms % 60_000) / 1000);
+  return `${min} мин ${sec} с`;
+}
