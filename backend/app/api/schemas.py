@@ -84,6 +84,14 @@ class ApplicationIn(BaseModel):
     purpose: str = "WORKING_CAPITAL"
 
 
+class SignIn(BaseModel):
+    code: str = Field(min_length=6, max_length=6)
+
+
+class ResetOut(BaseModel):
+    reset: bool = True
+
+
 class FactorOut(BaseModel):
     code: str
     source: str
@@ -104,7 +112,51 @@ class OfferOut(BaseModel):
     rate_pct: Money
     monthly_payment: Money
     overpayment: Money
-    expires_at: datetime
+    expires_at: datetime | None = None
+
+
+class SimulationIn(BaseModel):
+    amount: Money = Field(gt=0)
+    term_months: int = Field(ge=1, le=60)
+
+
+class ConstraintOut(BaseModel):
+    name: str
+    limit: Money
+    binding: bool
+
+
+class SimulationOut(BaseModel):
+    predicted_outcome: Outcome
+    requires_review: bool
+    offers: list[OfferOut] = Field(default_factory=list)
+    constraints: list[ConstraintOut] = Field(default_factory=list)
+    binding_constraint: str | None = None
+    max_amount_for_term: Money
+    headroom: Money
+
+
+class ProductOut(BaseModel):
+    code: str
+    name: str
+    min_amount: Money
+    max_amount: Money
+    min_term_months: int
+    max_term_months: int
+
+
+class ProductsOut(BaseModel):
+    items: list[ProductOut]
+
+
+class ScoringRunOut(BaseModel):
+    id: UUID
+    application_id: UUID
+    inputs_snapshot: dict[str, Any]
+    factors: list[dict[str, Any]]
+    result: dict[str, Any]
+    policy_version: str
+    created_at: datetime
 
 
 class DecisionOut(BaseModel):
